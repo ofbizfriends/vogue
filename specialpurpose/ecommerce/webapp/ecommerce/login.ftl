@@ -16,6 +16,9 @@ KIND, either express or implied.  See the License for the
 specific language governing permissions and limitations
 under the License.
 -->
+
+
+
 <#assign janrainEnabled = Static["org.ofbiz.base.util.UtilProperties"].getPropertyValue("ecommerce.properties", "janrain.enabled")>
 <#assign appName = Static["org.ofbiz.base.util.UtilProperties"].getPropertyValue("ecommerce.properties", "janrain.appName")>
 <#if janrainEnabled == "Y">
@@ -47,6 +50,7 @@ under the License.
     s.parentNode.insertBefore(e, s);
 })();
 </script>
+
 <h1>${uiLabelMap.CommonLogin}</h1>
 <div class="screenlet">
   <div class="screenlet-title-bar"><h3>${uiLabelMap.CommonRegistered}</h3></div>
@@ -83,51 +87,57 @@ under the License.
   </div>
 </div>
 <#else>
-<h1>${uiLabelMap.CommonLogin}</h1>
-<div class="screenlet">
-  <div class="screenlet-title-bar"><h3>${uiLabelMap.CommonRegistered}</h3></div>
-  <div class="screenlet-body">
-    <form method="post" action="<@ofbizUrl>login</@ofbizUrl>" name="loginform" class="horizontal">
-      <fieldset>
-        <div>
-          <label for="userName">${uiLabelMap.CommonUsername}</label>
-          <input type="text" id="userName" name="USERNAME" value="<#if requestParameters.USERNAME?has_content>${requestParameters.USERNAME}<#elseif autoUserLogin?has_content>${autoUserLogin.userLoginId}</#if>"/>
-        </div>
-        <#if autoUserLogin?has_content>
-          <p>(${uiLabelMap.CommonNot} ${autoUserLogin.userLoginId}? <a href="<@ofbizUrl>${autoLogoutUrl}</@ofbizUrl>">${uiLabelMap.CommonClickHere}</a>)</p>
-        </#if>
-        <div>
-          <label for="password">${uiLabelMap.CommonPassword}:</label>
-          <input type="password" id="password" name="PASSWORD" value=""/>
-        </div>
-        <div>
-          <input type="submit" class="button" value="${uiLabelMap.CommonLogin}"/>
-        </div>
-        <div>
-          <label for="newcustomer_submit">${uiLabelMap.CommonMayCreateNewAccountHere}:</label>
-          <a href="<@ofbizUrl>newcustomer</@ofbizUrl>">${uiLabelMap.CommonMayCreate}</a>
-        </div>
-      </fieldset>
-    </form>
-  </div>
-</div>
+	
+    <div class="box">
+        <h1>${uiLabelMap.CommonLogin}</h1>
+
+        <p class="lead">${uiLabelMap.CommonRegistered}?</p>
+        <p class="text-muted"> </p>
+
+        <hr>
+
+        <form method="post" action="<@ofbizUrl>login</@ofbizUrl>" name="loginform">
+            <div class="form-group">
+                <label for="email">${uiLabelMap.CommonUsername}/${uiLabelMap.CommonEmail}</label>
+                <input type="text" class="form-control" id="userName" name="USERNAME" value="<#if requestParameters.USERNAME?has_content>${requestParameters.USERNAME}<#elseif autoUserLogin?has_content>${autoUserLogin.userLoginId}</#if>">
+                <#if autoUserLogin?has_content>
+                    <p>(${uiLabelMap.CommonNot} ${autoUserLogin.userLoginId}? <a href="<@ofbizUrl>${autoLogoutUrl}</@ofbizUrl>">${uiLabelMap.CommonClickHere}</a>)</p>
+		        </#if>
+            </div>
+            <div class="form-group">
+                <label for="password">${uiLabelMap.CommonPassword}</label>
+                <input type="password" class="form-control" id="password" name="PASSWORD">
+            </div>
+            <div class="">
+                <button type="submit" class="btn btn-primary"><i class="fa fa-sign-in"></i> ${uiLabelMap.CommonLogin} </button>
+            </div>
+        </form>
+        <br/>        
+        <p>
+            <label for="newcustomer_submit">${uiLabelMap.CommonMayCreateNewAccountHere}</label>
+            <a href="<@ofbizUrl>newcustomer</@ofbizUrl>">${uiLabelMap.CommonMayCreate}</a>
+        </p>
+        
+        <hr>
+        
+        <h4>${uiLabelMap.CommonForgotYourPassword}</h4>
+        <form method="post" action="<@ofbizUrl>forgotpassword</@ofbizUrl>" class="horizontal">
+		    <div class="form-group">
+                <label for="forgotpassword_userName">${uiLabelMap.CommonUsername}/${uiLabelMap.CommonEmail}</label>
+		        <input type="text" id="forgotpassword_userName" class="form-control" name="USERNAME" value="<#if requestParameters.USERNAME?has_content>${requestParameters.USERNAME}<#elseif autoUserLogin?has_content>${autoUserLogin.userLoginId}</#if>"/>
+		    </div>
+		    <div class="form-group">
+                <input type="submit" class="btn btn-default" name="GET_PASSWORD_HINT" value="${uiLabelMap.CommonGetPasswordHint}"/>
+                <input type="submit" class="btn btn-default" name="EMAIL_PASSWORD" value="${uiLabelMap.CommonEmailPassword}"/>
+		    </div>
+        </form>
+        
+    </div>
+	
+
 </#if>
 
-<div class="screenlet">
-  <div class="screenlet-title-bar"><h3>${uiLabelMap.CommonForgotYourPassword}</h3></div>
-  <div class="screenlet-body">
-  <form method="post" action="<@ofbizUrl>forgotpassword</@ofbizUrl>" class="horizontal">
-    <div>
-      <label for="forgotpassword_userName">${uiLabelMap.CommonUsername}</label>
-      <input type="text" id="forgotpassword_userName" name="USERNAME" value="<#if requestParameters.USERNAME?has_content>${requestParameters.USERNAME}<#elseif autoUserLogin?has_content>${autoUserLogin.userLoginId}</#if>"/>
-    </div>
-    <div class="buttons">
-      <input type="submit" class="button" name="GET_PASSWORD_HINT" value="${uiLabelMap.CommonGetPasswordHint}"/>
-      <input type="submit" class="button" name="EMAIL_PASSWORD" value="${uiLabelMap.CommonEmailPassword}"/>
-    </div>
-  </form>
-  </div>
-</div>
+
 <#--    
 <div class="screenlet">
   <h3>${uiLabelMap.CommonNewUser}</h3>

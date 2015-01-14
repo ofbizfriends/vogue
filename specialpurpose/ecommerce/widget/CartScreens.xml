@@ -68,7 +68,7 @@ under the License.
         <section>
             <actions>
                 <set field="leftbarScreenName" value="leftbar"/>
-                <set field="MainColumnStyle" value="center"/>
+                <set field="MainColumnStyle" value="container"/>
                 <!--set field="MainColumnStyle" value="leftonly"/-->
 
                 <set field="titleProperty" value="PageTitleShoppingCart"/>
@@ -112,8 +112,8 @@ under the License.
             <actions>
                 <set field="leftbarScreenName" value="leftbar"/>
                 <set field="rightbarScreenName" value="rightbar"/>
-                <set field="MainColumnStyle" value="center"/>
-                <set field="productsummaryScreen" value="component://ecommerce/widget/CatalogScreens.xml#productsummary"/>
+                <set field="MainColumnStyle" value="container"/>
+                <set field="productsummaryScreen" value="component://ecommerce/widget/CatalogScreens.xml#productTile"/>
                 <set field="titleProperty" value="PageTitleShowPromotionDetails"/>
                 <script location="component://order/webapp/ordermgr/WEB-INF/actions/entry/cart/ShowPromotionDetails.groovy"/>
             </actions>

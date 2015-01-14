@@ -58,144 +58,72 @@ function submitForm(form, mode, value) {
 //]]>
 </script>
 
-<form method="post" name="checkoutInfoForm" style="margin:0;">
-    <input type="hidden" name="checkoutpage" value="shippingoptions"/>
+<#import "component://ecommerce/webapp/ecommerce/order/optionsettings.ftl" as shipmentOptionsMacro>
 
-    <div class="screenlet" style="height: 100%;">
-        <div class="screenlet-title-bar">
-            <div class="h3">2)&nbsp;${uiLabelMap.OrderHowShallWeShipIt}?</div>
-        </div>
-        <div class="screenlet-body" style="height: 100%;">
-            <table width="100%" cellpadding="1" border="0" cellpadding="0" cellspacing="0">
-              <#list carrierShipmentMethodList as carrierShipmentMethod>
-                <#assign shippingMethod = carrierShipmentMethod.shipmentMethodTypeId + "@" + carrierShipmentMethod.partyId>
-                <tr>
-                  <td width="1%" valign="top" >
-                    <input type="radio" name="shipping_method" value="${shippingMethod}" <#if shippingMethod == StringUtil.wrapString(chosenShippingMethod!"N@A")>checked="checked"</#if> />
-                  </td>
-                  <td valign="top">
-                    <div>
-                      <#if shoppingCart.getShippingContactMechId()??>
-                        <#assign shippingEst = shippingEstWpr.getShippingEstimate(carrierShipmentMethod)?default(-1)>
-                      </#if>
-                      <#if carrierShipmentMethod.partyId != "_NA_">${carrierShipmentMethod.partyId!}&nbsp;</#if>${carrierShipmentMethod.description!}
-                      <#if shippingEst?has_content> - <#if (shippingEst > -1)><@ofbizCurrency amount=shippingEst isoCode=shoppingCart.getCurrency()/><#else>${uiLabelMap.OrderCalculatedOffline}</#if></#if>
-                    </div>
-                  </td>
-                </tr>
-              </#list>
-              <#if !carrierShipmentMethodList?? || carrierShipmentMethodList?size == 0>
-                <tr>
-                  <td width="1%" valign="top">
-                    <input type="radio" name="shipping_method" value="Default" checked="checked" />
-                  </td>
-                  <td valign="top">
-                    <div>${uiLabelMap.OrderUseDefault}.</div>
-                  </td>
-                </tr>
-              </#if>
-              <tr><td colspan="2"><hr /></td></tr>
-              <tr>
-                <td colspan="2">
-                  <h2>${uiLabelMap.OrderShipAllAtOnce}?</h2>
-                </td>
-              </tr>
-              <tr>
-                <td valign="top">
-                  <input type="radio" <#if "Y" != shoppingCart.getMaySplit()?default("N")>checked="checked"</#if> name="may_split" value="false" />
-                </td>
-                <td valign="top">
-                  <div>${uiLabelMap.OrderPleaseWaitUntilBeforeShipping}.</div>
-                </td>
-              </tr>
-              <tr>
-                <td valign="top">
-                  <input <#if "Y" == shoppingCart.getMaySplit()?default("N")>checked="checked"</#if> type="radio" name="may_split" value="true" />
-                </td>
-                <td valign="top">
-                  <div>${uiLabelMap.OrderPleaseShipItemsBecomeAvailable}.</div>
-                </td>
-              </tr>
-              <tr><td colspan="2"><hr /></td></tr>
-              <tr>
-                <td colspan="2">
-                  <h2>${uiLabelMap.OrderSpecialInstructions}</h2>
-                </td>
-              </tr>
-              <tr>
-                <td colspan="2">
-                  <textarea class="textAreaBox" cols="30" rows="3" wrap="hard" name="shipping_instructions">${shoppingCart.getShippingInstructions()!}</textarea>
-                </td>
-              </tr>
-              <tr><td colspan="2"><hr /></td></tr>
-              <tr>
-                <td colspan="2">
-                  <h2>${uiLabelMap.OrderPoNumber}</h2>&nbsp;
-                  <#if shoppingCart.getPoNumber()?? && shoppingCart.getPoNumber() != "(none)">
-                    <#assign currentPoNumber = shoppingCart.getPoNumber()>
-                  </#if>
-                  <input type="text" class="inputBox" name="correspondingPoId" size="15" value="${currentPoNumber!}"/>
-                </td>
-              </tr>
-              <#if productStore.showCheckoutGiftOptions! != "N">
-              <tr><td colspan="2"><hr /></td></tr>
-              <tr>
-                <td colspan="2">
-                  <div>
-                    <h2>${uiLabelMap.OrderIsThisGift}</h2>
-                    <input type="radio" <#if "Y" == shoppingCart.getIsGift()?default("N")>checked="checked"</#if> name="is_gift" value="true" /><span>${uiLabelMap.CommonYes}</span>
-                    <input type="radio" <#if "Y" != shoppingCart.getIsGift()?default("N")>checked="checked"</#if> name="is_gift" value="false" /><span>${uiLabelMap.CommonNo}</span>
-                  </div>
-                </td>
-              </tr>
-              <tr><td colspan="2"><hr /></td></tr>
-              <tr>
-                <td colspan="2">
-                  <h2>${uiLabelMap.OrderGiftMessage}</h2>
-                </td>
-              </tr>
-              <tr>
-                <td colspan="2">
-                  <textarea class="textAreaBox" cols="30" rows="3" wrap="hard" name="gift_message">${shoppingCart.getGiftMessage()!}</textarea>
-                </td>
-              </tr>
-              <#else/>
-              <input type="hidden" name="is_gift" value="false"/>
-              </#if>
-              <tr><td colspan="2"><hr /></td></tr>
-              <tr>
-                <td colspan="2">
-                  <h2>${uiLabelMap.PartyEmailAddresses}</h2>
-                </td>
-              </tr>
-              <tr>
-                <td colspan="2">
-                  <div>${uiLabelMap.OrderEmailSentToFollowingAddresses}:</div>
-                  <div>
-                    <b>
-                      <#list emailList as email>
-                        ${email.infoString!}<#if email_has_next>,</#if>
-                      </#list>
-                    </b>
-                  </div>
-                  <div>${uiLabelMap.OrderUpdateEmailAddress} <a href="<@ofbizUrl>viewprofile?DONE_PAGE=checkoutoptions</@ofbizUrl>" class="buttontext">${uiLabelMap.PartyProfile}</a>.</div>
-                  <br />
-                  <div>${uiLabelMap.OrderCommaSeperatedEmailAddresses}:</div>
-                  <input type="text" class="inputBox" size="30" name="order_additional_emails" value="${shoppingCart.getOrderAdditionalEmails()!}"/>
-                </td>
-              </tr>
-            </table>
+<div class="col-md-12 clearfix">
+    <ul class="breadcrumb">
+        <li><a href="<@ofbizUrl>main</@ofbizUrl>">${uiLabelMap.CommonHome}</a>
+        </li>
+        <li>Checkout - ${uiLabelMap.DeliveryOption}</li>
+    </ul>
+
+    <div class="box text-center">
+
+        <div class="row">
+            <div class="col-sm-10 col-sm-offset-1">
+                <h1>Checkout - ${uiLabelMap.DeliveryOption}</h1>
+            </div>
         </div>
     </div>
-</form>
 
-<table width="100%">
-  <tr valign="top">
-    <td>
-      &nbsp;<a href="javascript:submitForm(document.checkoutInfoForm, 'CS', '');" class="buttontextbig">${uiLabelMap.OrderBacktoShoppingCart}</a>
-    </td>
-    <td align="right">
-      <a href="javascript:submitForm(document.checkoutInfoForm, 'DN', '');" class="buttontextbig">${uiLabelMap.CommonNext}</a>
-    </td>
-  </tr>
-</table>
+</div>
+
+
+<div class="col-md-9 clearfix" id="checkout">
+    <div class="box">
+        <form method="post" name="checkoutInfoForm">
+            <ul class="nav nav-pills nav-justified">
+                <li class="active"><a href="#"><i class="fa fa-map-marker"></i><br>${uiLabelMap.CommonAddress}</a>
+                </li>
+                <li class="active"><a href="#"><i class="fa fa-truck"></i><br>${uiLabelMap.DeliveryOption}</a>
+                </li>
+                <li class="disabled"><a href="#"><i class="fa fa-money"></i><br>${uiLabelMap.PaymentOtpions}</a>
+                </li>
+                <li class="disabled"><a href="#"><i class="fa fa-eye"></i><br>${uiLabelMap.OrderReview}</a>
+                </li>
+            </ul>
+            
+            <div class="content">
+                
+				<input type="hidden" name="checkoutpage" value="shippingoptions"/>
+				<@shipmentOptionsMacro.shipmentOptions />
+				
+            </div>                                  
+        </form>
+        
+        <div class="box">
+            <div>${uiLabelMap.OrderEmailSentToFollowingAddresses}:</div>
+            <div>                    
+                <#list emailList as email>
+                    ${email.infoString!}<#if email_has_next>,</#if>
+                </#list>
+            </div>
+            <div>${uiLabelMap.OrderUpdateEmailAddress} <a href="<@ofbizUrl>viewprofile?DONE_PAGE=checkoutoptions</@ofbizUrl>" class="btn btn-default">${uiLabelMap.PartyProfile}</a>.</div>
+  
+                <div>${uiLabelMap.OrderCommaSeperatedEmailAddresses}:</div>
+            <input type="text" class="btn btn-default " size="30" name="order_additional_emails" value="${shoppingCart.getOrderAdditionalEmails()!}"/>
+        </div>
+        
+        
+		<div class="box-footer">
+		    <div class="pull-left">                    
+		        <a href="javascript:submitForm(document.checkoutInfoForm, 'CS', '');" class="btn btn-default"><i class="fa fa-chevron-left"></i> ${uiLabelMap.OrderBacktoShoppingCart}</a>
+		    </div>
+		    <div class="pull-right">
+		        <a href="javascript:submitForm(document.checkoutInfoForm, 'DN', '');" class="btn btn-primary">${uiLabelMap.CommonNext} <i class="fa fa-chevron-right"></i></a>
+		    </div>
+		</div>         
+    </div>    
+</div>                                
+
+ 

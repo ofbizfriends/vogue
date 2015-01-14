@@ -20,10 +20,18 @@ under the License.
 
 <entity-engine-xml>
     <!-- Ecommerce Default Visual Theme -->
-    <VisualTheme visualThemeId="EC_DEFAULT" visualThemeSetId="ECOMMERCE" description="OFBiz Ecommerce Standard Floating Layout"/>
-    <VisualThemeResource visualThemeId="EC_DEFAULT" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/ecommerce/images/blog.css" sequenceId="01"/>
-    <VisualThemeResource visualThemeId="EC_DEFAULT" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/images/ecommain.css" sequenceId="02"/>
-    <VisualThemeResource visualThemeId="EC_DEFAULT" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/content/images/contentForum.css" sequenceId="03"/>
+    <VisualTheme visualThemeId="EC_DEFAULT" visualThemeSetId="ECOMMERCE" description="Vogue Ecommerce Standard Bootstrap Layout"/>
+    <VisualThemeResource visualThemeId="EC_DEFAULT" resourceTypeEnumId="VT_STYLESHEET" resourceValue="//fonts.googleapis.com/css?family=Montserrat:400,700|Merriweather:400,400italic" sequenceId="00"/>
+    
+    <VisualThemeResource visualThemeId="EC_DEFAULT" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/images/css/font-awesome.css" sequenceId="01"/>
+    <VisualThemeResource visualThemeId="EC_DEFAULT" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/images/css/bootstrap.min.css" sequenceId="02"/>
+    <VisualThemeResource visualThemeId="EC_DEFAULT" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/images/css/ecom-style.css" sequenceId="03"/>
+    <VisualThemeResource visualThemeId="EC_DEFAULT" resourceTypeEnumId="VT_HDR_JAVASCRIPT" resourceValue="/images/js/respond.min.js" sequenceId="01"/>    
+    
+    <VisualThemeResource visualThemeId="EC_DEFAULT" resourceTypeEnumId="VT_FTR_JAVASCRIPT" resourceValue="/images/js/bootstrap.min.js" sequenceId="02"/>
+    <VisualThemeResource visualThemeId="EC_DEFAULT" resourceTypeEnumId="VT_FTR_JAVASCRIPT" resourceValue="/images/js/jquery.cookie.js" sequenceId="03"/>
+    <VisualThemeResource visualThemeId="EC_DEFAULT" resourceTypeEnumId="VT_FTR_JAVASCRIPT" resourceValue="/images/js/ecom.js" sequenceId="04"/>
+    
     <VisualThemeResource visualThemeId="EC_DEFAULT" resourceTypeEnumId="VT_SHORTCUT_ICON" resourceValue="/images/ofbiz.ico" sequenceId="04"/>
     <VisualThemeResource visualThemeId="EC_DEFAULT" resourceTypeEnumId="VT_HDR_IMAGE_URL" resourceValue="/images/ofbiz_logo.gif" sequenceId="05"/>
     <VisualThemeResource visualThemeId="EC_DEFAULT" resourceTypeEnumId="VT_HDR_TMPLT_LOC" resourceValue="component://ecommerce/webapp/ecommerce/includes/header.ftl" sequenceId="06"/>

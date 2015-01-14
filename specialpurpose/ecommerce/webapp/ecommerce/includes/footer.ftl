@@ -19,20 +19,35 @@ under the License.
 
 <#assign nowTimestamp = Static["org.ofbiz.base.util.UtilDateTime"].nowTimestamp()>
 
-  <br />
-  <div class="footer">
-      <div>
-        <a href="http://jigsaw.w3.org/css-validator/"><img style="border:0;width:88px;height:31px" src="<@ofbizContentUrl>/images/vcss.gif</@ofbizContentUrl>" alt="Valid CSS!"/></a>
-        <a href="http://validator.w3.org/check?uri=referer"><img style="border:0;width:88px;height:31px" src="<@ofbizContentUrl>/images/valid-xhtml10.png</@ofbizContentUrl>" alt="Valid XHTML 1.0!"/></a>
-      </div>
-      <br />
-      <div>
-        <a href="http://ofbiz.apache.org">${uiLabelMap.EcommerceAboutUs}</a>
-        <div>Copyright (c) 2001-${nowTimestamp?string("yyyy")} The Apache Software Foundation - <a href="http://www.apache.org">www.apache.org</a></div>
-        <div>Powered by <a href="http://ofbiz.apache.org">Apache OFBiz</a></div>
-        
-      </div>
-      <br />
-      <div><a href="<@ofbizUrl>policies</@ofbizUrl>">${uiLabelMap.EcommerceSeeStorePoliciesHere}</a></div>
-  </div>
+<br />
+<div class="footer">
+    <div class="container">
+        <div class="col-md-3 col-md-6">    
+	        <div>
+	            <a href="http://ofbiz.apache.org">${uiLabelMap.EcommerceAboutUs}</a>        
+	        </div>
+	        
+	        <div>
+	           <strong>Policies </strong> <a href="<@ofbizUrl>policies</@ofbizUrl>">${uiLabelMap.EcommerceSeeStorePoliciesHere}</a>
+	        </div>
+        </div>
+    </div>      
+</div>
+<br />
+<div id="copyright">
+    <div class="container">
+        <div class="col-md-12">
+            <p class="pull-left">Copyright (c) 2001-${nowTimestamp?string("yyyy")} The Apache Software Foundation - <a href="http://www.apache.org">www.apache.org</a>.</p>
+            <p class="pull-right">
+                <img src="/images/payment.png" alt="payments accepted">
+            </p>
 
+        </div>
+    </div>
+</div>
+
+<#if layoutSettings.VT_FTR_JAVASCRIPT?has_content>
+    <#list layoutSettings.VT_FTR_JAVASCRIPT as javaScript>
+        <script type="text/javascript" src="<@ofbizContentUrl>${StringUtil.wrapString(javaScript)}</@ofbizContentUrl>"></script>
+    </#list>
+</#if>

@@ -54,7 +54,7 @@ under the License.
             <actions>
                 <set field="leftbarScreenName" value="leftbar"/>
                 <set field="rightbarScreenName" value="rightbar"/>
-                <set field="MainColumnStyle" value="center"/>
+                <set field="MainColumnStyle" value="container"/>
 
                 <set field="titleProperty" value="PageTitleForumSummary"/>
                 <entity-one entity-name="Content" value-field="forum">
@@ -113,7 +113,7 @@ under the License.
             <actions>
                 <set field="leftbarScreenName" value="leftbar"/>
                 <set field="rightbarScreenName" value="rightbar"/>
-                <set field="MainColumnStyle" value="center"/>
+                <set field="MainColumnStyle" value="container"/>
                 <set field="titleProperty" value="PageTitleForumArticle"/>
                 <set field="contentAssoc.contentId" from-field="parameters.responseContentId"/>
                 <set field="contentAssoc.contentAssocTypeId" value="RESPONSE"/>
@@ -161,7 +161,7 @@ under the License.
             <actions>
                 <set field="leftbarScreenName" value="leftbar"/>
                 <set field="rightbarScreenName" value="rightbar"/>
-                <set field="MainColumnStyle" value="center"/>
+                <set field="MainColumnStyle" value="container"/>
 
                 <set field="includeHtmlArea" value="Y"/>
 
@@ -208,7 +208,7 @@ under the License.
             <actions>
                 <set field="leftbarScreenName" value="leftbar"/>
                 <set field="rightbarScreenName" value="rightbar"/>
-                <set field="MainColumnStyle" value="center"/>
+                <set field="MainColumnStyle" value="container"/>
 
                 <set field="includeHtmlArea" value="Y"/>
 
@@ -256,7 +256,7 @@ under the License.
             <actions>
                 <set field="leftbarScreenName" value="leftbar"/>
                 <set field="rightbarScreenName" value="rightbar"/>
-                <set field="MainColumnStyle" value="center"/>
+                <set field="MainColumnStyle" value="container"/>
 
                 <set field="includeHtmlArea" value="Y"/>
 
@@ -301,7 +301,7 @@ under the License.
             <actions>
                 <set field="leftbarScreenName" value="leftbar"/>
                 <set field="rightbarScreenName" value="rightbar"/>
-                <set field="MainColumnStyle" value="center"/>
+                <set field="MainColumnStyle" value="container"/>
 
                 <set field="includeHtmlArea" value="Y"/>
 
@@ -353,7 +353,7 @@ under the License.
             <actions>
                 <set field="leftbarScreenName" value="leftbar"/>
                 <set field="rightbarScreenName" value="rightbar"/>
-                <set field="MainColumnStyle" value="center"/>
+                <set field="MainColumnStyle" value="container"/>
 
                 <set field="titleProperty" value="PageTitleEditForumContentInfo"/>
                 <set field="headerItem" value="Forum"/>
@@ -393,7 +393,7 @@ under the License.
             <actions>
                 <set field="leftbarScreenName" value="leftbar"/>
                 <set field="rightbarScreenName" value="rightbar"/>
-                <set field="MainColumnStyle" value="center"/>
+                <set field="MainColumnStyle" value="container"/>
 
                 <set field="includeHtmlArea" value="Y"/>
 
@@ -446,7 +446,7 @@ under the License.
             <actions>
                 <set field="leftbarScreenName" value="leftbar"/>
                 <set field="rightbarScreenName" value="rightbar"/>
-                <set field="MainColumnStyle" value="center"/>
+                <set field="MainColumnStyle" value="container"/>
 
                 <set field="includeHtmlArea" value="Y"/>
 

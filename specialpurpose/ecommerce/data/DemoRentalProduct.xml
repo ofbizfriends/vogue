@@ -28,7 +28,7 @@ under the License.
         authDeclinedMessage="There has been a problem with your method of payment. Please try a different method or call customer service."
         authFraudMessage="Your order has been rejected and your account has been disabled due to fraud."
         authErrorMessage="Problem connecting to payment processor; we will continue to retry and notify you by email."
-        visualThemeId="EC_DEFAULT" autoApproveInvoice="Y" shipIfCaptureFails="Y" autoApproveOrder="Y"/>
+        visualThemeId="EC_DEFAULT" autoApproveInvoice="Y" shipIfCaptureFails="Y" autoApproveOrder="Y" usePrimaryEmailUsername="Y"/>
 
 <!-- Note: 20092102 BB - Introducing the visualThemeId we have actually missed this headerLogo setting
 headerLogo="/images/opentravelsystem_logo.jpg"

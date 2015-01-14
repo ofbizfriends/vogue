@@ -88,10 +88,12 @@ request.setAttribute("curCategoryId", curCategoryId);
 CategoryWorker.setTrail(request, curCategoryId);
 
 categoryList = request.getAttribute("topLevelList");
+ 
 if (categoryList) {
     catContentWrappers = FastMap.newInstance();
     CategoryWorker.getCategoryContentWrappers(catContentWrappers, categoryList, request);
     context.catContentWrappers = catContentWrappers;
     completedTree = fillTree(categoryList,1,"");
+    
     context.completedTree = completedTree;
 }

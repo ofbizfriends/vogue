@@ -17,10 +17,27 @@ specific language governing permissions and limitations
 under the License.
 -->
 
-<div>
-  <div class="screenlet">
-    <h3>${uiLabelMap.OrderSalesHistory}</h3>
-    <table id="orderSalesHistory" summary="This table display order sales history.">
+<div class="col-md-12 clearfix">
+    <ul class="breadcrumb">
+        <li><a href="<@ofbizUrl>main</@ofbizUrl>">${uiLabelMap.CommonHome}</a>
+        </li>
+        <li>${uiLabelMap.OrderSalesHistory}</li>
+    </ul>
+
+    <div class="box text-center">
+
+        <div class="row">
+            <div class="col-sm-10 col-sm-offset-1">
+                <h1>${uiLabelMap.OrderSalesHistory}</h1>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="col-md-12">
+  <div class="box">
+    
+    <table id="orderSalesHistory" summary="This table display order sales history." class="table">
       <thead>
         <tr>
           <th>${uiLabelMap.CommonDate}</th>
@@ -52,7 +69,7 @@ under the License.
               <#else>
                 <td></td>
               </#if>
-              <td><a href="<@ofbizUrl>orderstatus?orderId=${orderHeader.orderId}</@ofbizUrl>" class="button">${uiLabelMap.CommonView}</a></td>
+              <td><a href="<@ofbizUrl>orderstatus?orderId=${orderHeader.orderId}</@ofbizUrl>" class="btn btn-default btn-sm">${uiLabelMap.CommonView}</a></td>
             </tr>
           </#list>
         <#else>
@@ -61,9 +78,9 @@ under the License.
       </tbody>
     </table>
   </div>
-  <div class="screenlet">
+  <div class="box">
     <h3>${uiLabelMap.OrderPurchaseHistory}</h3>
-    <table id="orderPurchaseHistory" summary="This table display order purchase history.">
+    <table id="orderPurchaseHistory" summary="This table display order purchase history." class="table">
       <thead>
         <tr>
           <th>${uiLabelMap.CommonDate}</th>
@@ -91,9 +108,9 @@ under the License.
       </tbody>
     </table>
   </div>
-  <div class="screenlet">
+  <div class="box">
     <h3>${uiLabelMap.EcommerceDownloadsAvailableTitle}</h3>
-    <table id="availableTitleDownload" summary="This table display available title for download.">
+    <table id="availableTitleDownload" summary="This table display available title for download." class="table">
       <thead>
         <tr>
           <th>${uiLabelMap.OrderOrder} ${uiLabelMap.CommonNbr}</th>

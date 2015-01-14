@@ -126,7 +126,7 @@ under the License.
         </section>
     </screen>
 
-    <screen name="productsummary">
+    <screen name="productTile">
         <section>
             <actions>
                 <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
@@ -135,7 +135,7 @@ under the License.
                 <script location="component://order/webapp/ordermgr/WEB-INF/actions/entry/catalog/ProductSummary.groovy"/>
             </actions>
             <widgets>
-                <platform-specific><html><html-template location="component://order/webapp/ordermgr/entry/catalog/productsummary.ftl"/></html></platform-specific>
+                <platform-specific><html><html-template location="component://ecommerce/webapp/ecommerce/catalog/productTile.ftl"/></html></platform-specific>
             </widgets>
         </section>
     </screen>
@@ -160,7 +160,7 @@ under the License.
             <actions>
                 <set field="leftbarScreenName" value="leftbar"/>
                 <set field="rightbarScreenName" value="rightbar"/>
-                <set field="MainColumnStyle" value="center"/>
+                <set field="MainColumnStyle" value="container"/>
 
                 <set field="titleProperty" value="PageTitleCategoryPage"/>
                 <script location="component://order/webapp/ordermgr/WEB-INF/actions/entry/catalog/Category.groovy"/>
@@ -202,7 +202,7 @@ under the License.
     <screen name="categorydetail">
         <section>
             <actions>
-                <set field="productsummaryScreen" value="component://ecommerce/widget/CatalogScreens.xml#productsummary"/>
+                <set field="productsummaryScreen" value="component://ecommerce/widget/CatalogScreens.xml#productTile"/>
                 <set field="productCategoryLinkScreen" value="component://ecommerce/widget/CatalogScreens.xml#ProductCategoryLink"/>
 
                 <script location="component://order/webapp/ordermgr/WEB-INF/actions/entry/catalog/CategoryDetail.groovy"/>
@@ -214,7 +214,7 @@ under the License.
                 <set field="paginateEcommerceStyle" value="Y"/>
             </actions>
             <widgets>
-                <platform-specific><html><html-template location="component://order/webapp/ordermgr/entry/catalog/categorydetail.ftl"/></html></platform-specific>
+                <platform-specific><html><html-template location="component://ecommerce/webapp/ecommerce/catalog/categorydetail.ftl"/></html></platform-specific>
             </widgets>
         </section>
     </screen>
@@ -248,7 +248,7 @@ under the License.
             <actions>
                 <set field="leftbarScreenName" value="leftbar"/>
                 <set field="rightbarScreenName" value="rightbar"/>
-                <set field="MainColumnStyle" value="center"/>
+                <set field="MainColumnStyle" value="container"/>
                 <set field="titleProperty" value="PageTitleProductPage"/>
                 <set field="layoutSettings.javaScripts[]" value="/ecommerce/images/productAdditionalView.js" global="true"/>
                 <set field="configproductdetailScreen" value="component://ecommerce/widget/CatalogScreens.xml#configproductdetail"/>
@@ -277,7 +277,7 @@ under the License.
     <screen name="productdetail">
         <section>
             <actions>
-                <set field="productsummaryScreen" value="component://ecommerce/widget/CatalogScreens.xml#productsummary"/>
+                <set field="productsummaryScreen" value="component://ecommerce/widget/CatalogScreens.xml#productTile"/>
 
                 <script location="component://order/webapp/ordermgr/WEB-INF/actions/entry/catalog/ProductDetail.groovy"/>
             </actions>
@@ -302,7 +302,7 @@ under the License.
     <screen name="configproductdetail">
         <section>
             <actions>
-                <set field="productsummaryScreen" value="component://ecommerce/widget/CatalogScreens.xml#productsummary"/>
+                <set field="productsummaryScreen" value="component://ecommerce/widget/CatalogScreens.xml#productTile"/>
                 <set field="inlineProductDetailScreen" value="component://ecommerce/widget/CatalogScreens.xml#inlineProductDetail"/>
                 <script location="component://order/webapp/ordermgr/WEB-INF/actions/entry/catalog/ProductDetail.groovy"/>
                 <script location="component://order/webapp/ordermgr/WEB-INF/actions/entry/catalog/PrepareConfigForm.groovy"/>
@@ -319,7 +319,7 @@ under the License.
             <actions>
                 <set field="leftbarScreenName" value="leftbar"/>
                 <set field="rightbarScreenName" value="rightbar"/>
-                <set field="MainColumnStyle" value="center"/>
+                <set field="MainColumnStyle" value="container"/>
 
                 <set field="titleProperty" value="PageTitleProductReview"/>
             </actions>
@@ -338,7 +338,7 @@ under the License.
             <actions>
                 <set field="leftbarScreenName" value="leftbar"/>
                 <set field="rightbarScreenName" value="rightbar"/>
-                <set field="MainColumnStyle" value="center"/>
+                <set field="MainColumnStyle" value="container"/>
 
                 <set field="titleProperty" value="PageTitleLastViewProducts"/>
             </actions>
@@ -379,7 +379,7 @@ under the License.
             <actions>
                 <set field="leftbarScreenName" value="leftbar"/>
                 <set field="rightbarScreenName" value="rightbar"/>
-                <set field="MainColumnStyle" value="center"/>
+                <set field="MainColumnStyle" value="container"/>
 
                 <set field="quickaddsummaryScreen" value="component://ecommerce/widget/CatalogScreens.xml#quickaddsummary"/>
 
@@ -412,9 +412,9 @@ under the License.
             <actions>
                 <set field="leftbarScreenName" value="leftbar"/>
                 <set field="rightbarScreenName" value="rightbar"/>
-                <set field="MainColumnStyle" value="center"/>
+                <set field="MainColumnStyle" value="container"/>
 
-                <set field="productsummaryScreen" value="component://ecommerce/widget/CatalogScreens.xml#productsummary"/>
+                <set field="productsummaryScreen" value="component://ecommerce/widget/CatalogScreens.xml#productTile"/>
 
                 <set field="titleProperty" value="PageTitleSearchResults"/>
                 <set field="parameters.VIEW_SIZE" from-field="parameters.VIEW_SIZE" default-value="10"/>
@@ -435,9 +435,9 @@ under the License.
             <actions>
                 <set field="leftbarScreenName" value="leftbar"/>
                 <set field="rightbarScreenName" value="rightbar"/>
-                <set field="MainColumnStyle" value="center"/>
+                <set field="MainColumnStyle" value="container"/>
 
-                <set field="productsummaryScreen" value="component://ecommerce/widget/CatalogScreens.xml#productsummary"/>
+                <set field="productsummaryScreen" value="component://ecommerce/widget/CatalogScreens.xml#productTile"/>
 
                 <set field="titleProperty" value="PageTitleTagResults"/>
                 <set field="parameters.VIEW_SIZE" from-field="parameters.VIEW_SIZE" default-value="10"/>
@@ -458,7 +458,7 @@ under the License.
             <actions>
                 <set field="leftbarScreenName" value="leftbar"/>
                 <set field="rightbarScreenName" value="rightbar"/>
-                <set field="MainColumnStyle" value="center"/>
+                <set field="MainColumnStyle" value="container"/>
 
                 <set field="titleProperty" value="PageTitleAdvancedSearch"/>
                 <set field="headerItem" value="Advanced Search"/>
@@ -486,7 +486,7 @@ under the License.
     <screen name="LayeredCategoryDetail">
         <section>
             <actions>
-                <set field="productsummaryScreen" value="component://ecommerce/widget/CatalogScreens.xml#productsummary"/>
+                <set field="productsummaryScreen" value="component://ecommerce/widget/CatalogScreens.xml#productTile"/>
             </actions>
             <widgets>
                 <platform-specific><html><html-template location="component://ecommerce/webapp/ecommerce/catalog/LayeredCategoryDetail.ftl"/></html></platform-specific>
@@ -516,6 +516,18 @@ under the License.
             </widgets>
         </section>
     </screen>
+    
+    <screen name="productCatalogNav">
+        <section>
+            <actions>                                
+                <script location="component://ecommerce/webapp/ecommerce/WEB-INF/actions/catalog/ProductCategories.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://ecommerce/webapp/ecommerce/catalog/ProductCatalogNav.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
     <screen name="productCategories">
         <section>
             <actions>
@@ -603,4 +615,7 @@ under the License.
             </widgets>
         </section>
     </screen>
+    
+
+    
 </screens>

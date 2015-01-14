@@ -34,32 +34,81 @@ under the License.
 // -->
 </script>
 
-<h1>${uiLabelMap.OrderFinalCheckoutReview}</h1>
-<#if !isDemoStore?? && isDemoStore><p>${uiLabelMap.OrderDemoFrontNote}.</p></#if>
 
-<#if cart?? && 0 < cart.size()>
-  ${screens.render("component://ecommerce/widget/OrderScreens.xml#orderheader")}
-  <br />
-  ${screens.render("component://ecommerce/widget/OrderScreens.xml#orderitems")}
-  <table border="0" cellpadding="1" width="100%">
-   <tr>
-      <td colspan="4">
-        &nbsp;
-      </td>
-      <td align="right">
-        <form type="post" action="<@ofbizUrl>processorder</@ofbizUrl>" name="${parameters.formNameValue}">
-          <#if (requestParameters.checkoutpage)?has_content>
-            <input type="hidden" name="checkoutpage" value="${requestParameters.checkoutpage}" />
-          </#if>
-          <#if (requestAttributes.issuerId)?has_content>
-            <input type="hidden" name="issuerId" value="${requestAttributes.issuerId}" />
-          </#if>
-          <input type="button" name="processButton" value="${uiLabelMap.OrderSubmitOrder}" onclick="processOrder();" class="mediumSubmit" />
-        </form>
-        <#-- doesn't work with Safari, seems to work with IE, Mozilla <a href="#" onclick="processOrder();" class="buttontextbig">[${uiLabelMap.OrderSubmitOrder}]&nbsp;</a> -->
-      </td>
-    </tr>
-  </table>
-<#else>
-  <h3>${uiLabelMap.OrderErrorShoppingCartEmpty}.</h3>
-</#if>
+<div class="col-md-12 clearfix">
+    <ul class="breadcrumb">
+        <li><a href="<@ofbizUrl>main</@ofbizUrl>">${uiLabelMap.CommonHome}</a>
+        </li>
+        <li>Checkout - ${uiLabelMap.OrderReview}</li>
+    </ul>
+
+    <div class="box text-center">
+
+        <div class="row">
+            <div class="col-sm-10 col-sm-offset-1">
+                <h1>Checkout - ${uiLabelMap.OrderFinalCheckoutReview}</h1>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="col-md-9 clearfix" id="checkout">
+    <div class="box">        
+        <ul class="nav nav-pills nav-justified">
+            <li class="active"><a href="#"><i class="fa fa-map-marker"></i><br>${uiLabelMap.CommonAddress}</a>
+            </li>
+            <li class="active"><a href="#"><i class="fa fa-truck"></i><br>${uiLabelMap.DeliveryOption}</a>
+            </li>
+            <li class="active"><a href="#"><i class="fa fa-money"></i><br>${uiLabelMap.PaymentOtpions}</a>
+            </li>
+            <li class="active"><a href="#"><i class="fa fa-eye"></i><br>${uiLabelMap.OrderReview}</a>
+            </li>
+        </ul>
+        
+        <div class="content">
+            <#if !isDemoStore?? && isDemoStore><p>${uiLabelMap.OrderDemoFrontNote}.</p></#if>
+        
+            <#if cart?? && 0 < cart.size()>
+                ${screens.render("component://ecommerce/widget/OrderScreens.xml#orderheader")}
+                <br />
+                ${screens.render("component://ecommerce/widget/OrderScreens.xml#orderitems")}
+                <br/>                
+                <div class="box-footer">
+                    <div class="pull-right">
+	                    <form type="post" action="<@ofbizUrl>processorder</@ofbizUrl>" name="${parameters.formNameValue}">
+	                        <#if (requestParameters.checkoutpage)?has_content>
+	                            <input type="hidden" name="checkoutpage" value="${requestParameters.checkoutpage}" />
+	                        </#if>
+	                        <#if (requestAttributes.issuerId)?has_content>
+	                            <input type="hidden" name="issuerId" value="${requestAttributes.issuerId}" />
+	                        </#if>
+	                            <input type="button" name="processButton" value="${uiLabelMap.OrderSubmitOrder}" onclick="processOrder();" class="btn btn-primary" />
+	                    </form>
+                    </div>                    
+                </div>
+            <#else>
+                <h3>${uiLabelMap.OrderErrorShoppingCartEmpty}.</h3>
+            </#if>
+        </div>
+    </div><!-- ./box -->
+</div>                        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

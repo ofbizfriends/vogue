@@ -422,6 +422,26 @@
         <value xml:lang="zh_CN">添加问题</value>
         <value xml:lang="zh_TW">增加問題</value>
     </property>
+    <property key="CommonAddress">
+        <value xml:lang="ar">نوان 1</value>
+        <value xml:lang="cs">Adresa </value>
+        <value xml:lang="de">Adresse</value>
+        <value xml:lang="en">Address</value>
+        <value xml:lang="es">Dirección</value>
+        <value xml:lang="fr">Adresse</value>
+        <value xml:lang="hi_IN">पता</value>
+        <value xml:lang="it">Indirizzo</value>
+        <value xml:lang="ja">住所</value>
+        <value xml:lang="nl">Adres</value>
+        <value xml:lang="pt">Endereço</value>
+        <value xml:lang="ro">Adresa</value>
+        <value xml:lang="ru">Адрес</value>
+        <value xml:lang="th">ที่อยู่ที่ </value>
+        <value xml:lang="vi">Địa chỉ</value>
+        <value xml:lang="zh">地址一</value>
+        <value xml:lang="zh_CN">地址 </value>
+        <value xml:lang="zh_TW">位址 </value>
+    </property>
     <property key="CommonAddress1">
         <value xml:lang="ar">عنوان 1</value>
         <value xml:lang="cs">Adresa 1</value>

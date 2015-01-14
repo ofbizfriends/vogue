@@ -20,16 +20,20 @@ under the License.
 <#-- NOTE: this template is used for the orderstatus screen in ecommerce AND for order notification emails through the OrderNoticeEmail.ftl file -->
 <#-- the "urlPrefix" value will be prepended to URLs by the ofbizUrl transform if/when there is no "request" object in the context -->
 <#if baseEcommerceSecureUrl??><#assign urlPrefix = baseEcommerceSecureUrl/></#if>
-<div class="screenlet">
-  <h3>
-      <#assign numColumns = 8>
-      <#if maySelectItems?default("N") == "Y" && roleTypeId! == "PLACING_CUSTOMER">
-          <#assign numColumns = 11>
-          <a href="javascript:document.addCommonToCartForm.add_all.value='true';document.addCommonToCartForm.submit()" class="submenutext">${uiLabelMap.OrderAddAllToCart}</a><a href="javascript:document.addCommonToCartForm.add_all.value='false';document.addCommonToCartForm.submit()" class="submenutext">${uiLabelMap.OrderAddCheckedToCart}</a><a href="<@ofbizUrl fullPath="true">createShoppingListFromOrder?orderId=${orderHeader.orderId}&amp;frequency=6&amp;intervalNumber=1&amp;shoppingListTypeId=SLT_AUTO_REODR</@ofbizUrl>" class="submenutextright">${uiLabelMap.OrderSendMeThisEveryMonth}</a>
-      </#if>
-      ${uiLabelMap.OrderOrderItems}
-  </h3>
-  <table>
+<div class="panel">
+    <h3>
+        ${uiLabelMap.OrderOrderItems}
+      
+        <#assign numColumns = 8>
+        <#if maySelectItems?default("N") == "Y" && roleTypeId! == "PLACING_CUSTOMER">
+            <#assign numColumns = 11>
+            <div class="pull-right">
+                <a href="javascript:document.addCommonToCartForm.add_all.value='true';document.addCommonToCartForm.submit()" class="btn btn-default">${uiLabelMap.OrderAddAllToCart}</a><a href="javascript:document.addCommonToCartForm.add_all.value='false';document.addCommonToCartForm.submit()" class="btn btn-default">${uiLabelMap.OrderAddCheckedToCart}</a><a href="<@ofbizUrl fullPath="true">createShoppingListFromOrder?orderId=${orderHeader.orderId}&amp;frequency=6&amp;intervalNumber=1&amp;shoppingListTypeId=SLT_AUTO_REODR</@ofbizUrl>" class="btn btn-defaultright">${uiLabelMap.OrderSendMeThisEveryMonth}</a>
+            </div>
+        </#if>
+      
+    </h3>
+  <table class="table">
     <thead>
     <tr>
       <th>${uiLabelMap.OrderProduct}</th>
@@ -113,7 +117,7 @@ under the License.
            </#list>
         </#if>
       </#if>
-      <tr><td colspan="${numColumns}"></td></tr>
+      
       <tr>
         <#if !orderItem.productId?? || orderItem.productId == "_?_">
           <td >
@@ -122,7 +126,7 @@ under the License.
         <#else>
           <#assign product = orderItem.getRelatedOne("Product", true)!/> <#-- should always exist because of FK constraint, but just in case -->
           <td >
-            <a href="<@ofbizCatalogAltUrl fullPath="true" secure="false" productId=orderItem.productId/>" class="linktext">${orderItem.productId} - ${orderItem.itemDescription?default("")}</a>
+            <a href="<@ofbizCatalogAltUrl fullPath="true" secure="false" productId=orderItem.productId/>" class="linktext">${orderItem.itemDescription?default("")}</a>
             <#assign orderItemAttributes = orderItem.getRelated("OrderItemAttribute", null, null, false)/>
             <#if orderItemAttributes?has_content>
                 <ul>
@@ -282,12 +286,9 @@ under the License.
           <#assign shipGroupAddress = (shipGroup.getRelatedOne("PostalAddress", false))!>
           <tr>
             <td>
-              ${uiLabelMap.OrderShipGroup}: [${shipGroup.shipGroupSeqId}] ${shipGroupAddress.address1?default("N/A")}
-            </td>
-            <td>
-              ${shipGroupAssoc.quantity?string.number}
-            </td>
-            <td colspan="${numColumns - 2}"></td>
+              ${uiLabelMap.OrderShipGroup}: [${shipGroup.shipGroupSeqId}] ${shipGroupAddress.address1?default("N/A")}  [${shipGroupAssoc.quantity?string.number}]
+            </td>            
+            <td colspan="${numColumns - 1}"></td>
           </tr>
         </#list>
       </#if>

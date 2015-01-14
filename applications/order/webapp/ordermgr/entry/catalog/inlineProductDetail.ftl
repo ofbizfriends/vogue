@@ -275,7 +275,7 @@ ${virtualJavaScript!}
             <#list featureLists as featureList>
                 <#list featureList as feature>
                     <#if feature_index == 0>
-                        <div>${feature.description}: <select id="FT${inlineCounter}${feature.productFeatureTypeId}" name="FT${inlineCounter}${feature.productFeatureTypeId}" onchange="javascript:checkRadioButtoninline${inlineCounter}('${inlineCounter}', '${product.productId}');">
+                        <div>${feature.description}: <select id="FT${inlineCounter}${feature.productFeatureTypeId}" name="FT${inlineCounter}${feature.productFeatureTypeId}" onchange="javascript:checkRadioButtoninline${inlineCounter}('${inlineCounter}', '${product.productId}');" class="form-control">
                         <option value="select" selected="selected"> select option </option>
                     <#else>
                         <option value="${feature.productFeatureId}">${feature.description} <#if feature.price??>(+ <@ofbizCurrency amount=feature.price?string isoCode=feature.currencyUomId/>)</#if></option>
@@ -291,7 +291,7 @@ ${virtualJavaScript!}
            <#if variantTree?? && (variantTree.size() > 0)>
             <#list featureSet as currentType>
               <div>
-                <select name="FT${inlineCounter}${currentType}" onchange="javascript:getListInline('${inlineCounter}', this.name, (this.selectedIndex-1), 1);">
+                <select name="FT${inlineCounter}${currentType}" onchange="javascript:getListInline('${inlineCounter}', this.name, (this.selectedIndex-1), 1);" class="form-control">
                   <option>${featureTypes.get(currentType)}</option>
                 </select>
               </div>

@@ -32,14 +32,13 @@ under the License.
                 <property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true"/>
                 <property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true"/>
 
-                <set field="MainColumnStyle" value="nocolumns" global="true"/>
+                <set field="MainColumnStyle" value="container" global="true"/>
 
                 <!-- The default (global) shortcut icon -->
                 <set field="layoutSettings.shortcutIcon" value="/images/ofbiz.ico" global="true"/>
 
                 <!-- The default (main) java scripts -->
                 <!-- NOTE: this should be included on each screen that uses it to avoid including it in all screens: -->
-                <set field="layoutSettings.javaScripts[]" value="/images/selectall.js" global="true"/>
                 <set field="initialLocaleComplete" type="String" value="${groovy:parameters?.userLogin?.lastLocale}" default-value="${groovy:locale.toString()}"/>
                 <set field="layoutSettings.javaScripts[+0]" value="${groovy: org.ofbiz.common.JsLanguageFilesMapping.dateTime.getFilePath(initialLocaleComplete)}" global="true"/>
 
@@ -47,8 +46,8 @@ under the License.
                 <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/ui/js/jquery-ui-1.10.3.min.js" global="true"/>
                 <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/plugins/validate/jquery.validate.min.js" global="true"/>
                 <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/jquery-migrate-1.2.1.js" global="true"/>
+                
                 <set field="layoutSettings.javaScripts[+0]" value="/images/jquery/jquery-1.11.0.min.js" global="true"/>
-
                 <script location="component://ecommerce/widget/EcommerceSetup.groovy"/>
 
                 <!-- Get the store VisualTheme -->
@@ -77,22 +76,28 @@ under the License.
                      <container id="header"><platform-specific><html><html-template location="${headerTemplateLocation}"/></html></platform-specific></container>
 
                      <container id="ecom-mainarea">
-                        <!-- by default will render left-bar only if left/rightbarScreenName value not empty -->
-                        <container id="div1" style="left"><include-screen name="${leftbarScreenName}" location="${leftbarScreenLocation}"/></container>
-                        <container id="div2" style="right"><include-screen name="${rightbarScreenName}" location="${rightbarScreenLocation}"/></container>
-
-                        <container id="div3" style="${MainColumnStyle}">
-                           <!-- render messages -->
-                           <platform-specific><html><html-template location="component://common/webcommon/includes/messages.ftl"/></html></platform-specific>
-                           <decorator-section-include name="body"/>
+                        <container id="content">
+                            
+	                            <!-- by default will render left-bar only if left/rightbarScreenName value not empty -->
+	                            <!--
+	                            <container id="div1" style="left"><include-screen name="${leftbarScreenName}" location="${leftbarScreenLocation}"/></container>
+	                            <container id="div2" style="right"><include-screen name="${rightbarScreenName}" location="${rightbarScreenLocation}"/></container>
+	                            -->
+	                            <container  style="${MainColumnStyle}">
+	                               <!-- render messages -->
+	                               <platform-specific><html><html-template location="component://ecommerce/webapp/ecommerce/includes/messages.ftl"/></html></platform-specific>
+	                               <decorator-section-include name="body"/>
+	                            </container>
+                            
+                            
+	
+	                        <container id="div4" style="endcolumns"/>
                         </container>
+                     </container>
 
-                        <container id="div4" style="endcolumns"/>
-                    </container>
-
-                    <!-- render footer -->
-                    <container id="footer"><platform-specific><html><html-template location="${footerTemplateLocation}"/></html></platform-specific></container>
-                    <platform-specific><html><html-template location="component://common/webcommon/includes/closehtmlbody.ftl"/></html></platform-specific>
+                     <!-- render footer -->
+                     <container id="footer"><platform-specific><html><html-template location="${footerTemplateLocation}"/></html></platform-specific></container>
+                     <platform-specific><html><html-template location="component://common/webcommon/includes/closehtmlbody.ftl"/></html></platform-specific>
                   </widgets>
                   <fail-widgets>
                      <label text="A Product Store has not been defined for this ecommerce site.  A Product Store can be created using the ofbizsetup wizard."/>
@@ -142,7 +147,7 @@ under the License.
     <screen name="CommonEmptyDecorator">
         <section>
             <actions>
-                <set field="MainColumnStyle" value="center"/>
+                <set field="MainColumnStyle" value="col-sm-12"/>
             </actions>
             <widgets>
                 <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
@@ -157,7 +162,7 @@ under the License.
         <section>
             <actions>
                 <set field="leftbarScreenName" value="leftbar"/>
-                <set field="MainColumnStyle" value="center"/>
+                
             </actions>
             <widgets>
                 <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
@@ -172,7 +177,7 @@ under the License.
         <section>
             <actions>
                 <set field="rightbarScreenName" value="rightbar"/>
-                <set field="MainColumnStyle" value="center"/>
+                
             </actions>
             <widgets>
                 <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
@@ -188,7 +193,7 @@ under the License.
             <actions>
                 <set field="leftbarScreenName" value="leftbar"/>
                 <set field="rightbarScreenName" value="rightbar"/>
-                <set field="MainColumnStyle" value="center"/>
+                
             </actions>
             <widgets>
                 <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
@@ -206,7 +211,7 @@ under the License.
             <actions>
                 <set field="leftbarScreenName" value="leftbar"/>
                 <set field="rightbarScreenName" value="rightbar"/>
-                <set field="MainColumnStyle" value="center"/>
+                
             </actions>
             <widgets>
                 <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
@@ -225,7 +230,7 @@ under the License.
                 <set field="currentMenuItemName" from-field="currentMenuItemName" default-value="all" from-scope="user"/>
                 <set field="leftbarScreenName" value="leftbar"/>
                 <set field="rightbarScreenName" value="rightbar"/>
-                <set field="MainColumnStyle" value="center"/>
+                
             </actions>
             <widgets>
                 <decorator-screen name="main-decorator">
@@ -279,7 +284,7 @@ under the License.
             <widgets>
                 <platform-specific><html><html-template location="component://ecommerce/webapp/ecommerce/includes/headerHead.ftl"/></html></platform-specific>
                 <platform-specific><html><html-template location="component://common/webcommon/includes/openhtmlbody.ftl"/></html></platform-specific>
-                <platform-specific><html><html-template location="component://common/webcommon/includes/messages.ftl"/></html></platform-specific>
+                <platform-specific><html><html-template location="component://ecommerce/webapp/ecommerce/includes/messages.ftl"/></html></platform-specific>
 
                 <decorator-section-include name="body"/>
 
@@ -303,8 +308,7 @@ under the License.
             <actions>
                 <set field="leftbarScreenName" value="leftbar"/>
                 <set field="rightbarScreenName" value="rightbar"/>
-                <set field="MainColumnStyle" value="center"/>
-
+                
                 <set field="titleProperty" value="PageTitleMain"/>
                 <set field="headerItem" value="main"/>
                 <set field="randomSurveyGroup" value="testSurveyGroup"/>
@@ -332,13 +336,17 @@ under the License.
             </actions>
             <widgets>
                 <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
-                    <decorator-section name="body">
-                        <platform-specific>
-                            <html><html-template location="component://ecommerce/webapp/ecommerce/login.ftl"/></html>
-                        </platform-specific>
-                        <platform-specific>
-                            <html><html-template location="component://ecommerce/webapp/ecommerce/order/startanoncheckout.ftl"/></html>
-                        </platform-specific>
+                    <decorator-section name="body">                        
+                        <container style="col-md-6">
+	                        <platform-specific>
+	                            <html><html-template location="component://ecommerce/webapp/ecommerce/login.ftl"/></html>
+	                        </platform-specific>
+                        </container>
+                        <container style="col-md-6">
+	                        <platform-specific>
+	                            <html><html-template location="component://ecommerce/webapp/ecommerce/order/startanoncheckout.ftl"/></html>
+	                        </platform-specific>
+                        </container>
                     </decorator-section>
                 </decorator-screen>
             </widgets>

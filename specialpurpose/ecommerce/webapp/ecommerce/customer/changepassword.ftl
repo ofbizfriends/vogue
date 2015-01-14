@@ -16,34 +16,67 @@ KIND, either express or implied.  See the License for the
 specific language governing permissions and limitations
 under the License.
 -->
-<div class="screenlet">
-  <h2>${uiLabelMap.PartyChangePassword}</h2>  
-  &nbsp;<a id="CommonGoBack1" href="<@ofbizUrl>${donePage}</@ofbizUrl>" class="button">${uiLabelMap.CommonGoBack}</a>
-  &nbsp;<a id="CommonSave1" href="javascript:document.getElementById('changepasswordform').submit()" class="button">${uiLabelMap.CommonSave}</a>
-  <p/>   
-  <div class="screenlet-body">
-    <form id="changepasswordform" method="post" action="<@ofbizUrl>updatePassword/${donePage}</@ofbizUrl>">
-      <fieldset>
-        <div>
-          <label for="currentPassword">${uiLabelMap.PartyOldPassword}</label>
-          <input type="password" class='inputBox' name="currentPassword" id="currentPassword" maxlength="20" />*
+
+<div class="col-md-12">
+    <ul class="breadcrumb">
+        <li><a href="<@ofbizUrl>main</@ofbizUrl>" class="linktext">${uiLabelMap.CommonHome}</a>
+        </li>
+        <li>My account</li>
+    </ul>
+
+
+    <div class="box text-center">
+
+        <div class="row">
+            <div class="col-sm-10 col-sm-offset-1">
+                <h1>My account</h1>
+                <p class="lead">Change your personal details or your password here.</p>                
+            </div>
         </div>
-        <div>
-          <label for="newPassword">${uiLabelMap.PartyNewPassword}</label>
-          <input type="password" class='inputBox' name="newPassword" id="newPassword" maxlength="20" />*
-        </div>
-        <div>
-          <label for="newPasswordVerify">${uiLabelMap.PartyNewPasswordVerify}</label>
-          <input type="password" class='inputBox' name="newPasswordVerify" id="newPasswordVerify" maxlength="20" />*
-        </div>
-        <div>
-          <label for="passwordHint">${uiLabelMap.PartyPasswordHint}</label>
-          <input type="text" class='inputBox' maxlength="100" name="passwordHint" id="passwordHint" value="${userLoginData.passwordHint!}" />
-        </div>
-        <label>${uiLabelMap.CommonFieldsMarkedAreRequired}</label>
-      </fieldset>
-    </form>
-    <a href="<@ofbizUrl>${donePage}</@ofbizUrl>" class="button">[${uiLabelMap.CommonGoBack}]</a>
-    <a href="javascript:document.getElementById('changepasswordform').submit()" class="button">[${uiLabelMap.CommonSave}]</a>
-  </div>
+    </div>
+
 </div>
+
+<div class="col-md-9 clearfix" id="customer-account">
+    <div class="box clearfix">
+
+        <h3>
+            ${uiLabelMap.PartyChangePassword}
+            <span class="pull-right"><a id="CommonGoBack1" href="<@ofbizUrl>${donePage}</@ofbizUrl>" class="btn btn-default">${uiLabelMap.CommonGoBack}</a></span>
+        </h3>
+
+        <form id="changepasswordform" method="post" action="<@ofbizUrl>updatePassword/${donePage}</@ofbizUrl>">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="currentPassword">${uiLabelMap.PartyOldPassword}*</label>
+                        <input type="password" class="form-control" name="currentPassword" id="currentPassword" maxlength="20" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="newPassword">${uiLabelMap.PartyNewPassword}</label>
+                        <input type="password" class='form-control' name="newPassword" id="newPassword" maxlength="20" />*
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="newPasswordVerify">${uiLabelMap.PartyNewPasswordVerify}*</label>
+                        <input type="password" class='form-control' name="newPasswordVerify" id="newPasswordVerify" maxlength="20" />
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+            <div class="form-group">
+                <label for="passwordHint">${uiLabelMap.PartyPasswordHint}</label>
+                <input type="text" class="form-control" maxlength="100" name="passwordHint" id="passwordHint" value="${userLoginData.passwordHint!}" />
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Save new password</button>
+            </div>
+        </form>
+
+    </div>
+</div>               

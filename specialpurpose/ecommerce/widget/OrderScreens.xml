@@ -94,7 +94,7 @@ under the License.
         <section>
             <actions>
                 <set field="rightbarScreenName" value="rightbar"/>
-                <set field="MainColumnStyle" value="rightonly"/>
+                <set field="MainColumnStyle" value="container"/>
                 <set field="parameters.formNameValue" value="custsetupform" global="true"/>
 
                 <set field="titleProperty" value="PageTitleShippingInformation"/>
@@ -114,7 +114,7 @@ under the License.
         <section>
             <actions>
                 <set field="rightbarScreenName" value="rightbar"/>
-                <set field="MainColumnStyle" value="rightonly"/>
+                <set field="MainColumnStyle" value="container"/>
                 <set field="parameters.formNameValue" value="shipsetupform" global="true"/>
 
                 <set field="titleProperty" value="PageTitleShippingInformation"/>
@@ -134,7 +134,7 @@ under the License.
         <section>
             <actions>
                 <set field="rightbarScreenName" value="rightbar"/>
-                <set field="MainColumnStyle" value="rightonly"/>
+                <set field="MainColumnStyle" value="container"/>
                 <set field="parameters.formNameValue" value="optsetupform" global="true"/>
 
                 <set field="titleProperty" value="PageTitleShippingOptions"/>
@@ -154,7 +154,7 @@ under the License.
         <section>
             <actions>
                 <set field="rightbarScreenName" value="rightbar"/>
-                <set field="MainColumnStyle" value="rightonly"/>
+                <set field="MainColumnStyle" value="container"/>
                 <set field="parameters.formNameValue" value="paymentoptions" global="true"/>
 
                 <set field="titleProperty" value="PageTitleBillingInformation"/>
@@ -175,7 +175,7 @@ under the License.
         <section>
             <actions>
                 <set field="rightbarScreenName" value="rightbar"/>
-                <set field="MainColumnStyle" value="rightonly"/>
+                <set field="MainColumnStyle" value="container"/>
                 <set field="parameters.formNameValue" value="billsetupform"/>
 
                 <set field="titleProperty" value="PageTitleBillingInformation"/>
@@ -213,7 +213,7 @@ under the License.
         <section>
             <actions>
                 <set field="rightbarScreenName" value="rightbar"/>
-                <set field="MainColumnStyle" value="rightonly"/>
+                <set field="MainColumnStyle" value="container"/>
 
                 <set field="titleProperty" value="PageTitleBillingInformation"/>
                 <set field="anonymoustrailScreen" value="component://ecommerce/widget/OrderScreens.xml#anonymoustrail"/>
@@ -253,7 +253,7 @@ under the License.
         <section>
             <actions>
                 <set field="rightbarScreenName" value="rightbar"/>
-                <set field="MainColumnStyle" value="rightonly"/>
+                <set field="MainColumnStyle" value="container"/>
 
                 <set field="titleProperty" value="PageTitleCheckoutOptions"/>
                 <script location="component://order/webapp/ordermgr/WEB-INF/actions/entry/CheckoutShippingAddress.groovy"/>
@@ -272,7 +272,7 @@ under the License.
         <section>
             <actions>
                 <set field="rightbarScreenName" value="rightbar"/>
-                <set field="MainColumnStyle" value="rightonly"/>
+                <set field="MainColumnStyle" value="container"/>
 
                 <set field="titleProperty" value="PageTitleCheckoutOptions"/>
                 <script location="component://ecommerce/webapp/ecommerce/WEB-INF/actions/order/CheckoutShippingOptions.groovy"/>
@@ -291,7 +291,7 @@ under the License.
         <section>
             <actions>
                 <set field="rightbarScreenName" value="rightbar"/>
-                <set field="MainColumnStyle" value="rightonly"/>
+                <set field="MainColumnStyle" value="container"/>
 
                 <set field="titleProperty" value="PageTitleCheckoutOptions"/>
                 <script location="component://order/webapp/ordermgr/WEB-INF/actions/entry/CheckoutPayment.groovy"/>
@@ -360,7 +360,7 @@ under the License.
         <section>
             <actions>
                 <set field="rightbarScreenName" value="rightbar"/>
-                <set field="MainColumnStyle" value="rightonly"/>
+                <set field="MainColumnStyle" value="container"/>
 
                 <set field="titleProperty" value="PageTitleOrderHistory"/>
                 <script location="component://ecommerce/webapp/ecommerce/WEB-INF/actions/order/OrderHistory.groovy"/>
@@ -379,7 +379,7 @@ under the License.
         <section>
             <actions>
                 <set field="rightbarScreenName" value="rightbar"/>
-                <set field="MainColumnStyle" value="rightonly"/>
+                <set field="MainColumnStyle" value="container"/>
 
                 <set field="maySelectItems" value="Y"/>
                 <set field="titleProperty" value="PageTitleOrderStatus"/>
@@ -399,7 +399,7 @@ under the License.
         <section>
             <actions>
                 <set field="rightbarScreenName" value="rightbar"/>
-                <set field="MainColumnStyle" value="rightonly"/>
+                <set field="MainColumnStyle" value="container"/>
 
                 <set field="titleProperty" value="PageTitleRequestReturn"/>
                 <script location="component://ecommerce/webapp/ecommerce/WEB-INF/actions/order/RequestReturn.groovy"/>
@@ -460,7 +460,7 @@ under the License.
         <section>
             <actions>
                 <set field="rightbarScreenName" value="rightbar"/>
-                <set field="MainColumnStyle" value="rightonly"/>
+                <set field="MainColumnStyle" value="container"/>
                 <set field="parameters.formNameValue" value="quickAnonCustSetupForm" global="true"/>
 
                 <set field="titleProperty" value="PageTitleShippingInformation"/>
@@ -542,7 +542,7 @@ under the License.
                 <script location="component://ecommerce/webapp/ecommerce/WEB-INF/actions/order/QuickAnonPaymentInformation.groovy"/>
             </actions>
             <widgets>
-                <platform-specific><html><html-template location="component://common/webcommon/includes/messages.ftl"/></html></platform-specific>
+                <platform-specific><html><html-template location="component://ecommerce/webapp/ecommerce/includes/messages.ftl"/></html></platform-specific>
                 <platform-specific><html><html-template location="component://ecommerce/webapp/ecommerce/order/ccinfo.ftl"/></html></platform-specific>
             </widgets>
         </section>
@@ -562,7 +562,7 @@ under the License.
                 <script location="component://ecommerce/webapp/ecommerce/WEB-INF/actions/order/QuickAnonPaymentInformation.groovy"/>
             </actions>
             <widgets>
-                <platform-specific><html><html-template location="component://common/webcommon/includes/messages.ftl"/></html></platform-specific>
+                <platform-specific><html><html-template location="component://ecommerce/webapp/ecommerce/includes/messages.ftl"/></html></platform-specific>
                 <platform-specific><html><html-template location="component://ecommerce/webapp/ecommerce/order/eftinfo.ftl"/></html></platform-specific>
             </widgets>
         </section>
@@ -582,7 +582,7 @@ under the License.
                 <script location="component://ecommerce/webapp/ecommerce/WEB-INF/actions/order/QuickAnonPaymentInformation.groovy"/>
             </actions>
             <widgets>
-              <platform-specific><html><html-template location="component://common/webcommon/includes/messages.ftl"/></html></platform-specific>
+              <platform-specific><html><html-template location="component://ecommerce/webapp/ecommerce/includes/messages.ftl"/></html></platform-specific>
               <platform-specific><html><html-template location="component://ecommerce/webapp/ecommerce/order/gcinfo.ftl"/></html></platform-specific>
             </widgets>
         </section>

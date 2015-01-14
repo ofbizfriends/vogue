@@ -16,12 +16,27 @@ KIND, either express or implied.  See the License for the
 specific language governing permissions and limitations
 under the License.
 -->
-<h2>${uiLabelMap.EcommerceOrderConfirmation}</h2>
+<div class="col-md-12 clearfix">
+    <ul class="breadcrumb">
+        <li><a href="<@ofbizUrl>main</@ofbizUrl>">${uiLabelMap.CommonHome}</a>
+        </li>
+        <li>${uiLabelMap.EcommerceOrderConfirmation}</li>
+    </ul>
+
+    <div class="box text-center">
+
+        <div class="row">
+            <div class="col-sm-10 col-sm-offset-1">
+                <h1>${uiLabelMap.EcommerceOrderConfirmation}</h1>
+            </div>
+        </div>
+    </div>
+</div>
 <#if !isDemoStore?? || isDemoStore><p>${uiLabelMap.OrderDemoFrontNote}.</p></#if>
-<#if orderHeader?has_content>
-  ${screens.render("component://ecommerce/widget/OrderScreens.xml#orderheader")}
-  ${screens.render("component://ecommerce/widget/OrderScreens.xml#orderitems")}
-  <a href="<@ofbizUrl>main</@ofbizUrl>" class="buttontextbig">${uiLabelMap.EcommerceContinueShopping}</a>
-<#else>
-  <h3>${uiLabelMap.OrderSpecifiedNotFound}.</h3>
+    <#if orderHeader?has_content>
+        ${screens.render("component://ecommerce/widget/OrderScreens.xml#orderheader")}
+        ${screens.render("component://ecommerce/widget/OrderScreens.xml#orderitems")}
+        <a href="<@ofbizUrl>main</@ofbizUrl>" class="btn btn-default">${uiLabelMap.EcommerceContinueShopping}</a>
+    <#else>
+        <h3>${uiLabelMap.OrderSpecifiedNotFound}.</h3>
 </#if>

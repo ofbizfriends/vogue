@@ -22,6 +22,16 @@ under the License.
 <#else>
     <#assign shoppingCartSize = 0>
 </#if>
+<div class="navbar-collapse collapse right" id="basket-overview">
+    <a href="<@ofbizUrl>view/showcart</@ofbizUrl>" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="hidden-sm">
+    <#if (shoppingCartSize > 0)>    
+        <span class="badge badge-default">${shoppingCart.getTotalQuantity()} </span> items <span class="hidden-md">in cart</span>
+    <#else>
+        ${uiLabelMap.OrderShoppingCartEmpty}        
+    </#if>
+    </span></a>        
+</div>
+<#if false>
 <div id="microcart">
         <#if (shoppingCartSize > 0)>
             <p id="microCartNotEmpty">
@@ -58,3 +68,4 @@ under the License.
       </#if>
     </ul>
 </div>
+</#if>

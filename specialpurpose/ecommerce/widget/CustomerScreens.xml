@@ -26,7 +26,7 @@ under the License.
             <actions>
                 <set field="leftbarScreenName" value="leftbar"/>
                 <set field="rightbarScreenName" value="rightbar"/>
-                <set field="MainColumnStyle" value="center"/>
+                <set field="MainColumnStyle" value="container"/>
 
                 <set field="titleProperty" value="PageTitleAdditionalInfo"/>
             </actions>
@@ -156,7 +156,7 @@ under the License.
             <actions>
                 <set field="leftbarScreenName" value="leftbar"/>
                 <set field="rightbarScreenName" value="rightbar"/>
-                <set field="MainColumnStyle" value="center"/>
+                <set field="MainColumnStyle" value="container"/>
 
                 <set field="titleProperty" value="PageTitleGiftCardBalance"/>
                 <script location="component://ecommerce/webapp/ecommerce/WEB-INF/actions/customer/GiftCardBalance.groovy"/>
@@ -175,7 +175,7 @@ under the License.
             <actions>
                 <set field="leftbarScreenName" value="leftbar"/>
                 <set field="rightbarScreenName" value="rightbar"/>
-                <set field="MainColumnStyle" value="center"/>
+                <set field="MainColumnStyle" value="container"/>
 
                 <set field="titleProperty" value="PageTitleGiftCardLink"/>
                 <script location="component://ecommerce/webapp/ecommerce/WEB-INF/actions/customer/GiftCardLink.groovy"/>

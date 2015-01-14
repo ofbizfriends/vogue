@@ -47,6 +47,9 @@ under the License.
             <set value="No hint set, account not yet enabled" field="parameters.PASSWORD_HINT"/>
         </if-compare>
 
+        <if-empty field="parameters.USERNAME">
+            <set field="parameters.USERNAME" from-field="parameters.CUSTOMER_EMAIL"/>
+        </if-empty>
         <if-compare field="productStore.usePrimaryEmailUsername" operator="equals" value="Y">
             <set field="parameters.USERNAME" from-field="parameters.CUSTOMER_EMAIL"/>
         </if-compare>
@@ -121,6 +124,12 @@ under the License.
         <set from-field="parameters.roleTypeId" field="partyRoleContext.roleTypeId"/>
 
         <!-- Create the Postal Address -->
+        
+        <if-empty field="parameters.CUSTOMER_ADDRESS1">
+            <set field="parameters.USE_ADDRESS" value="false"/>
+        </if-empty>
+        
+        
         <if-compare field="parameters.USE_ADDRESS" operator="equals" value="false">
             <!-- address not used, do nothing -->
             <else>
@@ -309,7 +318,7 @@ under the License.
         <create-value value-field="partyDataSource"/>
         <call-service service-name="createPartyRole" in-map-name="partyRoleContext" include-user-login="true"/>
 
-        <!-- shipping address -->
+        <!-- shipping address -->        
         <if-compare field="parameters.USE_ADDRESS" operator="equals" value="false">
             <!-- address not used, do nothing -->
             <else>

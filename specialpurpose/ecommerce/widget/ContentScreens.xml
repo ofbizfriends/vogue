@@ -89,7 +89,7 @@ under the License.
             <actions>
                 <set field="leftbarScreenName" value="leftbar"/>
                 <set field="rightbarScreenName" value="rightbar"/>
-                <set field="MainColumnStyle" value="center"/>
+                <set field="MainColumnStyle" value="container"/>
 
                 <set field="titleProperty" value="PageTitleViewBlog"/>
                 <set field="headerItem" value="Blog"/>
@@ -112,7 +112,7 @@ under the License.
             <actions>
                 <set field="leftbarScreenName" value="leftbar"/>
                 <set field="rightbarScreenName" value="rightbar"/>
-                <set field="MainColumnStyle" value="center"/>
+                <set field="MainColumnStyle" value="container"/>
 
                 <set field="titleProperty" value="PageTitleShoppingCart"/>
                 <set field="headerItem" value="ContentMenu"/>
@@ -140,7 +140,7 @@ under the License.
             <actions>
                 <set field="leftbarScreenName" value="leftbar"/>
                 <set field="rightbarScreenName" value="rightbar"/>
-                <set field="MainColumnStyle" value="center"/>
+                <set field="MainColumnStyle" value="container"/>
 
                 <set field="titleProperty" value="PageTitleViewContent"/>
                 <set field="headerItem" value="Content"/>

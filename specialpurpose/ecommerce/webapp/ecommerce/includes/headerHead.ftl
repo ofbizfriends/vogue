@@ -24,6 +24,10 @@ under the License.
 <html lang="${docLangAttr}" dir="${langDir}" xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
   <title><#if title?has_content>${title}<#elseif titleProperty?has_content>${uiLabelMap.get(titleProperty)}</#if>: ${(productStore.storeName)!}</title>
   <#if layoutSettings.VT_SHORTCUT_ICON?has_content>
     <#assign shortcutIcon = layoutSettings.VT_SHORTCUT_ICON.get(0)/>

@@ -18,64 +18,179 @@ under the License.
 -->
 
 
-  <div id="ecom-header">
-    <div id="left">
-      <#if sessionAttributes.overrideLogo??>
-        <img src="<@ofbizContentUrl>${sessionAttributes.overrideLogo}</@ofbizContentUrl>" alt="Logo"/>
-      <#elseif catalogHeaderLogo??>
-        <img src="<@ofbizContentUrl>${catalogHeaderLogo}</@ofbizContentUrl>" alt="Logo"/>
-      <#elseif layoutSettings.VT_HDR_IMAGE_URL?has_content>
-        <img src="<@ofbizContentUrl>${layoutSettings.VT_HDR_IMAGE_URL.get(0)}</@ofbizContentUrl>" alt="Logo"/>
-      </#if>
-    </div>
-    <div id="right">
-      ${screens.render("component://ecommerce/widget/CartScreens.xml#microcart")}
-    </div>
-    <div id="middle">
-      <#if !productStore??>
-        <h2>${uiLabelMap.EcommerceNoProductStore}</h2>
-      </#if>
-      <#if (productStore.title)??><div id="company-name">${productStore.title}</div></#if>
-      <#if (productStore.subtitle)??><div id="company-subtitle">${productStore.subtitle}</div></#if>
-      <div id="welcome-message">
-        <#if sessionAttributes.autoName?has_content>
-          ${uiLabelMap.CommonWelcome}&nbsp;${sessionAttributes.autoName?html}!
-          (${uiLabelMap.CommonNotYou}?&nbsp;<a href="<@ofbizUrl>autoLogout</@ofbizUrl>" class="linktext">${uiLabelMap.CommonClickHere}</a>)
-        <#else/>
-          ${uiLabelMap.CommonWelcome}!
-        </#if>
-      </div>
-    </div>
-  </div>
+<div class="navbar navbar-default navbar-fixed-top yamm" role="navigation" id="navbar">
+    <div class="container">
+        <div class="navbar-header">
 
-  <div id="ecom-header-bar">
-    <ul id="left-links">
-      <#if userLogin?has_content && userLogin.userLoginId != "anonymous">
-        <li id="header-bar-logout"><a href="<@ofbizUrl>logout</@ofbizUrl>">${uiLabelMap.CommonLogout}</a></li>
-      <#else/>
-        <li id="header-bar-login"><a href="<@ofbizUrl>${checkLoginUrl}</@ofbizUrl>">${uiLabelMap.CommonLogin}</a></li>
-        <li id="header-bar-register"><a href="<@ofbizUrl>newcustomer</@ofbizUrl>">${uiLabelMap.EcommerceRegister}</a></li>
-      </#if>
-      <li id="header-bar-contactus">
-        <#if userLogin?has_content && userLogin.userLoginId != "anonymous">
-          <a href="<@ofbizUrl>contactus</@ofbizUrl>">${uiLabelMap.CommonContactUs}</a></li>
-        <#else>
-          <a href="<@ofbizUrl>AnonContactus</@ofbizUrl>">${uiLabelMap.CommonContactUs}</a></li>
-        </#if>
-      <li id="header-bar-main"><a href="<@ofbizUrl>main</@ofbizUrl>">${uiLabelMap.CommonMain}</a></li>
-    </ul>
-    <ul id="right-links">
-      <!-- NOTE: these are in reverse order because they are stacked right to left instead of left to right -->
-      <#if !userLogin?has_content || (userLogin.userLoginId)! != "anonymous">
-        <li id="header-bar-viewprofile"><a href="<@ofbizUrl>viewprofile</@ofbizUrl>">${uiLabelMap.CommonProfile}</a></li>
-        <li id="header-bar-ListMessages"><a href="<@ofbizUrl>messagelist</@ofbizUrl>">${uiLabelMap.CommonMessages}</a></li>
-        <li id="header-bar-ListQuotes"><a href="<@ofbizUrl>ListQuotes</@ofbizUrl>">${uiLabelMap.OrderOrderQuotes}</a></li>
-        <li id="header-bar-ListRequests"><a href="<@ofbizUrl>ListRequests</@ofbizUrl>">${uiLabelMap.OrderRequests}</a></li>
-        <li id="header-bar-editShoppingList"><a href="<@ofbizUrl>editShoppingList</@ofbizUrl>">${uiLabelMap.EcommerceShoppingLists}</a></li>
-        <li id="header-bar-orderhistory"><a href="<@ofbizUrl>orderhistory</@ofbizUrl>">${uiLabelMap.EcommerceOrderHistory}</a></li>
-      </#if>
-      <#if catalogQuickaddUse>
-        <li id="header-bar-quickadd"><a href="<@ofbizUrl>quickadd</@ofbizUrl>">${uiLabelMap.CommonQuickAdd}</a></li>
-      </#if>
-    </ul>
-  </div>
+            <a class="navbar-brand home" href="/ecommerce">
+            
+			    <#if sessionAttributes.overrideLogo?has_content>
+			        <img src="<@ofbizContentUrl>${sessionAttributes.overrideLogo}</@ofbizContentUrl>" alt="Logo" class="hidden-xs hidden-sm"/>
+			    <#elseif catalogHeaderLogo?has_content>
+			        <img src="<@ofbizContentUrl>${catalogHeaderLogo}</@ofbizContentUrl>" alt="Logo" class="hidden-xs hidden-sm"/>
+			    <#elseif layoutSettings.VT_HDR_IMAGE_URL?has_content>
+			        <img src="<@ofbizContentUrl>${layoutSettings.VT_HDR_IMAGE_URL.get(0)}</@ofbizContentUrl>" alt="Logo" class="hidden-xs hidden-sm"/>
+			    </#if>                            
+                <img src="/images/ofbiz_logo-small.gif" alt="Minimal logo" class="visible-xs visible-sm"><span class="sr-only">Minimal - go to homepage</span>
+            </a>
+            <div class="navbar-buttons">
+                <button type="button" class="navbar-toggle btn-primary" data-toggle="collapse" data-target="#navigation">
+                    <span class="sr-only">Toggle navigation</span>
+                    <i class="fa fa-align-justify"></i>
+                </button>                
+                <a class="btn btn-primary navbar-toggle" href="<@ofbizUrl>view/showcart</@ofbizUrl>">
+                    <i class="fa fa-shopping-cart"></i>  <span class="hidden-xs">3 items in cart</span>
+                </a>
+                <button type="button" class="navbar-toggle btn-default" data-toggle="collapse" data-target="#search">
+                    <span class="sr-only">Toggle search</span>
+                    <i class="fa fa-search"></i>
+                </button>
+                <#if sessionAttributes.userLogin?has_content && sessionAttributes.userLogin.userLoginId != "anonymous">
+	                <button type="button" class="navbar-toggle btn-default" data-toggle="modal" data-target="#user-modal">
+                        <span class="sr-only">User login</span>
+                        <i class="fa fa-user"></i>
+                    </button>
+                <#else>
+                    <button type="button" class="navbar-toggle btn-default" data-toggle="modal" data-target="#login-modal">
+                        <span class="sr-only">User login</span>
+                        <i class="fa fa-lock"></i>
+                    </button>
+	                                	                
+                </#if>
+
+            </div>
+        </div>
+        <!--/.navbar-header -->
+
+        ${screens.render("component://ecommerce/widget/CartScreens.xml#microcart")}
+        
+        <!--/.nav-collapse -->
+
+        <div class="navbar-collapse collapse right">
+            <button type="button" class="btn navbar-btn btn-default" data-toggle="collapse" data-target="#search">
+                <span class="sr-only">Toggle search</span>
+                <i class="fa fa-search"></i>
+            </button>
+        </div>
+
+        <div class="navbar-collapse collapse right">
+            <#if sessionAttributes.userLogin?has_content && sessionAttributes.userLogin.userLoginId != "anonymous">
+                <button type="button" class="btn navbar-btn btn-default" data-toggle="modal" data-target="#user-modal">
+	                <span class="sr-only">Toggle search</span>
+	                <i class="fa fa-user"></i>
+	            </button>
+            <#else>
+                <button type="button" class="btn navbar-btn btn-default" data-toggle="modal" data-target="#login-modal">
+                    <span class="sr-only">User login</span>
+                    <i class="fa fa-lock"></i>
+                </button>                             
+            </#if>
+        </div>
+
+        <div class="collapse clearfix" id="search">
+
+            <form class="navbar-form" role="search">
+                <div class="input-group">                    
+                    <input type="text" name="SEARCH_STRING" class="form-control" placeholder="Search">
+                    <input type="hidden" name="SEARCH_CATEGORY_ID" value="CATALOG1_SEARCH">
+                    <input type="hidden" name="SEARCH_OPERATOR" value="OR">
+                    <span class="input-group-btn">                        
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>			
+			        </span>
+                </div>
+            </form>
+
+        </div>
+        <!--/.nav-collapse -->
+
+
+        <div class="navbar-collapse collapse" id="navigation">
+
+            <ul class="nav navbar-nav navbar-left">
+                
+                ${screens.render("component://ecommerce/widget/CatalogScreens.xml#productCatalogNav")}                
+                
+                </li>
+            </ul>
+
+        </div>
+        <!--/.nav-collapse -->
+
+
+    </div>
+
+
+</div>
+
+<#if sessionAttributes.userLogin?has_content && sessionAttributes.userLogin.userLoginId != "anonymous">
+	<!-- *** USER MODAL *** -->
+	
+	<div class="modal fade" id="user-modal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
+	    <div class="modal-dialog modal-sm">
+	
+	        <div class="modal-content">
+	            <div class="modal-header">
+	                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	                <h4 class="modal-title" id="User">
+	                    <#if sessionAttributes.autoName?has_content>
+	                      ${uiLabelMap.CommonWelcome}&nbsp;${sessionAttributes.autoName?html}!                    
+	                    <#else/>
+	                      ${uiLabelMap.CommonWelcome}!
+	                    </#if>
+	                </h4>
+	            </div>
+	            <div class="modal-body">
+	                <p class="text-muted"><a href="<@ofbizUrl>viewprofile</@ofbizUrl>" class="linktext"><strong>${uiLabelMap.CommonProfile}</strong></a></p>
+	                <hr/>
+	                <p class="text-muted"><a href="<@ofbizUrl>orderhistory</@ofbizUrl>">${uiLabelMap.EcommerceOrderHistory}</a></p>
+	                <hr/>
+	                <p class="text-muted"><a href="<@ofbizUrl>editShoppingList</@ofbizUrl>">${uiLabelMap.EcommerceShoppingLists}</a></p>
+	                <hr/>
+                    <p class="text-muted"><a href="<@ofbizUrl>autoLogout</@ofbizUrl>" class="linktext"><strong>${uiLabelMap.CommonLogout}</strong></a></p>
+                    
+	            </div>
+	        </div>
+	    </div>
+	</div>
+	
+	<!-- *** USER MODAL END *** -->
+
+<#else>
+	<!-- *** LOGIN MODAL *** -->
+	
+	<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
+	    <div class="modal-dialog modal-sm">
+	
+	        <div class="modal-content">
+	            <div class="modal-header">
+	                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	                <h4 class="modal-title" id="Login">Login</h4>
+	            </div>
+	            <div class="modal-body">
+	                <form action="<@ofbizUrl>login</@ofbizUrl>" method="post">
+	                    <div class="form-group">
+	                        <input type="text" class="form-control" id="email" placeholder="${uiLabelMap.CommonEmail}" name="USERNAME">
+	                    </div>
+	                    <div class="form-group">
+	                        <input type="password" class="form-control" id="password" name="PASSWORD" placeholder="${uiLabelMap.CommonPassword}">
+	                    </div>
+	
+	                    <p class="text-center">
+	                        <button class="btn btn-primary"><i class="fa fa-sign-in"></i> ${uiLabelMap.CommonLogin}</button>
+	                    </p>
+	
+	                </form>         
+	
+	                <p class="text-center text-muted">Not registered yet?</p>
+	                <p class="text-center text-muted"><a href="<@ofbizUrl>newcustomer</@ofbizUrl>"><strong>${uiLabelMap.EcommerceRegister}</strong></a>!</p> 
+	                <p>It is easy and done in 1&nbsp;minute and gives you access to special discounts and much more!</p>
+	
+	            </div>
+	        </div>
+	    </div>
+	</div>
+	
+	<!-- *** LOGIN MODAL END *** -->
+</#if>
+<!-- ./header -->
+
