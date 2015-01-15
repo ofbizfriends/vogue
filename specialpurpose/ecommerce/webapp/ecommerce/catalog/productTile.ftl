@@ -124,7 +124,7 @@ under the License.
     
     
 
-                                    <p class="price">
+                                    <p class="text-center price">
                                     
                                     
                                         <#if totalPrice??>
@@ -136,11 +136,11 @@ under the License.
                                             <#if price.listPrice?? && price.price?? && price.price?double < price.listPrice?double>
                                               <del><@ofbizCurrency amount=price.listPrice isoCode=price.currencyUsed/></del>
                                             </#if>
-                                            <b>                                         
+                                                                                     
                                               <#if (price.price?default(0) > 0 && product.requireAmount?default("N") == "N")>
                                                 <#if "Y" = product.isVirtual!> ${uiLabelMap.CommonFrom} </#if><@ofbizCurrency amount=price.price isoCode=price.currencyUsed/>
                                               </#if>
-                                            </b>
+                                            
                                         </#if>
                                         
                                         
@@ -163,10 +163,7 @@ under the License.
                                     </p>
 
                                     <p class="text-center">
-                                    
-                                    
-
-                                        
+                                                                            
                                           <#-- check to see if introductionDate hasn't passed yet -->
                                           <#if product.introductionDate?? && nowTimestamp.before(product.introductionDate)>
                                             <div style="color: red;">${uiLabelMap.ProductNotYetAvailable}</div>
@@ -291,7 +288,7 @@ under the License.
                         
                         
                         <#if (price.price?default(0) > 0 && product.requireAmount?default("N") == "N")>
-                            <b><#if "Y" = product.isVirtual!> ${uiLabelMap.CommonFrom} </#if><@ofbizCurrency amount=price.price isoCode=price.currencyUsed/></b>
+                            <#if "Y" = product.isVirtual!> ${uiLabelMap.CommonFrom} </#if><@ofbizCurrency amount=price.price isoCode=price.currencyUsed/>
                         <#else>
                             ${uiLabelMap.OrderChooseVariations}...
                         </#if>

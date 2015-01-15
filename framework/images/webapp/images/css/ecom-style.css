@@ -428,7 +428,7 @@ button i.fa {
   padding:6px 20px 6px 20px;
   margin:30px 10px 10px -71px;
   color:#fff;
-  background-color:#c27baa;
+  background-color:#dc0d17;
   font-family:"Montserrat",Helvetica,Arial,sans-serif;
 }
 
@@ -725,8 +725,8 @@ button i.fa {
 }
 
 #content .product .text h3 {
-  font-size:18px;
-  font-weight:700;
+  font-size:16px;
+  font-weight:200;
   height:39.6px;
 }
 
