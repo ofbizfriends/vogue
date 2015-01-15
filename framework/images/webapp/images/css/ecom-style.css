@@ -690,6 +690,7 @@ button i.fa {
 }
 
 @media (max-width:767px) {
+  #content .productsummary .smallimage img.img-responsive,	
   #content .product .image img.img-responsive {
     min-width:100%;
   }
@@ -714,6 +715,23 @@ button i.fa {
   text-align:center;
 }
 
+.productsummary{
+    margin-bottom: 30px;
+    overflow: hidden;	
+}	
+#content .categoryTile{ 
+  position:absolute;
+  top:53%;
+  left:5%;
+  padding:0 15px;
+  right: 5%;
+  bottom: 30px;
+  background: rgba(255,255,255,0.85);
+  overflow: hidden;
+}	
+#content .categoryTile a{ 
+	color: #555;
+}	
 @media (max-width:767px) {
   #content .product .image .quick-view-button {
     display:none;
@@ -735,7 +753,7 @@ button i.fa {
 }
 
 #content .product .text p.price {
-  font-size:18px;
+  font-size:16px;
 }
 
 #content .product .text p.price del {
@@ -1769,7 +1787,7 @@ button i.fa {
 }
 
 body {
-  font-family:"Merriweather","Times New Roman",Times,serif;
+ 
   font-size:14px;
   line-height:1.42857143;
   color:#555;

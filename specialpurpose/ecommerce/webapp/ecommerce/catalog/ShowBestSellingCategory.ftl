@@ -21,7 +21,7 @@ under the License.
 
     <div class="box text-center">
         <h3 class="text-uppercase">Popular Categories</h3>
-        <h4 class="text-muted"><span class="accent">Free shipping</span> on all</h4>
+        <h4 class="text-muted"><span class="accent">Hot selling, Exclusive</span> and more </h4>
     </div>
     
     
@@ -48,44 +48,50 @@ under the License.
                             <#assign categoryImageUrl = product.smallImageUrl/>
                         </#if>
                    </#if>
-                    <td>
+                    
                         <div class="productsummary">
                             <div class="smallimage">
                                 <a href="<@ofbizCatalogAltUrl productCategoryId=productCategoryId/>">
-                                    <span class="popup_link"><img alt="Small Image" src="${categoryImageUrl}"></span>
+                                    <img alt="Small Image" src="${categoryImageUrl}" class="img-responsive">
                                 </a>
-                            </div>
-                            <div class="productbuy">
-                                <a class="linktext"  style="font-size:12px" href="<@ofbizCatalogAltUrl productCategoryId=productCategoryId/>">${productCategory.categoryName!productCategoryId}</a>
-                            </div>
-                            <div class="productinfo">
-                                <ul>
-                                <#if productCategoryMembers??>
-                                    <#assign i = 0/>
-                                    <#list productCategoryMembers as productCategoryMember>
-                                        <#if (i > 2)>
-                                            <#if productCategoryMembers[i]?has_content>
-                                                <a class="linktext" href="<@ofbizCatalogAltUrl productCategoryId=productCategoryId/>">
-                                                    <span>More...</span>
-                                                </a>
-                                            </#if>
-                                            <#break>
-                                        </#if>
-                                        <#if productCategoryMember?has_content>
-                                            <#assign product = delegator.findOne("Product", Static["org.ofbiz.base.util.UtilMisc"].toMap("productId", productCategoryMember.productId), false)>
-                                            <li class="browsecategorytext">
-                                                <a class="linktext" href="<@ofbizCatalogAltUrl productCategoryId="PROMOTIONS" productId="${product.productId}"/>">
-                                                    ${product.productName!product.productId}
-                                                </a>
-                                            </li>
-                                        </#if>
-                                        <#assign i = i+1/>
-                                    </#list>
-                                </#if>
-                                </ul>
+                            </div>                            
+                            <div class="categoryTile">
+	                            <div class="productbuy">
+	                                <h4><a href="<@ofbizCatalogAltUrl productCategoryId=productCategoryId/>">${productCategory.categoryName!productCategoryId}</a></h4>
+	                            </div>
+	                            <div class="productinfo">
+	                                
+	                                <#if productCategoryMembers??>
+	                                    <#assign i = 0/>
+	                                    <#list productCategoryMembers as productCategoryMember>
+	                                        <#if (i > 2)>
+	                                            <#if productCategoryMembers[i]?has_content>
+	                                                <p>
+	                                                <a class="linktext" href="<@ofbizCatalogAltUrl productCategoryId=productCategoryId/>">
+	                                                    <span>More...</span>
+	                                                </a>
+	                                                </p>
+	                                            </#if>
+	                                            <#break>
+	                                        </#if>
+	                                        <#if productCategoryMember?has_content>
+	                                            <#assign product = delegator.findOne("Product", Static["org.ofbiz.base.util.UtilMisc"].toMap("productId", productCategoryMember.productId), false)>
+	                                            
+	                                            <div class="browsecategorytext">
+	                                                <a class="linktext" href="<@ofbizCatalogAltUrl productCategoryId="PROMOTIONS" productId="${product.productId}"/>">
+	                                                    ${product.productName!product.productId}
+	                                                </a>
+	                                            </div>
+	                                            
+	                                        </#if>
+	                                        <#assign i = i+1/>
+	                                    </#list>
+	                                </#if>
+	                                
+	                            </div>
                             </div>
                         </div>
-                    </td>
+                    
                     <#assign cateCount = cateCount + 1/>
                 </div> <!-- ./col-md-4  -->                    
             </#list>                        
