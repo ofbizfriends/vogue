@@ -110,7 +110,7 @@ under the License.
                 
                 ${screens.render("component://ecommerce/widget/CatalogScreens.xml#productCatalogNav")}                
                 
-                </li>
+                
             </ul>
 
         </div>

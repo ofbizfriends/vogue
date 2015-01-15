@@ -42,7 +42,7 @@ under the License.
             <input type="text" class="form-control" name="emailAddress" value="${parameters.emailAddress!}"/> *
         </div>        	    
 	    <div class="form-group">
-            <input type="submit" class="btn btn-default" value="${uiLabelMap.CommonContinue}"/>
+            <button type="submit" class="btn btn-primary">${uiLabelMap.CommonContinue} <i class="fa fa-chevron-right"></i> </button>
         </div>
 	</form>
 </div>

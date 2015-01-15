@@ -233,13 +233,11 @@ function shipBillAddr() {
                         </tr>
                     </#if>
                 </#if>
-
-                <tr>
-                    <td align="center" colspan="3">
-                        <input type="submit" class="btn btn-default" value="Continue"/>
-                    </td>
-                </tr>
             </table>
+	        <div class="form-group">
+	            <button type="submit" class="btn btn-primary">${uiLabelMap.CommonContinue} <i class="fa fa-chevron-right"></i> </button>
+	        </div>
+            
         </form>
     </div>
 </div>

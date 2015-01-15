@@ -31,7 +31,7 @@ under the License.
 	    </#if>        
         <@paymentOptionReg /> 
         <div class="form-group">
-            <input type="submit" class="btn btn-default" value="${uiLabelMap.CommonContinue}"/>
+            <button type="submit" class="btn btn-primary">${uiLabelMap.CommonContinue} <i class="fa fa-chevron-right"></i> </button>
         </div>        
     </form>
 </div>
@@ -96,11 +96,7 @@ under the License.
     </#if>
     
     
-    <#if !paymentMethodList?has_content>
-        <div>
-            <strong>${uiLabelMap.AccountingNoPaymentMethods}.</strong>
-        </div>
-    <#else>
+    <#if paymentMethodList?has_content>
         <#list paymentMethodList as paymentMethod>
             <#if paymentMethod.paymentMethodTypeId == "GIFT_CARD">
                 <#if productStorePaymentMethodTypeIdMap.GIFT_CARD??>

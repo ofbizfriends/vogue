@@ -66,7 +66,7 @@ under the License.
             <span id="advice-required-stateProvinceGeoId" style="display:none" class="errorMessage">(${uiLabelMap.CommonRequired})</span>
         </div>
         <div class="form-group">
-            <input type="submit" class="btn btn-default" value="${uiLabelMap.CommonContinue}"/>
+            <button type="submit" class="btn btn-primary">${uiLabelMap.CommonContinue} <i class="fa fa-chevron-right"></i> </button>
         </div>    
     </form>
 </div>

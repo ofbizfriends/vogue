@@ -17,12 +17,12 @@ specific language governing permissions and limitations
 under the License.
 -->
 <#-- variable setup -->
-<#assign productContentWrapper = productContentWrapper!>
-<#assign price = priceMap!>
+<#assign productContentWrapper = productContentWrapper?if_exists>
+<#assign price = priceMap?if_exists>
 <#-- end variable setup -->
 
 <#-- virtual product javascript -->
-${virtualJavaScript!}
+${virtualJavaScript?if_exists}
 <script language="JavaScript" type="text/javascript">
 <!--
     var detailImageUrl = null;
@@ -37,7 +37,7 @@ ${virtualJavaScript!}
      }
      function isVirtual(product) {
         var isVirtual = false;
-        <#if virtualJavaScript??>
+        <#if virtualJavaScript?exists>
         for (i = 0; i < VIR.length; i++) {
             if (VIR[i] == product) {
                 isVirtual = true;
@@ -363,7 +363,7 @@ function getConfigDetails(event) {
                         <p>${question.question}</p>
                         <div>
 	                        <#if question.isFirst()>
-	                            <a name='#${question.getConfigItem().getString("configItemId")}'></a>
+	                            <a id='#${question.getConfigItem().getString("configItemId")}'></a>
 	                            <div>${question.description!}</div>
 	                            <#assign instructions = question.content.get("INSTRUCTIONS")!>
 	                            <#if instructions?has_content>
@@ -494,7 +494,7 @@ function getConfigDetails(event) {
                                 </#list>
                             </#if>
                         </#if>
-                    </div
+                    </div>
                 <#assign counter = counter + 1>
             </#list>
         
