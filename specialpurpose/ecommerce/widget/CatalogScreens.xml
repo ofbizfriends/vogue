@@ -281,8 +281,7 @@ under the License.
 
                 <script location="component://order/webapp/ordermgr/WEB-INF/actions/entry/catalog/ProductDetail.groovy"/>
             </actions>
-            <widgets>
-                <include-screen name="breadcrumbs"/>
+            <widgets>                
                 <platform-specific><html><html-template location="component://ecommerce/webapp/ecommerce/catalog/productdetail.ftl"/></html></platform-specific>
             </widgets>
         </section>
@@ -307,8 +306,7 @@ under the License.
                 <script location="component://order/webapp/ordermgr/WEB-INF/actions/entry/catalog/ProductDetail.groovy"/>
                 <script location="component://order/webapp/ordermgr/WEB-INF/actions/entry/catalog/PrepareConfigForm.groovy"/>
             </actions>
-            <widgets>
-                <include-screen name="breadcrumbs"/>
+            <widgets>                
                 <platform-specific><html><html-template location="component://ecommerce/webapp/ecommerce/catalog/configproductdetail.ftl"/></html></platform-specific>
             </widgets>
         </section>
@@ -423,7 +421,7 @@ under the License.
             <widgets>
                 <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
                     <decorator-section name="body">
-                        <platform-specific><html><html-template location="component://order/webapp/ordermgr/entry/catalog/keywordsearch.ftl"/></html></platform-specific>
+                        <platform-specific><html><html-template location="component://ecommerce/webapp/ecommerce/catalog/keywordsearch.ftl"/></html></platform-specific>
                     </decorator-section>
                 </decorator-screen>
             </widgets>

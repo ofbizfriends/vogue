@@ -1,5 +1,6 @@
 body {
   padding-top:140px;
+  font-family: "Merriweather","Times New Roman",Times,serif;
 }
 
 body.no-padding {
@@ -835,6 +836,14 @@ button i.fa {
   max-height:350px;
   margin:0 auto;
 }
+#content #productMain{
+    padding-top: 30px;
+    border-top: solid 1px #ccc;	
+}
+
+#content #productMain .box{
+    padding: 20px 0;	
+}	
 
 #content #productMain,
 #content .quick-view {

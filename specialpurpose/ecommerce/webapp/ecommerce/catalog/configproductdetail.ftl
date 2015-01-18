@@ -163,12 +163,10 @@ function getConfigDetails(event) {
 <#import "component://ecommerce/webapp/ecommerce/catalog/productdetail.ftl" as productDetailMacro>
 
 <div id="productdetail" class="row">
-
-    <@productDetailMacro.nextPreviousCat />
     
     
-    
-    <div id="productMain">
+        
+    <div id="productMain" class="col-md-12">
         <div class="col-md-5 col-xs-12">
             <@productDetailMacro.displayProductImages/>
         </div> <!-- ./col-md-5 -->
@@ -185,18 +183,11 @@ function getConfigDetails(event) {
                     <div class="col-md-6">
                         <@productConfigurator />
                     </div>
-                </div>
-                <br/>
+                </div>                
                 <@displayPriceDetails />
-                <br/> 
-                <div class="row">
-                    <div class="col-md-6">
-                        <@productDetailMacro.addItemForm />
-                    </div>
-                </div>                                   
-                
-                
             </div><!-- ./box -->
+            <@productDetailMacro.addItemForm />
+
             <br/>
             <@productDetailMacro.showVirtualProductSwatch />
             <br/>
@@ -226,31 +217,34 @@ function getConfigDetails(event) {
               - if isSale show price with salePrice style and print "On Sale!"
     -->
     <#if totalPrice??>
-        <p class="price">${uiLabelMap.ProductAggregatedPrice}: <span id='totalPrice' class='basePrice'><@ofbizCurrency amount=totalPrice isoCode=totalPrice.currencyUsed/></span></p>
+        <p>
+            <span id='totalPrice' class='price'><@ofbizCurrency amount=totalPrice isoCode=totalPrice.currencyUsed/></span>
+            <span class="text-muted">(${uiLabelMap.ProductAggregatedPrice})</span>
+        </p>
     <#else>
         <#if price.competitivePrice?? && price.price?? && price.price < price.competitivePrice>
-            <div>${uiLabelMap.ProductCompareAtPrice}: <span class='basePrice'><@ofbizCurrency amount=price.competitivePrice isoCode=price.currencyUsed/></span></div>
+            <div class="price">${uiLabelMap.ProductCompareAtPrice} <span class='basePrice'><@ofbizCurrency amount=price.competitivePrice isoCode=price.currencyUsed/></span></div>
         </#if>
         <#if price.listPrice?? && price.price?? && price.price < price.listPrice>
-            <div>${uiLabelMap.ProductListPrice}: <span class='basePrice'><@ofbizCurrency amount=price.listPrice isoCode=price.currencyUsed/></span></div>
+            <div class="price">${uiLabelMap.ProductListPrice} <span class='basePrice'><@ofbizCurrency amount=price.listPrice isoCode=price.currencyUsed/></span></div>
         </#if>
         <#if price.listPrice?? && price.defaultPrice?? && price.price?? && price.price < price.defaultPrice && price.defaultPrice < price.listPrice>
-            <div>${uiLabelMap.ProductRegularPrice}: <span class='basePrice'><@ofbizCurrency amount=price.defaultPrice isoCode=price.currencyUsed/></span></div>
+            <div class="price">${uiLabelMap.ProductRegularPrice} <span class='basePrice'><@ofbizCurrency amount=price.defaultPrice isoCode=price.currencyUsed/></span></div>
         </#if>
-        <div>
+        <div class="price">
             <#if price.isSale?? && price.isSale>
                 <span class='salePrice'>${uiLabelMap.OrderOnSale}!</span>
                 <#assign priceStyle = "salePrice">
             <#else>
                 <#assign priceStyle = "regularPrice">
             </#if>
-            ${uiLabelMap.OrderYourPrice}: <#if "Y" = product.isVirtual!> from </#if><span class='${priceStyle}'><@ofbizCurrency amount=price.price isoCode=price.currencyUsed/></span>
+            <#if "Y" = product.isVirtual!> from </#if><span class='${priceStyle}'><@ofbizCurrency amount=price.price isoCode=price.currencyUsed/></span>
 
         </div>
         <#if price.listPrice?? && price.price?? && price.price < price.listPrice>
             <#assign priceSaved = price.listPrice - price.price>
             <#assign percentSaved = (priceSaved / price.listPrice) * 100>
-            <div>${uiLabelMap.OrderSave}: <span class="basePrice"><@ofbizCurrency amount=priceSaved isoCode=price.currencyUsed/> (${percentSaved?int}%)</span></div>
+            <div>${uiLabelMap.OrderSave} <span class="basePrice"><@ofbizCurrency amount=priceSaved isoCode=price.currencyUsed/> (${percentSaved?int}%)</span></div>
         </#if>
     </#if>
 
@@ -322,9 +316,9 @@ function getConfigDetails(event) {
 	            <#else>
 	                <#assign hiddenStyle = "hidden">
 	            </#if>
-	            <div id="add_amount" class="${hiddenStyle}">
-	                <span style="white-space: nowrap;"><b>Amount:</b></span>&nbsp;
-	                <input type="text" size="5" name="add_amount" value="" />
+	            <div id="add_amount" class="form-group" style="visibility : ${hiddenStyle};">
+	                <label><strong>Amount</strong></label>
+	                <input type="text" size="5" class="form-control" name="add_amount" value="" />
 	            </div>
 	            <#if !configwrapper.isCompleted()>
 	                <div>[${uiLabelMap.EcommerceProductNotConfigured}]&nbsp;
@@ -346,71 +340,74 @@ function getConfigDetails(event) {
 </#macro>
 <#macro productConfigurator>
     <#-- Product Configurator -->
-    <form name="configform" id="configFormId" method="post" action="<@ofbizUrl>product<#if requestAttributes._CURRENT_VIEW_??>/${requestAttributes._CURRENT_VIEW_}</#if></@ofbizUrl>">
+    <form name="configform" id="configFormId" method="post" action="<@ofbizUrl>product<#if requestAttributes._CURRENT_VIEW_??>/${requestAttributes._CURRENT_VIEW_}</#if></@ofbizUrl>" class="form-inline">
         <input type='hidden' name='add_product_id' value='${product.productId}' />
         <input type='hidden' name='add_category_id' value='' />
         <input type='hidden' name='quantity' value='1' />
 
         <input type='hidden' name='product_id' value='${product.productId}' />
         
-        <p><a href="javascript:verifyConfig();" class="btn btn-default">${uiLabelMap.OrderVerifyConfiguration}</a></p>
-        
-        
             
-            <#assign counter = 0>
-            <#assign questions = configwrapper.questions>
-            <#list questions as question>
-                        <p>${question.question}</p>
-                        <div>
-	                        <#if question.isFirst()>
-	                            <a id='#${question.getConfigItem().getString("configItemId")}'></a>
-	                            <div>${question.description!}</div>
-	                            <#assign instructions = question.content.get("INSTRUCTIONS")!>
-	                            <#if instructions?has_content>
-	                                <a href="javascript:showErrorAlert("${uiLabelMap.CommonErrorMessage2}","${instructions}");" class="btn btn-primary">Instructions</a>
-	                            </#if>
-	                            <#assign image = question.content.get("IMAGE_URL")!>
-	                            <#if image?string?has_content>
-	                                <img src='<@ofbizContentUrl>${contentPathPrefix!}${image!}</@ofbizContentUrl>' vspace='5' hspace='5' class='cssImgXLarge' align='left' alt="" />
-	                            </#if>
-	                        <#else>
-	                            <div><a href='#${question.getConfigItem().getString("configItemId")}' class="btn btn-primary">Details</a></div>
-	                        </#if>
-                        </div>
-                
-                        <div>
-                        <#if question.isStandard()>
-                            <#-- Standard item: all the options are always included -->
-                            <#assign options = question.options>
-                            <#list options as option>
-                                <div>${option.description} <#if !option.isAvailable()> (*)</#if></div>
-                            </#list>
+        <#assign counter = 0>
+        <#assign questions = configwrapper.questions>
+        <#list questions as question>
+                    <br/>
+                    <h5>${question.question}</h5>
+                    <div>
+                        <#if question.isFirst()>
+                            <a id='#${question.getConfigItem().getString("configItemId")}'></a>
+                            <div>${question.description!}</div>
+                            <#assign instructions = question.content.get("INSTRUCTIONS")!>
+                            <#if instructions?has_content>
+                                <a href="javascript:showErrorAlert("${uiLabelMap.CommonErrorMessage2}","${instructions}");" class="btn btn-primary">Instructions</a>
+                            </#if>
+                            <#assign image = question.content.get("IMAGE_URL")!>
+                            <#if image?string?has_content>
+                                <img src='<@ofbizContentUrl>${contentPathPrefix!}${image!}</@ofbizContentUrl>' class="img-responsive" alt="" />
+                            </#if>
                         <#else>
-                            <#if question.isSingleChoice()>
-                                <#-- Single choice question -->
-                                <#assign options = question.options>
-                                <#assign selectedOption = question.getSelected()!>
-                                <#assign selectedPrice = 0.0>
-                                <#if selectedOption?has_content>
-                                    <#assign selectedPrice = selectedOption.getPrice()>
+                            <div><a href='#${question.getConfigItem().getString("configItemId")}' class="btn btn-primary">Details</a></div>
+                        </#if>
+                    </div>
+            
+                    <div>
+                    <#if question.isStandard()>
+                        <#-- Standard item: all the options are always included -->
+                        <#assign options = question.options>
+                        <#list options as option>
+                            <div>${option.description} <#if !option.isAvailable()> (*)</#if></div>
+                        </#list>
+                    <#else>
+                        <#if question.isSingleChoice()>
+                            <#-- Single choice question -->
+                            <#assign options = question.options>
+                            <#assign selectedOption = question.getSelected()!>
+                            <#assign selectedPrice = 0.0>
+                            <#if selectedOption?has_content>
+                                <#assign selectedPrice = selectedOption.getPrice()>
+                            </#if>
+                            <#-- The single choice input can be implemented with radio buttons or a select field -->
+                            <#if renderSingleChoiceWithRadioButtons?? && "Y" == renderSingleChoiceWithRadioButtons>
+                                <#-- This is the radio button implementation -->
+                                <#if !question.isMandatory()>
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name='${counter}' value='<#if !question.isSelected()>checked</#if>' /> No option
+                                        </label>
+                                    </div>
                                 </#if>
-                                <#-- The single choice input can be implemented with radio buttons or a select field -->
-                                <#if renderSingleChoiceWithRadioButtons?? && "Y" == renderSingleChoiceWithRadioButtons>
-                                    <#-- This is the radio button implementation -->
-                                    <#if !question.isMandatory()>
-                                        <div><input type="radio" name='${counter}' value='<#if !question.isSelected()>checked</#if>' /> No option</div>
+                                <#assign optionCounter = 0>
+                                <#list options as option>
+                                    <#assign componentCounter = 0>
+                                    <#if showOffsetPrice?? && "Y" == showOffsetPrice>
+                                        <#assign shownPrice = option.price - selectedPrice>
+                                    <#else>
+                                        <#assign shownPrice = option.price>
                                     </#if>
-                                    <#assign optionCounter = 0>
-                                    <#list options as option>
-                                        <#assign componentCounter = 0>
-                                        <#if showOffsetPrice?? && "Y" == showOffsetPrice>
-                                            <#assign shownPrice = option.price - selectedPrice>
-                                        <#else>
-                                            <#assign shownPrice = option.price>
-                                        </#if>
-                                        <#-- Render virtual compoennts -->
-                                        <#if option.hasVirtualComponent()>
-                                            <div >
+                                    <#-- Render virtual compoennts -->
+                                    <#if option.hasVirtualComponent()>
+                                        <div class="radio">
+                                            <label>
                                                 <input type='radio' name='${counter}' id="${counter}_${optionCounter}" value='${optionCounter}' onclick="javascript:checkOptionVariants('${counter}_${optionCounter}');" />
                                                 ${option.description} <#if !option.isAvailable()> (*)</#if>
                                                 <#assign components = option.getComponents()>
@@ -423,54 +420,58 @@ function getConfigDetails(event) {
                                                         <#assign componentCounter = componentCounter + 1>
                                                     </#if>
                                                 </#list>
-                                            </div>
-                                        <#else>
-                                            <div>
+                                            </label>
+                                        </div>
+                                    <#else>
+                                        <div class="radio">
+                                            <label>
                                                 <input type="radio" name='${counter}' value='${optionCounter}' <#if option.isSelected() || (!question.isSelected() && optionCounter == 0 && question.isMandatory())>checked="checked"</#if> />
                                                 ${option.description}&nbsp;
                                                 <#if (shownPrice > 0)>+<@ofbizCurrency amount=shownPrice isoCode=price.currencyUsed/>&nbsp;</#if>
                                                 <#if (shownPrice < 0)>-<@ofbizCurrency amount=(-1*shownPrice) isoCode=price.currencyUsed/>&nbsp;</#if>
                                                 <#if !option.isAvailable()>(*)</#if>
-                                            </div>
+                                            </label>
+                                        </div>
+                                    </#if>
+                                    <#assign optionCounter = optionCounter + 1>
+                                </#list>
+                            <#else>
+                                <#-- And this is the select box implementation -->
+                                <select name='${counter}' class="form-control">
+                                    <#if !question.isMandatory()>
+                                        <option value=''>---</option>
+                                    </#if>
+                                    <#assign options = question.options>
+                                    <#assign optionCounter = 0>
+                                    <#list options as option>
+                                        <#if showOffsetPrice?? && "Y" == showOffsetPrice>
+                                            <#assign shownPrice = option.price - selectedPrice>
+                                        <#else>
+                                            <#assign shownPrice = option.price>
                                         </#if>
+                                        <#if option.isSelected()>
+                                            <#assign optionCounter = optionCounter + 1>
+                                        </#if>
+                                        <option value='${optionCounter}' <#if option.isSelected()>selected="selected"</#if>>
+                                            ${option.description}&nbsp;
+                                            <#if (shownPrice > 0)>+<@ofbizCurrency amount=shownPrice isoCode=price.currencyUsed/>&nbsp;</#if>
+                                            <#if (shownPrice < 0)>-<@ofbizCurrency amount=(-1*shownPrice) isoCode=price.currencyUsed/>&nbsp;</#if>
+                                            <#if !option.isAvailable()> (*)</#if>
+                                        </option>
                                         <#assign optionCounter = optionCounter + 1>
                                     </#list>
-                                <#else>
-                                    <#-- And this is the select box implementation -->
-                                    <select name='${counter}' class="form-control">
-                                        <#if !question.isMandatory()>
-                                            <option value=''>---</option>
-                                        </#if>
-                                        <#assign options = question.options>
-                                        <#assign optionCounter = 0>
-                                        <#list options as option>
-                                            <#if showOffsetPrice?? && "Y" == showOffsetPrice>
-                                                <#assign shownPrice = option.price - selectedPrice>
-                                            <#else>
-                                                <#assign shownPrice = option.price>
-                                            </#if>
-                                            <#if option.isSelected()>
-                                                <#assign optionCounter = optionCounter + 1>
-                                            </#if>
-                                            <option value='${optionCounter}' <#if option.isSelected()>selected="selected"</#if>>
-                                                ${option.description}&nbsp;
-                                                <#if (shownPrice > 0)>+<@ofbizCurrency amount=shownPrice isoCode=price.currencyUsed/>&nbsp;</#if>
-                                                <#if (shownPrice < 0)>-<@ofbizCurrency amount=(-1*shownPrice) isoCode=price.currencyUsed/>&nbsp;</#if>
-                                                <#if !option.isAvailable()> (*)</#if>
-                                            </option>
-                                            <#assign optionCounter = optionCounter + 1>
-                                        </#list>
-                                    </select>
-                                </#if>
-                            <#else>
-                                <#-- Multi choice question -->
-                                <#assign options = question.options>
-                                <#assign optionCounter = 0>
-                                <#list options as option>
-                                    <#assign componentCounter = 0>
-                                    <#-- Render virtual compoennts -->
-                                    <#if option.hasVirtualComponent()>
-                                        <div >
+                                </select>
+                            </#if>
+                        <#else>
+                            <#-- Multi choice question -->
+                            <#assign options = question.options>
+                            <#assign optionCounter = 0>
+                            <#list options as option>
+                                <#assign componentCounter = 0>
+                                <#-- Render virtual compoennts -->
+                                <#if option.hasVirtualComponent()>
+                                    <div class="checkbox">
+                                        <label>
                                             <input type='CHECKBOX' name='${counter}' id="${counter}_${optionCounter}" value='${optionCounter}' onclick="javascript:checkOptionVariants('${counter}_${optionCounter}');" />
                                             ${option.description} <#if !option.isAvailable()> (*)</#if>
                                             <#assign components = option.getComponents()>
@@ -483,20 +484,24 @@ function getConfigDetails(event) {
                                                     <#assign componentCounter = componentCounter + 1>
                                                 </#if>
                                             </#list>
-                                        </div>
-                                    <#else>
-                                        <div>
+                                        </label>
+                                    </div>
+                                <#else>
+                                    <div class="checkbox">
+                                        <label>
                                             <input type='CHECKBOX' name='${counter}' value='${optionCounter}' <#if option.isSelected()>checked="checked"</#if> />
                                             ${option.description} +<@ofbizCurrency amount=option.price isoCode=price.currencyUsed/><#if !option.isAvailable()> (*)</#if>
-                                        </div>
-                                    </#if>
-                                    <#assign optionCounter = optionCounter + 1>
-                                </#list>
-                            </#if>
+                                        </label>
+                                    </div>
+                                </#if>
+                                <#assign optionCounter = optionCounter + 1>
+                            </#list>
                         </#if>
-                    </div>
-                <#assign counter = counter + 1>
-            </#list>
-        
+                    </#if>
+                </div>
+            <#assign counter = counter + 1>
+        </#list>
+        <br/>
+        <p><a href="javascript:verifyConfig();" class="btn btn-default">${uiLabelMap.OrderVerifyConfiguration}</a></p>        
     </form>
 </#macro>

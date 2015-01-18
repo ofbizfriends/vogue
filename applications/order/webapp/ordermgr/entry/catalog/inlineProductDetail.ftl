@@ -255,9 +255,9 @@ ${virtualJavaScript!}
 
 <#assign price = priceMap!/>
 <div id="inlineproductdetail${inlineCounter}">
-<table border="0" cellpadding="2" cellspacing="0" width="100%">
-  <tr>
-    <td align="left" valign="top" width="0">
+
+
+    <div>
       <#assign productLargeImageUrl = productContentWrapper.get("LARGE_IMAGE_URL")!>
       <#if firstLargeImage?has_content>
         <#assign productLargeImageUrl = firstLargeImage>
@@ -266,8 +266,8 @@ ${virtualJavaScript!}
         <input type="hidden" name="detailImage${inlineCounter}" value="${firstDetailImage?default(mainDetailImageUrl?default("_NONE_"))}"/>
         <a href="javascript:popupDetailInline('${inlineCounter}');"><img src='<@ofbizContentUrl>${contentPathPrefix!}${productLargeImageUrl!}</@ofbizContentUrl>' name='mainImage${inlineCounter}' vspace='5' hspace='5' class='cssImgLarge' align='left' alt="" /></a>
       </#if>
-    </td>
-    <td align="right" valign="top" width="100%">
+    </div>
+    <div>
     <#--    <h2>${productContentWrapper.get("PRODUCT_NAME")!}</h2>  -->
         <#assign inStock = true>
         <#if product.isVirtual!?upper_case == "Y">
@@ -275,7 +275,7 @@ ${virtualJavaScript!}
             <#list featureLists as featureList>
                 <#list featureList as feature>
                     <#if feature_index == 0>
-                        <div>${feature.description}: <select id="FT${inlineCounter}${feature.productFeatureTypeId}" name="FT${inlineCounter}${feature.productFeatureTypeId}" onchange="javascript:checkRadioButtoninline${inlineCounter}('${inlineCounter}', '${product.productId}');" class="form-control">
+                        <div class="form-group">${feature.description}: <select id="FT${inlineCounter}${feature.productFeatureTypeId}" name="FT${inlineCounter}${feature.productFeatureTypeId}" onchange="javascript:checkRadioButtoninline${inlineCounter}('${inlineCounter}', '${product.productId}');" class="form-control">
                         <option value="select" selected="selected"> select option </option>
                     <#else>
                         <option value="${feature.productFeatureId}">${feature.description} <#if feature.price??>(+ <@ofbizCurrency amount=feature.price?string isoCode=feature.currencyUomId/>)</#if></option>
@@ -290,7 +290,7 @@ ${virtualJavaScript!}
           <#if !product.virtualVariantMethodEnum?? || product.virtualVariantMethodEnum == "VV_VARIANTTREE">
            <#if variantTree?? && (variantTree.size() > 0)>
             <#list featureSet as currentType>
-              <div>
+              <div class="form-group">
                 <select name="FT${inlineCounter}${currentType}" onchange="javascript:getListInline('${inlineCounter}', this.name, (this.selectedIndex-1), 1);" class="form-control">
                   <option>${featureTypes.get(currentType)}</option>
                 </select>
@@ -323,8 +323,8 @@ ${virtualJavaScript!}
             </#if>
           </#if>
         </#if>
-      </td></tr>
-      <tr><td COLSPAN="2" align="right">
+      </div>
+      <div class="form-group pull-right">
         <#-- check to see if introductionDate hasnt passed yet -->
         <#if product.introductionDate?? && nowTimestamp.before(product.introductionDate)>
         <p>&nbsp;</p>
@@ -340,15 +340,15 @@ ${virtualJavaScript!}
             <#else>
               <#assign hiddenStyle = "hidden">
             </#if>
-            <div id="add_amount${inlineCounter}" class="${hiddenStyle}">
-              <span style="white-space: nowrap;"><b>${uiLabelMap.CommonAmount}:</b></span>&nbsp;
+            <div id="add_amount${inlineCounter}" class="form-control" style="visibility: ${hiddenStyle};">
+              <span style="white-space: nowrap;"><b>${uiLabelMap.CommonAmount}</b></span>&nbsp;
               <input type="text" size="5" name="add_amount${inlineCounter}" value=""/>
             </div>
            </#if>
         </#if>
-      </td></tr>
+      </div>
 
-      <tr><td COLSPAN="2" align="right">
+      <div class="form-group pull-right">
       <#if variantTree?? && 0 < variantTree.size()>
         <script language="JavaScript" type="text/javascript">eval("list"+ "${inlineCounter}" + "${featureOrderFirst}" + "()");</script>
       </#if>
@@ -386,7 +386,6 @@ ${virtualJavaScript!}
           </tr>
         </table>
       </#if>      -->
-    </td>
-  </tr>
-</table>
+    </div>
+  
 </div>

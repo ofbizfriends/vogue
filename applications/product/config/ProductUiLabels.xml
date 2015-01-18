@@ -12411,12 +12411,12 @@
     </property>
     <property key="ProductAggregatedPrice">
         <value xml:lang="de">Aggregierter Produktpreis</value>
-        <value xml:lang="en">Product Aggregated Price</value>
-        <value xml:lang="es">Precio agregado de Producto</value>
+        <value xml:lang="en">Aggregated Price</value>
+        <value xml:lang="es">Agregado de Producto</value>
         <value xml:lang="fr">Prix de l'ensemble</value>
-        <value xml:lang="it">Prezzo Aggregato Prodotto</value>
+        <value xml:lang="it">Aggregato Prodotto</value>
         <value xml:lang="ja">製品総合計金額</value>
-        <value xml:lang="ro">Pret Agregat Produs</value>
+        <value xml:lang="ro">Agregat Produs</value>
         <value xml:lang="ru">Цена продукта по готику</value>
         <value xml:lang="th">ผลรวมราคาสินค้า</value>
         <value xml:lang="vi">Giá sản phẩm</value>

@@ -53,7 +53,7 @@ ${virtualVariantJavaScript!}
     function setVariantPrice(sku) {
         if (sku == '' || sku == 'NULL' || isVirtual(sku) == true) {
             var elem = document.getElementById('variant_price_display');
-            var txt = document.createTextNode('');
+            var txt = document.createTextNode('...');
             if(elem.hasChildNodes()) {
                 elem.replaceChild(txt, elem.firstChild);
             } else {
@@ -340,12 +340,11 @@ $(function(){
     <#assign productAdditionalImage3 = productContentWrapper.get("ADDITIONAL_IMAGE_3")! />
     <#assign productAdditionalImage4 = productContentWrapper.get("ADDITIONAL_IMAGE_4")! />
     
-    <@nextPreviousCat />
+    <div class="col-md-12">
+        <@breadCrumbsBar />
+    </div>
     
-    
-    
-    
-    <div id="productMain">
+    <div id="productMain" class="col-md-12">
         <div class="col-md-5 col-xs-12">
 	        <@displayProductImages/>
 	    </div> <!-- ./col-md-5 -->
@@ -500,14 +499,14 @@ $(function(){
 	            </#if>
 	        
 	            
-	            <p>
+	            <div>
 	                <form method="post" class="form-inline" action="<@ofbizUrl>addProductTags</@ofbizUrl>" name="addProductTags">
 	                    <input type="hidden" name="productId" value="${product.productId!}"/>
 	                    <input type="text" class="form-control" value="" name="productTags" id="productTags" size="40"/>
 	                    <button class="btn btn-default" type="submit" >${uiLabelMap.EcommerceAddTags}</button>
 	                </form>
 	                <p class="help-block">${uiLabelMap.EcommerceAddTagsDetail}</p>
-	            </p>
+	            </div>
 	        </div><!-- ./product-tags -->
 	        <hr />
 	        <form action="<@ofbizUrl>tagsearch</@ofbizUrl>" method="post" name="productTagsearchform" id="productTagsearchform">
@@ -575,20 +574,30 @@ $(function(){
 </#macro>
 
 <#-- macros -->
-<#macro nextPreviousCat >
-    <#-- Category next/previous -->
-    <#if category??>
-        <div id="paginationBox" class="col-md-12">
-            <#if previousProductId??>
-              <a href="<@ofbizCatalogAltUrl productCategoryId=categoryId! productId=previousProductId!/>" class="btn btn-primary">${uiLabelMap.CommonPrevious}</a>&nbsp;|&nbsp;
-            </#if>
-            <a href="<@ofbizCatalogAltUrl productCategoryId=categoryId!/>" class="linktext">${(category.categoryName)?default(category.description)!}</a>
-            <#if nextProductId??>
-              &nbsp;|&nbsp;<a href="<@ofbizCatalogAltUrl productCategoryId=categoryId! productId=nextProductId!/>" class="btn btn-primary">${uiLabelMap.CommonNext}</a>
-            </#if>
-        </div>
-        <hr />
-    </#if>
+<#macro breadCrumbsBar >
+    <div class="row">
+	    <div class="col-md-5">
+		    <#-- Category next/previous -->
+		    <#if category??>
+		        <div id="paginationBox" class="pull-left">
+		            <#if previousProductId??>
+		              <a href="<@ofbizCatalogAltUrl productCategoryId=categoryId! productId=previousProductId!/>" class="btn btn-link">${uiLabelMap.CommonPrevious}</a>&nbsp;|&nbsp;
+		            </#if>
+		            <a href="<@ofbizCatalogAltUrl productCategoryId=categoryId!/>" class="btn btn-link">${(category.categoryName)?default(category.description)!}</a>
+		            <#if nextProductId??>
+		              &nbsp;|&nbsp;<a href="<@ofbizCatalogAltUrl productCategoryId=categoryId! productId=nextProductId!/>" class="btn btn-link">${uiLabelMap.CommonNext}</a>
+		            </#if>
+		        </div>        
+		    </#if>        
+	    </div>
+    
+	    <div class="col-md-7">        
+	        ${screens.render("component://ecommerce/widget/CatalogScreens.xml#breadcrumbs")}
+	    </div>
+    </div>
+
+
+
 </#macro>
 
 <#macro displayProductImages>
@@ -734,21 +743,21 @@ $(function(){
             <div>${uiLabelMap.ProductSpecialPromoPrice} <span class="basePrice"><@ofbizCurrency amount=price.specialPromoPrice isoCode=price.currencyUsed /></span></div>
         </#if>
     </p>
-    <div>
-        <strong>
-            <#if price.isSale?? && price.isSale>
-                
-                <#assign priceStyle = "salePrice" />
-            <#else>
-                <#assign priceStyle = "regularPrice" />
-            </#if>
-            ${uiLabelMap.OrderYourPrice}: <#if "Y" = product.isVirtual!> ${uiLabelMap.CommonFrom} </#if><span class="${priceStyle}"><@ofbizCurrency amount=price.price isoCode=price.currencyUsed /></span>
-            <#if product.productTypeId! == "ASSET_USAGE" || product.productTypeId! == "ASSET_USAGE_OUT_IN">
-                <#if product.reserv2ndPPPerc?? && product.reserv2ndPPPerc != 0><br /><span class="${priceStyle}">${uiLabelMap.ProductReserv2ndPPPerc}<#if !product.reservNthPPPerc?? || product.reservNthPPPerc == 0>${uiLabelMap.CommonUntil} ${product.reservMaxPersons!1}</#if> <@ofbizCurrency amount=product.reserv2ndPPPerc*price.price/100 isoCode=price.currencyUsed /></span></#if>
-                <#if product.reservNthPPPerc?? &&product.reservNthPPPerc != 0><br /><span class="${priceStyle}">${uiLabelMap.ProductReservNthPPPerc} <#if !product.reserv2ndPPPerc?? || product.reserv2ndPPPerc == 0>${uiLabelMap.ProductReservSecond} <#else> ${uiLabelMap.ProductReservThird} </#if> ${uiLabelMap.CommonUntil} ${product.reservMaxPersons!1}, ${uiLabelMap.ProductEach}: <@ofbizCurrency amount=product.reservNthPPPerc*price.price/100 isoCode=price.currencyUsed /></span></#if>
-                <#if (!product.reserv2ndPPPerc?? || product.reserv2ndPPPerc == 0) && (!product.reservNthPPPerc?? || product.reservNthPPPerc == 0)><br />${uiLabelMap.ProductMaximum} ${product.reservMaxPersons!1} ${uiLabelMap.ProductPersons}.</#if>
-            </#if>
-        </strong>
+    <div class="price">
+    
+        <#if price.isSale?? && price.isSale>
+            
+            <#assign priceStyle = "salePrice" />
+        <#else>
+            <#assign priceStyle = "regularPrice" />
+        </#if>
+        <#if "Y" = product.isVirtual!> ${uiLabelMap.CommonFrom} </#if><span class="${priceStyle}"><@ofbizCurrency amount=price.price isoCode=price.currencyUsed /></span>
+        <#if product.productTypeId! == "ASSET_USAGE" || product.productTypeId! == "ASSET_USAGE_OUT_IN">
+            <#if product.reserv2ndPPPerc?? && product.reserv2ndPPPerc != 0><br /><span class="${priceStyle}">${uiLabelMap.ProductReserv2ndPPPerc}<#if !product.reservNthPPPerc?? || product.reservNthPPPerc == 0>${uiLabelMap.CommonUntil} ${product.reservMaxPersons!1}</#if> <@ofbizCurrency amount=product.reserv2ndPPPerc*price.price/100 isoCode=price.currencyUsed /></span></#if>
+            <#if product.reservNthPPPerc?? &&product.reservNthPPPerc != 0><br /><span class="${priceStyle}">${uiLabelMap.ProductReservNthPPPerc} <#if !product.reserv2ndPPPerc?? || product.reserv2ndPPPerc == 0>${uiLabelMap.ProductReservSecond} <#else> ${uiLabelMap.ProductReservThird} </#if> ${uiLabelMap.CommonUntil} ${product.reservMaxPersons!1}, ${uiLabelMap.ProductEach}: <@ofbizCurrency amount=product.reservNthPPPerc*price.price/100 isoCode=price.currencyUsed /></span></#if>
+            <#if (!product.reserv2ndPPPerc?? || product.reserv2ndPPPerc == 0) && (!product.reservNthPPPerc?? || product.reservNthPPPerc == 0)><br />${uiLabelMap.ProductMaximum} ${product.reservMaxPersons!1} ${uiLabelMap.ProductPersons}.</#if>
+        </#if>
+    
     </div>
     
     
@@ -812,7 +821,7 @@ $(function(){
 <#macro showTellAFriend>
     <#-- show tell a friend details only in ecommerce application -->           
     <div>
-      <a href="javascript:popUpSmall('<@ofbizUrl>tellafriend?productId=${product.productId}<#if categoryId??>&categoryId=${categoryId}/</#if></@ofbizUrl>','tellafriend');" class="btn btn-info">${uiLabelMap.CommonTellAFriend}</a>
+      <a href="javascript:popUpSmall('<@ofbizUrl>tellafriend?productId=${product.productId}<#if categoryId??>&amp;categoryId=${categoryId}/</#if></@ofbizUrl>','tellafriend');" class="btn btn-info">${uiLabelMap.CommonTellAFriend}</a>
     </div>        
     <#if disFeatureList?? && 0 &lt; disFeatureList.size()>              
         <#list disFeatureList as currentFeature>
@@ -825,7 +834,7 @@ $(function(){
 </#macro>
 
 <#macro addItemForm>    
-	<form method="post" action="<@ofbizUrl>additem</@ofbizUrl>" name="addform">
+	<form method="post" action="<@ofbizUrl>additem</@ofbizUrl>" name="addform" class="form-inline">
 	        <#assign inStock = true />
 	        <#assign commentEnable = Static["org.ofbiz.base.util.UtilProperties"].getPropertyValue("order.properties", "order.item.comment.enable")>
 	        <#if commentEnable.equals("Y")>
@@ -838,7 +847,7 @@ $(function(){
 	                <#list featureLists as featureList>
 	                    <#list featureList as feature>
 	                        <#if feature_index == 0>
-	                            <div>${feature.description}: <select id="FT${feature.productFeatureTypeId}" name="FT${feature.productFeatureTypeId}" onchange="javascript:checkRadioButton();" class="form-control">
+	                            <div class="form-group">${feature.description} <select id="FT${feature.productFeatureTypeId}" name="FT${feature.productFeatureTypeId}" onchange="javascript:checkRadioButton();" class="form-control">
 	                            <option value="select" selected="selected">${uiLabelMap.EcommerceSelectOption}</option>
 	                        <#else>
 	                            <option value="${feature.productFeatureId}">${feature.description} <#if feature.price??>(+ <@ofbizCurrency amount=feature.price?string isoCode=feature.currencyUomId />)</#if></option>
@@ -855,7 +864,7 @@ $(function(){
 	                </div>
 	                <div id="addCart2" style="display:block;">
                         <span style="white-space: nowrap;"><strong>${uiLabelMap.CommonQuantity}:</strong></span>&nbsp;
-	                    <input type="hidden" size="5" value="1" disabled="disabled" />
+	                    <input type="hidden" value="1" disabled="disabled" />
 	                    <a href="javascript:showErrorAlert("${uiLabelMap.CommonErrorMessage2}","${uiLabelMap.CommonPleaseSelectAllFeaturesFirst}");" class="btn btn-primary"><span style="white-space: nowrap;"><i class="fa fa-shopping-cart"></i> ${uiLabelMap.OrderAddToCart}</span></a>		                  
 	                </div>
 	            </#if>
@@ -863,7 +872,7 @@ $(function(){
 	            <#if !product.virtualVariantMethodEnum?? || product.virtualVariantMethodEnum == "VV_VARIANTTREE">
 	                <#if variantTree?? && (variantTree.size() &gt; 0)>
 	                    <#list featureSet as currentType>
-	                        <div>
+	                        <div class="form-group">
 	                            <select name="FT${currentType}" onchange="javascript:getList(this.name, (this.selectedIndex-1), 1);" class="form-control">
 	                               <option>${featureTypes.get(currentType)}</option>
 	                            </select>
@@ -872,9 +881,9 @@ $(function(){
 	                    <span id="product_uom"></span>
 	                    <input type="hidden" name="product_id" value="${product.productId}"/>
 	                    <input type="hidden" name="add_product_id" value="NULL"/>
-	                    <div>
-	                        <strong><span id="product_id_display"> </span></strong>
-	                        <strong><div id="variant_price_display"> </div></strong>
+	                    <div class="price">
+	                        <span id="product_id_display" style="display:none;"> </span>
+	                        <div id="variant_price_display"> ... </div>
 	                    </div>
 	                <#else>
 	                    <input type="hidden" name="add_product_id" value="NULL"/>
@@ -892,9 +901,9 @@ $(function(){
 	                    </#list>
 	                </select>
 	                <br/>
-	                <div>
-	                    <strong><span id="product_id_display"> </span></strong>
-	                    <strong><div id="variant_price_display"> </div></strong>
+	                <div class="price">
+	                    <span id="product_id_display" style="display: none;"> </span>
+	                    <div id="variant_price_display"> ... </div>
 	                </div>
 	            </#if>
 	            <#if (availableInventory??) && (availableInventory <= 0)>
@@ -915,10 +924,10 @@ $(function(){
 	                    <#assign hiddenStyle = "visible" />
 	                <#else>
 	                    <#assign hiddenStyle = "hidden"/>
-	                </#if>
-	                <div id="add_amount" class="${hiddenStyle}">
-	                    <span style="white-space: nowrap;"><strong>${uiLabelMap.CommonAmount}:</strong></span>&nbsp;
-	                    <input type="text" size="5" name="add_amount" value=""/>
+	                </#if>	                
+	                <div id="add_amount" class="form-group" style="visibility : ${hiddenStyle};">
+	                    <label>${uiLabelMap.CommonAmount}</label>
+	                    <input type="text" size="5" name="add_amount" value="" class="form-control"/>	                    
 	                </div>
 	                <#if product.productTypeId! == "ASSET_USAGE" || product.productTypeId! == "ASSET_USAGE_OUT_IN">
 	                <div>
@@ -930,10 +939,16 @@ $(function(){
 	                       Number of persons<input type="text" size="4" name="reservPersons" value="2"/>
 	                       Number of rooms<input type="text" name="quantity" value="1"/>
 	                </div>
-	                <a href="javascript:addItem()" class="btn btn-primary"><span style="white-space: nowrap;"><i class="fa fa-shopping-cart"></i> ${uiLabelMap.OrderAddToCart}</span></a>
+	                <div class="">	 	                                     
+	                   <a href="javascript:addItem()" class="btn btn-primary"><span style="white-space: nowrap;"><i class="fa fa-shopping-cart"></i> ${uiLabelMap.OrderAddToCart}</span></a>
+	                </div>
 	            <#else>
-	                <span><input name="quantity" id="quantity" value="1"  type="hidden" <#if product.isVirtual!?upper_case == "Y">disabled="disabled"</#if> /></span><a href="javascript:addItem()" id="addToCart" name="addToCart" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> ${uiLabelMap.OrderAddToCart}</a>
 	                <@showUnavailableVarients/>
+	                <div class="">	    	                                 
+	                   <input name="quantity" id="quantity" value="1"  type="hidden" <#if product.isVirtual!?upper_case == "Y">disabled="disabled"</#if> />
+	                   <a href="javascript:addItem()" id="addToCart" name="addToCart" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> ${uiLabelMap.OrderAddToCart}</a>
+	                </div>
+	                
 	            </#if>
 	        <#else>
 	            <#if productStore??>

@@ -50,7 +50,7 @@ under the License.
     <DataResource dataResourceId="WG-5569-Add1" dataResourceTypeId="IMAGE_OBJECT" dataTemplateTypeId="NONE" dataResourceName="additional2.png"  objectInfo="/images/products/WG-5569/additional2.png" isPublic="Y"/>
     <Content contentId="WG-5569-Add1-CTNT" contentTypeId="DOCUMENT" contentName="additional2.png" dataResourceId="WG-5569-Add1" statusId="IM_APPROVED"/>
     <ProductContent productId="WG-5569" contentId="WG-5569-Add1-CTNT" productContentTypeId="IMAGE" fromDate="2001-05-13 12:00:00.0"/>
-    <DataResource dataResourceId="GZ-2644-Add1-T" dataResourceTypeId="IMAGE_OBJECT" dataTemplateTypeId="NONE" dataResourceName="additional2.png" objectInfo="/images/products/GZ-2644/additional2.png" isPublic="Y"/>
+    <DataResource dataResourceId="GZ-2644-Add1-T" dataResourceTypeId="IMAGE_OBJECT" dataTemplateTypeId="NONE" dataResourceName="additional2.png" objectInfo="/images/products/WG-5569/additional2.png" isPublic="Y"/>
     <Content contentId="WG-5569-Add1-CTNT-T" contentTypeId="DOCUMENT" contentName="additional2.png" dataResourceId="GZ-2644-Add1-T" statusId="CTNT_IN_PROGRESS"/>
     <ContentAssoc contentId="WG-5569-Add1-CTNT" contentIdTo="WG-5569-Add1-CTNT-T" contentAssocTypeId="IMAGE_THUMBNAIL" fromDate="2001-05-13 12:00:00.0"/>
     
