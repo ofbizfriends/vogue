@@ -347,10 +347,6 @@ button i.fa {
   filter:alpha(opacity=80);
 }
 
-.breadcrumb {
-  font-family:"Montserrat",Helvetica,Arial,sans-serif;
-  text-transform:uppercase;
-}
 
 #productdetail #paginationBox{
     text-align: right;	
@@ -1834,6 +1830,9 @@ hr {
 .breadcrumb {
   padding:8px 0;
   margin-bottom:20px;
+  font-size: 12px;
+  font-weight: 200;
+  color: #b5b5b5;
   background-color:#fff;
   border-radius:0;
   text-align:right;
