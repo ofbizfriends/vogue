@@ -23,7 +23,7 @@ under the License.
       <h3>${uiLabelMap.PageTitleEditCategoryProductCatalogs}</h3>
     </div>
         <div class="screenlet-body">
-            <table cellspacing="0" class="basic-table">
+            <table cellspacing="0" class="table">
             <tr class="header-row">
                 <td><b>${uiLabelMap.ProductCatalogNameId}</b></td>
                 <td><b>${uiLabelMap.CommonType}</b></td>
@@ -38,7 +38,7 @@ under the License.
             <#assign prodCatalog = prodCatalogCategory.getRelatedOne("ProdCatalog", false)>
             <#assign curProdCatalogCategoryType = prodCatalogCategory.getRelatedOne("ProdCatalogCategoryType", true)>
             <tr valign="middle"<#if rowClass == "1"> class="alternate-row"</#if>>
-                <td><a href="<@ofbizUrl>EditProdCatalog?prodCatalogId=${(prodCatalogCategory.prodCatalogId)!}</@ofbizUrl>" class="buttontext"><#if prodCatalog??>${(prodCatalog.catalogName)!}</#if> [${(prodCatalogCategory.prodCatalogId)!}]</a></td>
+                <td><a href="<@ofbizUrl>EditProdCatalog?prodCatalogId=${(prodCatalogCategory.prodCatalogId)!}</@ofbizUrl>" class="btn btn-link"><#if prodCatalog??>${(prodCatalog.catalogName)!}</#if> [${(prodCatalogCategory.prodCatalogId)!}]</a></td>
                 <td>
                     ${(curProdCatalogCategoryType.get("description",locale))?default(prodCatalogCategory.prodCatalogCategoryTypeId)}
                 </td>
@@ -77,7 +77,7 @@ under the License.
                     <input type="hidden" name="productCategoryId" value="${(prodCatalogCategory.productCategoryId)!}"/>
                     <input type="hidden" name="prodCatalogCategoryTypeId" value="${prodCatalogCategory.prodCatalogCategoryTypeId}"/>
                     <input type="hidden" name="fromDate" value="${(prodCatalogCategory.fromDate)!}"/>
-                    <a href="javascript:document.lineForm_delete${line}.submit()" class="buttontext">${uiLabelMap.CommonDelete}</a>
+                    <a href="javascript:document.lineForm_delete${line}.submit()" class="btn btn-link">${uiLabelMap.CommonDelete}</a>
                   </form>
                 </td>
             </tr>
@@ -97,7 +97,7 @@ under the License.
             <h3>${uiLabelMap.ProductAddCatalogProductCategory}</h3>
         </div>
         <div class="screenlet-body">
-            <table cellspacing="0" class="basic-table">
+            <table cellspacing="0" class="table">
                 <tr><td>
                     <form method="post" action="<@ofbizUrl>category_addProductCategoryToProdCatalog</@ofbizUrl>" style="margin: 0;" name="addNewForm">
                         <input type="hidden" name="productCategoryId" value="${productCategoryId!}"/>

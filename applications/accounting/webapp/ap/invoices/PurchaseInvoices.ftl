@@ -171,7 +171,7 @@ function runAction() {
       <span class="label">${uiLabelMap.AccountingCheckNumber}</span>
       <input type="text" name="checkStartNumber"/>
     </div>
-    <table class="basic-table hover-bar" cellspacing="0">
+    <table class="table table-hover" cellspacing="0">
       <#-- Header Begins -->
       <tr class="header-row-2">
         <td>${uiLabelMap.FormFieldTitle_invoiceId}</td>
@@ -194,7 +194,7 @@ function runAction() {
         <#assign invoicePaymentInfo = invoicePaymentInfoList.get("invoicePaymentInfoList").get(0)!>
           <#assign statusItem = invoice.getRelatedOne("StatusItem", true)>
           <tr valign="middle"<#if alt_row> class="alternate-row"</#if>>
-            <td><a class="buttontext" href="<@ofbizUrl>invoiceOverview?invoiceId=${invoice.invoiceId}</@ofbizUrl>">${invoice.get("invoiceId")}</a></td>
+            <td><a class="btn btn-link" href="<@ofbizUrl>invoiceOverview?invoiceId=${invoice.invoiceId}</@ofbizUrl>">${invoice.get("invoiceId")}</a></td>
             <td><#if invoice.get("invoiceDate")?has_content>${invoice.get("invoiceDate")?date}</td></#if>
             <td><#if invoice.get("dueDate")?has_content>${invoice.get("dueDate")?date}</td></#if>
             <td>${statusItem.description?default(invoice.statusId)}</td>

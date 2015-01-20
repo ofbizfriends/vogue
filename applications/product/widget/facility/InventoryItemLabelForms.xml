@@ -21,7 +21,7 @@ under the License.
 <forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
         xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-form.xsd">
     <form name="AddInventoryItemLabelType" type="single" target="createInventoryItemLabelType" title=""
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <auto-fields-service service-name="createInventoryItemLabelType"/>
         <field name="parentTypeId">
             <drop-down allow-empty="true">
@@ -36,7 +36,7 @@ under the License.
         <field name="submitButton" title="${uiLabelMap.CommonCreate}"><submit button-type="button"/></field>
     </form>
     <form name="UpdateInventoryItemLabelTypes" type="list" target="updateInventoryItemLabelType" title="" list-name="inventoryItemLabelTypes"
-        odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="table table-hover">
         <auto-fields-service service-name="updateInventoryItemLabelType"/>
         <field name="inventoryItemLabelTypeId"><display/></field>
         <field name="parentTypeId">
@@ -47,16 +47,16 @@ under the License.
             </drop-down>
         </field>
         <field name="submitButton" title="${uiLabelMap.CommonUpdate}"><submit button-type="button"/></field>
-        <field name="deleteLink" title=" " widget-style="buttontext">
+        <field name="deleteLink" title=" " widget-style="btn btn-link">
             <hyperlink target="deleteInventoryItemLabelType" description="${uiLabelMap.CommonDelete}" also-hidden="false">
                 <parameter param-name="inventoryItemLabelTypeId"/>
             </hyperlink>
         </field>
     </form>
     <form name="ListInventoryItemLabels" type="list" title="" list-name="inventoryItemLabels"
-        odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" default-table-style="table table-hover">
         <auto-fields-entity entity-name="InventoryItemLabel" default-field-type="display"/>
-        <field name="inventoryItemLabelId" widget-style="buttontext">
+        <field name="inventoryItemLabelId" widget-style="btn btn-link">
             <hyperlink target="EditInventoryItemLabel" description="${inventoryItemLabelId}" also-hidden="true">
                 <parameter param-name="inventoryItemLabelId"/>
             </hyperlink>
@@ -64,14 +64,14 @@ under the License.
         <field name="inventoryItemLabelTypeId">
             <display-entity entity-name="InventoryItemLabelType" description="${description} [${inventoryItemLabelTypeId}]" also-hidden="true"/>
         </field>
-        <field name="deleteLink" title=" " widget-style="buttontext">
+        <field name="deleteLink" title=" " widget-style="btn btn-link">
             <hyperlink target="deleteInventoryItemLabel" description="${uiLabelMap.CommonDelete}" also-hidden="false">
                 <parameter param-name="inventoryItemLabelId"/>
             </hyperlink>
         </field>
     </form>
     <form name="EditInventoryItemLabel" type="single" target="createInventoryItemLabel" title="" default-map-name="inventoryItemLabel"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <alt-target target="updateInventoryItemLabel" use-when="inventoryItemLabel!=null"/>
         <auto-fields-service service-name="createInventoryItemLabel"/>
         <field name="inventoryItemLabelId" use-when="inventoryItemLabel!=null"><display/></field>
@@ -88,11 +88,11 @@ under the License.
         <field name="submitButton" title="${uiLabelMap.CommonSubmit}"><submit button-type="button"/></field>
     </form>
     <form name="UpdateInventoryItemLabelAppls" type="list" target="updateInventoryItemLabelAppl" title="" list-name="inventoryItemLabelAppls"
-        odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="table table-hover">
         <auto-fields-service service-name="updateInventoryItemLabelAppl"/>
         <field name="inventoryItemLabelId"><hidden/></field>
         <field name="inventoryItemLabelTypeId"><hidden/></field>
-        <field name="inventoryItemId" widget-style="buttontext">
+        <field name="inventoryItemId" widget-style="btn btn-link">
             <display-entity entity-name="InventoryItem" description="${productId}">
                 <sub-hyperlink target="EditInventoryItem"                description="[${inventoryItemId}]">
                 <parameter param-name="inventoryItemId"/>
@@ -100,7 +100,7 @@ under the License.
             </display-entity>
         </field>
         <field name="submitButton" title="${uiLabelMap.CommonUpdate}"><submit button-type="button"/></field>
-        <field name="deleteLink" title=" " widget-style="buttontext">
+        <field name="deleteLink" title=" " widget-style="btn btn-link">
             <hyperlink target="deleteInventoryItemLabelAppl" description="${uiLabelMap.CommonDelete}" also-hidden="false">
                 <parameter param-name="inventoryItemId"/>
                 <parameter param-name="inventoryItemLabelTypeId"/>
@@ -109,7 +109,7 @@ under the License.
         </field>
     </form>
     <form name="AddInventoryItemLabelAppl" type="single" target="createInventoryItemLabelAppl" title=""
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <auto-fields-service service-name="createInventoryItemLabelAppl"/>
         <field name="inventoryItemLabelId"><hidden/></field>
         <field name="submitButton" title="${uiLabelMap.CommonCreate}"><submit button-type="button"/></field>

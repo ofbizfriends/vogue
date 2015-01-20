@@ -32,8 +32,8 @@ under the License.
             <widgets>
                 <decorator-screen name="CommonInventoryItemLabelsDecorator" location="${parameters.commonFacilityDecoratorLocation}">
                     <decorator-section name="body">
-                        <container style="button-bar">
-                            <link target="EditInventoryItemLabel" text="${uiLabelMap.CommonNew}" style="buttontext create"/>
+                        <container style="btn-group">
+                            <link target="EditInventoryItemLabel" text="${uiLabelMap.CommonNew}" style="btn btn-link create"/>
                         </container>
                         <screenlet title="${uiLabelMap.PageTitleFindInventoryItemLabels}">
                             <include-form name="ListInventoryItemLabels" location="component://product/widget/facility/InventoryItemLabelForms.xml"/>
@@ -90,7 +90,7 @@ under the License.
                         <decorator-screen name="CommonInventoryItemLabelsDecorator" location="${parameters.commonFacilityDecoratorLocation}">
                             <decorator-section name="body">
                                 <container>
-                                    <link target="EditInventoryItemLabel" text="${uiLabelMap.CommonNew}" style="buttontext"/>
+                                    <link target="EditInventoryItemLabel" text="${uiLabelMap.CommonNew}" style="btn btn-link"/>
                                 </container>
                                 <screenlet title="${uiLabelMap.ProductInventoryItemLabel}">
                                     <include-form name="EditInventoryItemLabel" location="component://product/widget/facility/InventoryItemLabelForms.xml"/>

@@ -24,14 +24,14 @@ under the License.
     </div>
     <div class="screenlet-body">
       <form method="post" action="<@ofbizUrl>forgotPassword${previousParams!}</@ofbizUrl>" name="forgotpassword">
-        <table class="basic-table" cellspacing="0">
+        <table class="table" cellspacing="0">
           <tr>
             <td class="label">${uiLabelMap.CommonUsername}</td>
             <td><input type="text" size="20" name="USERNAME" value="<#if requestParameters.USERNAME?has_content>${requestParameters.USERNAME}<#elseif autoUserLogin?has_content>${autoUserLogin.userLoginId}</#if>"/></td>
           </tr>
           <tr>
             <td colspan="2" align="center">
-              <input type="submit" name="GET_PASSWORD_HINT" class="smallSubmit" value="${uiLabelMap.CommonGetPasswordHint}"/>&nbsp;<input type="submit" name="EMAIL_PASSWORD" class="smallSubmit" value="${uiLabelMap.CommonEmailPassword}"/>
+              <input type="submit" name="GET_PASSWORD_HINT" class="btn btn-default btn-sm" value="${uiLabelMap.CommonGetPasswordHint}"/>&nbsp;<input type="submit" name="EMAIL_PASSWORD" class="btn btn-default btn-sm" value="${uiLabelMap.CommonEmailPassword}"/>
             </td>
           </tr>
         </table>

@@ -32,7 +32,7 @@ under the License.
     </#if>
 
     <#if description?has_content>
-      ${description?replace("\n", "<br />")}<#t/>
+      <span class="display-text">${description?replace("\n", "<br />")}<#t/></span>
     <#else>
       &nbsp;<#t/>
     </#if>
@@ -70,6 +70,49 @@ under the License.
     <#assign defaultDelay = Static["org.ofbiz.base.util.UtilProperties"].getPropertyValue("widget.properties", "widget.autocompleter.defaultDelay")>
     <script language="JavaScript" type="text/javascript">ajaxAutoCompleter('${ajaxUrl}', false, ${defaultMinLength!2}, ${defaultDelay!300});</script><#lt/>
   </#if>
+    <#-- start of modification -->
+    <#-- style based validation -->
+    <#-- digit for only positive numbers -->
+    <#-- integer for positive and negative numbers -->    
+    <#-- convert to upper case -->
+    <#if className?has_content>        
+      <#if className?contains("digit")>  
+          <script type="text/javascript">
+            jQuery('.digit').keyup(function () { 
+                this.value = this.value.replace(/[^0-9\.]/g,'');
+            });        
+          </script>
+      </#if>
+      <#if className?contains("integer")>  
+          <script type="text/javascript">
+            jQuery('.integer').keyup(function () { 
+                this.value = this.value.replace(/[^0-9\.\-]/g,'');
+            });        
+          </script>
+      </#if>    
+      <#if className?contains("max")>  
+          <#assign maxSubstring=className?substring(className?last_index_of("max"))/>
+          <#if maxSubstring?has_content>
+          <#assign maxValue = maxSubstring?substring(4)/>          
+          <script type="text/javascript">
+            jQuery('.${maxSubstring}').keyup(function () { 
+                this.value = this.value.replace(/[^0-9\.]/g,'');
+                if(this.value > ${maxValue}){
+                    this.value = '';
+                }                
+            });        
+          </script>
+          </#if>
+      </#if>
+      <#if className?contains("upper")>  
+          <script type="text/javascript">
+            jQuery('.upper').keyup(function () { 
+                this.value = this.value.toUpperCase();
+            });        
+          </script>
+      </#if>      
+    </#if>
+    <#-- end of modification -->     
 </#macro>
 
 <#macro renderTextareaField name className alert cols rows id readonly value visualEditorEnable buttons language="">
@@ -83,6 +126,53 @@ under the License.
     ><#t/>
     <#if value?has_content>${value}</#if><#t/>
   </textarea><#lt/>
+  <#if visualEditorEnable?has_content>
+    <link href="/images/css/jquery-te-1.4.0.css" rel="stylesheet" type="text/css">
+    <script language="javascript" src="/images/jquery/plugins/texteditor/jquery-te-1.4.0.min.js" type="text/javascript"></script><#rt/>
+    
+    <script language="javascript" src="/images/jquery/plugins/jQuery.htmlClean.js" type="text/javascript"></script><#rt/>   
+    
+	<script>
+						
+		
+		$("#${id?default("")}").jqte({
+			//source : false
+		});
+		
+		// settings of status
+		var jqteStatus = true;
+		$(".status").click(function()
+		{
+			jqteStatus = jqteStatus ? false : true;
+			jQuery('#${id?default("")}').jqte({"status" : jqteStatus});
+            		      	
+		});
+		//refer http://code.google.com/p/jquery-clean/
+		
+		$("#${id?default("")}").focusout(function(){
+			
+			html = $.htmlClean($("#${id?default("")}").val(), { format: true,removeAttrs : ["class","style"]});
+			$("#${id?default("")}").val(html);
+			$( "#${id?default("")}" ).parent().prev( ".jqte_editor" ).html(html);
+			
+			$('.jqte_editor').find('style,script').remove();			
+			
+            return false;
+	    });
+	    $(".jqte_editor").focusout(function(){
+			value=$( this ).next().children().val();			
+			html = $.htmlClean(value, { format: true,removeAttrs : ["class","style"]});
+			$( this ).next().children().val(html);
+			$(this).html(html);
+			
+			$(this).find('style,script').remove();
+			
+            return false;
+	    });
+	</script>    
+
+  </#if>
+  <#--
   <#if visualEditorEnable?has_content>
     <script language="javascript" src="/images/jquery/plugins/elrte-1.3/js/elrte.min.js" type="text/javascript"></script><#rt/>
     <#if language?has_content && language != "en">
@@ -100,9 +190,75 @@ under the License.
       jQuery('#${id?default("")}').elrte(opts);
     </script>
   </#if>
+   -->
 </#macro>
 
+<#-- Modified to use bootstrap datetime picker rather than jquery date picker -->
 <#macro renderDateTimeField name className alert title value size maxlength id dateType shortDateInput timeDropdownParamName defaultDateTimeString localizedIconTitle timeDropdown timeHourName classString hour1 hour2 timeMinutesName minutes isTwelveHour ampmName amSelected pmSelected compositeType formName mask="" event="" action="" step="" timeValues="">
+    <div class="input-group" >	    
+	    <#if dateType=="timestamp"  >
+	      <#assign classNameString = className?string + " form-control"/> 
+	      <input type="text" name="${name}_i18n" <@renderClass classNameString alert /><#rt/>
+	        <#if title?has_content> title="${title}"</#if>	        
+	        <#if value?has_content> value="${value?date('yyyy-MM-dd hh:mm')?string('yyyy-MM-dd hh:mm')}"</#if>	       
+	        <#if size?has_content> size="${size}"</#if><#rt/>
+	        <#if maxlength?has_content>  maxlength="${maxlength}"</#if>
+	        <#if id?has_content> id="${id}_i18n"</#if>/><#rt/>
+	        <span class="input-group-addon" <#if id?has_content> id="${id}_icon"</#if>><i class="fa fa-calendar"></i></span>
+	    </#if>    
+        <#if dateType=="date"  >
+          <#assign classNameString = className?string + " form-control"/> 
+          <input type="text" name="${name}_i18n" <@renderClass classNameString alert /><#rt/>
+            <#if title?has_content> title="${title}"</#if>          
+            <#if value?has_content> value="${value?date('yyyy-MM-dd')?string('yyyy-MM-dd')}"</#if>         
+            <#if size?has_content> size="${size}"</#if><#rt/>
+            <#if maxlength?has_content>  maxlength="${maxlength}"</#if>
+            <#if id?has_content> id="${id}_i18n"</#if>/><#rt/>
+            <span class="input-group-addon" <#if id?has_content> id="${id}_icon"</#if>><i class="fa fa-calendar"></i></span>
+        </#if>  
+	</div>
+  
+    <input type="hidden" name="${name}"  <#if event?has_content && action?has_content> ${event}="${action}"</#if> <@renderClass className alert /><#rt/>
+    
+      <#if title?has_content> title="${title}"</#if>
+      <#if value?has_content> value="${value}"</#if>
+      <#if size?has_content> size="${size}"</#if><#rt/>
+      <#if maxlength?has_content>  maxlength="${maxlength}"</#if>
+      <#if id?has_content> id="${id}"</#if>/><#rt/>
+  
+    <script type="text/javascript">
+    
+    
+      <#if shortDateInput?exists && shortDateInput>
+        $("#${id}_i18n").datetimepicker({
+            format: 'yyyy-mm-dd',
+            linkFormat: "yyyy-mm-dd",
+            minView: 2,
+                        
+      <#else>
+        $("#${id}_i18n").datetimepicker({
+            format: 'yyyy-mm-dd hh:ii',            
+            linkFormat: "yyyy-mm-dd hh:mm:ss.ss",                                    
+      </#if>                         
+            
+            linkField: "${id}",
+	        autoclose: true,
+	        todayBtn: true,	        
+            language: 'en'
+        })<#if mask?has_content>.mask("${mask}")</#if>;
+
+      
+        $('#${id}_icon').click(function(){
+		    $('#${id}_i18n').focus();
+		});
+    </script>
+  
+</#macro>
+
+
+
+<#-- original jquery rderDateTimeField Back up -->
+<#macro renderDateTimeFieldBAK name className alert title value size maxlength id dateType shortDateInput timeDropdownParamName defaultDateTimeString localizedIconTitle timeDropdown timeHourName classString hour1 hour2 timeMinutesName minutes isTwelveHour ampmName amSelected pmSelected compositeType formName mask="" event="" action="" step="" timeValues="">
   <span class="view-calendar">
     <#if dateType!="time" >
       <input type="text" name="${name}_i18n" <@renderClass className alert /><#rt/>
@@ -114,6 +270,7 @@ under the License.
     </#if>
     <#-- the style attribute is a little bit messy but when using disply:none the timepicker is shown on a wrong place -->
     <input type="text" name="${name}" style="height:1px;width:1px;border:none;background-color:transparent" <#if event?has_content && action?has_content> ${event}="${action}"</#if> <@renderClass className alert /><#rt/>
+    
       <#if title?has_content> title="${title}"</#if>
       <#if value?has_content> value="${value}"</#if>
       <#if size?has_content> size="${size}"</#if><#rt/>
@@ -123,37 +280,36 @@ under the License.
       <script type="text/javascript">
         <#-- If language specific lib is found, use date / time converter else just copy the value fields -->
         if (Date.CultureInfo != undefined) {
-          var initDate = <#if value?has_content>jQuery("#${id}").val()<#else>""</#if>;
+          var initDate = <#if value?has_content>jQuery("#${id}_i18n").val()<#else>""</#if>;
           if (initDate != "") {
-            var dateFormat = Date.CultureInfo.formatPatterns.shortDate<#if shortDateInput?? && !shortDateInput> + " " + Date.CultureInfo.formatPatterns.longTime</#if>;
-            <#-- The JS date parser doesn't understand the dot before ms in the date/time string. The ms here should be always 000 -->
+            var dateFormat = Date.CultureInfo.formatPatterns.shortDate<#if shortDateInput?exists && !shortDateInput> + " " + Date.CultureInfo.formatPatterns.longTime</#if>;
+            <#-- bad hack because the JS date parser doesn't understand dots in the date / time string -->
             if (initDate.indexOf('.') != -1) {
               initDate = initDate.substring(0, initDate.indexOf('.'));
             }
-            jQuery("#${id}").val(initDate);
-            var ofbizTime = "<#if shortDateInput?? && shortDateInput>yyyy-MM-dd<#else>yyyy-MM-dd HH:mm:ss</#if>";
+            var ofbizTime = "<#if shortDateInput?exists && shortDateInput>yyyy-MM-dd<#else>yyyy-MM-dd HH:mm:ss</#if>";
             var dateObj = Date.parseExact(initDate, ofbizTime);
             var formatedObj = dateObj.toString(dateFormat);
             jQuery("#${id}_i18n").val(formatedObj);
           }
 
           jQuery("#${id}").change(function() {
-            var ofbizTime = "<#if shortDateInput?? && shortDateInput>yyyy-MM-dd<#else>yyyy-MM-dd HH:mm:ss</#if>";
+            var ofbizTime = "<#if shortDateInput?exists && shortDateInput>yyyy-MM-dd<#else>yyyy-MM-dd HH:mm:ss</#if>";
             var newValue = ""
             if (this.value != "") {
               var dateObj = Date.parseExact(this.value, ofbizTime);
-              var dateFormat = Date.CultureInfo.formatPatterns.shortDate<#if shortDateInput?? && !shortDateInput> + " " + Date.CultureInfo.formatPatterns.longTime</#if>;
+              var dateFormat = Date.CultureInfo.formatPatterns.shortDate<#if shortDateInput?exists && !shortDateInput> + " " + Date.CultureInfo.formatPatterns.longTime</#if>;
               newValue = dateObj.toString(dateFormat);
             }
             jQuery("#${id}_i18n").val(newValue);
           });
           jQuery("#${id}_i18n").change(function() {
-            var dateFormat = Date.CultureInfo.formatPatterns.shortDate<#if shortDateInput?? && !shortDateInput> + " " + Date.CultureInfo.formatPatterns.longTime</#if>,
+            var dateFormat = Date.CultureInfo.formatPatterns.shortDate<#if shortDateInput?exists && !shortDateInput> + " " + Date.CultureInfo.formatPatterns.longTime</#if>,
             newValue = "",
             dateObj = Date.parseExact(this.value, dateFormat),
             ofbizTime;
             if (this.value != "" && dateObj !== null) {
-              ofbizTime = "<#if shortDateInput?? && shortDateInput>yyyy-MM-dd<#else>yyyy-MM-dd HH:mm:ss</#if>";
+              ofbizTime = "<#if shortDateInput?exists && shortDateInput>yyyy-MM-dd<#else>yyyy-MM-dd HH:mm:ss</#if>";
               newValue = dateObj.toString(ofbizTime);
             }
             else { // invalid input
@@ -171,21 +327,28 @@ under the License.
         });
       }
 
-      <#if shortDateInput?? && shortDateInput>
+      <#if shortDateInput?exists && shortDateInput>
         jQuery("#${id}").datepicker({
       <#else>
         jQuery("#${id}").datetimepicker({
           showSecond: true,
-          <#-- showMillisec: true, -->
-          timeFormat: 'HH:mm:ss',
+            timeFormat: 'hh:mm:ss',
           stepHour: 1,
+            <#-- start of modification -->
           stepMinute: 1,
+            stepSecond: 60,
+            <#--
           stepSecond: 1,
+            -->
       </#if>
           showOn: 'button',
+            changeMonth: true,
+            changeYear: true,                    
           buttonImage: '',
           buttonText: '',
           buttonImageOnly: false,
+            yearRange: 'c-35:c+10',
+            <#-- end of modification -->
           dateFormat: 'yy-mm-dd'
         })
         <#if mask?has_content>.mask("${mask}")</#if>
@@ -193,7 +356,7 @@ under the License.
       </script>
     </#if>
     <#if timeDropdown?has_content && timeDropdown=="time-dropdown">
-      <select name="${timeHourName}" <#if classString?has_content>class="${classString}"</#if>><#rt/>
+      <select name="${timeHourName}" <#if classString?has_content>class="input-mini ${classString}"</#if>><#rt/>
         <#if isTwelveHour>
           <#assign x=11>
           <#list 0..x as i>
@@ -205,7 +368,7 @@ under the License.
             <option value="${i}"<#if hour2?has_content><#if i=hour2> selected="selected"</#if></#if>>${i}</option><#rt/>
           </#list>
         </#if>
-        </select>:<select name="${timeMinutesName}" <#if classString?has_content>class="${classString}"</#if>><#rt/>
+        </select>:<select name="${timeMinutesName}" <#if classString?has_content>class="input-mini ${classString}"</#if>><#rt/>
           <#assign values = Static["org.ofbiz.base.util.StringUtil"].toList(timeValues)>
           <#list values as i>
             <option value="${i}"<#if minutes?has_content><#if i?number== minutes ||((i?number==(60 -step?number)) && (minutes &gt; 60 - (step?number/2))) || ((minutes &gt; i?number )&& (minutes &lt; i?number+(step?number/2))) || ((minutes &lt; i?number )&& (minutes &gt; i?number-(step?number/2)))> selected="selected"</#if></#if>>${i}</option><#rt/>
@@ -225,7 +388,7 @@ under the License.
 </#macro>
 
 <#macro renderDropDownField name className alert id multiple formName otherFieldName event action size firstInList currentValue explicitDescription allowEmpty options fieldName otherFieldName otherValue otherFieldSize dDFCurrent ajaxEnabled noCurrentSelectedKey ajaxOptions frequency minChars choices autoSelect partialSearch partialChars ignoreCase fullSearch>
-  <span class="ui-widget">
+  
     <select name="${name?default("")}<#rt/>" <@renderClass className alert /><#if id?has_content> id="${id}"</#if><#if multiple?has_content> multiple="multiple"</#if><#if otherFieldSize gt 0> onchange="process_choice(this,document.${formName}.${otherFieldName})"</#if><#if event?has_content> ${event}="${action}"</#if><#if size?has_content> size="${size}"</#if>>
       <#if firstInList?has_content && currentValue?has_content && !multiple?has_content>
         <option selected="selected" value="${currentValue}">${explicitDescription}</option><#rt/>
@@ -242,7 +405,7 @@ under the License.
         </#if>
       </#list>
     </select>
-  </span>
+  
   <#if otherFieldName?has_content>
     <noscript><input type='text' name='${otherFieldName}' /></noscript>
     <script type='text/javascript' language='JavaScript'><!--
@@ -251,7 +414,7 @@ under the License.
         disa = '';
       document.write("<input type='text' name='${otherFieldName}' value='${otherValue?js_string}' size='${otherFieldSize}'"+disa+" onfocus='check_choice(document.${formName}.${fieldName})' />");
       if(disa && document.styleSheets)
-      document.${formName}.${otherFieldName}.style.visibility  = 'hidden';
+      document.${formName}.${fieldName}.style.visibility  = 'hidden';
     //--></script>
   </#if>
 
@@ -323,7 +486,8 @@ under the License.
 <#macro renderSingleFormFieldTitle></#macro>
 
 <#macro renderFormOpen linkUrl formType targetWindow containerId containerStyle autocomplete name viewIndexField viewSizeField viewIndex viewSize useRowSubmit>
-  <form method="post" action="${linkUrl}"<#if formType=="upload"> enctype="multipart/form-data"</#if><#if targetWindow?has_content> target="${targetWindow}"</#if><#if containerId?has_content> id="${containerId}"</#if> class=<#if containerStyle?has_content>"${containerStyle}"<#else>"basic-form"</#if> onsubmit="javascript:submitFormDisableSubmits(this)"<#if autocomplete?has_content> autocomplete="${autocomplete}"</#if> name="${name}"><#lt/>
+	<div class="form-container">
+	<form method="post" action="${linkUrl}"<#if formType=="upload"> enctype="multipart/form-data"</#if><#if targetWindow?has_content> target="${targetWindow}"</#if><#if containerId?has_content> id="${containerId}"</#if> class=<#if containerStyle?has_content>"${containerStyle}"<#else>"basic-form"</#if> onsubmit="javascript:submitFormDisableSubmits(this)"<#if autocomplete?has_content> autocomplete="${autocomplete}"</#if> name="${name}"><#lt/>
     <#if useRowSubmit?has_content && useRowSubmit>
       <input type="hidden" name="_useRowSubmit" value="Y"/>
       <#if linkUrl?index_of("VIEW_INDEX") &lt;= 0 && linkUrl?index_of(viewIndexField) &lt;= 0>
@@ -335,7 +499,8 @@ under the License.
     </#if>
 </#macro>
 <#macro renderFormClose focusFieldName formName containerId hasRequiredField>
-  </form><#lt/>
+  </form>
+  </div><#lt/>
   <#if focusFieldName?has_content>
     <script language="JavaScript" type="text/javascript">
       var form = document.${formName};
@@ -343,7 +508,15 @@ under the License.
       <#-- enable the validation plugin for all generated forms
       only enable the validation if min one field is marked as 'required' -->
       if (jQuery(form).find(".required").size() > 0) {
+        <#-- start of modification -->
+        <#-- adding option to ignore validation of hidden fields -->
+        jQuery(form).validate({
+                ignore: ":hidden"
+            });
+        <#--
         jQuery(form).validate();
+        -->
+        <#-- end of modification -->
       }
     </script><#lt/>
   </#if>
@@ -363,7 +536,7 @@ under the License.
 </#macro>
 
 <#macro renderFormatListWrapperOpen formName style columnStyles>
-  <table cellspacing="0" class="<#if style?has_content>${style}<#else>basic-table form-widget-table dark-grid</#if>"><#lt/>
+  <table cellspacing="0" class="<#if style?has_content>${style}<#else>table form-widget-table dark-grid</#if>"><#lt/>
 </#macro>
 
 <#macro renderFormatListWrapperClose formName>
@@ -411,7 +584,7 @@ under the License.
 <#macro renderFormatItemRowFormCellClose>
   </td>
 </#macro>
-
+<#-- 
 <#macro renderFormatSingleWrapperOpen formName style>
   <table cellspacing="0" <#if style?has_content>class="${style}"</#if>>
 </#macro>
@@ -437,6 +610,44 @@ under the License.
 </#macro>
 <#macro renderFormatFieldRowWidgetCellClose>
   </td>
+</#macro>
+-->
+
+<#-- Intial development for handling single forms supporting bootstrap mark up 
+    TODO: Modify col-md-6 hardcoding to name it dynamic based on positionSpan -->
+<#macro renderFormatSingleWrapperOpen formName style>  
+  <div <#if style?has_content>class="${style}"</#if>> 
+</#macro>
+<#macro renderFormatSingleWrapperClose formName>
+  </div>
+</#macro>
+
+<#macro renderFormatFieldRowOpen>
+  <div class="row">
+</#macro>
+<#macro renderFormatFieldRowClose>
+  </div>
+</#macro>
+<#macro renderFormatFieldRowTitleCellOpen style positions="">
+  <#if positions =="2">
+    <div class="col-md-6">
+  <#elseif positions =="3">
+    <div class="col-md-4">
+  <#else>
+    <div class="col-md-12">
+  </#if> 
+  <div class="form-group">   
+  <label class="col-sm-4 control-label <#if style?has_content>${style}<#else>control-label</#if>">  
+</#macro>
+<#macro renderFormatFieldRowTitleCellClose>
+  </label>
+</#macro>
+<#macro renderFormatFieldRowSpacerCell></#macro>
+<#macro renderFormatFieldRowWidgetCellOpen positionSpan style>
+  <div class="<#if style?has_content> ${style}"<#else>col-sm-8</#if>">
+</#macro>
+<#macro renderFormatFieldRowWidgetCellClose>
+  </div></div></div>
 </#macro>
 
 <#--
@@ -569,7 +780,7 @@ under the License.
   <#if titleStyle?has_content>
     </span><#rt/>
   </#if>
-  <br /><#rt/>
+  <#rt/>
   <input type="text" <@renderClass className alert /><#if name?has_content> name="${name}_fld1_value"</#if><#if value2?has_content> value="${value2}"</#if><#if size?has_content> size="${size}"</#if><#if maxlength?has_content> maxlength="${maxlength}"</#if><#if autocomplete?has_content> autocomplete="off"</#if>/><#rt/>
   <#if titleStyle?has_content>
     <span class="${titleStyle}" ><#rt/>
@@ -728,7 +939,7 @@ Parameter: lastViewName, String, optional - If the ajaxEnabled parameter is true
           <#if clearText?has_content>${clearText}<#else>${uiLabelMap.CommonClear}</#if>
       </a>
     </#if>
-  </span>
+  </div>
   <#if ajaxEnabled?has_content && ajaxEnabled && (presentation?has_content && presentation == "window")>
     <#if ajaxUrl?index_of("_LAST_VIEW_NAME_") < 0>
       <#local ajaxUrl = ajaxUrl + "&amp;_LAST_VIEW_NAME_=" + lastViewName />
@@ -739,8 +950,8 @@ Parameter: lastViewName, String, optional - If the ajaxEnabled parameter is true
 
 <#macro renderNextPrev paginateStyle paginateFirstStyle viewIndex highIndex listSize viewSize ajaxEnabled javaScriptEnabled ajaxFirstUrl firstUrl paginateFirstLabel paginatePreviousStyle ajaxPreviousUrl previousUrl paginatePreviousLabel pageLabel ajaxSelectUrl selectUrl ajaxSelectSizeUrl selectSizeUrl commonDisplaying paginateNextStyle ajaxNextUrl nextUrl paginateNextLabel paginateLastStyle ajaxLastUrl lastUrl paginateLastLabel paginateViewSizeLabel>
   <#if listSize gt viewSize>
-    <div class="${paginateStyle}">&nbsp; 
-      <ul>
+    <div>
+      <ul class="${paginateStyle}">
         <li class="${paginateFirstStyle}<#if viewIndex gt 0>"><a href="javascript:void(0)" onclick="<#if ajaxEnabled>ajaxUpdateAreas('${ajaxFirstUrl}')<#else>submitPagination(this, '${firstUrl}')</#if>">${paginateFirstLabel}</a><#else>-disabled"><span>${paginateFirstLabel}</span></#if></li>
         <li class="${paginatePreviousStyle}<#if viewIndex gt 0>"><a href="javascript:void(0)" onclick="<#if ajaxEnabled>ajaxUpdateAreas('${ajaxPreviousUrl}')<#else>submitPagination(this, '${previousUrl}')</#if>">${paginatePreviousLabel}</a><#else>-disabled"><span>${paginatePreviousLabel}</span></#if></li>
         <#if listSize gt 0 && javaScriptEnabled><li class="nav-page-select">${pageLabel} <select name="page" size="1" onchange="<#if ajaxEnabled>ajaxUpdateAreas('${ajaxSelectUrl}')<#else>submitPagination(this, '${selectUrl}'+this.value)</#if>"><#rt/>
@@ -789,13 +1000,13 @@ Parameter: lastViewName, String, optional - If the ajaxEnabled parameter is true
   <#if style?has_content || id?has_content || title?has_content><div class="fieldgroup<#if style?has_content> ${style}</#if>"<#if id?has_content> id="${id}"</#if>>
     <div class="fieldgroup-title-bar">
       <#if collapsible>
-        <ul>
+        <ul class="collapsible">
           <li class="<#if collapsed>collapsed">
-                      <a onclick="javascript:toggleCollapsiblePanel(this, '${collapsibleAreaId}', '${expandToolTip}', '${collapseToolTip}');">
+                <a onclick="javascript:toggleCollapsiblePanel(this, '${collapsibleAreaId}', '${expandToolTip}', '${collapseToolTip}');"><i class="fa fa-chevron-down"></i>
                     <#else>expanded">
-                      <a onclick="javascript:toggleCollapsiblePanel(this, '${collapsibleAreaId}', '${expandToolTip}', '${collapseToolTip}');">
+                <a onclick="javascript:toggleCollapsiblePanel(this, '${collapsibleAreaId}', '${expandToolTip}', '${collapseToolTip}');"><i class="fa fa-chevron-up"></i>
                     </#if>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<#if title?has_content>${title}</#if></a>
+                &nbsp;<#if title?has_content>${title}</#if></a>
           </li>
         </ul>
       <#else>
@@ -820,7 +1031,7 @@ Parameter: lastViewName, String, optional - If the ajaxEnabled parameter is true
 <#macro formatBoundaryComment boundaryType widgetType widgetName><!-- ${boundaryType}  ${widgetType}  ${widgetName} --></#macro>
 
 <#macro renderTooltip tooltip tooltipStyle>
-  <#if tooltip?has_content><span class="<#if tooltipStyle?has_content>${tooltipStyle}<#else>tooltip</#if>">${tooltip}</span><#rt/></#if>
+  <#if tooltip?has_content><span class="<#if tooltipStyle?has_content>${tooltipStyle}<#else>help-inline col-xs-12</#if>">${tooltip}</span><#rt/></#if>
 </#macro>
 
 <#macro renderClass className="" alert="">

@@ -21,8 +21,8 @@ under the License.
     <div class="screenlet-title-bar">
         <div class="boxlink">
             <#if maySelectItems?default(false)>
-                <a href="javascript:document.addOrderToCartForm.add_all.value="true";document.addOrderToCartForm.submit()" class="lightbuttontext">${uiLabelMap.OrderAddAllToCart}</a>
-                <a href="javascript:document.addOrderToCartForm.add_all.value="false";document.addOrderToCartForm.submit()" class="lightbuttontext">${uiLabelMap.OrderAddCheckedToCart}</a>
+                <a href="javascript:document.addOrderToCartForm.add_all.value="true";document.addOrderToCartForm.submit()" class="lightbtn btn-link">${uiLabelMap.OrderAddAllToCart}</a>
+                <a href="javascript:document.addOrderToCartForm.add_all.value="false";document.addOrderToCartForm.submit()" class="lightbtn btn-link">${uiLabelMap.OrderAddCheckedToCart}</a>
             </#if>
         </div>
         <div class="h3">${uiLabelMap.OrderOrderItems}</div>
@@ -48,7 +48,7 @@ under the License.
                 <td valign="top">
                   <div>
                     <#if orderItem.productId??>
-                      <a href="<@ofbizUrl>product?product_id=${orderItem.productId}</@ofbizUrl>" class="buttontext">${orderItem.productId} - ${orderItem.itemDescription}</a>
+                      <a href="<@ofbizUrl>product?product_id=${orderItem.productId}</@ofbizUrl>" class="btn btn-link">${orderItem.productId} - ${orderItem.itemDescription}</a>
                     <#else>
                       <b>${(itemType.description)!}</b> : ${orderItem.itemDescription!}
                     </#if>

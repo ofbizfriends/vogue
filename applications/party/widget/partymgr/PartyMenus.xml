@@ -145,7 +145,7 @@
             </link>
         </menu-item>
     </menu>
-    <menu name="ProfileSubTabBar" menu-container-style="button-bar button-style-2">
+    <menu name="ProfileSubTabBar" menu-container-style="nav nav-pills">
         <menu-item name="createNew" title="${uiLabelMap.AccountingBillingAccount}" >
             <condition>
                 <if-service-permission service-name="acctgBasePermissionCheck" main-action="VIEW"/>
@@ -333,7 +333,7 @@
             </link>
         </menu-item>
     </menu>
-    <menu name="MyCommSubTabBar" menu-container-style="button-bar button-style-2">
+    <menu name="MyCommSubTabBar" menu-container-style="btn-group button-style-2">
         <actions>
             <script location="component://party/webapp/partymgr/WEB-INF/actions/communication/GetMyCommunicationEventRole.groovy"/>
         </actions>
@@ -603,7 +603,7 @@
     </menu>
 
     <menu name="CommSubTabBar" extends="CommonButtonBarMenu" extends-resource="component://common/widget/CommonMenus.xml">
-        <menu-item name="new" title="${uiLabelMap.PartyNewCommunication}" widget-style="buttontext create">
+        <menu-item name="new" title="${uiLabelMap.PartyNewCommunication}" widget-style="btn btn-link create">
             <link target="EditCommunicationEvent"/>
         </menu-item>
         <menu-item name="reply" title="${uiLabelMap.PartyReply}">

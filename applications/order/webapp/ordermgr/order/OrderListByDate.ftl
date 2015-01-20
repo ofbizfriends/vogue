@@ -33,7 +33,7 @@ under the License.
   </div>
   <div class="screenlet-body">
     <#if orderHeaderList?has_content>
-      <table class="basic-table hover-bar" cellspacing='0'>
+      <table class="table table-hover" cellspacing='0'>
         <tr class="header-row">
           <td width="10%">${uiLabelMap.OrderOrder} ${uiLabelMap.CommonNbr}</td>
           <td width="15%">${uiLabelMap.OrderOrderBillToParty}</td>
@@ -54,7 +54,7 @@ under the License.
           <#assign productStore = orderHeader.getRelatedOne("ProductStore", true)! />
           <tr<#if alt_row> class="alternate-row"</#if>>
             <#assign alt_row = !alt_row>
-            <td><a href="/ordermgr/control/orderview?orderId=${orderHeader.orderId}" class="buttontext">${orderHeader.orderId}</a></td>
+            <td><a href="/ordermgr/control/orderview?orderId=${orderHeader.orderId}" class="btn btn-link">${orderHeader.orderId}</a></td>
             <td>${billTo!}</td>
             <td><#if productStore?has_content>${productStore.storeName?default(productStore.productStoreId)}</#if></td>
             <td><@ofbizCurrency amount=orderHeader.grandTotal isoCode=orderHeader.currencyUom/></td>

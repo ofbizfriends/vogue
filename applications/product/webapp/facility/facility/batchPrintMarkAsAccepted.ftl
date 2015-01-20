@@ -43,4 +43,4 @@ under the License.
 //-->
 </script>
 
-<input type="submit" class="smallSubmit" value="${uiLabelMap.ProductMarkAsAccepted}" onclick="javascript:markAsAccepted()"/>
+<input type="submit" class="btn btn-default btn-sm" value="${uiLabelMap.ProductMarkAsAccepted}" onclick="javascript:markAsAccepted()"/>

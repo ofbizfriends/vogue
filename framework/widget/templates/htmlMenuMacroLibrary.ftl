@@ -17,26 +17,26 @@ specific language governing permissions and limitations
 under the License.
 -->
 
-<#macro renderMenuBegin boundaryComment="" id="" style="" title="">
-  <#if boundaryComment?has_content>
-<!-- ${boundaryComment} -->
-  </#if>
-  <#-- FIXME: A menu could have an ID and a style, but some visual themes break if both are used. -->
-  <div<#if id?has_content> id="${id}"<#elseif style?has_content> class="${style}"</#if>>
-  <#if title?has_content>
-  <h2>${title}</h2>
-  </#if>
-  <ul>
-    <li>
-      <ul>
+<#macro renderMenuBegin boundaryComment="" id="" style="" title="" titleStyle="">
+    <#if boundaryComment?has_content>
+        <!-- ${boundaryComment} -->
+    </#if>
+    <#-- FIXME: A menu could have an ID and a style, but some visual themes break if both are used. -->
+    <div<#if id?has_content> id="${id}"</#if>>
+        <#if title?has_content>
+            <#if titleStyle?has_content>
+                <div class="${titleStyle}">${title}</div>
+            <#else>
+                <h2>${title}</h2>
+            </#if>
+        </#if>
+        <ul class="${style}">    
 </#macro>
 
 <#macro renderMenuEnd boundaryComment="">
-      </ul>
-    </li>
-  </ul>
-  <br class="clear"/>
-  </div>
+    
+        </ul>        
+    </div>
 <#if boundaryComment?has_content>
 <!-- ${boundaryComment} -->
 </#if>

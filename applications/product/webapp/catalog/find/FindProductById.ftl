@@ -24,7 +24,7 @@ under the License.
     </div>
     <div class="screenlet-body">
         <form name="idsearchform" method="post" action="<@ofbizUrl>FindProductById</@ofbizUrl>" style="margin: 0;">
-          <span class="label">${uiLabelMap.CommonId} ${uiLabelMap.CommonValue}:</span> <input type="text" name="idValue" size="20" maxlength="50" value="${idValue!}" />&nbsp;<a href="javascript:document.idsearchform.submit()" class="buttontext">${uiLabelMap.CommonFind}</a>
+          <span class="label">${uiLabelMap.CommonId} ${uiLabelMap.CommonValue}:</span> <input type="text" name="idValue" size="20" maxlength="50" value="${idValue!}" />&nbsp;<a href="javascript:document.idsearchform.submit()" class="btn btn-link">${uiLabelMap.CommonFind}</a>
         </form>
         <br />
         <h1>${uiLabelMap.ProductSearchResultsWithIdValue}: ${idValue!}</h1>
@@ -32,7 +32,7 @@ under the License.
           <br />
           <h2>&nbsp;${uiLabelMap.ProductNoResultsFound}.</h2>
         <#else/>
-          <table cellspacing="0" class="basic-table">
+          <table cellspacing="0" class="table">
             <#assign rowClass = "1">
             <#if idProduct?has_content>
             <tr valign="middle"<#if rowClass == "1"> class="alternate-row"</#if>>
@@ -41,7 +41,7 @@ under the License.
                 </td>
                 <td>&nbsp;&nbsp;</td>
                 <td>
-                    <a href="<@ofbizUrl>EditProduct?productId=${idProduct.productId}</@ofbizUrl>" class="buttontext">${(idProduct.internalName)!}</a>
+                    <a href="<@ofbizUrl>EditProduct?productId=${idProduct.productId}</@ofbizUrl>" class="btn btn-link">${(idProduct.internalName)!}</a>
                     (${uiLabelMap.ProductSearchResultsFound})
                 </td>
             </tr>
@@ -61,7 +61,7 @@ under the License.
                     </td>
                     <td>&nbsp;&nbsp;</td>
                     <td>
-                        <a href="<@ofbizUrl>EditProduct?productId=${product.productId}</@ofbizUrl>" class="buttontext">${(product.internalName)!}</a>
+                        <a href="<@ofbizUrl>EditProduct?productId=${product.productId}</@ofbizUrl>" class="btn btn-link">${(product.internalName)!}</a>
                         (${uiLabelMap.ProductSearchResultsFound} ${goodIdentificationType.get("description",locale)?default(goodIdentification.goodIdentificationTypeId)}.)
                     </td>
                 </tr>

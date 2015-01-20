@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- BASE Theme VADMIN for VOGUE -->
+
+<entity-engine-xml>
+    <VisualTheme visualThemeId="VADMIN" visualThemeSetId="BACKOFFICE" description="VOGUE: The offical vogue admin theme"/>
+    <VisualThemeResource visualThemeId="VADMIN" resourceTypeEnumId="VT_NAME" resourceValue="VADMIN" sequenceId="01"/>
+    
+    <VisualThemeResource visualThemeId="VADMIN" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/vadmin/css/style.min.css" sequenceId="11"/>
+    <VisualThemeResource visualThemeId="VADMIN" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/vadmin/css/style-responsive.min.css" sequenceId="21"/>
+    <VisualThemeResource visualThemeId="VADMIN" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/vadmin/css/vadmin.css" sequenceId="31"/>
+    <!-- Place holder css for testing overrides -->
+    <VisualThemeResource visualThemeId="VADMIN" resourceTypeEnumId="VT_STYLESHEET" resourceValue="/vadmin/css/style.css" sequenceId="61"/>
+    
+        
+    <VisualThemeResource visualThemeId="VADMIN" resourceTypeEnumId="VT_FTR_JAVASCRIPT" resourceValue="/vadmin/js/vadmin.min.js" sequenceId="01"/>
+        
+    <VisualThemeResource visualThemeId="VADMIN" resourceTypeEnumId="VT_SHORTCUT_ICON" resourceValue="/images/ofbiz.ico" sequenceId="01"/>
+    <VisualThemeResource visualThemeId="VADMIN" resourceTypeEnumId="VT_HDR_IMAGE_URL" resourceValue="/vadmin/images/ofbiz-logo.gif" sequenceId="01"/>
+    <VisualThemeResource visualThemeId="VADMIN" resourceTypeEnumId="VT_HDR_TMPLT_LOC" resourceValue="component://vadmin/includes/header.ftl" sequenceId="01"/>   
+    <VisualThemeResource visualThemeId="VADMIN" resourceTypeEnumId="VT_NAV_OPEN_TMPLT" resourceValue="component://vadmin/includes/appbarPrimary.ftl" sequenceId="31"/>
+    <!-- 
+    <VisualThemeResource visualThemeId="VADMIN" resourceTypeEnumId="VT_NAV_CLOSE_TMPLT" resourceValue="component://vadmin/includes/appbarSecondary.ftl" sequenceId="01"/>
+    -->
+    
+    
+    <VisualThemeResource visualThemeId="VADMIN" resourceTypeEnumId="VT_MSG_TMPLT_LOC" resourceValue="component://vadmin/includes/messages.ftl" sequenceId="01"/>
+    <VisualThemeResource visualThemeId="VADMIN" resourceTypeEnumId="VT_SCREENSHOT" resourceValue="/vadmin/screenshot.jpg" sequenceId="01"/>
+    
+    <VisualThemeResource visualThemeId="VADMIN" resourceTypeEnumId="VT_PBODY_TMPLT_LOC" resourceValue="component://vadmin/includes/appFooter.ftl" sequenceId="11"/>
+    <VisualThemeResource visualThemeId="VADMIN" resourceTypeEnumId="VT_FTR_TMPLT_LOC" resourceValue="component://vadmin/includes/footer.ftl" sequenceId="31"/>
+    
+</entity-engine-xml>

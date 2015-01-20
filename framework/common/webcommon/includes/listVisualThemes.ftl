@@ -54,7 +54,7 @@ margin: 1em;
   <li class="h2" style="padding-top:1em">${uiLabelMap.CommonVisualThemeUsage}</li>
   <#if visualThemes?has_content>
     <#assign orderByList = Static["org.ofbiz.base.util.UtilMisc"].toList("visualThemeId")/>
-    <table cellspacing="0" class="basic-table">
+    <table cellspacing="0" class="table">
       <#list visualThemes as visualTheme>
         <#assign screenshots = delegator.findByAnd("VisualThemeResource", Static["org.ofbiz.base.util.UtilMisc"].toMap(
                                         "visualThemeId", "${visualTheme.visualThemeId}",

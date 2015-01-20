@@ -21,7 +21,7 @@
 <forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-form.xsd">
     <form name="FindEmplLeaves" type="single" target="FindEmplLeaves"
-        odd-row-style="header-row" default-table-style="basic-table">
+        odd-row-style="header-row" default-table-style="table">
         <auto-fields-entity entity-name="EmplLeave" default-field-type="find"/>
         <field name="partyId" title="${uiLabelMap.PartyPartyId}"><lookup target-form-name="LookupPartyName"/></field>
         <field name="leaveTypeId">
@@ -45,10 +45,10 @@
         <field name="approverPartyId"><lookup target-form-name="LookupPartyName"/></field>
         <field name="description"><hidden/></field>
         <field name="noConditionFind"><hidden value="Y"/><!-- if this isn't there then with all fields empty no query will be done --></field>
-        <field name="searchButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="searchButton" title="${uiLabelMap.CommonFind}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
     <form name="ListEmplLeaves" list-name="listIt" type="list" odd-row-style="alternate-row" header-row-style="header-row-2"
-        paginate-target="FindEmplLeaves" default-table-style="basic-table hover-bar">
+        paginate-target="FindEmplLeaves" default-table-style="table table-hover">
         <actions>
             <set field="entityName" value="EmplLeave"/>
             <service service-name="performFind" result-map="result" result-map-list="listIt">
@@ -61,7 +61,7 @@
         <auto-fields-entity entity-name="EmplLeave" default-field-type="display"/>
         <field name="partyId">
             <display-entity entity-name="PartyNameView" description="${firstName} ${lastName}">
-                <sub-hyperlink target="/partymgr/control/viewprofile" target-type="inter-app" description="${partyId}" link-style="buttontext">
+                <sub-hyperlink target="/partymgr/control/viewprofile" target-type="inter-app" description="${partyId}" link-style="btn btn-link">
                     <parameter param-name="partyId" from-field="partyId"/>
                 </sub-hyperlink>
             </display-entity>
@@ -70,20 +70,20 @@
         <field name="emplLeaveReasonTypeId"><display-entity entity-name="EmplLeaveReasonType"/></field>
         <field name="approverPartyId">
             <display-entity entity-name="PartyNameView" description="${firstName} ${lastName}" key-field-name="partyId">
-                <sub-hyperlink target="/partymgr/control/viewprofile" target-type="inter-app" description="${approverPartyId}" link-style="buttontext">
+                <sub-hyperlink target="/partymgr/control/viewprofile" target-type="inter-app" description="${approverPartyId}" link-style="btn btn-link">
                     <parameter param-name="partyId" from-field="approverPartyId"/>
                 </sub-hyperlink>
             </display-entity>
         </field>
         <field name="leaveStatus"><display-entity entity-name="StatusItem" key-field-name="statusId"/></field>
-        <field name="updateLeave" title="${uiLabelMap.CommonUpdate}" widget-style="buttontext" use-when="hasAdminPermission">
+        <field name="updateLeave" title="${uiLabelMap.CommonUpdate}" widget-style="btn btn-link" use-when="hasAdminPermission">
             <hyperlink also-hidden="false" description="${uiLabelMap.CommonUpdate}" target="EditEmplLeave">
                 <parameter param-name="partyId"/>
                 <parameter param-name="leaveTypeId"/>
                 <parameter param-name="fromDate"/>
             </hyperlink>
         </field>
-        <field name="deleteLink" title="${uiLabelMap.CommonDelete}" widget-style="buttontext" use-when="hasAdminPermission">
+        <field name="deleteLink" title="${uiLabelMap.CommonDelete}" widget-style="btn btn-link" use-when="hasAdminPermission">
             <hyperlink also-hidden="false" description="${uiLabelMap.CommonDelete}" target="deleteEmplLeave">
                 <parameter param-name="partyId"/>
                 <parameter param-name="leaveTypeId"/>
@@ -93,7 +93,7 @@
         <field name="description"><hidden/></field>
     </form>
     <form name="EditEmplLeave" type="single" target="updateEmplLeaveExt" default-map-name="leaveApp"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <alt-target use-when="leaveApp==null" target="createEmplLeaveExt"/>
         <auto-fields-service service-name="updateEmplLeave" map-name="leaveApp"/>
         <field name="partyId" tooltip="${uiLabelMap.CommonRequired}"><lookup target-form-name="LookupPartyName"/></field>
@@ -111,8 +111,8 @@
         <field name="fromDate" tooltip="${uiLabelMap.CommonRequired}"><date-time type="date"/></field>
         <field name="thruDate" tooltip="${uiLabelMap.CommonRequired}"><date-time type="date"/></field>
         <field name="leaveStatus"><hidden value="LEAVE_CREATED"/></field>
-        <field name="submitButton" use-when="leaveApp==null" title="${uiLabelMap.CommonCreate}" widget-style="smallSubmit"><submit button-type="button"/></field>
-        <field name="submitButton" use-when="leaveApp!=null" title="${uiLabelMap.CommonUpdate}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" use-when="leaveApp==null" title="${uiLabelMap.CommonCreate}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
+        <field name="submitButton" use-when="leaveApp!=null" title="${uiLabelMap.CommonUpdate}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
     <form name="FindLeaveApprovals" target="FindLeaveApprovals" type="single">
         <auto-fields-entity entity-name="EmplLeave" default-field-type="find"/>
@@ -128,9 +128,9 @@
             </drop-down>
         </field>
         <field name="description"><hidden/></field>
-        <field name="searchButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="searchButton" title="${uiLabelMap.CommonFind}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
-    <form name="ListLeaveApprovals" list-name="listIt" type="list" odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
+    <form name="ListLeaveApprovals" list-name="listIt" type="list" odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="table table-hover">
         <actions>
             <set field="entityName" value="EmplLeave"/>
             <service service-name="performFind" result-map="result" result-map-list="listIt">
@@ -141,7 +141,7 @@
         <auto-fields-entity entity-name="EmplLeave" default-field-type="display"/>
         <field name="partyId" field-name="partyId">
             <display-entity entity-name="PartyNameView" description="${firstName} ${lastName}">
-                <sub-hyperlink target="/partymgr/control/viewprofile" target-type="inter-app" description="${partyId}" link-style="buttontext">
+                <sub-hyperlink target="/partymgr/control/viewprofile" target-type="inter-app" description="${partyId}" link-style="btn btn-link">
                     <parameter param-name="partyId" from-field="partyId"/>
                 </sub-hyperlink>
             </display-entity>
@@ -150,13 +150,13 @@
         <field name="emplLeaveReasonTypeId"><display-entity entity-name="EmplLeaveReasonType"/></field>
         <field name="approverPartyId" field-name="approverPartyId">
             <display-entity entity-name="PartyNameView" description="${firstName} ${lastName}" key-field-name="partyId">
-                <sub-hyperlink target="/partymgr/control/viewprofile" target-type="inter-app" description="${approverPartyId}" link-style="buttontext">
+                <sub-hyperlink target="/partymgr/control/viewprofile" target-type="inter-app" description="${approverPartyId}" link-style="btn btn-link">
                     <parameter param-name="partyId" from-field="approverPartyId"/>
                 </sub-hyperlink>
             </display-entity>
         </field>
         <field name="leaveStatus"><display-entity entity-name="StatusItem" key-field-name="statusId"/></field>
-        <field name="UpdateStatus" title="${uiLabelMap.CommonUpdate}" widget-style="buttontext">
+        <field name="UpdateStatus" title="${uiLabelMap.CommonUpdate}" widget-style="btn btn-link">
             <hyperlink target="EditEmplLeaveStatus" description="${uiLabelMap.CommonUpdate}" >
                 <parameter param-name="partyId"/>
                 <parameter param-name="fromDate"/>
@@ -182,6 +182,6 @@
             </drop-down>
         </field>
         <field name="leaveStatus" use-when="leaveApp!=null&amp;&amp;leaveApp.getString(&quot;leaveStatus&quot;).equals(&quot;LEAVE_REJECTED&quot;)"><display></display></field>
-        <field name="submitButton" title="${uiLabelMap.CommonUpdate}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonUpdate}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
 </forms>

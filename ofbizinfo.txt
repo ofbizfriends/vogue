@@ -1,2 +1,16 @@
 Release 14.12 
 Rev no. 1650257
+
+
+////////////////////////
+
+Port Changes to Run on Open Shift
+
+[1]
+framework/start/src/org/ofbiz/base/start/start.properties 
+
+ofbiz.start.loader1.loaders=main,rmi  to ofbiz.start.loader1.loaders=main
+
+run ant build to update the changes in the ofbiz.jar file that is used to start.  start.propoerties is packaged inside the ofbiz.jar file. 
+
+127.10.82.1

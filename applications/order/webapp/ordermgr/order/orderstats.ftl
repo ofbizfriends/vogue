@@ -23,7 +23,7 @@ under the License.
       <h3>${uiLabelMap.OrderOrderStatisticsPage}</h3>
     </div>
     <div class="screenlet-body">
-        <table class="basic-table" cellspacing='0'>
+        <table class="table" cellspacing='0'>
           <tr class="label">
             <td>&nbsp;</td>
             <td>&nbsp;</td>

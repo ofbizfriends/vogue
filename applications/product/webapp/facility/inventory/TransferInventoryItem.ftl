@@ -20,14 +20,14 @@ under the License.
       <#if illegalInventoryItem??>
             <div class="errorMessage">${illegalInventoryItem}</div>
       </#if>
-        <div class="button-bar">
-          <a href="<@ofbizUrl>EditFacility</@ofbizUrl>" class="buttontext">${uiLabelMap.ProductNewFacility}</a>
-          <a href="<@ofbizUrl>PickMoveStockSimple?facilityId=${facilityId!}</@ofbizUrl>" class="buttontext">${uiLabelMap.CommonPrint}</a>
+        <div class="btn-group">
+          <a href="<@ofbizUrl>EditFacility</@ofbizUrl>" class="btn btn-link">${uiLabelMap.ProductNewFacility}</a>
+          <a href="<@ofbizUrl>PickMoveStockSimple?facilityId=${facilityId!}</@ofbizUrl>" class="btn btn-link">${uiLabelMap.CommonPrint}</a>
         </div>
        <#if !(inventoryItem??)>
             <form method="post" action="<@ofbizUrl>TransferInventoryItem</@ofbizUrl>">
             <input type="hidden" name="facilityId" value="${facilityId}" />
-            <table cellspacing="0" class="basic-table">
+            <table cellspacing="0" class="table">
             <tr>
                 <td class="label">${uiLabelMap.ProductInventoryItemId}</td>
                 <td>
@@ -49,7 +49,7 @@ under the License.
                 function setNow(field) { eval('document.transferform.' + field + '.value="${nowTimestamp}"'); }
             </script>
 
-            <table cellspacing="0" class="basic-table">
+            <table cellspacing="0" class="table">
             <input type="hidden" name="inventoryItemId" value="${inventoryItemId!}" />
             <input type="hidden" name="facilityId" value="${facilityId!}" />
             <input type="hidden" name="locationSeqId" value="${(inventoryItem.locationSeqId)!}" />
@@ -75,7 +75,7 @@ under the License.
                 <td width="6%">&nbsp;</td>
                 <td width="74%">
                     <#if inventoryItem?? && (inventoryItem.productId)??>
-                        <a href="/catalog/control/EditProduct?productId=${(inventoryItem.productId)!}" class="buttontext">${(inventoryItem.productId)!}</a>
+                        <a href="/catalog/control/EditProduct?productId=${(inventoryItem.productId)!}" class="btn btn-link">${(inventoryItem.productId)!}</a>
                     </#if>
                 </td>
             </tr>
@@ -134,7 +134,7 @@ under the License.
             <td width="6%">&nbsp;</td>
             <td width="74%">
             <input type="text" name="sendDate" value="${(inventoryTransfer.sendDate)!}" size="22" />
-            <a href="#" onclick="setNow('sendDate')" class="buttontext">${uiLabelMap.CommonNow}</a>
+            <a href="#" onclick="setNow('sendDate')" class="btn btn-link">${uiLabelMap.CommonNow}</a>
             </td>
         </tr>
         <#if !(inventoryTransfer??)>
@@ -194,7 +194,7 @@ under the License.
                 <td width="6%">&nbsp;</td>
                 <td width="74%">
                 <input type="text" name="receiveDate" value="${(inventoryTransfer.receiveDate)!}" size="22" />
-                <a href="#" onclick="setNow('receiveDate')" class="buttontext">${uiLabelMap.CommonNow}</a>
+                <a href="#" onclick="setNow('receiveDate')" class="btn btn-link">${uiLabelMap.CommonNow}</a>
                 </td>
             </tr>
             <tr>

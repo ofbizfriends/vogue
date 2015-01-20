@@ -17,12 +17,12 @@ specific language governing permissions and limitations
 under the License.
 -->
 <h1>${uiLabelMap.PageTitleViewActivityAndTaskList}</h1>
-<div class="button-bar">
-  <a href="<@ofbizUrl>EditWorkEffort?workEffortTypeId=TASK&amp;currentStatusId=CAL_NEEDS_ACTION</@ofbizUrl>" class="buttontext create">${uiLabelMap.WorkEffortNewTask}</a>
+<div class="btn-group">
+  <a href="<@ofbizUrl>EditWorkEffort?workEffortTypeId=TASK&amp;currentStatusId=CAL_NEEDS_ACTION</@ofbizUrl>" class="btn btn-link create">${uiLabelMap.WorkEffortNewTask}</a>
 </div>
   <h2>${uiLabelMap.WorkEffortAssignedTasks}</h2>
   <br />
-  <table class="basic-table hover-bar" cellspacing="0">
+  <table class="table table-hover" cellspacing="0">
     <tr class="header-row-2">
       <td>${uiLabelMap.CommonStartDateTime}</td>
       <td>${uiLabelMap.WorkEffortTaskName}</td>
@@ -43,7 +43,7 @@ under the License.
   <#if (activities.size() > 0)>
     <h2>${uiLabelMap.WorkEffortWorkflowActivitiesUser}</h2>
     <br />
-    <table class="basic-table hover-bar" cellspacing="0">
+    <table class="table table-hover" cellspacing="0">
       <tr class="header-row-2">
         <td>${uiLabelMap.CommonStartDateTime}</td>
         <td>${uiLabelMap.WorkEffortPriority}</td>
@@ -73,7 +73,7 @@ under the License.
   <#if (roleActivities.size() > 0)>
     <h2>${uiLabelMap.WorkEffortWorkflowActivitiesUserRole}</h2>
     <br />
-    <table class="basic-table hover-bar" cellspacing="0">
+    <table class="table table-hover" cellspacing="0">
       <tr class="header-row-2">
         <td>${uiLabelMap.CommonStartDateTime}</td>
         <td>${uiLabelMap.WorkEffortPriority}</td>
@@ -103,7 +103,7 @@ under the License.
   <#if (groupActivities.size() > 0)>
     <h2>${uiLabelMap.WorkEffortWorkflowActivitiesUserGroup}</h2>
     <br />
-    <table class="basic-table hover-bar" cellspacing="0">
+    <table class="table table-hover" cellspacing="0">
       <tr class="header-row-2">
         <td>${uiLabelMap.CommonStartDateTime}</td>
         <td>${uiLabelMap.WorkEffortPriority}</td>

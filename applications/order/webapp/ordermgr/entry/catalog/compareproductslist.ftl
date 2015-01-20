@@ -36,16 +36,16 @@ under the License.
           <form method="post" action="<@ofbizUrl>removeFromCompare</@ofbizUrl>" name="removeFromCompare${product_index}form">
             <input type="hidden" name="productId" value="${product.productId}"/>
           </form>
-          <a href="javascript:document.removeFromCompare${product_index}form.submit()" class="buttontext">${uiLabelMap.CommonRemove}</a>
+          <a href="javascript:document.removeFromCompare${product_index}form.submit()" class="btn btn-link">${uiLabelMap.CommonRemove}</a>
         </td>
       </tr>
     </#list>
   </table>
   <div>
-    <a href="<@ofbizUrl>clearCompareList</@ofbizUrl>" class="buttontext">${uiLabelMap.CommonClearAll}</a>
+    <a href="<@ofbizUrl>clearCompareList</@ofbizUrl>" class="btn btn-link">${uiLabelMap.CommonClearAll}</a>
   </div>
   <div>
-    <a href="javascript:popUp('<@ofbizUrl secure="${request.isSecure()?string}">compareProducts</@ofbizUrl>', 'compareProducts', '650', '750')" class="buttontext">${uiLabelMap.ProductCompareProducts}</a>
+    <a href="javascript:popUp('<@ofbizUrl secure="${request.isSecure()?string}">compareProducts</@ofbizUrl>', 'compareProducts', '650', '750')" class="btn btn-link">${uiLabelMap.ProductCompareProducts}</a>
   </div>
 <#else/>
   <div>

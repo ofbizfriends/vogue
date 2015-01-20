@@ -17,7 +17,7 @@ specific language governing permissions and limitations
 under the License.
 -->
 <div class="screenlet-body">
-    <table class="basic-table" cellspacing="3">
+    <table class="table" cellspacing="3">
         <tr>
             <td class="label">${uiLabelMap.WebtoolsLabelManagerKey}</td>
             <td>${parameters.sourceKey!}</td>

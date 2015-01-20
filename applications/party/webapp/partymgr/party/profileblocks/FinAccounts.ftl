@@ -20,7 +20,7 @@ under the License.
 <div style="border-bottom: 1px solid #ccc; margin-bottom: 20px">
     <p>
         <b>${uiLabelMap.AccountingAccountNumber}:</b> <a href="/accounting/control/EditFinAccount?finAccountId=${ownedFinAccount.finAccountId}${StringUtil.wrapString(externalKeyParam)}"
-             class="smallSubmit">${ownedFinAccount.finAccountId}</a>
+             class="btn btn-default btn-sm">${ownedFinAccount.finAccountId}</a>
         <b>${uiLabelMap.AccountingAccountType}:</b> ${(ownedFinAccountType.description)?default('N/A')}
         <b>${uiLabelMap.FormFieldTitle_finAccountName}:</b> ${ownedFinAccount.finAccountName!}
     </p>
@@ -33,7 +33,7 @@ under the License.
         </#if>
     </p>
     <br />
-    <table id="fa-transactions" class="basic-table" cellspacing="0" cellpadding="2">
+    <table id="fa-transactions" class="table" cellspacing="0" cellpadding="2">
         <thead>
             <tr class="header-row">
                 <td>${uiLabelMap.FormFieldTitle_transactionDate}</td>
@@ -73,7 +73,7 @@ under the License.
 
 <#if ownedFinAccountAuthList?has_content>
     <div style="border-bottom: 1px solid #ccc; margin-bottom: 20px">
-        <table id="fa-authorizations" class="basic-table" cellspacing="0" cellpadding="2">
+        <table id="fa-authorizations" class="table" cellspacing="0" cellpadding="2">
             <thead>
                 <tr class="header-row">
                     <td>${uiLabelMap.FormFieldTitle_authorizationDate}</td>

@@ -98,8 +98,8 @@
                             <widgets>
                                 <decorator-screen name="FindScreenDecorator" location="component://common/widget/CommonScreens.xml">
                                     <decorator-section name="menu-bar">
-                                        <container style="button-bar">
-                                            <link target="EditFeatureType" text="${uiLabelMap.ProductNewFeatureType}" style="buttontext create"/>
+                                        <container style="btn-group">
+                                            <link target="EditFeatureType" text="${uiLabelMap.ProductNewFeatureType}" style="btn btn-link create"/>
                                         </container>
                                     </decorator-section>
                                     <decorator-section name="search-options">
@@ -150,8 +150,8 @@
                             <widgets>
                                 <decorator-screen name="FindScreenDecorator" location="component://common/widget/CommonScreens.xml">
                                     <decorator-section name="menu-bar">
-                                        <container style="button-bar">
-                                            <link target="EditFeatureInterAction" text="${uiLabelMap.ProductNewFeatureInterAction}" style="buttontext create"/>
+                                        <container style="btn-group">
+                                            <link target="EditFeatureInterAction" text="${uiLabelMap.ProductNewFeatureInterAction}" style="btn btn-link create"/>
                                         </container>
                                     </decorator-section>
                                     <decorator-section name="search-options">
@@ -227,8 +227,8 @@
                             <widgets>
                                 <decorator-screen name="FindScreenDecorator" location="component://common/widget/CommonScreens.xml">
                                     <decorator-section name="menu-bar">
-                                        <container style="button-bar">
-                                            <link target="CreateProductFeature" text="${uiLabelMap.ProductNewFeatureCategory}" style="buttontext create"/>
+                                        <container style="btn-group">
+                                            <link target="CreateProductFeature" text="${uiLabelMap.ProductNewFeatureCategory}" style="btn btn-link create"/>
                                         </container>
                                     </decorator-section>
                                     <decorator-section name="search-options">

@@ -21,7 +21,7 @@ under the License.
 <forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
         xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-form.xsd">
     <form name="EditReturn" type="single" target="updateReturn" default-map-name="returnHeader" id="editReturn"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <actions>
             <entity-one entity-name="StatusItem" value-field="currentStatus" auto-field-map="false">
                 <field-map field-name="statusId" from-field="returnHeader.statusId"/>
@@ -97,7 +97,7 @@ under the License.
                 <list-options list-name="creditCardList" list-entry-name="creditCardPm" key-name="creditCardPm.paymentMethodId" description="${bsh:org.ofbiz.party.contact.ContactHelper.formatCreditCard(creditCardPm.getRelatedOne(&quot;CreditCard&quot;, false))}"/>
             </drop-down>
         </field>
-        <field name="newCreditCard" widget-style="buttontext" use-when="returnHeader!=null&amp;&amp;returnHeader.getString(&quot;fromPartyId&quot;)!=null">
+        <field name="newCreditCard" widget-style="btn btn-link" use-when="returnHeader!=null&amp;&amp;returnHeader.getString(&quot;fromPartyId&quot;)!=null">
             <hyperlink also-hidden="false" target="/partymgr/control/editcreditcard" target-window="partymgr" description="${uiLabelMap.AccountingCreateNewCreditCard}" target-type="inter-app">
                 <parameter param-name="partyId" from-field="returnHeader.fromPartyId"/>
             </hyperlink>
@@ -106,11 +106,11 @@ under the License.
             <drop-down no-current-selected-key="N"><option key="N"/><option key="Y"/></drop-down>
         </field>
         <field name="createdBy"><display/></field>
-        <field name="submitButton" title="${uiLabelMap.CommonSubmit}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonSubmit}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
     <!-- UNUSED FORM
     <form name="ReturnItems" type="multi" list-name="orderItems" target="createReturnItem"
-        odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" default-table-style="table table-hover">
         <auto-fields-service service-name="createReturnItem"/>
         <field name="itemDescription"><display/></field>
         <field name="returnId"><hidden/></field>
@@ -120,7 +120,7 @@ under the License.
     </form>
     -->
     <form name="FindReturns" type="single"  target="findreturn" title=""
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <field name="returnHeaderTypeId">
             <drop-down allow-empty="true">
                 <entity-options entity-name="ReturnHeaderType" description="${description}"/>
@@ -144,13 +144,13 @@ under the License.
             <date-find/>
         </field>
         <field name="noConditionFind"><hidden value="Y"/><!-- if this isn't there then with all fields empty no query will be done --></field>
-        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit">
+        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="btn btn-default btn-sm">
             <submit button-type="button"/>
         </field>
     </form>
 
     <form name="ListReturns" type="list"  target="findreturn" title="" list-name="listIt"
-        odd-row-style="alternate-row" default-table-style="basic-table hover-bar" paginate-target="findreturn">
+        odd-row-style="alternate-row" default-table-style="table table-hover" paginate-target="findreturn">
         <actions>
             <service service-name="performFind"  result-map="result" result-map-list="listIt">
                 <field-map field-name="inputFields" from-field="requestParameters"/>
@@ -160,7 +160,7 @@ under the License.
                 <field-map field-name="viewSize" from-field="viewSize"/>
             </service>
         </actions>
-        <field name="returnId"  widget-style="buttontext" title="${uiLabelMap.OrderReturnId}">
+        <field name="returnId"  widget-style="btn btn-link" title="${uiLabelMap.OrderReturnId}">
             <hyperlink description="${returnId}" target="returnMain">
                 <parameter param-name="returnId"/>
             </hyperlink>
@@ -170,12 +170,12 @@ under the License.
         </field>
         <field name="fromPartyId" title="${uiLabelMap.OrderReturnFromParty}">
             <display-entity entity-name="PartyNameView" key-field-name="partyId" description="${groupName} ${firstName} ${lastName}">
-                <sub-hyperlink link-style="buttontext" target-type="inter-app" description="${fromPartyId}" target="/partymgr/control/viewprofile">
+                <sub-hyperlink link-style="btn btn-link" target-type="inter-app" description="${fromPartyId}" target="/partymgr/control/viewprofile">
                     <parameter param-name="partyId" from-field="fromPartyId"/>
                 </sub-hyperlink>
             </display-entity>
         </field>
-        <field name="destinationFacilityId" widget-style="buttontext" title="${uiLabelMap.OrderReturnDestinationFacility}">
+        <field name="destinationFacilityId" widget-style="btn btn-link" title="${uiLabelMap.OrderReturnDestinationFacility}">
             <hyperlink target-type="inter-app" description="${destinationFacilityId}" target="/facility/control/EditFacility">
                 <parameter param-name="facilityId" from-field="destinationFacilityId"/>
             </hyperlink>
@@ -186,7 +186,7 @@ under the License.
     </form>
 
     <form name="ReturnStatusHistory" type="list" list-name="orderReturnStatusHistories"
-            odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
+            odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="table table-hover">
         <field name="returnId"><display/></field>
         <field name="returnItemSeqId"><display/></field>
         <field name="statusId"><display-entity entity-name="StatusItem" description="${description}"/></field>
@@ -194,7 +194,7 @@ under the License.
         <field name="changeByUserLoginId" title="${uiLabelMap.FormFieldTitle_modifiedByUserLoginId}"><display/></field>
     </form>
     <form name="ReturnAndReceivedQuantityHistory" type="list" list-name="orderReturnItemHistories"
-            odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
+            odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="table table-hover">
         <field name="returnId"><display description="${returnId}"/></field>
         <field name="oldValueText"><display/></field>
         <field name="newValueText"><display/></field>
@@ -202,7 +202,7 @@ under the License.
         <field name="changedByInfo" title="${uiLabelMap.FormFieldTitle_modifiedByUserLoginId}"><display/></field>
     </form>
     <form name="ReturnReasonHistory" type="list" list-name="orderReturnItemHistories"
-            odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
+            odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="table table-hover">
         <field name="returnId"><display description="${returnId}"/></field>
         <field name="oldValueText">
             <display-entity entity-name="ReturnReason" description="${description}" key-field-name="returnReasonId"/>
@@ -214,7 +214,7 @@ under the License.
         <field name="changedByInfo" title="${uiLabelMap.FormFieldTitle_modifiedByUserLoginId}"><display/></field>
     </form>
     <form name="ReturnTypeHistory" type="list" list-name="orderReturnItemHistories"
-            odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
+            odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="table table-hover">
         <field name="returnId"><display description="${returnId}"/></field>
         <field name="oldValueText">
             <display-entity entity-name="ReturnType" description="${description}" key-field-name="returnTypeId"/>
@@ -226,7 +226,7 @@ under the License.
         <field name="changedByInfo" title="${uiLabelMap.FormFieldTitle_modifiedByUserLoginId}"><display/></field>
     </form>
     <form name="ReturnPriceHistory" type="list" list-name="orderReturnItemHistories"
-            odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
+            odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="table table-hover">
         <field name="returnId"><display description="${returnId}"/></field>
         <field name="oldValueText"><display type="currency"/></field>
         <field name="newValueText"><display type="currency"/></field>

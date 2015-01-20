@@ -22,7 +22,7 @@ under the License.
     </div>
     <div class="screenlet-body">
       <#if quoteRoles?has_content>
-        <table cellspacing="0" class="basic-table">
+        <table cellspacing="0" class="table">
             <#assign row = 1>
             <#list quoteRoles as quoteRole>
                 <#assign roleType = quoteRole.getRelatedOne("RoleType", false)>

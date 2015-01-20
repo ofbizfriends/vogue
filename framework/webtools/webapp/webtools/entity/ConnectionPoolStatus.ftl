@@ -19,7 +19,7 @@ under the License.
 <h1>Connection Pool Status</h1>
 
 <#assign groups = delegator.getModelGroupReader().getGroupNames(delegator.getDelegatorName())!/>
-<table class="basic-table light-grid hover-bar">
+<table class="table light-grid hover-bar">
     <tr class="header-row">
         <td>Helper Name</td>
         <td>Num Active</td>

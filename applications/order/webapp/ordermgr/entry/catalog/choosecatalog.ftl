@@ -33,7 +33,7 @@ under the License.
               <option value='${catalogId}'>${thisCatalogName}</option>
             </#list>
           </select>
-          <div><a href="javascript:document.choosecatalogform.submit()" class="buttontext">${uiLabelMap.CommonChange}</a></div>
+          <div><a href="javascript:document.choosecatalogform.submit()" class="btn btn-link">${uiLabelMap.CommonChange}</a></div>
         </form>
     </div>
 </div>

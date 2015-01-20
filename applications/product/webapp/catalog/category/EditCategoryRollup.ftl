@@ -24,7 +24,7 @@ under the License.
     </div>
     <div class="screenlet-body">
         <#if currentProductCategoryRollups.size() == 0>
-            <table cellspacing="0" class="basic-table">
+            <table cellspacing="0" class="table">
                <tr class="header-row">
                   <td><b>${uiLabelMap.ProductParentCategoryId}</b></td>
                   <td><b>${uiLabelMap.CommonFromDate}</b></td>
@@ -38,7 +38,7 @@ under the License.
         <#else>        
            <form method="post" action="<@ofbizUrl>updateProductCategoryToCategory</@ofbizUrl>" name="updateProductCategoryForm">
            <input type="hidden" name="showProductCategoryId" value="${productCategoryId}" />
-            <table cellspacing="0" class="basic-table">
+            <table cellspacing="0" class="table">
             <tr class="header-row">
                 <td><b>${uiLabelMap.ProductParentCategoryId}</b></td>
                 <td><b>${uiLabelMap.CommonFromDate}</b></td>
@@ -76,7 +76,7 @@ under the License.
                             <input type="text" size="5" name="sequenceNum${suffix}" value="${productCategoryRollup.sequenceNum!}" />
                         </td>
                         <td>
-                            <a href="javascript:document.removeProductCategoryFromCategory_${productCategoryRollup_index}.submit();" class="buttontext">${uiLabelMap.CommonDelete}</a>
+                            <a href="javascript:document.removeProductCategoryFromCategory_${productCategoryRollup_index}.submit();" class="btn btn-link">${uiLabelMap.CommonDelete}</a>
                         </td>
                     </tr>
                     <#-- toggle the row color -->
@@ -110,7 +110,7 @@ under the License.
         <h3>${uiLabelMap.ProductAddCategoryParent} ${uiLabelMap.ProductCategorySelectCategoryAndEnterFromDate}:</h3>
     </div>
     <div class="screenlet-body">
-        <table cellspacing="0" class="basic-table">
+        <table cellspacing="0" class="table">
             <tr><td>
                 <form method="post" action="<@ofbizUrl>addProductCategoryToCategory</@ofbizUrl>" style="margin: 0;" name="addParentForm">
                     <input type="hidden" name="productCategoryId" value="${productCategoryId}" />
@@ -130,7 +130,7 @@ under the License.
     </div>
     <div class="screenlet-body">
         <#if parentProductCategoryRollups.size() == 0>
-            <table cellspacing="0" class="basic-table">
+            <table cellspacing="0" class="table">
                 <tr class="header-row">
                     <td><b>${uiLabelMap.ProductChildCategoryId}</b></td>
                     <td><b>${uiLabelMap.CommonFromDate}</b></td>
@@ -144,7 +144,7 @@ under the License.
         <#else>
             <form method="post" action="<@ofbizUrl>updateProductCategoryToCategory</@ofbizUrl>" name="updateProductCategoryToCategoryChild">
             <input type="hidden" name="showProductCategoryId" value="${productCategoryId}" />
-            <table cellspacing="0" class="basic-table">
+            <table cellspacing="0" class="table">
                 <tr class="header-row">
                     <td><b>${uiLabelMap.ProductChildCategoryId}</b></td>
                     <td><b>${uiLabelMap.CommonFromDate}</b></td>
@@ -184,7 +184,7 @@ under the License.
                                 <input type="text" size="5" name="sequenceNum${suffix}" value="${productCategoryRollup.sequenceNum!}" />
                             </td>
                             <td>
-                                <a href="javascript:document.removeProductCategoryFromCategory_1_${productCategoryRollup_index}.submit();" class="buttontext">${uiLabelMap.CommonDelete}</a>
+                                <a href="javascript:document.removeProductCategoryFromCategory_1_${productCategoryRollup_index}.submit();" class="btn btn-link">${uiLabelMap.CommonDelete}</a>
                             </td>
                         </tr>
                         <#-- toggle the row color -->
@@ -218,7 +218,7 @@ under the License.
         <h3>${uiLabelMap.ProductAddCategoryChild} ${uiLabelMap.ProductCategorySelectCategoryAndEnterFromDate}:</h3>
     </div>
     <div class="screenlet-body">
-        <table cellspacing="0" class="basic-table">
+        <table cellspacing="0" class="table">
             <tr><td>
                 <form method="post" action="<@ofbizUrl>addProductCategoryToCategory</@ofbizUrl>" style="margin: 0;" name="addChildForm">
                     <input type="hidden" name="showProductCategoryId" value="${productCategoryId}" />

@@ -22,7 +22,7 @@ under the License.
     <h1>${uiLabelMap.PartyCreateNewContact}</h1>
     <form method="post" action="<@ofbizUrl>editcontactmech</@ofbizUrl>" name="createcontactmechform">
       <input type="hidden" name="partyId" value="${partyId}" />
-      <table class="basic-table" cellspacing="0">
+      <table class="table" cellspacing="0">
         <tr>
           <td class="label">${uiLabelMap.PartySelectContactType}</td>
           <td>
@@ -31,7 +31,7 @@ under the License.
                 <option value="${contactMechType.contactMechTypeId}">${contactMechType.get("description",locale)}</option>
               </#list>
             </select>
-            <a href="javascript:document.createcontactmechform.submit()" class="smallSubmit">${uiLabelMap.CommonCreate}</a>
+            <a href="javascript:document.createcontactmechform.submit()" class="btn btn-default btn-sm">${uiLabelMap.CommonCreate}</a>
           </td>
         </tr>
       </table>
@@ -45,7 +45,7 @@ under the License.
     <#if contactMechPurposeType??>
       <p>(${uiLabelMap.PartyMsgContactHavePurpose} <b>"${contactMechPurposeType.get("description",locale)!}"</b>)</p>
     </#if>
-    <table class="basic-table" cellspacing="0">
+    <table class="table" cellspacing="0">
       <form method="post" action="<@ofbizUrl>${mechMap.requestName}</@ofbizUrl>" name="editcontactmechform" id="editcontactmechform">
         <input type="hidden" name="DONE_PAGE" value="${donePage}" />
         <input type="hidden" name="contactMechTypeId" value="${mechMap.contactMechTypeId}" />
@@ -57,12 +57,12 @@ under the License.
   <#else>  
     <h1>${uiLabelMap.PartyEditContactInformation}</h1>
     <div id="mech-purpose-types">
-      <table class="basic-table" cellspacing="0">
+      <table class="table" cellspacing="0">
       <#if mechMap.purposeTypes?has_content>
         <tr>
           <td class="label">${uiLabelMap.PartyContactPurposes}</td>
           <td>
-            <table class="basic-table" cellspacing="0">
+            <table class="table" cellspacing="0">
               <#if mechMap.partyContactMechPurposes?has_content>
                 <#list mechMap.partyContactMechPurposes as partyContactMechPurpose>
                   <#assign contactMechPurposeType = partyContactMechPurpose.getRelatedOne("ContactMechPurposeType", true)>
@@ -84,7 +84,7 @@ under the License.
                          <input type="hidden" name="fromDate" value="${partyContactMechPurpose.fromDate.toString()}" />
                          <input type="hidden" name="DONE_PAGE" value="${donePage?replace("=","%3d")}" />
                          <input type="hidden" name="useValues" value="true" />
-                         <a href="javascript:document.deletePartyContactMechPurpose_${partyContactMechPurpose.contactMechPurposeTypeId}.submit()" class="buttontext">${uiLabelMap.CommonDelete}</a> 
+                         <a href="javascript:document.deletePartyContactMechPurpose_${partyContactMechPurpose.contactMechPurposeTypeId}.submit()" class="btn btn-link">${uiLabelMap.CommonDelete}</a> 
                        </form>
                     </td>
                   </tr>
@@ -105,7 +105,7 @@ under the License.
                     </select>
                   </td>
                 </form>
-                <td><a href="javascript:document.newpurposeform.submit()" class="smallSubmit">${uiLabelMap.PartyAddPurpose}</a></td>
+                <td><a href="javascript:document.newpurposeform.submit()" class="btn btn-default btn-sm">${uiLabelMap.PartyAddPurpose}</a></td>
               </tr>
             </table>
           </tr>
@@ -229,10 +229,10 @@ under the License.
   </form>
   </table>
   </div>
-  <div class="button-bar">
-    <a href="<@ofbizUrl>backHome</@ofbizUrl>" class="smallSubmit">${uiLabelMap.CommonGoBack}</a>
-    <a href="javascript:document.editcontactmechform.submit()" class="smallSubmit">${uiLabelMap.CommonSave}</a>
+  <div class="btn-group">
+    <a href="<@ofbizUrl>backHome</@ofbizUrl>" class="btn btn-default btn-sm">${uiLabelMap.CommonGoBack}</a>
+    <a href="javascript:document.editcontactmechform.submit()" class="btn btn-default btn-sm">${uiLabelMap.CommonSave}</a>
   </div>
 <#else>
-  <a href="<@ofbizUrl>backHome</@ofbizUrl>" class="smallSubmit">${uiLabelMap.CommonGoBack}</a>
+  <a href="<@ofbizUrl>backHome</@ofbizUrl>" class="btn btn-default btn-sm">${uiLabelMap.CommonGoBack}</a>
 </#if>

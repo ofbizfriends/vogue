@@ -24,16 +24,16 @@ under the License.
     </div>
     <div class="screenlet-body">
         <#if productId?has_content>
-            <a href="/facility/control/EditInventoryItem?productId=${productId}${StringUtil.wrapString(externalKeyParam)}" class="buttontext">${uiLabelMap.ProductCreateNewInventoryItemProduct}</a>
+            <a href="/facility/control/EditInventoryItem?productId=${productId}${StringUtil.wrapString(externalKeyParam)}" class="btn btn-link">${uiLabelMap.ProductCreateNewInventoryItemProduct}</a>
             <#if showEmpty>
-                <a href="<@ofbizUrl>EditProductInventoryItems?productId=${productId}</@ofbizUrl>" class="buttontext">${uiLabelMap.ProductHideEmptyItems}</a>
+                <a href="<@ofbizUrl>EditProductInventoryItems?productId=${productId}</@ofbizUrl>" class="btn btn-link">${uiLabelMap.ProductHideEmptyItems}</a>
             <#else>
-                <a href="<@ofbizUrl>EditProductInventoryItems?productId=${productId}&amp;showEmpty=true</@ofbizUrl>" class="buttontext">${uiLabelMap.ProductShowEmptyItems}</a>
+                <a href="<@ofbizUrl>EditProductInventoryItems?productId=${productId}&amp;showEmpty=true</@ofbizUrl>" class="btn btn-link">${uiLabelMap.ProductShowEmptyItems}</a>
             </#if>
         </#if>
         <br />
         <#if productId??>
-            <table cellspacing="0" class="basic-table">
+            <table cellspacing="0" class="table">
             <tr class="header-row">
                 <td><b>${uiLabelMap.ProductItemId}</b></td>
                 <td><b>${uiLabelMap.ProductItemType}</b></td>
@@ -61,7 +61,7 @@ under the License.
                     <#assign inventoryItemDetailFirst = Static["org.ofbiz.entity.util.EntityUtil"].getFirst(inventoryItem.getRelated("InventoryItemDetail", null, Static["org.ofbiz.base.util.UtilMisc"].toList("effectiveDate"), false))!>
                     <#if curInventoryItemType??>
                         <tr valign="middle"<#if rowClass == "1"> class="alternate-row"</#if>>
-                            <td><a href="/facility/control/EditInventoryItem?inventoryItemId=${(inventoryItem.inventoryItemId)!}${StringUtil.wrapString(externalKeyParam)}" class="buttontext">${(inventoryItem.inventoryItemId)!}</a></td>
+                            <td><a href="/facility/control/EditInventoryItem?inventoryItemId=${(inventoryItem.inventoryItemId)!}${StringUtil.wrapString(externalKeyParam)}" class="btn btn-link">${(inventoryItem.inventoryItemId)!}</a></td>
                             <td>&nbsp;${(curInventoryItemType.get("description",locale))!}</td>
                             <td>
                                 <div>

@@ -32,7 +32,7 @@ under the License.
                     key-field-name="roleTypeId"/>
             </drop-down>
         </field>
-        <field name="submitButton" title="${uiLabelMap.CommonAdd}" widget-style="smallSubmit">
+        <field name="submitButton" title="${uiLabelMap.CommonAdd}" widget-style="btn btn-default btn-sm">
             <submit button-type="button"/>
         </field>
     </form>

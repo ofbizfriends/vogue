@@ -28,7 +28,7 @@ under the License.
                             <input type="hidden" name="finalizeMode" value="term" />
                         </form>
                         <#if orderTerms?has_content && parameters.createNew?default('') != 'Y'>
-                            <table class="basic-table hover-bar">
+                            <table class="table table-hover">
                                 <tr class="header-row">
                                     <td>${uiLabelMap.OrderOrderTermType}</td>
                                     <td align="center">${uiLabelMap.OrderOrderTermValue}</td>
@@ -45,21 +45,21 @@ under the License.
                                         <td nowrap="nowrap">${orderTerm.textValue!}</td>
                                         <td nowrap="nowrap">${orderTerm.description?if_exists}</td>
                                         <td align="right">
-                                            <a href="<@ofbizUrl>setOrderTerm?termIndex=${orderTerm_index}&amp;createNew=Y</@ofbizUrl>" class="buttontext">${uiLabelMap.CommonUpdate}</a>
-                                            <a href="<@ofbizUrl>removeCartOrderTerm?termIndex=${orderTerm_index}</@ofbizUrl>" class="buttontext">${uiLabelMap.CommonRemove}</a>
+                                            <a href="<@ofbizUrl>setOrderTerm?termIndex=${orderTerm_index}&amp;createNew=Y</@ofbizUrl>" class="btn btn-link">${uiLabelMap.CommonUpdate}</a>
+                                            <a href="<@ofbizUrl>removeCartOrderTerm?termIndex=${orderTerm_index}</@ofbizUrl>" class="btn btn-link">${uiLabelMap.CommonRemove}</a>
                                         </td>
                                     </tr>
                                 </#list>
                                 <tr>
                                     <td colspan="5">
-                                        <a href="<@ofbizUrl>setOrderTerm?createNew=Y</@ofbizUrl>" class="buttontext">${uiLabelMap.CommonCreateNew}</a>
+                                        <a href="<@ofbizUrl>setOrderTerm?createNew=Y</@ofbizUrl>" class="btn btn-link">${uiLabelMap.CommonCreateNew}</a>
                                     </td>
                                 </tr>
                             </table>
                         <#else>
                             <form method="post" action="<@ofbizUrl>addOrderTerm</@ofbizUrl>" name="termform">
                                 <input type="hidden" name="termIndex" value="${termIndex!}" />
-                                <table class="basic-table">
+                                <table class="table">
                                     <tr>
                                         <td width="26%" align="right" valign="top">
                                             ${uiLabelMap.OrderOrderTermType}
@@ -116,7 +116,7 @@ under the License.
                                         <td width="26%" align="right" valign="top">&nbsp;</td>
                                         <td width="5">&nbsp;</td>
                                         <td width="74%">
-                                            <input type="submit" class="smallSubmit" value="${uiLabelMap.CommonAdd}" />
+                                            <input type="submit" class="btn btn-default btn-sm" value="${uiLabelMap.CommonAdd}" />
                                         </td>
                                     </tr>
                                 </table>

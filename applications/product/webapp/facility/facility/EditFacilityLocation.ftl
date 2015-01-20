@@ -18,13 +18,13 @@ under the License.
 -->
 <h1>${title}</h1>
 <#if facilityId?? && locationSeqId??>
-  <div class="button-bar">
-    <a href="<@ofbizUrl>EditFacility</@ofbizUrl>" class="buttontext">${uiLabelMap.ProductNewFacility}</a>
-    <a href="<@ofbizUrl>EditFacilityLocation?facilityId=${facilityId!}</@ofbizUrl>" class="buttontext">${uiLabelMap.ProductNewFacilityLocation}</a>
-    <a href="<@ofbizUrl>EditInventoryItem?facilityId=${facilityId}&amp;locationSeqId=${locationSeqId}</@ofbizUrl>" class="buttontext">${uiLabelMap.ProductNewInventoryItem}</a>
+  <div class="btn-group">
+    <a href="<@ofbizUrl>EditFacility</@ofbizUrl>" class="btn btn-link">${uiLabelMap.ProductNewFacility}</a>
+    <a href="<@ofbizUrl>EditFacilityLocation?facilityId=${facilityId!}</@ofbizUrl>" class="btn btn-link">${uiLabelMap.ProductNewFacilityLocation}</a>
+    <a href="<@ofbizUrl>EditInventoryItem?facilityId=${facilityId}&amp;locationSeqId=${locationSeqId}</@ofbizUrl>" class="btn btn-link">${uiLabelMap.ProductNewInventoryItem}</a>
     <#assign latestGeoPoint= Static["org.ofbiz.common.geo.GeoWorker"].findLatestGeoPoint(delegator, "FacilityLocationAndGeoPoint", "facilityId", facilityId, "locationSeqId", locationSeqId)!/>
     <#if latestGeoPoint?has_content>
-      <a href="<@ofbizUrl>FacilityLocationGeoLocation?facilityId=${facilityId}&amp;locationSeqId=${locationSeqId}</@ofbizUrl>" class="buttontext">${uiLabelMap.CommonGeoLocation}</a>
+      <a href="<@ofbizUrl>FacilityLocationGeoLocation?facilityId=${facilityId}&amp;locationSeqId=${locationSeqId}</@ofbizUrl>" class="btn btn-link">${uiLabelMap.CommonGeoLocation}</a>
     </#if>
   </div>
 </#if>
@@ -32,12 +32,12 @@ under the License.
 <#if facilityId?? && !(facilityLocation??)>
     <form action="<@ofbizUrl>CreateFacilityLocation</@ofbizUrl>" method="post">
     <input type="hidden" name="facilityId" value="${facilityId}" />
-    <table class="basic-table" cellspacing="0">
+    <table class="table" cellspacing="0">
 <#elseif facilityLocation??>
     <form action="<@ofbizUrl>UpdateFacilityLocation</@ofbizUrl>" method="post">
     <input type="hidden" name="facilityId" value="${facilityId!}" />
     <input type="hidden" name="locationSeqId" value="${locationSeqId}" />
-    <table class="basic-table" cellspacing="0">
+    <table class="table" cellspacing="0">
     <tr>
         <td class="label">${uiLabelMap.ProductFacilityId}</td>
         <td>${facilityId!}</td>
@@ -104,7 +104,7 @@ under the License.
     </div>
     <div class="screenlet-body">
         <#-- ProductFacilityLocation stuff -->
-        <table class="basic-table hover-bar" cellspacing="0">
+        <table class="table table-hover" cellspacing="0">
         <tr class="header-row">
             <td>${uiLabelMap.ProductProduct}</td>
             <td>${uiLabelMap.ProductMinimumStockAndMoveQuantity}</td>
@@ -121,7 +121,7 @@ under the License.
                         <input type="text" size="10" name="minimumStock" value="${(productFacilityLocation.minimumStock)!}"/>
                         <input type="text" size="10" name="moveQuantity" value="${(productFacilityLocation.moveQuantity)!}"/>
                         <input type="submit" value="${uiLabelMap.CommonUpdate}"/>
-                        <a href="javascript:document.getElementById('lineForm${productFacilityLocation_index}').action='<@ofbizUrl>deleteProductFacilityLocation</@ofbizUrl>';document.getElementById('lineForm${productFacilityLocation_index}').submit();" class="buttontext">${uiLabelMap.CommonDelete}</a>
+                        <a href="javascript:document.getElementById('lineForm${productFacilityLocation_index}').action='<@ofbizUrl>deleteProductFacilityLocation</@ofbizUrl>';document.getElementById('lineForm${productFacilityLocation_index}').submit();" class="btn btn-link">${uiLabelMap.CommonDelete}</a>
                     </form>
                 </td>
             </tr>

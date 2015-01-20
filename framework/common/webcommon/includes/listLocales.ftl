@@ -24,7 +24,7 @@ under the License.
     </ul>
     <br class="clear"/>
   </div>
-  <table cellspacing="0" class="basic-table hover-bar">
+  <table cellspacing="0" class="table table-hover">
     <#assign altRow = true>
     <#assign availableLocales = Static["org.ofbiz.base.util.UtilMisc"].availableLocales()/>
     <#list availableLocales as availableLocale>

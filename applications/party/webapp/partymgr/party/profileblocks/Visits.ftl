@@ -27,7 +27,7 @@ under the License.
     </div>
     <div class="screenlet-body">
       <#if visits?has_content>
-        <table class="basic-table" cellspacing="0">
+        <table class="table" cellspacing="0">
           <tr class="header-row">
             <td>${uiLabelMap.PartyVisitId}</td>
             <td>${uiLabelMap.PartyUserLogin}</td>

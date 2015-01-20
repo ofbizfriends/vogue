@@ -106,6 +106,8 @@ under the License.
     <Enumeration enumId="VT_MSG_TMPLT_LOC" description="Main Messages Template Location" enumTypeId="VT_RES_TYPE" sequenceId="15"/>
     <Enumeration enumId="VT_SCREENSHOT" description="Theme Preview Screenshot" enumTypeId="VT_RES_TYPE" sequenceId="16"/>
 
+    <Enumeration enumId="VT_PBODY_TMPLT_LOC" description="Post Body Template Loc" enumTypeId="VT_RES_TYPE" sequenceId="09"/>
+
     <VisualThemeSet visualThemeSetId="BACKOFFICE" description="Themes to be used for backoffice applications"/>
     <VisualThemeSet visualThemeSetId="ECOMMERCE"  description="Themes to be used for ECommerce applications"/>
 

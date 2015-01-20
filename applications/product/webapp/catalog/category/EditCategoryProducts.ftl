@@ -17,9 +17,9 @@ specific language governing permissions and limitations
 under the License.
 -->
 <#if activeOnly>
-    <a href="<@ofbizUrl>EditCategoryProducts?productCategoryId=${productCategoryId!}&amp;activeOnly=false</@ofbizUrl>" class="buttontext">${uiLabelMap.ProductActiveAndInactive}</a>
+    <a href="<@ofbizUrl>EditCategoryProducts?productCategoryId=${productCategoryId!}&amp;activeOnly=false</@ofbizUrl>" class="btn btn-link">${uiLabelMap.ProductActiveAndInactive}</a>
 <#else>
-    <a href="<@ofbizUrl>EditCategoryProducts?productCategoryId=${productCategoryId!}&amp;activeOnly=true</@ofbizUrl>" class="buttontext">${uiLabelMap.ProductActiveOnly}</a>
+    <a href="<@ofbizUrl>EditCategoryProducts?productCategoryId=${productCategoryId!}&amp;activeOnly=true</@ofbizUrl>" class="btn btn-link">${uiLabelMap.ProductActiveOnly}</a>
 </#if>
 <div class="screenlet">
     <div class="screenlet-title-bar">
@@ -30,7 +30,7 @@ under the License.
                 </#if>
                 <span class="submenutextinfo">${lowIndex} - ${highIndex} ${uiLabelMap.CommonOf} ${listSize}</span>
                 <#if (listSize > highIndex)>
-                    | <a class="lightbuttontext" href="<@ofbizUrl>EditCategoryProducts?productCategoryId=${productCategoryId!}&amp;VIEW_SIZE=${viewSize}&amp;VIEW_INDEX=${viewIndex+1}&amp;activeOnly=${activeOnly.toString()}</@ofbizUrl>" class="submenutextright">${uiLabelMap.CommonNext}</a>
+                    | <a class="lightbtn btn-link" href="<@ofbizUrl>EditCategoryProducts?productCategoryId=${productCategoryId!}&amp;VIEW_SIZE=${viewSize}&amp;VIEW_INDEX=${viewIndex+1}&amp;activeOnly=${activeOnly.toString()}</@ofbizUrl>" class="submenutextright">${uiLabelMap.CommonNext}</a>
                 </#if>
                 &nbsp;
             </div>
@@ -42,7 +42,7 @@ under the License.
     </div>
     <div class="screenlet-body">
         <#if (listSize == 0)>
-           <table cellspacing="0" class="basic-table">
+           <table cellspacing="0" class="table">
               <tr class="header-row">
                  <td>${uiLabelMap.ProductProductNameId}</td>
                  <td>${uiLabelMap.CommonFromDateTime}</td>
@@ -56,7 +56,7 @@ under the License.
               <input type="hidden" name="VIEW_INDEX" value="${viewIndex}"/>
               <input type="hidden" name="activeOnly" value="${activeOnly.toString()}" />
               <input type="hidden" name="productCategoryId" value="${productCategoryId!}" />
-              <table cellspacing="0" class="basic-table">
+              <table cellspacing="0" class="table">
                  <tr class="header-row">
                     <td>${uiLabelMap.ProductProductNameId}</td>
                     <td>${uiLabelMap.CommonFromDateTime}</td>
@@ -77,7 +77,7 @@ under the License.
                       <#if (product.smallImageUrl)??>
                          <a href="<@ofbizUrl>EditProduct?productId=${(productCategoryMember.productId)!}</@ofbizUrl>"><img alt="Small Image" src="<@ofbizContentUrl>${product.smallImageUrl}</@ofbizContentUrl>" class="cssImgSmall" align="middle" /></a>
                       </#if>
-                      <a href="<@ofbizUrl>EditProduct?productId=${(productCategoryMember.productId)!}</@ofbizUrl>" class="buttontext"><#if product??>${(product.internalName)!}</#if> [${(productCategoryMember.productId)!}]</a>
+                      <a href="<@ofbizUrl>EditProduct?productId=${(productCategoryMember.productId)!}</@ofbizUrl>" class="btn btn-link"><#if product??>${(product.internalName)!}</#if> [${(productCategoryMember.productId)!}]</a>
                     </td>
                     <td <#if hasntStarted> style="color: red;"</#if>>${(productCategoryMember.fromDate)!}</td>
                     <td align="center">
@@ -92,7 +92,7 @@ under the License.
                         <textarea name="comments${suffix}" rows="2" cols="40">${(productCategoryMember.comments)!}</textarea>
                     </td>
                     <td align="center">
-                      <a href="javascript:document.deleteProductFromCategory_o_${rowCount}.submit()" class="buttontext">${uiLabelMap.CommonDelete}</a>
+                      <a href="javascript:document.deleteProductFromCategory_o_${rowCount}.submit()" class="btn btn-link">${uiLabelMap.CommonDelete}</a>
                     </td>
                   </tr>
                   <#-- toggle the row color -->
@@ -133,7 +133,7 @@ under the License.
                 </#if>
                 <span class="submenutextinfo">${lowIndex} - ${highIndex} ${uiLabelMap.CommonOf} ${listSize}</span>
                 <#if (listSize > highIndex)>
-                    | <a class="lightbuttontext" href="<@ofbizUrl>EditCategoryProducts?productCategoryId=${productCategoryId!}&amp;VIEW_SIZE=${viewSize}&amp;VIEW_INDEX=${viewIndex+1}&amp;activeOnly=${activeOnly.toString()}</@ofbizUrl>" class="submenutextright">${uiLabelMap.CommonNext}</a>
+                    | <a class="lightbtn btn-link" href="<@ofbizUrl>EditCategoryProducts?productCategoryId=${productCategoryId!}&amp;VIEW_SIZE=${viewSize}&amp;VIEW_INDEX=${viewIndex+1}&amp;activeOnly=${activeOnly.toString()}</@ofbizUrl>" class="submenutextright">${uiLabelMap.CommonNext}</a>
                 </#if>
                 &nbsp;
             </div>
@@ -149,7 +149,7 @@ under the License.
         <h3>${uiLabelMap.ProductAddProductCategoryMember}:</h3>
     </div>
     <div class="screenlet-body">
-        <table cellspacing="0" class="basic-table">
+        <table cellspacing="0" class="table">
             <tr><td>
                 <form method="post" action="<@ofbizUrl>addCategoryProductMember</@ofbizUrl>" style="margin: 0;" name="addProductCategoryMemberForm">
                     <input type="hidden" name="productCategoryId" value="${productCategoryId!}" />
@@ -175,7 +175,7 @@ under the License.
         <h3>${uiLabelMap.ProductCopyProductCategoryMembersToAnotherCategory}:</h3>
     </div>
     <div class="screenlet-body">
-        <table cellspacing="0" class="basic-table">
+        <table cellspacing="0" class="table">
             <tr><td>
                 <form method="post" action="<@ofbizUrl>copyCategoryProductMembers</@ofbizUrl>" style="margin: 0;" name="copyCategoryProductMembersForm">
                     <input type="hidden" name="productCategoryId" value="${productCategoryId!}" />
@@ -204,7 +204,7 @@ under the License.
         <h3>${uiLabelMap.ProductExpireAllProductMembers}:</h3>
     </div>
     <div class="screenlet-body">
-        <table cellspacing="0" class="basic-table">
+        <table cellspacing="0" class="table">
             <tr><td>
                 <form method="post" action="<@ofbizUrl>expireAllCategoryProductMembers</@ofbizUrl>" style="margin: 0;" name="expireAllCategoryProductMembersForm">
                     <input type="hidden" name="productCategoryId" value="${productCategoryId!}" />
@@ -224,7 +224,7 @@ under the License.
         <h3>${uiLabelMap.ProductRemoveExpiredProductMembers}:</h3>
     </div>
     <div class="screenlet-body">
-        <table cellspacing="0" class="basic-table">
+        <table cellspacing="0" class="table">
             <tr><td>
                 <form method="post" action="<@ofbizUrl>removeExpiredCategoryProductMembers</@ofbizUrl>" style="margin: 0;" name="removeExpiredCategoryProductMembersForm">
                     <input type="hidden" name="productCategoryId" value="${productCategoryId!}" />

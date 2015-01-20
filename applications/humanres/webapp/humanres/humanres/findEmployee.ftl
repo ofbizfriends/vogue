@@ -114,7 +114,7 @@ under the License.
                 <tr align="center">
                     <td>&nbsp;</td>
                     <td><input type="submit" value="${uiLabelMap.PartyLookupParty}" onclick="javascript:document.lookupparty.submit();"/>
-                        <a href="<@ofbizUrl>findEmployees?roleTypeId=EMPLOYEE&amp;hideFields=Y&amp;lookupFlag=Y</@ofbizUrl>" class="smallSubmit">${uiLabelMap.CommonShowAllRecords}</a>
+                        <a href="<@ofbizUrl>findEmployees?roleTypeId=EMPLOYEE&amp;hideFields=Y&amp;lookupFlag=Y</@ofbizUrl>" class="btn btn-default btn-sm">${uiLabelMap.CommonShowAllRecords}</a>
                     </td>
                 </tr>
             </table>
@@ -152,7 +152,7 @@ under the License.
             <br class="clear"/>
         </div>
     <#if partyList?has_content>
-        <table class="basic-table" cellspacing="0">
+        <table class="table" cellspacing="0">
             <tr class="header-row">
                 <td>${uiLabelMap.PartyPartyId}</td>
                 <td>${uiLabelMap.PartyUserLogin}</td>
@@ -213,7 +213,7 @@ under the License.
                     <td>${partyRow.postalCode!}</td>
                 </#if>
                 <td><#if partyType.description??>${partyType.get("description", locale)}<#else>???</#if></td>
-                <td class="button-col align-float">
+                <td class="btn-group">
                     <a href="<@ofbizUrl>EmployeeProfile?partyId=${partyRow.partyId}</@ofbizUrl>">${uiLabelMap.CommonDetails}</a>
                 </td>
             </tr>

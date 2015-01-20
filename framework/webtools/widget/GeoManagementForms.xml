@@ -24,14 +24,14 @@
     <form name="FindGeo" id="FindGeo" target="${currentUrl}" extends="LookupGeo" extends-resource="component://common/widget/LookupForms.xml"/>        
     
     <form name="ListGeos" extends-resource="component://common/widget/LookupForms.xml" extends="listLookupGeo" paginate-target="${currentUrl}"
-        odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar" separate-columns="true" >
-        <field name="geoId"  widget-style="buttontext" title="${uiLabelMap.CommonGeoId}">
+        odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="table table-hover" separate-columns="true" >
+        <field name="geoId"  widget-style="btn btn-link" title="${uiLabelMap.CommonGeoId}">
             <hyperlink also-hidden="false" target-type="plain" description="${geoId}"  target="LinkGeos">
                 <parameter param-name="geoId"/>
             </hyperlink>
         </field>
         <field name="wellKnownText" title="${uiLabelMap.CommonGeoWellKnownText}"><display/></field>
-        <field name="deleteLink" title=" " widget-style="buttontext">
+        <field name="deleteLink" title=" " widget-style="btn btn-link">
             <hyperlink target="deleteGeo" description="${uiLabelMap.CommonRemove}">
                 <parameter param-name="geoId"/>
                 <parameter param-name="noConditionFind" value="Y"/>
@@ -40,7 +40,7 @@
     </form>
     
     <form name="EditGeo" type="single" target="updateGeo" title="" default-map-name="geo"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <alt-target use-when="geo==null" target="createGeo"/>
         <field name="geoId" title="${uiLabelMap.CommonGeoId}"><lookup target-form-name="LookupGeo"/></field>
         <field name="geoTypeId" title="${uiLabelMap.CommonGeoTypeId}">
@@ -56,17 +56,17 @@
         <field name="abbreviation" title="${uiLabelMap.CommonGeoAbbr}"><text/></field>
         <field name="wellKnownText" title="${uiLabelMap.CommonGeoWellKnownText}"><textarea/></field>
 
-        <field name="submitButton" title="${uiLabelMap.CommonSubmit}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonSubmit}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
     <form name="ListLookupGeo" extends="ListGeos">
-        <field name="geoId" title="${uiLabelMap.CommonGeoId}" widget-style="buttontext">
+        <field name="geoId" title="${uiLabelMap.CommonGeoId}" widget-style="btn btn-link">
             <hyperlink also-hidden="false" target-type="plain" description="${geoId}" target="javascript:set_value('${geoId}')"/>
         </field>        
         <field name="deleteLink"><ignored/></field>        
     </form>
     
     <form name="LinkGeos" type="single" target="linkGeos" title="" focus-field-name="geoId" 
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <field name="geoIds" title="${uiLabelMap.CommonGeos}">
             <drop-down allow-multiple="true">
                 <entity-options entity-name="Geo" key-field-name="geoId" description="${geoName} (${geoId})">
@@ -92,7 +92,7 @@
                 </entity-options>
             </drop-down>
         </field>
-        <field name="submitButton" title="${uiLabelMap.CommonSubmit}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonSubmit}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
         
 </forms>

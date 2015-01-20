@@ -44,7 +44,7 @@ under the License.
               <input type="hidden" name="facilityId" value="${facilityId!}" />
               <input type="hidden" name="_useRowSubmit" value="Y" />
               <#assign rowCount = 0>
-              <table cellspacing="0" class="basic-table hover-bar">
+              <table cellspacing="0" class="table table-hover">
                 <tr class="header-row">
                     <td>${uiLabelMap.ProductProductId}</td>
                     <td>${uiLabelMap.ProductProduct}</td>
@@ -132,7 +132,7 @@ under the License.
                     </#list>
                     <tr>
                         <td colspan="13" align="right">
-                            <a href="javascript:document.selectAllForm.submit();" class="buttontext">${uiLabelMap.ProductConfirmSelectedMoves}</a>
+                            <a href="javascript:document.selectAllForm.submit();" class="btn btn-link">${uiLabelMap.ProductConfirmSelectedMoves}</a>
                         </td>
                     </tr>
                 <#else>
@@ -156,7 +156,7 @@ under the License.
     <div class="screenlet-body">
         <form method="post" action="<@ofbizUrl>processQuickStockMove</@ofbizUrl>" name='quickStockMove'>
             <input type="hidden" name="facilityId" value="${facilityId!}" />
-            <table cellspacing="0" class="basic-table hover-bar">
+            <table cellspacing="0" class="table table-hover">
                 <tr class="header-row">
                     <td>${uiLabelMap.ProductProduct}</td>
                     <td>${uiLabelMap.ProductFromLocation}</td>
@@ -181,7 +181,7 @@ under the License.
                 </tr>
                 <tr>
                   <td colspan="13" align="right">
-                    <a href="javascript:document.quickStockMove.submit();" class="buttontext">${uiLabelMap.ProductQuickStockMove}</a>
+                    <a href="javascript:document.quickStockMove.submit();" class="btn btn-link">${uiLabelMap.ProductQuickStockMove}</a>
                   </td>
                 </tr>
             </table>

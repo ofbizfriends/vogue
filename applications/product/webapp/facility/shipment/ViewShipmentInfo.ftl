@@ -25,7 +25,7 @@ under the License.
         <br class="clear"/>
     </div>
     <div class="screenlet-body">
-        <table border="0" cellpadding="2" cellspacing="0" class="basic-table">
+        <table border="0" cellpadding="2" cellspacing="0" class="table">
           <tr>
             <td width="20%" align="right" class="label">${uiLabelMap.ProductShipmentId}</td>
             <td width="80%">${shipment.shipmentId}</td>
@@ -40,11 +40,11 @@ under the License.
           </tr>
           <tr>
             <td width="20%" align="right" class="label">${uiLabelMap.ProductPrimaryOrderId}</td>
-            <td width="80%"><#if shipment.primaryOrderId??><a href="/ordermgr/control/orderview?orderId=${shipment.primaryOrderId}" class="buttontext">${shipment.primaryOrderId}</a></#if></td>
+            <td width="80%"><#if shipment.primaryOrderId??><a href="/ordermgr/control/orderview?orderId=${shipment.primaryOrderId}" class="btn btn-link">${shipment.primaryOrderId}</a></#if></td>
           </tr>
           <tr>
             <td width="20%" align="right" class="label">${uiLabelMap.ProductPrimaryReturnId}</td>
-            <td width="80%"><#if shipment.primaryReturnId??><a href="/ordermgr/control/returnMain?returnId=${shipment.primaryReturnId}" class="buttontext">${shipment.primaryReturnId}</a></#if></td>
+            <td width="80%"><#if shipment.primaryReturnId??><a href="/ordermgr/control/returnMain?returnId=${shipment.primaryReturnId}" class="btn btn-link">${shipment.primaryReturnId}</a></#if></td>
           </tr>
           <tr>
             <td width="20%" align="right" class="label">${uiLabelMap.ProductPrimaryShipGroupSeqId}</td>

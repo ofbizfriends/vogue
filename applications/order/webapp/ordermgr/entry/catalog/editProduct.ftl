@@ -19,6 +19,6 @@ under the License.
 
 <#if security.hasEntityPermission("CATALOG", "_CREATE", session)>
 <div>
-<a href="/catalog/control/EditProduct?productId=${productId}${externalKeyParam!}" target="catalog" class="buttontext">${uiLabelMap.ProductEditProduct}</a>
+<a href="/catalog/control/EditProduct?productId=${productId}${externalKeyParam!}" target="catalog" class="btn btn-link">${uiLabelMap.ProductEditProduct}</a>
 </div>
 </#if>

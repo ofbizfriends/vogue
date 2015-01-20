@@ -38,8 +38,8 @@ under the License.
                                     <condition><not><if-empty field="productPromoId"/></not></condition>
                                     <widgets>
                                         <include-menu name="PromoTabBar" location="component://product/widget/catalog/CatalogMenus.xml"/>
-                                        <container style="button-bar">
-                                            <link target="EditProductPromo" text="${uiLabelMap.ProductNewProductPromo}" style="buttontext"/>
+                                        <container style="btn-group">
+                                            <link target="EditProductPromo" text="${uiLabelMap.ProductNewProductPromo}" style="btn btn-link"/>
                                         </container>
                                         <container>
                                             <label style="h1">${uiLabelMap[labelTitleProperty]} ${uiLabelMap.CommonFor}: ${productPromo.promoName} [${uiLabelMap.CommonId}:${productPromoId}]  ${${extraFunctionName}}</label>
@@ -75,16 +75,16 @@ under the License.
                 <decorator-screen name="CommonPromoDecorator">
                     <decorator-section name="body">
                         <screenlet title="${uiLabelMap.PageTitleEditProductPromotionCode}">
-                            <container style="button-bar">
-                                <link target="EditProductPromo" text="${uiLabelMap.ProductNewProductPromo}" style="buttontext create"/>
+                            <container style="btn-group">
+                                <link target="EditProductPromo" text="${uiLabelMap.ProductNewProductPromo}" style="btn btn-link create"/>
                             </container>
                             <container>
                                 <label style="label">${uiLabelMap.CommonView}</label>
-                                <link target="FindProductPromo" text="${uiLabelMap.CommonAll}" style="buttontext"/>
-                                <link target="FindProductPromo" text="${uiLabelMap.CommonUserEnteredOnly}" style="buttontext">
+                                <link target="FindProductPromo" text="${uiLabelMap.CommonAll}" style="btn btn-link"/>
+                                <link target="FindProductPromo" text="${uiLabelMap.CommonUserEnteredOnly}" style="btn btn-link">
                                     <parameter param-name="userEntered" value="Y"/>
                                 </link>
-                                <link target="FindProductPromo" text="${uiLabelMap.ProductPromotionImported}" style="buttontext">
+                                <link target="FindProductPromo" text="${uiLabelMap.ProductPromotionImported}" style="btn btn-link">
                                     <parameter param-name="userEntered" value="N"/>
                                 </link>
                             </container>
@@ -254,7 +254,7 @@ under the License.
                 <decorator-screen name="CommonPromoDecorator">
                     <decorator-section name="body">
                         <container>
-                            <link target="EditProductPromoCode" text="${uiLabelMap.ProductNewPromotionCode}" style="buttontext">
+                            <link target="EditProductPromoCode" text="${uiLabelMap.ProductNewPromotionCode}" style="btn btn-link">
                                 <parameter param-name="productPromoId"/>
                             </link>
                         </container>
@@ -264,7 +264,7 @@ under the License.
                             </condition>
                             <widgets>
                                 <container>
-                                    <link target="FindProductPromoCode" text="${uiLabelMap.ProductPromotionManualImported}" style="buttontext">
+                                    <link target="FindProductPromoCode" text="${uiLabelMap.ProductPromotionManualImported}" style="btn btn-link">
                                         <parameter param-name="manualOnly" value="N"/>
                                         <parameter param-name="productPromoId"/>
                                     </link>
@@ -272,7 +272,7 @@ under the License.
                             </widgets>
                             <fail-widgets>
                                 <container>
-                                    <link target="FindProductPromoCode" text="${uiLabelMap.ProductPromotionManual}" style="buttontext">
+                                    <link target="FindProductPromoCode" text="${uiLabelMap.ProductPromotionManual}" style="btn btn-link">
                                         <parameter param-name="manualOnly" value="Y"/>
                                         <parameter param-name="productPromoId"/>
                                     </link>
@@ -304,7 +304,7 @@ under the License.
                 <decorator-screen name="CommonPromoDecorator">
                     <decorator-section name="body">
                         <container>
-                            <link target="EditProductPromoCode" text="${uiLabelMap.ProductNewPromotionCode}" style="buttontext"/>
+                            <link target="EditProductPromoCode" text="${uiLabelMap.ProductNewPromotionCode}" style="btn btn-link"/>
                         </container>
 
                         <screenlet title="${uiLabelMap.PageTitleEditProductPromotionCode}">

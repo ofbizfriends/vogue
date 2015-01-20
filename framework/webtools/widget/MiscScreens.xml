@@ -71,7 +71,7 @@ under the License.
                 <set field="demoList[]" from-field="demoMap"/>
                 <set field="altRowStyle" value=""/>
                 <set field="headerStyle" value="header-row-1"/>
-                <set field="tableStyle" value="basic-table light-grid"/>
+                <set field="tableStyle" value="table light-grid"/>
             </actions>
             <widgets>
                 <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
@@ -98,7 +98,7 @@ under the License.
                                         <container style="page-title">
                                             <label text="${uiLabelMap.WebtoolsLayoutDemo}"/>
                                         </container>
-                                        <container style="button-bar button-style-1">
+                                        <container style="btn-group button-style-1">
                                             <!-- Typically used for intra-app links -->
                                             <link target="${demoTargetUrl}" text="${uiLabelMap.CommonNew}" style="create" />
                                             <link target="${demoTargetUrl}" text="${uiLabelMap.CommonDelete}" style="delete"/>
@@ -108,7 +108,7 @@ under the License.
                                             <link target="${demoTargetUrl}" text="${uiLabelMap.CommonEnabled}"/>
                                             <link text="${uiLabelMap.CommonDisabled}" style="disabled"/>
                                         </container>
-                                        <container style="button-bar button-style-2">
+                                        <container style="btn-group button-style-2">
                                             <!-- Typically used for inter-app links -->
                                             <link target="${demoTargetUrl}" text="${uiLabelMap.CommonNew}" style="create" link-type="auto">
                                                 <parameter param-name="demoParam1"/>
@@ -166,7 +166,7 @@ under the License.
                                         <include-form name="LayoutDemoList" location="component://webtools/widget/MiscForms.xml"/>
                                         <section>
                                             <actions>
-                                                <set field="tableStyle" value="basic-table dark-grid"/>
+                                                <set field="tableStyle" value="table dark-grid"/>
                                             </actions>
                                             <widgets/>
                                         </section>
@@ -175,7 +175,7 @@ under the License.
                                             <actions>
                                                 <set field="altRowStyle" value="alternate-row"/>
                                                 <set field="headerStyle" value="header-row-2"/>
-                                                <set field="tableStyle" value="basic-table hover-bar"/>
+                                                <set field="tableStyle" value="table table-hover"/>
                                             </actions>
                                             <widgets/>
                                         </section>
@@ -200,7 +200,7 @@ under the License.
                                                 <actions>
                                                     <set field="altRowStyle" value="alternate-row"/>
                                                     <set field="headerStyle" value="header-row-1"/>
-                                                    <set field="tableStyle" value="basic-table light-grid hover-bar"/>
+                                                    <set field="tableStyle" value="table light-grid hover-bar"/>
                                                 </actions>
                                                 <widgets/>
                                             </section>
@@ -211,12 +211,12 @@ under the License.
                                                 <actions>
                                                     <set field="altRowStyle" value="alternate-row"/>
                                                     <set field="headerStyle" value="header-row-2"/>
-                                                    <set field="tableStyle" value="basic-table hover-bar"/>
+                                                    <set field="tableStyle" value="table table-hover"/>
                                                     <set field="viewSize" value="1" type="Integer"/>
                                                 </actions>
                                                 <widgets/>
                                             </section>
-                                            <container style="button-bar button-style-1">
+                                            <container style="btn-group button-style-1">
                                                 <link target="${demoTargetUrl}" text="${uiLabelMap.CommonNew}" style="create"/>
                                                 <link target="${demoTargetUrl}" text="${uiLabelMap.CommonSelected}" style="selected"/>
                                                 <link target="${demoTargetUrl}" text="${uiLabelMap.CommonEnabled}"/>

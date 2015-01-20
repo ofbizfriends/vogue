@@ -22,7 +22,7 @@ under the License.
        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-form.xsd">
 
     <form name="TrackingCodeReportOptions" type="single" target="TrackingCodeReport" title="${uiLabelMap.MarketingTrackingCodeReportTitle}"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <field name="fromDate" title="${uiLabelMap.CommonFromDate} (${uiLabelMap.CommonDate}&gt;=)">
             <date-time type="timestamp"/>
         </field>
@@ -38,13 +38,13 @@ under the License.
             </drop-down>
         </field>
 
-        <field name="submitButton" title="${uiLabelMap.CommonRun} ${uiLabelMap.MarketingTrackingCodeReportTitle}" widget-style="smallSubmit">
+        <field name="submitButton" title="${uiLabelMap.CommonRun} ${uiLabelMap.MarketingTrackingCodeReportTitle}" widget-style="btn btn-default btn-sm">
             <submit button-type="button"/>
         </field>
     </form>
 
     <form name="MarketingCampaignOptions" type="single" target="MarketingCampaignReport"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <field name="fromDate" title="${uiLabelMap.CommonFromDate} (${uiLabelMap.CommonDate}&gt;=)">
             <date-time type="timestamp"/>
         </field>
@@ -60,13 +60,13 @@ under the License.
             </drop-down>
         </field>
 
-        <field name="submitButton" title="${uiLabelMap.CommonRun} ${uiLabelMap.MarketingCampaignReportTitle}" widget-style="smallSubmit">
+        <field name="submitButton" title="${uiLabelMap.CommonRun} ${uiLabelMap.MarketingCampaignReportTitle}" widget-style="btn btn-default btn-sm">
             <submit button-type="button"/>
         </field>
     </form>
 
     <form name="EmailStatusOptions" type="single" target="EmailStatusReport" 
-            header-row-style="header-row" default-table-style="basic-table">
+            header-row-style="header-row" default-table-style="table">
         <field name="fromDate" title="${uiLabelMap.CommonFromDate} (${uiLabelMap.CommonDate}&gt;=)">
             <date-time type="timestamp"/>
         </field>
@@ -95,13 +95,13 @@ under the License.
                 </entity-options>
             </drop-down>
         </field>
-        <field name="submitButton" title="${uiLabelMap.CommonRun} ${uiLabelMap.MarketingEmailStatusReport}" widget-style="smallSubmit">
+        <field name="submitButton" title="${uiLabelMap.CommonRun} ${uiLabelMap.MarketingEmailStatusReport}" widget-style="btn btn-default btn-sm">
             <submit button-type="button"/>
         </field>
     </form>
 
     <form name="PartyStatusOptions" type="single" target="PartyStatusReport" 
-            header-row-style="header-row" default-table-style="basic-table">
+            header-row-style="header-row" default-table-style="table">
         <field name="fromDate" title="${uiLabelMap.CommonFromDate} (${uiLabelMap.CommonDate}&gt;=)">
             <date-time type="timestamp"/>
         </field>
@@ -126,13 +126,13 @@ under the License.
                 </entity-options>
             </drop-down>
         </field>
-        <field name="submitButton" title="${uiLabelMap.CommonRun} ${uiLabelMap.MarketingPartyStatusReport}" widget-style="smallSubmit">
+        <field name="submitButton" title="${uiLabelMap.CommonRun} ${uiLabelMap.MarketingPartyStatusReport}" widget-style="btn btn-default btn-sm">
             <submit button-type="button"/>
         </field>
     </form>
 
     <form name="TrackingCodeReport" list-name="trackingCodeVisitAndOrders" target="" title="${uiLabelMap.MarketingTrackingCodeReportTitle}" type="list" paginate-target="TrackingCodeReport"
-        odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" default-table-style="table table-hover">
         <field name="trackingCodeId" title="${uiLabelMap.MarketingTrackingCode}">
             <display-entity entity-name="TrackingCode" key-field-name="trackingCodeId" description="${description} [${trackingCodeId}]"/>
         </field>
@@ -143,7 +143,7 @@ under the License.
     </form>
 
    <form name="MarketCampaignReport" title="${uiLabelMap.MarketingCampaignReportTitle}" type="list" list-name="marketingCampaignVisitAndOrders" target="" paginate-target="MarketCampaignReport"
-        odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" default-table-style="table table-hover">
         <field name="marketingCampaignId" title="${uiLabelMap.MarketingCampaignName}">
             <display-entity entity-name="MarketingCampaign" key-field-name="marketingCampaignId" description="${campaignName} [${marketingCampaignId}]"/>
         </field>
@@ -154,7 +154,7 @@ under the License.
     </form>
 
     <form name="EmailStatusReport" title="${uiLabelMap.MarketingEmailStatusReport}" type="list" list-name="commStatausList" target="" paginate-target="EmailStatusReport"
-        odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" default-table-style="table table-hover">
         <row-actions>
             <entity-one entity-name="CommunicationEventType" value-field="communicationEventType"/>
         </row-actions>
@@ -173,7 +173,7 @@ under the License.
     </form>
 
     <form name="PartyStatusReport" title="${uiLabelMap.MarketingPartyStatusReport}" type="list" list-name="partyStatusLists" target="" paginate-target="PartyStatusReport"
-            odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
+            odd-row-style="alternate-row" default-table-style="table table-hover">
             <row-actions>
                 <entity-one entity-name="StatusItem" value-field="statusItem"/>
             </row-actions>

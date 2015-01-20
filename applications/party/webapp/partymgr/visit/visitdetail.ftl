@@ -26,7 +26,7 @@ under the License.
     <br class="clear"/>
   </div>
   <div class="screenlet-body">
-      <table class="basic-table" cellspacing="0">
+      <table class="table" cellspacing="0">
         <tr>
           <td class="label">${uiLabelMap.PartyVisitIDSessionID}</td>
           <td>${visit.visitId!} / ${visit.sessionId!}</td>
@@ -98,19 +98,19 @@ under the License.
         <div class="align-float">
           <span class="label">
             <#if 0 < viewIndex>
-              <a href="<@ofbizUrl>visitdetail?visitId=${visitId}&amp;VIEW_SIZE=${viewSize}&amp;VIEW_INDEX=${viewIndex-1}</@ofbizUrl>" class="smallSubmit">${uiLabelMap.CommonPrevious}</a> |
+              <a href="<@ofbizUrl>visitdetail?visitId=${visitId}&amp;VIEW_SIZE=${viewSize}&amp;VIEW_INDEX=${viewIndex-1}</@ofbizUrl>" class="btn btn-default btn-sm">${uiLabelMap.CommonPrevious}</a> |
             </#if>
             <#if 0 < listSize>
               ${lowIndex+1} - ${highIndex} ${uiLabelMap.CommonOf} ${listSize}
             </#if>
             <#if highIndex < listSize>
-              | <a href="<@ofbizUrl>visitdetail?visitId=${visitId}&amp;VIEW_SIZE=${viewSize}&amp;VIEW_INDEX=${viewIndex+1}</@ofbizUrl>" class="smallSubmit">${uiLabelMap.CommonNext}</a>
+              | <a href="<@ofbizUrl>visitdetail?visitId=${visitId}&amp;VIEW_SIZE=${viewSize}&amp;VIEW_INDEX=${viewIndex+1}</@ofbizUrl>" class="btn btn-default btn-sm">${uiLabelMap.CommonNext}</a>
             </#if>
           </span>
         </div>
         <br class="clear"/>
       </#if>
-      <table class="basic-table hover-bar" cellspacing="0">
+      <table class="table table-hover" cellspacing="0">
         <tr class="header-row">
           <td>${uiLabelMap.PartyContentId}</td>
           <td>${uiLabelMap.PartyType}</td>
@@ -154,13 +154,13 @@ under the License.
         <div class="align-float">
           <span class="label">
             <#if 0 < viewIndex>
-              <a href="<@ofbizUrl>visitdetail?visitId=${visitId}&amp;VIEW_SIZE=${viewSize}&amp;VIEW_INDEX=${viewIndex-1}</@ofbizUrl>" class="smallSubmit">${uiLabelMap.CommonPrevious}</a> |
+              <a href="<@ofbizUrl>visitdetail?visitId=${visitId}&amp;VIEW_SIZE=${viewSize}&amp;VIEW_INDEX=${viewIndex-1}</@ofbizUrl>" class="btn btn-default btn-sm">${uiLabelMap.CommonPrevious}</a> |
             </#if>
             <#if 0 < listSize>
               ${lowIndex+1} - ${highIndex} ${uiLabelMap.CommonOf} ${listSize}
             </#if>
             <#if highIndex < listSize>
-              | <a href="<@ofbizUrl>visitdetail?visitId=${visitId}&amp;VIEW_SIZE=${viewSize}&amp;VIEW_INDEX=${viewIndex+1}</@ofbizUrl>" class="smallSubmit">${uiLabelMap.CommonNext}</a>
+              | <a href="<@ofbizUrl>visitdetail?visitId=${visitId}&amp;VIEW_SIZE=${viewSize}&amp;VIEW_INDEX=${viewIndex+1}</@ofbizUrl>" class="btn btn-default btn-sm">${uiLabelMap.CommonNext}</a>
             </#if>
           </span>
         </div>
@@ -183,7 +183,7 @@ https://issues.apache.org/jira/browse/OFBIZ-4488
   </div>  
   <div class="screenlet-body">
       <#if security.hasPermission("SEND_CONTROL_APPLET", session)>
-        <table class="basic-table" cellspacing="0">
+        <table class="table" cellspacing="0">
             <tr>
               <th>${uiLabelMap.PartyPushURL}</th>
               <td>

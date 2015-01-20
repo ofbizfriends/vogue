@@ -71,7 +71,7 @@ function submitForm(form, mode, value) {
                   <td>
                     <div>
                       <span class='tabletext'>${uiLabelMap.CommonAdd}:</span>
-                      <a href="javascript:submitForm(document.editgroupform${groupIdx}, 'NA', '');" class="buttontext">${uiLabelMap.PartyAddNewAddress}</a>
+                      <a href="javascript:submitForm(document.editgroupform${groupIdx}, 'NA', '');" class="btn btn-link">${uiLabelMap.PartyAddNewAddress}</a>
                     </div>
                     <div>
                       <#assign selectedContactMechId = cart.getShippingContactMechId(groupIdx)?default("")>
@@ -134,7 +134,7 @@ function submitForm(form, mode, value) {
                     <h2>${uiLabelMap.OrderGiftMessage}</h2>
                     <textarea class='textAreaBox' cols="30" rows="3" wrap="hard" name="giftMessage">${cart.getGiftMessage(groupIdx)!}</textarea>
                   </td>
-                  <td><input type="button" class="smallSubmit" value="${uiLabelMap.CommonSave}" onclick="javascript:submitForm(document.editgroupform${groupIdx}, 'SV', null);"/></td>
+                  <td><input type="button" class="btn btn-default btn-sm" value="${uiLabelMap.CommonSave}" onclick="javascript:submitForm(document.editgroupform${groupIdx}, 'SV', null);"/></td>
                 </tr>
                 <#assign groupIdx = groupIdx + 1>
                 <#if group_has_next>
@@ -184,7 +184,7 @@ function submitForm(form, mode, value) {
                         </a>
                       </#if>
                       <#-- end code to display a small image of the product -->
-                      <a href="<@ofbizUrl>product?product_id=${cartLine.getProductId()}</@ofbizUrl>" class="buttontext">${cartLine.getProductId()} -
+                      <a href="<@ofbizUrl>product?product_id=${cartLine.getProductId()}</@ofbizUrl>" class="btn btn-link">${cartLine.getProductId()} -
                       ${cartLine.getName()!}</a> : ${cartLine.getDescription()!}
 
                       <#-- display the registered ship groups and quantity -->
@@ -243,7 +243,7 @@ function submitForm(form, mode, value) {
                     </select>
                   </div>
                 </td>
-                <td><input type="submit" class="smallSubmit" value="${uiLabelMap.CommonSubmit}"/></td>
+                <td><input type="submit" class="btn btn-default btn-sm" value="${uiLabelMap.CommonSubmit}"/></td>
               </form>
             </tr>
           </#list>
@@ -254,10 +254,10 @@ function submitForm(form, mode, value) {
 <table>
   <tr valign="top">
     <td>
-      &nbsp;<a href="<@ofbizUrl>view/showcart</@ofbizUrl>" class="buttontextbig">${uiLabelMap.OrderBacktoShoppingCart}</a>
+      &nbsp;<a href="<@ofbizUrl>view/showcart</@ofbizUrl>" class="btn btn-linkbig">${uiLabelMap.OrderBacktoShoppingCart}</a>
     </td>
     <td align="right">
-      <a href="<@ofbizUrl>view/checkoutpayment</@ofbizUrl>" class="buttontextbig">${uiLabelMap.CommonContinue}</a>
+      <a href="<@ofbizUrl>view/checkoutpayment</@ofbizUrl>" class="btn btn-linkbig">${uiLabelMap.CommonContinue}</a>
     </td>
   </tr>
 </table>

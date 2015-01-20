@@ -44,7 +44,7 @@ under the License.
               </form>
               <p>
               <strong>${uiLabelMap.Party}</strong>:
-                  <a href="${customerDetailLink}${partyId}${externalKeyParam!}" target="partymgr" class="buttontext">${partyId}</a>
+                  <a href="${customerDetailLink}${partyId}${externalKeyParam!}" target="partymgr" class="btn btn-link">${partyId}</a>
                   <#if partyMap.person??>
                     ${partyMap.person.firstName!}&nbsp;${partyMap.person.lastName!}
                   </#if>

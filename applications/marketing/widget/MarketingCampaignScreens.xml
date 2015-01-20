@@ -86,7 +86,7 @@ under the License.
                                 <not><if-empty field="marketingCampaign" /></not>
                             </condition>
                             <widgets>
-                                <container style="button-bar button-style-1">
+                                <container style="btn-group button-style-1">
                                     <link text="${uiLabelMap.MarketingCampaignCreate}" target="EditMarketingCampaign" style="create">
                                         <parameter param-name="DONE_PAGE" from-field="donePage" />
                                     </link>
@@ -115,8 +115,8 @@ under the License.
                         <container style="page-title">
                             <label text="${uiLabelMap[titleProperty]}" />
                         </container>
-                        <container style="button-bar">
-                            <link text="${uiLabelMap.MarketingCampaignCreate}" target="EditMarketingCampaign" style="buttontext create">
+                        <container style="btn-group">
+                            <link text="${uiLabelMap.MarketingCampaignCreate}" target="EditMarketingCampaign" style="btn btn-link create">
                                 <parameter param-name="DONE_PAGE" from-field="donePage" />
                             </link>
                         </container>
@@ -173,8 +173,8 @@ under the License.
                         <container style="page-title">
                             <label text="${uiLabelMap[titleProperty]}" />
                         </container>
-                        <container style="button-bar">
-                            <link text="${uiLabelMap.MarketingCampaignRoleCreate}" target="EditMarketingCampaignRoles" style="buttontext create">
+                        <container style="btn-group">
+                            <link text="${uiLabelMap.MarketingCampaignRoleCreate}" target="EditMarketingCampaignRoles" style="btn btn-link create">
                                 <parameter param-name="marketingCampaignId" />
                                 <parameter param-name="DONE_PAGE" from-field="donePage" />
                             </link>

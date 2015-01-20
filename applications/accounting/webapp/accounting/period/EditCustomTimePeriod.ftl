@@ -50,7 +50,7 @@ under the License.
         <form method="post" action="<@ofbizUrl>updateCustomTimePeriod</@ofbizUrl>" name="updateCustomTimePeriodForm">
           <input type="hidden" name="findOrganizationPartyId" value="${findOrganizationPartyId!}" />
           <input type="hidden" name="customTimePeriodId" value="${currentCustomTimePeriodId!}" />
-      <table class="basic-table" cellspacing="0">
+      <table class="table" cellspacing="0">
         <tr class="header-row">
           <td>${uiLabelMap.CommonId}</td>
           <td>${uiLabelMap.CommonParent}</td>
@@ -142,7 +142,7 @@ under the License.
       <br class="clear"/>
     </div>
     <#if customTimePeriods?has_content>
-      <table class="basic-table" cellspacing="0">
+      <table class="table" cellspacing="0">
         <tr class="header-row">
           <td>${uiLabelMap.CommonId}</td>
           <td>${uiLabelMap.CommonParent}</td>

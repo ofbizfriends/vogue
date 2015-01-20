@@ -20,7 +20,7 @@ under the License.
 <#-- TODO: Convert hard-coded text to UI label properties -->
 
 <#if security.hasEntityPermission("PAYPROC", "_VIEW", session)>
-  <div class='button-bar button-style-1'>
+  <div class='btn-group button-style-1'>
     <a href="<@ofbizUrl>paysetup</@ofbizUrl>" class='selected'>Payment&nbsp;Setup</a>
   </div>
 </#if>
@@ -72,10 +72,10 @@ under the License.
                     <td nowrap="nowrap">
                       <div>&nbsp;
                         <#if security.hasEntityPermission("PAYPROC", "_UPDATE", session)>
-                        <a href="<@ofbizUrl>paysetup?webSiteId=${paymentSetting.webSiteId!}&amp;paymentMethodTypeId=${paymentSetting.paymentMethodTypeId!}</@ofbizUrl>" class="buttontext">Edit</a>&nbsp;
+                        <a href="<@ofbizUrl>paysetup?webSiteId=${paymentSetting.webSiteId!}&amp;paymentMethodTypeId=${paymentSetting.paymentMethodTypeId!}</@ofbizUrl>" class="btn btn-link">Edit</a>&nbsp;
                         </#if>
                         <#if security.hasEntityPermission("PAYPROC", "_DELETE", session)>
-                        <a href="<@ofbizUrl>removeWebSitePaymentSetting?webSiteId=${paymentSetting.webSiteId!}&amp;paymentMethodTypeId=${paymentSetting.paymentMethodTypeId!}</@ofbizUrl>" class="buttontext">Remove</a>&nbsp;
+                        <a href="<@ofbizUrl>removeWebSitePaymentSetting?webSiteId=${paymentSetting.webSiteId!}&amp;paymentMethodTypeId=${paymentSetting.paymentMethodTypeId!}</@ofbizUrl>" class="btn btn-link">Remove</a>&nbsp;
                         </#if>
                       </div>
                     </td>
@@ -109,7 +109,7 @@ under the License.
             </#if>
           </td>
           <#if webSitePayment?has_content>
-            <td align='right' width='10%'><a href="<@ofbizUrl>paysetup</@ofbizUrl>" class="lightbuttontext">Add New</a></td>
+            <td align='right' width='10%'><a href="<@ofbizUrl>paysetup</@ofbizUrl>" class="lightbtn btn-link">Add New</a></td>
           <#else>
             <td align='right' width='10%'></td>
           </#if>

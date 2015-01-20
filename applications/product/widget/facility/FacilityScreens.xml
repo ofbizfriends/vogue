@@ -55,9 +55,9 @@ under the License.
                                                         <not><if-empty field="facilityId"/></not>
                                                     </condition>
                                                     <widgets>
-                                                        <container style="button-bar">
-                                                            <link target="EditFacility" text="${uiLabelMap.ProductNewFacility}" style="buttontext create"/>
-                                                            <link target="/workeffort/control/calendar" text="${uiLabelMap.CommonViewCalendar}" style="buttontext" url-mode="inter-app">
+                                                        <container style="btn-group">
+                                                            <link target="EditFacility" text="${uiLabelMap.ProductNewFacility}" style="btn btn-link create"/>
+                                                            <link target="/workeffort/control/calendar" text="${uiLabelMap.CommonViewCalendar}" style="btn btn-link" url-mode="inter-app">
                                                                 <parameter param-name="facilityId"/>
                                                                 <parameter param-name="externalLoginKey" from-field="parameters.externalLoginKey"/>
                                                             </link>
@@ -88,7 +88,7 @@ under the License.
                                                 <if-service-permission service-name="facilityGenericPermission" main-action="CREATE"/>
                                             </condition>
                                             <widgets>
-                                                <container style="button-bar"><link target="EditFacility" text="${uiLabelMap.ProductCreateNewFacility}" style="buttontext create"/></container>
+                                                <container style="btn-group"><link target="EditFacility" text="${uiLabelMap.ProductCreateNewFacility}" style="btn btn-link create"/></container>
                                             </widgets>
                                         </section>
                                         <screenlet>
@@ -108,7 +108,7 @@ under the License.
                                                         <if-service-permission service-name="facilityGenericPermission" main-action="CREATE"/>
                                                     </condition>
                                                     <widgets>
-                                                        <container style="button-bar"><link target="EditFacility" text="${uiLabelMap.ProductCreateNewFacility}" style="buttontext"/></container>
+                                                        <container style="btn-group"><link target="EditFacility" text="${uiLabelMap.ProductCreateNewFacility}" style="btn btn-link"/></container>
                                                     </widgets>
                                                 </section>
                                             </decorator-section>
@@ -179,7 +179,7 @@ under the License.
                                                 <container style="page-title">
                                                     <label>${uiLabelMap.ProductEditFacility} ${facility.facilityName} [${facilityId}]</label>
                                                 </container>
-                                                <container style="button-bar button-style-1">
+                                                <container style="btn-group button-style-1">
                                                     <link target="EditFacility" text="${uiLabelMap.ProductNewFacility}" style="create"/>
                                                     <link target="/workeffort/control/calendar" text="${uiLabelMap.CommonViewCalendar}" url-mode="inter-app">
                                                         <parameter param-name="facilityId"/>
@@ -256,21 +256,21 @@ under the License.
                     <decorator-section name="body">
                         <container>
                             <label style="h3">${uiLabelMap.CommonView} </label>
-                            <link target="FindFacilityTransfers" text="${uiLabelMap.ProductActiveOnly}" style="buttontext">
+                            <link target="FindFacilityTransfers" text="${uiLabelMap.ProductActiveOnly}" style="btn btn-link">
                                 <parameter param-name="facilityId" from-field="facilityId"/>
                                 <parameter param-name="activeOnly" value="true"/>
                             </link>
-                            <link target="FindFacilityTransfers" text="${uiLabelMap.CommonAll}" style="buttontext">
+                            <link target="FindFacilityTransfers" text="${uiLabelMap.CommonAll}" style="btn btn-link">
                                 <parameter param-name="facilityId" from-field="facilityId"/>
                                 <parameter param-name="activeOnly" value="false"/>
                             </link>
                         </container>
                         <container>
-                            <link target="FindFacilityTransfers" text="${uiLabelMap.ProductCompleteRequestedTransfers}" style="buttontext">
+                            <link target="FindFacilityTransfers" text="${uiLabelMap.ProductCompleteRequestedTransfers}" style="btn btn-link">
                                 <parameter param-name="facilityId" from-field="facilityId"/>
                                 <parameter param-name="completeRequested" value="true"/>
                             </link>
-                            <link target="TransferInventoryItem" text="${uiLabelMap.ProductInventoryTransfer}" style="buttontext">
+                            <link target="TransferInventoryItem" text="${uiLabelMap.ProductInventoryTransfer}" style="btn btn-link">
                                 <parameter param-name="facilityId" from-field="facilityId"/>
                             </link>
                         </container>
@@ -364,12 +364,12 @@ under the License.
                     <decorator-section name="body">
                         <decorator-screen name="FindScreenDecorator" location="component://common/widget/CommonScreens.xml">
                             <decorator-section name="menu-bar">
-                                <container style="button-bar">
-                                    <link target="EditFacility" text="${uiLabelMap.ProductNewFacility}" style="buttontext create"/>
-                                    <link target="EditInventoryItem" text="${uiLabelMap.ProductNewInventoryItem}" style="buttontext create">
+                                <container style="btn-group">
+                                    <link target="EditFacility" text="${uiLabelMap.ProductNewFacility}" style="btn btn-link create"/>
+                                    <link target="EditInventoryItem" text="${uiLabelMap.ProductNewInventoryItem}" style="btn btn-link create">
                                         <parameter param-name="facilityId" from-field="parameters.facilityId"/>
                                     </link>
-                                    <link target="SearchInventoryItemsByLabels" text="${uiLabelMap.ProductSearchInventoryItemsByLabels}" style="buttontext search">
+                                    <link target="SearchInventoryItemsByLabels" text="${uiLabelMap.ProductSearchInventoryItemsByLabels}" style="btn btn-link search">
                                         <parameter param-name="facilityId" from-field="parameters.facilityId"/>
                                     </link>
                                 </container>
@@ -409,11 +409,11 @@ under the License.
                             <label style="h1">${uiLabelMap.ProductInventoryItemsFor} ${facility.facilityName} [${uiLabelMap.CommonId}:${facility.facilityId}]</label>
                         </container>
                         <container>
-                            <link target="EditFacility" text="${uiLabelMap.ProductNewFacility}" style="buttontext"/>
-                            <link target="EditInventoryItem" text="${uiLabelMap.ProductCreateNewInventoryItemFacility}" style="buttontext">
+                            <link target="EditFacility" text="${uiLabelMap.ProductNewFacility}" style="btn btn-link"/>
+                            <link target="EditInventoryItem" text="${uiLabelMap.ProductCreateNewInventoryItemFacility}" style="btn btn-link">
                                 <parameter param-name="facilityId" from-field="parameters.facilityId"/>
                             </link>
-                            <link target="EditFacilityInventoryItems" text="${uiLabelMap.ProductInventoryItems}" style="buttontext">
+                            <link target="EditFacilityInventoryItems" text="${uiLabelMap.ProductInventoryItems}" style="btn btn-link">
                                 <parameter param-name="facilityId" from-field="parameters.facilityId"/>
                             </link>
                         </container>
@@ -507,7 +507,7 @@ under the License.
                             <label style="h2">${facility.facilityName} [${uiLabelMap.CommonId}:${facilityId}]</label>
                         </container>
                         <container>
-                            <link target="ViewFacilityInventoryByProduct" text="${uiLabelMap.CommonBack}" style="buttontext">
+                            <link target="ViewFacilityInventoryByProduct" text="${uiLabelMap.CommonBack}" style="btn btn-link">
                                 <parameter param-name="facilityId" from-field="facilityId"/>
                             </link>
                         </container>
@@ -573,7 +573,7 @@ under the License.
                         <container style="page-title">
                             <label>${uiLabelMap.ProductInventoryItemsDetailsFor} ${facility.facilityName} [${uiLabelMap.CommonId}:${facility.facilityId}]</label>
                         </container>
-                        <container style="button-bar button-style-1">
+                        <container style="btn-group button-style-1">
                             <link target="EditFacility" text="${uiLabelMap.ProductNewFacility}" style="create"/>
                         </container>
                         <screenlet title="${uiLabelMap.PageTitleViewFacilityInventoryItemsDetails}">
@@ -738,7 +738,7 @@ under the License.
                         <container style="page-title">
                             <label>${title}</label>
                         </container>
-                        <container style="button-bar button-style-1">
+                        <container style="btn-group button-style-1">
                             <link target="EditFacility" text="${uiLabelMap.ProductNewFacility}" style="create"/>
                         </container>
                         <screenlet id="add-facility-group-member" title="${uiLabelMap.ProductAddFacilityGroupMember}" collapsible="true">
@@ -772,7 +772,7 @@ under the License.
                         <container style="page-title">
                             <label>${title}</label>
                         </container>
-                        <container style="button-bar button-style-1">
+                        <container style="btn-group button-style-1">
                             <link target="EditFacility" text="${uiLabelMap.ProductNewFacility}" style="create"/>
                         </container>
                         <screenlet id="add-facility-party-role" title="${uiLabelMap.ProductAddFacilityPartyRole}" collapsible="true">
@@ -801,7 +801,7 @@ under the License.
                         <container style="page-title">
                             <label>${title}</label>
                         </container>
-                        <container style="button-bar button-style-1">
+                        <container style="btn-group button-style-1">
                             <link target="EditFacility" text="${uiLabelMap.ProductNewFacility}" style="create"/>
                             <section>
                                 <condition>
@@ -928,10 +928,10 @@ under the License.
                                     <label text="${uiLabelMap.PageTitleEditInventoryItem}"/>
                                 </container>
                                 <container style="widget-container">
-                                    <link target="EditInventoryItem" text="${uiLabelMap.ProductNewInventoryItem}" style="buttontext">
+                                    <link target="EditInventoryItem" text="${uiLabelMap.ProductNewInventoryItem}" style="btn btn-link">
                                         <parameter param-name="facilityId" from-field="facilityId"/>
                                     </link>
-                                    <link target="TransferInventoryItem" text="${uiLabelMap.ProductTransferItem}" style="buttontext">
+                                    <link target="TransferInventoryItem" text="${uiLabelMap.ProductTransferItem}" style="btn btn-link">
                                         <parameter param-name="inventoryItemId" from-field="inventoryItemId"/>
                                         <parameter param-name="facilityId" from-field="facilityId"/>
                                     </link>

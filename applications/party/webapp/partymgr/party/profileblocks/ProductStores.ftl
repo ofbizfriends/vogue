@@ -26,7 +26,7 @@ under the License.
   </div>
   <div class="screenlet-body">
     <#if productStoreRoles?has_content>
-      <table class="basic-table" cellspacing="0">
+      <table class="table" cellspacing="0">
         <tr class="header-row">
           <td>${uiLabelMap.ProductStoreNameId}</td>
           <td>${uiLabelMap.PartyRoleType}</td>

@@ -232,9 +232,9 @@ under the License.
                     <decorator-section name="body">
                         <include-menu name="GlSettingTabBar" location="component://accounting/widget/AccountingMenus.xml"/>
                         <screenlet title="${uiLabelMap[labelTitleProperty]}">
-                            <container style="button-bar">
-                                <link target="ListGlAccountsReport" text="${uiLabelMap.CommonPrint}" style="buttontext"/>
-                                <link target="ListGlAccountsExport" text="${uiLabelMap.CommonExport}" style="buttontext"/>
+                            <container style="btn-group">
+                                <link target="ListGlAccountsReport" text="${uiLabelMap.CommonPrint}" style="btn btn-link"/>
+                                <link target="ListGlAccountsExport" text="${uiLabelMap.CommonExport}" style="btn btn-link"/>
                             </container>
                             <include-form name="ListGlAccount" location="component://accounting/widget/GlobalGlAccountsForms.xml"/>
                         </screenlet>

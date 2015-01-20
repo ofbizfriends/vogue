@@ -244,7 +244,7 @@ function shipBillAddr() {
 
             <tr>
               <td align="center" colspan="3">
-                <input type="submit" class="smallsubmit" value="Continue" />
+                <input type="submit" class="btn btn-default btn-sm" value="Continue" />
               </td>
             </tr>
           </table>
@@ -283,7 +283,7 @@ function shipBillAddr() {
               </#if>
               <tr>
                 <td align="center" colspan="2">
-                  <input type="submit" class="smallsubmit" value="${uiLabelMap.CommonContinue}" />
+                  <input type="submit" class="btn btn-default btn-sm" value="${uiLabelMap.CommonContinue}" />
                 </td>
               </tr>
             </table>

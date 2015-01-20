@@ -56,7 +56,7 @@ under the License.
             <div style="padding-top: 10px;" class="insideHeaderText">
                 <form action="#">
                     <input type="text" class="inputBox" name="search" size="20" />
-                    <input type="submit" class="smallSubmit" value="Search" />
+                    <input type="submit" class="btn btn-default btn-sm" value="Search" />
                 </form>
             </div>
           </td>

@@ -116,7 +116,7 @@ under the License.
                                 <include-menu location="component://party/widget/partymgr/PartyMenus.xml" name="CommFindTabBar"/>
                                 <container><label style="h1" text="${uiLabelMap.PartyPendingCommunicationEvents}"/></container>
                                 <container>
-                                    <link style="smallSubmit" target="ViewCommunicationEvent" text="${uiLabelMap.PartyNewCommunication}">
+                                    <link style="btn btn-default btn-sm" target="ViewCommunicationEvent" text="${uiLabelMap.PartyNewCommunication}">
                                         <parameter param-name="partyId"/>
                                     </link>
                                 </container>
@@ -400,7 +400,7 @@ under the License.
     <screen name="commOverview">
         <section>
             <widgets>
-                <container style="lefthalf">
+                <container style="col-md-6 col-xs-12">
                     <section>
                         <widgets>
                             <label style="h1" text="${uiLabelMap.FormFieldTitle_communicationEventId} ${parameters.communicationEventId}"/>
@@ -408,7 +408,7 @@ under the License.
                         </widgets>
                     </section>
                 </container>
-                <container style="righthalf">
+                <container style="col-md-6 col-xs-12">
                     <label style="h1" text="${uiLabelMap.CommonRelatedInformation}"/>
                     <section>
                         <condition>
@@ -612,8 +612,8 @@ under the License.
                 <decorator-screen name="CommonCommunicationEventDecorator" location="${parameters.communicationEventDecoratorLocation}">
                     <decorator-section name="body">
                         <screenlet title="${uiLabelMap.PartyCommWorkEfforts}">
-                            <container style="button-bar">
-                                <link style="smallSubmit" target="AddCommEventWorkEffort" text="${uiLabelMap.PartyNewCommWorkEffort}">
+                            <container style="btn-group">
+                                <link style="btn btn-default btn-sm" target="AddCommEventWorkEffort" text="${uiLabelMap.PartyNewCommWorkEffort}">
                                     <parameter param-name="communicationEventId"/>
                                     <parameter param-name="partyId"/>
                                 </link>
@@ -1103,13 +1103,13 @@ under the License.
                                 <screenlet title="${uiLabelMap.CommonFrom}: ${communicationEvent.partyIdFrom}, CommunicationEventId: ${communicationEvent.communicationEventId}">
                                     <include-form location="component://party/widget/partymgr/CommunicationEventForms.xml" name="EditEmail"/>
                                 </screenlet>
-                                <container style="lefthalf">
+                                <container style="col-md-6 col-xs-12">
                                     <screenlet title="${uiLabelMap.PartyCommEventRoles}">
                                         <include-form name="ListCommRoles" location="component://party/widget/partymgr/CommunicationEventForms.xml"/>
                                         <include-form name="AddEventRole" location="component://party/widget/partymgr/CommunicationEventForms.xml"/>
                                     </screenlet>
                                 </container>
-                                <container style="righthalf">
+                                <container style="col-md-6 col-xs-12">
                                     <screenlet title="${uiLabelMap.PartyCommContent}">
                                         <include-form name="listCommContent" location="component://party/widget/partymgr/CommunicationEventForms.xml"/>
                                         <include-form  name="uploadContent" location="component://party/widget/partymgr/CommunicationEventForms.xml"/>
@@ -1138,12 +1138,12 @@ under the License.
                                 </screenlet>
                             </widgets>
                             <fail-widgets>
-                                <container style="lefthalf">
+                                <container style="col-md-6 col-xs-12">
                                     <screenlet id="EditCommunicationEventPanel" title="${uiLabelMap.PartyEditCommunicationEvent} ${parameters.communicationEventId} ${uiLabelMap.CommonFrom} ${communicationEvent.partyIdFrom}">
                                         <include-form location="component://party/widget/partymgr/CommunicationEventForms.xml" name="EditInternalNote"/>
                                     </screenlet>
                                 </container>
-                                <container style="righthalf">
+                                <container style="col-md-6 col-xs-12">
                                     <screenlet title="${uiLabelMap.PartyCommEventRoles}">
                                         <include-form name="ListCommRoles" location="component://party/widget/partymgr/CommunicationEventForms.xml"/>
                                         <include-form name="AddEventRole" location="component://party/widget/partymgr/CommunicationEventForms.xml"/>

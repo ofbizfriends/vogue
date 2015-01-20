@@ -21,7 +21,7 @@ under the License.
 <forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
         xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-form.xsd">
     <form name="EditOrderHeader" type="single" target="updateOrderHeader" title=""
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <actions>
             <entity-one entity-name="StatusItem" value-field="currentStatus" auto-field-map="false">
                 <field-map field-name="statusId" from-field="orderHeader.statusId"/>
@@ -77,17 +77,17 @@ under the License.
         <field name="productStoreId">
             <lookup target-form-name="/marketing/control/LookupProductStore"/>
         </field>
-        <field name="submitButton" title="${uiLabelMap.CommonUpdate}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonUpdate}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
     <form name="ListOrderHeaders" type="single" target="" title=""
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <actions>
             <entity-and entity-name="OrderHeader">
                 <field-map field-name="orderId"/>
             </entity-and>
         </actions>
         <auto-fields-entity entity-name="OrderHeader" default-field-type="display"/>
-        <field name="orderId" widget-style="buttontext">
+        <field name="orderId" widget-style="btn btn-link">
             <hyperlink target="EditOrderHeader" description="[${orderId}]">
                 <parameter param-name="orderId"/>
             </hyperlink>
@@ -96,13 +96,13 @@ under the License.
         <field name="productStoreId"> <display-entity entity-name="ProductStore"/> </field>
     </form>
     <form name="ListOrderTerms" type="list" list-name="orderTerms" target="updateOrderTerm" title=""
-        odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar" paginate-target="ListOrderTerms">
+        odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="table table-hover" paginate-target="ListOrderTerms">
         <auto-fields-entity entity-name="OrderTerm" default-field-type="edit"/>
         <field name="termTypeId"><display-entity also-hidden="true" entity-name="TermType"/></field>
         <field name="orderId"><hidden/></field>
         <field name="orderItemSeqId"><display/></field>
-        <field name="submitButton" title="${uiLabelMap.CommonUpdate}" widget-style="smallSubmit"><submit button-type="button"/></field>
-        <field name="deleteLink" title=" " widget-style="buttontext">
+        <field name="submitButton" title="${uiLabelMap.CommonUpdate}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
+        <field name="deleteLink" title=" " widget-style="btn btn-link">
             <hyperlink target="removeOrderTerm" description="${uiLabelMap.CommonRemove}" also-hidden="false">
                 <parameter param-name="orderId"/>
                 <parameter param-name="termTypeId"/>
@@ -111,7 +111,7 @@ under the License.
         </field>
     </form>
     <form name="AddOrderTerm" type="single" target="createOrderTerm" title=""
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <auto-fields-entity entity-name="OrderTerm" default-field-type="edit"/>
         <field name="orderId"><hidden value="${parameters.orderId}"/></field>
         <field name="termTypeId">
@@ -121,16 +121,16 @@ under the License.
                 </entity-options>
             </drop-down>
         </field>
-        <field name="addButton" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="addButton" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
     <form name="LookupBulkAddSupplierProductsInApprovedOrder" type="multi" use-row-submit="true" list-name="productList" title="" target="bulkAddProductsInApprovedOrder"
-            odd-row-style="alternate-row" default-table-style="basic-table hover-bar" paginate-target="LookupBulkAddSupplierProductsInApprovedOrder" view-size="10">
+            odd-row-style="alternate-row" default-table-style="table table-hover" paginate-target="LookupBulkAddSupplierProductsInApprovedOrder" view-size="10">
         <actions>
             <set field="orderId" from-field="parameters.orderId"/>
         </actions>
         <field name="orderId"><hidden/></field>
         <field name="shipGroupSeqId"><hidden/></field>
-        <field name="productId" widget-style="buttontext">
+        <field name="productId" widget-style="btn btn-link">
             <hyperlink description="${productId}" target="/catalog/control/EditProductInventoryItems" target-type="inter-app">
                 <parameter param-name="productId"/>
             </hyperlink>
@@ -144,20 +144,20 @@ under the License.
         <field name="itemDesiredDeliveryDate" title="${uiLabelMap.OrderDesiredDeliveryDate}">
             <date-time/>
         </field>
-        <field name="submitButton" title="${uiLabelMap.OrderAddToOrder}" widget-style="smallSubmit">
+        <field name="submitButton" title="${uiLabelMap.OrderAddToOrder}" widget-style="btn btn-default btn-sm">
             <submit/>
         </field>
     </form>
 
     <form name="OrderShipmentMethodHistory" type="list" list-name="orderShipmentHistories"
-            odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
+            odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="table table-hover">
         <field name="shipmentMethod" title="${uiLabelMap.ProductShipmentMethod}"><display/></field>
         <field name="changedDate" title="${uiLabelMap.CommonDate}"><display/></field>
         <field name="changedByUser" title="${uiLabelMap.OrderChangedByUser}"><display/></field>
     </form>
 
     <form name="OrderUnitPriceHistory" type="list" list-name="orderUnitPriceHistories"
-            odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
+            odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="table table-hover">
         <field name="productId"><display/></field>
         <field name="oldValue"><display type="currency"/></field>
         <field name="newValue"><display type="currency"/></field>
@@ -166,7 +166,7 @@ under the License.
     </form>
 
     <form name="OrderQuantityHistory" type="list" list-name="orderQuantityHistories"
-            odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
+            odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="table table-hover">
         <field name="productId"><display/></field>
         <field name="oldValue"><display/></field>
         <field name="newValue"><display/></field>
@@ -199,7 +199,7 @@ under the License.
         <field name="updateButton"><submit/></field>
     </form>
     <form name="ListCustomerOrders" type="list" target="" list-name="listIt" title="" odd-row-style="alternate-row" 
-        header-row-style="header-row-2" default-table-style="basic-table hover-bar">
+        header-row-style="header-row-2" default-table-style="table table-hover">
         <actions>
             <entity-and entity-name="OrderHeaderAndRoles">
                 <field-map field-name="partyId" from-field="partyId"/>
@@ -218,7 +218,7 @@ under the License.
         <field name="roleTypeId" title="${uiLabelMap.FormFieldTitle_roleTypeId}"><display/></field>
     </form>
     <form name="ListPurchaseOrders" type="list" target="" list-name="listIt" title="" odd-row-style="alternate-row" 
-        header-row-style="header-row-2" default-table-style="basic-table hover-bar">
+        header-row-style="header-row-2" default-table-style="table table-hover">
         <actions>
             <entity-and entity-name="OrderHeaderAndRoles">
                 <field-map field-name="partyId" from-field="partyId"/>
@@ -256,7 +256,7 @@ under the License.
                 <option key="N" description="${uiLabelMap.CommonNo}"/>
             </drop-down>
         </field>
-        <field name="submitButton" title="${uiLabelMap.CommonSubmit}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonSubmit}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
 
 </forms>

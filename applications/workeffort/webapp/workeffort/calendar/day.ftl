@@ -26,7 +26,7 @@ under the License.
   <#else>
     <#assign entryWidth = (100 / (maxConcurrentEntries))>
   </#if>
-<table cellspacing="0" class="basic-table calendar">
+<table cellspacing="0" class="table calendar">
   <tr class="header-row">
     <td>${uiLabelMap.CommonTime}</td>
     <td colspan="${maxConcurrentEntries}">${uiLabelMap.WorkEffortCalendarEntries}</td>

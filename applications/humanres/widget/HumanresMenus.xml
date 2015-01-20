@@ -35,7 +35,7 @@
         <menu-item name="GlobalHRSettings" title="${uiLabelMap.HumanResGlobalHRSettings}" selected-style="selected"><link target="globalHRSettings"/></menu-item>
     </menu>
     <menu name="EmploymentBar" default-menu-item-name="EditPartyBenefit" default-selected-style="selected"
-        type="simple" menu-container-style="button-bar tab-bar" selected-menuitem-context-field-name="tabButtonItem">
+        type="simple" menu-container-style="btn-group tab-bar" selected-menuitem-context-field-name="tabButtonItem">
         <menu-item name="EditEmployment" title="${uiLabelMap.HumanResEmployment}">
             <link target="EditEmployment" >
                 <parameter param-name="roleTypeIdFrom"/>
@@ -93,7 +93,7 @@
             </link>
     </menu-item>
     </menu>
-    <menu name="EmplPostionBar" default-menu-item-name="EmplPositionView" type="simple" menu-container-style="button-bar tab-bar" default-selected-style="selected" selected-menuitem-context-field-name="tabButtonItem">
+    <menu name="EmplPostionBar" default-menu-item-name="EmplPositionView" type="simple" menu-container-style="btn-group tab-bar" default-selected-style="selected" selected-menuitem-context-field-name="tabButtonItem">
         <menu-item name="EmplPositionView" title="${uiLabelMap.CommonSummary}">
             <link target="emplPositionView">
                 <parameter param-name="emplPositionId"/>
@@ -140,7 +140,7 @@
         </menu-item>
     </menu>
     <menu name="SalaryBar" default-menu-item-name="EditSalaryStep" default-selected-style="selected"
-        type="simple" menu-container-style="button-bar tab-bar" selected-menuitem-context-field-name="subTabButtonItem">
+        type="simple" menu-container-style="btn-group tab-bar" selected-menuitem-context-field-name="subTabButtonItem">
         <menu-item name="EditPayGrade" title="${uiLabelMap.HumanResPayGrade}">
             <link target="EditPayGrade">
                 <parameter param-name="payGradeId"/>
@@ -155,7 +155,7 @@
     <menu name="SkillType" type="simple" id="app-navigation" default-selected-style="selected" selected-menuitem-context-field-name="tabButtonItem"/>
 
     <menu name="GlobalHRSettingMenus" type="simple" default-menu-item-name="SkillType"
-        menu-container-style="button-bar tab-bar" selected-menuitem-context-field-name="tabButtonItem" default-selected-style="selected">
+        menu-container-style="btn-group tab-bar" selected-menuitem-context-field-name="tabButtonItem" default-selected-style="selected">
         <menu-item name="SkillType" title="${uiLabelMap.HumanResSkillType}">
             <link target="EditSkillTypes"/>
         </menu-item>
@@ -275,7 +275,7 @@
     </menu>
     
     <menu name="InternalJobPostingTabBar" extends="CommonTabBarMenu" extends-resource="component://common/widget/CommonMenus.xml"
-        default-menu-item-name="InternalJobPosting" type="simple" menu-container-style="button-bar tab-bar" 
+        default-menu-item-name="InternalJobPosting" type="simple" menu-container-style="btn-group tab-bar" 
         default-selected-style="selected" selected-menuitem-context-field-name="tabButtonItem">
         <menu-item name="InternalJobPosting" title="${uiLabelMap.HumanResInternalJobPosting} ${uiLabelMap.CommonApplications}">
             <link target="FindInternalJobPosting"/>
@@ -309,7 +309,7 @@
     </menu>
     
     <menu name="EmplLeaveReasonTypeTabBar" extends="CommonTabBarMenu" extends-resource="component://common/widget/CommonMenus.xml"
-        default-menu-item-name="Employee Leave Reason Type" type="simple" menu-container-style="button-bar tab-bar" 
+        default-menu-item-name="Employee Leave Reason Type" type="simple" menu-container-style="btn-group tab-bar" 
         default-selected-style="selected" selected-menuitem-context-field-name="tabButtonItem">
         <menu-item name="EmplLeaveType" title="${uiLabelMap.HumanResEmployeeLeaveType}">
             <link target="EditEmplLeaveTypes"/>
@@ -320,7 +320,7 @@
     </menu>
     
     <menu name="EmplLeaveTabBar" extends="CommonTabBarMenu" extends-resource="component://common/widget/CommonMenus.xml"
-        default-menu-item-name="Employee Leave" type="simple" menu-container-style="button-bar tab-bar" 
+        default-menu-item-name="Employee Leave" type="simple" menu-container-style="btn-group tab-bar" 
         default-selected-style="selected" selected-menuitem-context-field-name="tabButtonItem">
         <menu-item name="EmployeeLeave" title="${uiLabelMap.HumanResEmployeeLeave}">
             <link target="FindEmplLeaves"/>

@@ -21,7 +21,7 @@ under the License.
 <forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
         xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-form.xsd">
 
-    <form name="createLead" type="single" target="createLead" header-row-style="header-row" default-table-style="basic-table" default-map-name="contactDetailMap">
+    <form name="createLead" type="single" target="createLead" header-row-style="header-row" default-table-style="table" default-map-name="contactDetailMap">
         <field name="firstName" tooltip="${uiLabelMap.CommonRequired}" widget-style="required"><text/></field>
         <field name="lastName" tooltip="${uiLabelMap.CommonRequired}" widget-style="required"><text/></field>
         <field name="suffix"><text/></field>
@@ -72,7 +72,7 @@ under the License.
                 <entity-options entity-name="ContactList" description="${description}" key-field-name="contactListId"/>
             </drop-down>
         </field>
-        <field name="submitButton" title="${uiLabelMap.CommonSave}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonSave}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
 
     <form name="ConvertLead" type="single" target="convertLead">
@@ -110,13 +110,13 @@ under the License.
                <list-options list-name="partyList" key-name="lead.partyId"  list-entry-name="lead" description="${groovy:org.ofbiz.party.party.PartyHelper.getPartyName(delegator, 'partyId', false)} ${lead.partyId}"/>
             </drop-down>
         </field>
-        <field name="submitButton" position="3" title="${uiLabelMap.SfaMergeLeads}" widget-style="buttontext" tooltip-style="button-text"><submit button-type="text-link"/></field>
+        <field name="submitButton" position="3" title="${uiLabelMap.SfaMergeLeads}" widget-style="btn btn-link" tooltip-style="button-text"><submit button-type="text-link"/></field>
     </form>
 
-    <form name="NewLeadFromVCard" type="upload" target="createLeadFromVCard" header-row-style="header-row" default-table-style="basic-table">
+    <form name="NewLeadFromVCard" type="upload" target="createLeadFromVCard" header-row-style="header-row" default-table-style="table">
         <field name="infile" title="${uiLabelMap.SfaUploadVCard}"><file/></field>
         <field name="serviceName"><hidden value="createLead"/></field>
-        <field name="submitButton" title="${uiLabelMap.CommonUpload}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonUpload}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
 
     <form name="QuickAddLead" type="single" target="quickAddLead">
@@ -146,7 +146,7 @@ under the License.
         <field name="submitButton" title="${uiLabelMap.CommonAdd}"><submit button-type="button"/></field>
     </form>
     <form name="ViewLeadPartyDataSources" type="list" list-name="partyDataSources" 
-        odd-row-style="alternate-row" default-table-style="basic-table hover-bar" header-row-style="header-row-2">
+        odd-row-style="alternate-row" default-table-style="table table-hover" header-row-style="header-row-2">
         <field name="partyId"><hidden/></field>
         <field name="dataSourceId" title="${uiLabelMap.SfaLeadSource}">
             <display-entity entity-name="DataSource"/>
@@ -195,7 +195,7 @@ under the License.
 
     <form name="ListLeads" extends="listLeads">
         <field name="assignToMe" use-when="existRelationship==null&amp;&amp;!&quot;false&quot;.equals(parameters.get(&quot;all&quot;))"
-                title="${uiLabelMap.SfaAssignToMe}" widget-style="buttontext">
+                title="${uiLabelMap.SfaAssignToMe}" widget-style="btn btn-link">
             <hyperlink target="createPartyRelationshipAndRole" description="${uiLabelMap.SfaAssignToMe}">
                 <parameter param-name="partyIdFrom" from-field="userLogin.partyId"/>
                 <parameter param-name="roleTypeIdFrom"/>

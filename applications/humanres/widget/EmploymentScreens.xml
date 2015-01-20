@@ -39,8 +39,8 @@
                             <decorator-section name="menu-bar">
                                 <section>
                                     <widgets>
-                                        <container style="button-bar">
-                                            <link target="EditEmployment" text="${uiLabelMap.HumanResNewEmployment}" style="buttontext create"/>
+                                        <container style="btn-group">
+                                            <link target="EditEmployment" text="${uiLabelMap.HumanResNewEmployment}" style="btn btn-link create"/>
                                         </container>
                                     </widgets>
                                 </section>

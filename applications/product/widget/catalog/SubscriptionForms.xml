@@ -23,7 +23,7 @@ under the License.
 
     <!-- Subscription Forms -->
     <form name="FindSubscription" default-map-name="subscription" target="FindSubscription" type="single"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <auto-fields-entity entity-name="Subscription" default-field-type="find"/>
 
         <field name="subscriptionResourceId">
@@ -91,10 +91,10 @@ under the License.
         <field name="purchaseFromDate"><ignored/></field>
         <field name="purchaseThruDate"><ignored/></field>
         <field name="noConditionFind"><hidden value="Y"/><!-- if this isn't there then with all fields empty no query will be done --></field>
-        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
     <form name="ListFindSubscription" target="" type="list" list-name="listIt"
-        header-row-style="header-row-2" odd-row-style="alternate-row" default-table-style="basic-table"
+        header-row-style="header-row-2" odd-row-style="alternate-row" default-table-style="table"
         paginate-target="FindSubscription" paginate="true">
         <actions>
             <service service-name="performFind" result-map-list="listIt" result-map="performFindResult">
@@ -108,7 +108,7 @@ under the License.
 
         <field name="subscriptionResourceId">
             <display-entity entity-name="SubscriptionResource" description="${description}">
-                <sub-hyperlink target="EditSubscriptionResource" description="${subscriptionResourceId}" link-style="buttontext">
+                <sub-hyperlink target="EditSubscriptionResource" description="${subscriptionResourceId}" link-style="btn btn-link">
                     <parameter param-name="subscriptionResourceId"/>
                 </sub-hyperlink>
             </display-entity>
@@ -119,7 +119,7 @@ under the License.
 
         <field name="originatedFromPartyId">
             <display-entity entity-name="PartyNameView" description="${groupName} ${firstName} ${lastName}" key-field-name="partyId">
-                <sub-hyperlink target="/partymgr/control/viewprofile" target-type="inter-app" description="${originatedFromPartyId}" link-style="buttontext">
+                <sub-hyperlink target="/partymgr/control/viewprofile" target-type="inter-app" description="${originatedFromPartyId}" link-style="btn btn-link">
                     <parameter param-name="partyId" from-field="originatedFromPartyId"/>
                 </sub-hyperlink>
             </display-entity>
@@ -128,28 +128,28 @@ under the License.
 
         <field name="partyId">
             <display-entity entity-name="PartyNameView" description="${groupName} ${firstName} ${lastName}">
-                <sub-hyperlink target="/partymgr/control/viewprofile" target-type="inter-app" description="${partyId}" link-style="buttontext">
+                <sub-hyperlink target="/partymgr/control/viewprofile" target-type="inter-app" description="${partyId}" link-style="btn btn-link">
                     <parameter param-name="partyId"/>
                 </sub-hyperlink>
             </display-entity>
         </field>
         <field name="roleTypeId"><display-entity entity-name="RoleType" description="${description}" key-field-name="roleTypeId"/></field>
 
-        <field name="orderId" widget-style="buttontext">
+        <field name="orderId" widget-style="btn btn-link">
             <hyperlink target="/ordermgr/control/orderview" target-type="inter-app" description="${orderId}">
                 <parameter param-name="orderId"/>
             </hyperlink>
         </field>
         <field name="productId">
             <display-entity entity-name="Product" description="${productName}">
-                <sub-hyperlink target="/catalog/control/EditProduct" target-type="inter-app" description="${productId}" link-style="buttontext">
+                <sub-hyperlink target="/catalog/control/EditProduct" target-type="inter-app" description="${productId}" link-style="btn btn-link">
                     <parameter param-name="productId"/>
                 </sub-hyperlink>
             </display-entity>
         </field>
         <field name="productCategoryId">
             <display-entity entity-name="ProductCategory" description="${categoryName}">
-                <sub-hyperlink target="/catalog/control/EditProductCategory" target-type="inter-app" description="${productCategoryId}" link-style="buttontext">
+                <sub-hyperlink target="/catalog/control/EditProductCategory" target-type="inter-app" description="${productCategoryId}" link-style="btn btn-link">
                     <parameter param-name="productCategoryId"/>
                 </sub-hyperlink>
             </display-entity>
@@ -177,14 +177,14 @@ under the License.
         <field name="purchaseFromDate"><ignored/></field>
         <field name="purchaseThruDate"><ignored/></field>
 
-        <field name="subscriptionId" widget-style="buttontext">
+        <field name="subscriptionId" widget-style="btn btn-link">
             <hyperlink description="${subscriptionId}" target="EditSubscription" also-hidden="false">
                 <parameter param-name="subscriptionId"/>
             </hyperlink>
         </field>
     </form>
     <form name="EditSubscription" type="single" target="updateSubscription" default-map-name="subscription"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <alt-target use-when="subscription==null" target="createSubscription"/>
         <auto-fields-service service-name="updateSubscription"/>
 
@@ -209,7 +209,7 @@ under the License.
 
         <field name="originatedFromPartyId">
             <lookup target-form-name="LookupPartyName">
-                <sub-hyperlink target="/partymgr/control/viewprofile" target-type="inter-app" description="${subscription.originatedFromPartyId}" link-style="buttontext">
+                <sub-hyperlink target="/partymgr/control/viewprofile" target-type="inter-app" description="${subscription.originatedFromPartyId}" link-style="btn btn-link">
                 <parameter param-name="partyId" from-field="subscription.originatedFromPartyId"/>
             </sub-hyperlink>
             </lookup>
@@ -224,7 +224,7 @@ under the License.
 
         <field name="partyId">
             <lookup target-form-name="LookupPartyName">
-                <sub-hyperlink target="/partymgr/control/viewprofile" target-type="inter-app" description="${subscription.partyId}" link-style="buttontext">
+                <sub-hyperlink target="/partymgr/control/viewprofile" target-type="inter-app" description="${subscription.partyId}" link-style="btn btn-link">
                 <parameter param-name="partyId" from-field="subscription.partyId"/>
             </sub-hyperlink>
             </lookup>
@@ -239,7 +239,7 @@ under the License.
 
         <field name="partyNeedId">
             <lookup target-form-name="LookupPartyName">
-                <sub-hyperlink target="/partymgr/control/viewprofile" target-type="inter-app" description="${subscription.partyId}" link-style="buttontext">
+                <sub-hyperlink target="/partymgr/control/viewprofile" target-type="inter-app" description="${subscription.partyId}" link-style="btn btn-link">
                 <parameter param-name="partyId" from-field="subscription.partyNeedId"/>
             </sub-hyperlink>
             </lookup>
@@ -254,21 +254,21 @@ under the License.
 
         <field name="orderId">
             <lookup target-form-name="LookupOrderHeader">
-                <sub-hyperlink target="/ordermgr/control/orderview" target-type="inter-app" description="${subscription.orderId}" link-style="buttontext">
+                <sub-hyperlink target="/ordermgr/control/orderview" target-type="inter-app" description="${subscription.orderId}" link-style="btn btn-link">
                 <parameter param-name="orderId" from-field="subscription.orderId"/>
             </sub-hyperlink>
             </lookup>
         </field>
         <field name="productId">
             <lookup target-form-name="LookupProduct">
-                <sub-hyperlink target="/catalog/control/EditProduct" target-type="inter-app" description="${subscription.productId}" link-style="buttontext">
+                <sub-hyperlink target="/catalog/control/EditProduct" target-type="inter-app" description="${subscription.productId}" link-style="btn btn-link">
                 <parameter param-name="productId" from-field="subscription.productId"/>
             </sub-hyperlink>
             </lookup>
         </field>
         <field name="productCategoryId">
             <lookup target-form-name="LookupProductCategory">
-                <sub-hyperlink target="/catalog/control/EditProductCategory" target-type="inter-app" description="${subscription.productCategoryId}" link-style="buttontext">
+                <sub-hyperlink target="/catalog/control/EditProductCategory" target-type="inter-app" description="${subscription.productCategoryId}" link-style="btn btn-link">
                 <parameter param-name="productCategoryId" from-field="subscription.productCategoryId"/>
             </sub-hyperlink>
             </lookup>
@@ -304,12 +304,12 @@ under the License.
                 </entity-options>
             </drop-down>
         </field>
-        <field name="submitButton" title="${uiLabelMap.CommonUpdate}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonUpdate}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
 
     <!-- SubscriptionResource Forms -->
     <form name="ListSubscriptionResources" type="list" list-name="examples"
-        header-row-style="header-row-2" odd-row-style="alternate-row" default-table-style="basic-table"
+        header-row-style="header-row-2" odd-row-style="alternate-row" default-table-style="table"
         paginate-target="FindSubscriptionResource">
         <actions>
             <entity-condition entity-name="SubscriptionResource">
@@ -323,27 +323,27 @@ under the License.
         <field name="description" title="${uiLabelMap.CommonDescription}"><display/></field>
         <field name="contentId">
             <display-entity entity-name="Content" description="${contentName}">
-                <sub-hyperlink target="/content/control/EditContent" target-type="inter-app" description="${contentId}" link-style="buttontext">
+                <sub-hyperlink target="/content/control/EditContent" target-type="inter-app" description="${contentId}" link-style="btn btn-link">
                     <parameter param-name="contentId"/>
                 </sub-hyperlink>
             </display-entity>
         </field>
         <field name="webSiteId">
             <display-entity entity-name="WebSite" description="${siteName}">
-                <sub-hyperlink target="/content/control/EditWebSite" target-type="inter-app" description="${webSiteId}" link-style="buttontext">
+                <sub-hyperlink target="/content/control/EditWebSite" target-type="inter-app" description="${webSiteId}" link-style="btn btn-link">
                     <parameter param-name="webSiteId"/>
                 </sub-hyperlink>
             </display-entity>
         </field>
 
-        <field name="subscriptionResourceId" widget-style="buttontext">
+        <field name="subscriptionResourceId" widget-style="btn btn-link">
             <hyperlink also-hidden="false" description="${subscriptionResourceId}" target="EditSubscriptionResource">
                 <parameter param-name="subscriptionResourceId"/>
             </hyperlink>
         </field>
     </form>
     <form name="EditSubscriptionResource" type="single" target="updateSubscriptionResource" default-map-name="subscriptionResource"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <alt-target use-when="subscriptionResource==null" target="createSubscriptionResource"/>
         <auto-fields-service service-name="updateSubscriptionResource"/>
 
@@ -363,12 +363,12 @@ under the License.
             </drop-down>
         </field>
 
-        <field name="submitButton" title="${uiLabelMap.CommonUpdate}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonUpdate}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
 
     <!-- ProductSubscriptionResource -->
     <form name="ListSubscriptionResourceProducts" type="list"  list-name="productSubscriptionResource"  target="updateProductSubscriptionResourceSr"
-        header-row-style="header-row-2" odd-row-style="alternate-row" default-table-style="basic-table">
+        header-row-style="header-row-2" odd-row-style="alternate-row" default-table-style="table">
         <actions>
             <entity-condition entity-name="ProductSubscriptionResource">
                 <condition-expr field-name="subscriptionResourceId" from-field="subscriptionResourceId"/>
@@ -409,17 +409,17 @@ under the License.
                 </entity-options>
             </drop-down>
         </field>
-        <field name="deleteLink" title=" " widget-style="buttontext">
+        <field name="deleteLink" title=" " widget-style="btn btn-link">
             <hyperlink target="deleteProductSubscriptionResourceSr" description="${uiLabelMap.CommonDelete}" also-hidden="false">
                 <parameter param-name="subscriptionResourceId"/>
                 <parameter param-name="productId"/>
                 <parameter param-name="fromDate"/>
             </hyperlink>
         </field>
-        <field name="submitButton" title="${uiLabelMap.CommonUpdate}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonUpdate}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
     <form name="AddSubscriptionResourceProduct" type="single" target="createProductSubscriptionResourceSr" title=""
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <auto-fields-service service-name="createProductSubscriptionResource"/>
 
         <field name="subscriptionResourceId"><hidden/></field>
@@ -453,25 +453,25 @@ under the License.
                 </entity-options>
             </drop-down>
         </field>
-        <field name="submitButton" title="${uiLabelMap.CommonAdd}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonAdd}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
     <form name="EditSubscriptionAttributes" type="list"  list-name="subscriptionAttributes"  target="UpdateSubscriptionAttribute"
-        header-row-style="header-row-2" odd-row-style="alternate-row" default-table-style="basic-table">
+        header-row-style="header-row-2" odd-row-style="alternate-row" default-table-style="table">
         <auto-fields-service service-name="updateSubscriptionAttribute"/>
 
         <field name="subscriptionId"><hidden/></field>
-        <field name="updateButton" title="${uiLabelMap.CommonUpdate}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="updateButton" title="${uiLabelMap.CommonUpdate}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
     <form name="AddSubscriptionAttribute" type="single" target="UpdateSubscriptionAttribute"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <auto-fields-service service-name="updateSubscriptionAttribute"/>
         <field name="subscriptionId"><hidden/></field>
-        <field name="addButton" title="${uiLabelMap.CommonAdd}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="addButton" title="${uiLabelMap.CommonAdd}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
 
     <!-- Subscription Communication Event  -->
     <form name="listSubscriptionCommEvent" type="list"  list-name="subscriptionCommEvent"  target="ListSubscriptionCommEvent"
-        header-row-style="header-row-2" odd-row-style="alternate-row" default-table-style="basic-table">
+        header-row-style="header-row-2" odd-row-style="alternate-row" default-table-style="table">
         <actions>
             <entity-condition entity-name="SubscriptionAndCommEvent">
                 <condition-expr field-name="subscriptionId" from-field="subscriptionId"/>
@@ -479,7 +479,7 @@ under the License.
             </entity-condition>
         </actions>
         <field name="subscriptionId"><hidden/></field>
-        <field name="communicationEventId" widget-style="buttontext">
+        <field name="communicationEventId" widget-style="btn btn-link">
             <hyperlink also-hidden="false" description="${communicationEventId}" target="/partymgr/control/EditCommunicationEvent" target-type="inter-app">
                 <parameter param-name="communicationEventId"/>
             </hyperlink>
@@ -497,7 +497,7 @@ under the License.
         <field name="roleTypeIdTo"><display-entity description="${description}" entity-name="RoleType" key-field-name="roleTypeId"/></field>
         <field name="datetimeStarted" title="${uiLabelMap.CommonStartDate}"><display/></field>
         <field name="datetimeEnded" title="${uiLabelMap.CommonFinishDate}"><display/></field>
-        <field name="deleteLink" title="${uiLabelMap.CommonDelete}" widget-style="buttontext">
+        <field name="deleteLink" title="${uiLabelMap.CommonDelete}" widget-style="btn btn-link">
             <hyperlink target="removeSubscriptionCommEvent" description="${uiLabelMap.CommonDelete}" also-hidden="false">
                 <parameter param-name="subscriptionId"/>
                 <parameter param-name="communicationEventId"/>
@@ -505,16 +505,16 @@ under the License.
         </field>
     </form>
     <form name="createSubscriptionCommEvent" type="single" target="createSubscriptionCommEvent" title=""
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <auto-fields-service service-name="createSubscriptionCommEvent"/>
         <field name="subscriptionId"><hidden value="${parameters.subscriptionId}"/></field>
         <field name="communicationEventId">
             <lookup target-form-name="LookupCommEvent">
-                <sub-hyperlink target="/partymgr/control/ViewCommunicationEvent" target-type="inter-app" link-type="hidden-form" description="${subscription.communicationEventId}" link-style="buttontext">
+                <sub-hyperlink target="/partymgr/control/ViewCommunicationEvent" target-type="inter-app" link-type="hidden-form" description="${subscription.communicationEventId}" link-style="btn btn-link">
                 <parameter param-name="communicationEventId" from-field="subscription.communicationEventId"/>
             </sub-hyperlink>
             </lookup>
         </field>
-        <field name="submitButton" title="${uiLabelMap.CommonAdd}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonAdd}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
 </forms>

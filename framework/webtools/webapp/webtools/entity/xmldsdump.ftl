@@ -22,16 +22,16 @@ under the License.
 <p>This page can be used to export data from the database. The exported documents will have a root tag of "&lt;entity-engine-xml&gt;".</p>
 <hr />
 <#if security.hasPermission("ENTITY_MAINT", session)>
-    <a href="<@ofbizUrl>xmldsrawdump</@ofbizUrl>" class="buttontext" target="_blank">Click Here to Get Data (or save to file)</a>
+    <a href="<@ofbizUrl>xmldsrawdump</@ofbizUrl>" class="btn btn-link" target="_blank">Click Here to Get Data (or save to file)</a>
 <#else>
     <div>You do not have permission to use this page (ENTITY_MAINT needed)</div>
 </#if>
 <#else>
 <#macro displayButtonBar>
-  <div class="button-bar">
+  <div class="btn-group">
     <input type="submit" value="${uiLabelMap.WebtoolsExport}"/>
-    <a href="<@ofbizUrl>xmldsdump?checkAll=true</@ofbizUrl>" class="smallSubmit">${uiLabelMap.WebtoolsCheckAll}</a>
-    <a href="<@ofbizUrl>xmldsdump</@ofbizUrl>" class="smallSubmit">${uiLabelMap.WebtoolsUnCheckAll}</a>
+    <a href="<@ofbizUrl>xmldsdump?checkAll=true</@ofbizUrl>" class="btn btn-default btn-sm">${uiLabelMap.WebtoolsCheckAll}</a>
+    <a href="<@ofbizUrl>xmldsdump</@ofbizUrl>" class="btn btn-default btn-sm">${uiLabelMap.WebtoolsUnCheckAll}</a>
   </div>
 </#macro>
 
@@ -56,7 +56,7 @@ under the License.
 
   <h2>${uiLabelMap.WebtoolsExport}:</h2>
   <form method="post" action="<@ofbizUrl>xmldsdump</@ofbizUrl>" name="entityExport">
-    <table class="basic-table">
+    <table class="table">
       <tr>
         <td class="label">${uiLabelMap.WebtoolsOutputDirectory}</td>
         <td><input type="text" size="60" name="outpath" value="${parameters.outpath!}"/></td>

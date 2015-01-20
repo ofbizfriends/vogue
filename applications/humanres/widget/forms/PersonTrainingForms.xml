@@ -63,7 +63,7 @@ under the License.
         <field name="roleTypeId"> <hidden value="CAL_ATTENDEE"/></field>
         <field name="add" title="${uiLabelMap.CommonAdd}"><submit/></field>
     </form>
-    <form name="ListTrainingParticipants" list-name="listIt" title="" type="list" odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
+    <form name="ListTrainingParticipants" list-name="listIt" title="" type="list" odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="table table-hover">
         <actions>
             <service service-name="performFind" result-map="result" result-map-list="listIt">
                 <field-map field-name="inputFields" from-field="parameters"/>
@@ -73,15 +73,15 @@ under the License.
             </service>
         </actions>
         <auto-fields-entity entity-name="PersonTraining" default-field-type="hidden"/>
-        <field name="partyId" title="${uiLabelMap.FormFieldTitle_employeePartyId}" widget-style="buttontext">
+        <field name="partyId" title="${uiLabelMap.FormFieldTitle_employeePartyId}" widget-style="btn btn-link">
             <display-entity entity-name="PartyNameView" description="${firstName} ${middleName} ${lastName} ${groupName}">
-                <sub-hyperlink target="/partymgr/control/viewprofile" target-type="inter-app" description="${partyId}" link-style="buttontext">
+                <sub-hyperlink target="/partymgr/control/viewprofile" target-type="inter-app" description="${partyId}" link-style="btn btn-link">
                     <parameter param-name="partyId" from-field="partyId"/>
                 </sub-hyperlink>
             </display-entity>
         </field>
         <field name="approvalStatus"><display-entity entity-name="StatusItem" key-field-name="statusId"/></field>
-        <field name="trainingRequestId" widget-style="buttontext"><display/></field>
+        <field name="trainingRequestId" widget-style="btn btn-link"><display/></field>
         <field name="trainingClassTypeId"><display-entity entity-name="TrainingClassType"/></field>
     </form>
     <form name="FindTrainingApprovals" target="FindTrainingApprovals" title="" type="single" default-title-style="tableheadtext" default-widget-style="inputBox">
@@ -97,9 +97,9 @@ under the License.
         <field name="approverId" use-when="!hasAdminPermission"><hidden value="${loginPartyId}"/></field>
         <field name="reason"><text-find ignore-case="true"/></field>
         <field name="noConditionFind"><hidden value="Y"/><!-- if this isn't there then with all fields empty no query will be done --></field>
-        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
-    <form name="ListTrainingApprovals" type="list" list-name="listIt" target="updateTrainingStatus" title="" odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
+    <form name="ListTrainingApprovals" type="list" list-name="listIt" target="updateTrainingStatus" title="" odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="table table-hover">
         <actions>
             <service service-name="performFind" result-map="result" result-map-list="listIt">
                 <field-map field-name="inputFields" from-field="parameters"/>
@@ -109,24 +109,24 @@ under the License.
             </service>
         </actions>
         <auto-fields-entity entity-name="PersonTraining" default-field-type="display"/>
-        <field name="partyId" title="${uiLabelMap.FormFieldTitle_employeePartyId}" widget-style="buttontext">
+        <field name="partyId" title="${uiLabelMap.FormFieldTitle_employeePartyId}" widget-style="btn btn-link">
             <display-entity entity-name="PartyNameView" description="${firstName} ${middleName} ${lastName} ${groupName}">
-                <sub-hyperlink target="/partymgr/control/viewprofile" target-type="inter-app" description="${partyId}" link-style="buttontext">
+                <sub-hyperlink target="/partymgr/control/viewprofile" target-type="inter-app" description="${partyId}" link-style="btn btn-link">
                     <parameter param-name="partyId" from-field="partyId"/>
                 </sub-hyperlink>
             </display-entity>
         </field>
-        <field name="approverId" widget-style="buttontext">
+        <field name="approverId" widget-style="btn btn-link">
             <display-entity entity-name="PartyNameView" key-field-name="partyId" description="${firstName} ${middleName} ${lastName} ${groupName}">
-                <sub-hyperlink target="/partymgr/control/viewprofile" target-type="inter-app" description="${approverId}" link-style="buttontext">
+                <sub-hyperlink target="/partymgr/control/viewprofile" target-type="inter-app" description="${approverId}" link-style="btn btn-link">
                     <parameter param-name="partyId" from-field="approverId"/>
                 </sub-hyperlink>
             </display-entity>
         </field>
         <field name="trainingClassTypeId" title="${uiLabelMap.HumanResTrainingClassType}"/>
-        <field name="trainingRequestId" widget-style="buttontext"/>
+        <field name="trainingRequestId" widget-style="btn btn-link"/>
         <field name="UpdateStatus" title="${uiLabelMap.CommonUpdate}"><display description="Update"/></field>
-        <field name="UpdateStatus" title="${uiLabelMap.CommonUpdate}" widget-style="buttontext" use-when="(&quot;${approvalStatus}&quot;.equals(&quot;TRAINING_APPLIED&quot;))||(&quot;${approvalStatus}&quot;.equals(&quot;TRAINING_APPROVED&quot;))">
+        <field name="UpdateStatus" title="${uiLabelMap.CommonUpdate}" widget-style="btn btn-link" use-when="(&quot;${approvalStatus}&quot;.equals(&quot;TRAINING_APPLIED&quot;))||(&quot;${approvalStatus}&quot;.equals(&quot;TRAINING_APPROVED&quot;))">
             <hyperlink description="${uiLabelMap.CommonUpdate}" target="EditTrainingApprovals">
                 <parameter param-name="partyId"/>
                 <parameter param-name="trainingClassTypeId"/>
@@ -151,7 +151,7 @@ under the License.
         <field name="approvalStatus" use-when="personTraining!=null&amp;&amp;personTraining.getString(&quot;approvalStatus&quot;).equals(&quot;TRAINING_REJECTED&quot;)"><display/></field>
         <field name="reason" tooltip="${uiLabelMap.CommonRequired}" widget-style="required"><text/></field>
         <field name="reason" use-when="personTraining!=null&amp;&amp;personTraining.getString(&quot;approvalStatus&quot;).equals(&quot;TRAINING_REJECTED&quot;)"><display/></field>
-        <field name="submitButton" title="Update" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" title="Update" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
     <form name="FindTrainingStatus" target="FindTrainingStatus" title="" type="single" default-title-style="tableheadtext" default-widget-style="inputBox">
         <auto-fields-entity entity-name="PersonTraining" default-field-type="find"/>
@@ -167,9 +167,9 @@ under the License.
         <field name="approvalStatus"><text-find ignore-case="true"/></field>
         <field name="reason"><text-find ignore-case="true"/></field>
         <field name="noConditionFind"><hidden value="Y"/><!-- if this isn't there then with all fields empty no query will be done --></field>
-        <field name="submitButton" title="${uiLabelMap.CommonSearch}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonSearch}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
-    <form name="ListTrainingStatus" list-name="listIt" title="" type="list" odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
+    <form name="ListTrainingStatus" list-name="listIt" title="" type="list" odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="table table-hover">
         <actions>
             <service service-name="performFind" result-map="result" result-map-list="listIt">
                 <field-map field-name="inputFields" from-field="parameters"/>
@@ -179,27 +179,27 @@ under the License.
             </service>
         </actions>
         <auto-fields-entity entity-name="PersonTraining" default-field-type="display"/>
-        <field name="partyId" title="${uiLabelMap.FormFieldTitle_employeePartyId}" widget-style="buttontext">
+        <field name="partyId" title="${uiLabelMap.FormFieldTitle_employeePartyId}" widget-style="btn btn-link">
             <display-entity entity-name="PartyNameView" description="${firstName} ${middleName} ${lastName} ${groupName}">
-                <sub-hyperlink target="/partymgr/control/viewprofile" target-type="inter-app" description="${partyId}" link-style="buttontext">
+                <sub-hyperlink target="/partymgr/control/viewprofile" target-type="inter-app" description="${partyId}" link-style="btn btn-link">
                     <parameter param-name="partyId" from-field="partyId"/>
                 </sub-hyperlink>
             </display-entity>
         </field>
-        <field name="approverId" widget-style="buttontext">
+        <field name="approverId" widget-style="btn btn-link">
             <display-entity entity-name="PartyNameView" key-field-name="partyId" description="${firstName} ${middleName} ${lastName} ${groupName}">
-                <sub-hyperlink target="/partymgr/control/viewprofile" target-type="inter-app" description="${approverId}" link-style="buttontext">
+                <sub-hyperlink target="/partymgr/control/viewprofile" target-type="inter-app" description="${approverId}" link-style="btn btn-link">
                     <parameter param-name="partyId" from-field="approverId"/>
                 </sub-hyperlink>
             </display-entity>
         </field>
-        <field name="trainingRequestId" widget-style="buttontext"/>
+        <field name="trainingRequestId" widget-style="btn btn-link"/>
         <field name="trainingClassTypeId" title="${uiLabelMap.HumanResTrainingClassType}"/>
         <field name="approvalStatus"><display-entity entity-name="StatusItem" key-field-name="statusId"/></field>
         <field name="trainingClassTypeId"><display-entity entity-name="TrainingClassType"/></field>
     </form>
 
-    <form name="simpleListTrainingStatus" list-name="listIt" title="" type="list" odd-row-style="alternate-row" default-table-style="basic-table">
+    <form name="simpleListTrainingStatus" list-name="listIt" title="" type="list" odd-row-style="alternate-row" default-table-style="table">
         <actions>
             <service service-name="performFind" result-map="result" result-map-list="listIt">
                 <field-map field-name="inputFields" from-field="parameters"/>
@@ -214,13 +214,13 @@ under the License.
         <field name="trainingClassTypeId" title="${uiLabelMap.HumanResTrainingClassType}"/>
         <field name="approvalStatus"><display-entity entity-name="StatusItem" key-field-name="statusId"/></field>
         <field name="trainingClassTypeId"><display-entity entity-name="TrainingClassType"/></field>
-        <field name="approverId" widget-style="buttontext">
+        <field name="approverId" widget-style="btn btn-link">
             <display-entity entity-name="PartyNameView" key-field-name="partyId" description="${firstName} ${middleName} ${lastName} ${groupName}"/>
         </field>
     </form>
 
     <form name="ListEmplTrainings" type="list" list-name="listIt" separate-columns="true" target="updateEmplLeave" paginate-target="FindEmplLeaves"
-        odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="table table-hover">
         <actions>
             <entity-condition entity-name="PersonTraining">
                 <condition-expr field-name="partyId" from-field="partyId"/>

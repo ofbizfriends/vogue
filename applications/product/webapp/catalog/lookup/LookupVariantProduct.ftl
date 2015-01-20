@@ -22,7 +22,7 @@ under the License.
 <br />
 <#if searchFeatures?has_content>
   <form method="post" action="<@ofbizUrl>LookupVariantProduct</@ofbizUrl>" name="selectAllForm">
-    <table cellspacing="0" class="basic-table">
+    <table cellspacing="0" class="table">
         <input type="hidden" name="productId" value="${product.productId}" />
         <#list searchFeatures as searchFeature>
             <tr>
@@ -42,14 +42,14 @@ under the License.
             </tr>
         </#list>
         <tr>
-            <td><input type="submit" value="${uiLabelMap.CommonSearch}" class="smallSubmit" /></td>
+            <td><input type="submit" value="${uiLabelMap.CommonSearch}" class="btn btn-default btn-sm" /></td>
     </tr>
     </table>
   </form>
 </#if>
 <br />
 <#if variantProducts??>
-    <table cellspacing="0" class="basic-table">
+    <table cellspacing="0" class="table">
         <tr class="header-row">
             <td><b>${uiLabelMap.ProductProductId}</b></td>
             <td><b>${uiLabelMap.ProductBrandName}</b></td>
@@ -57,7 +57,7 @@ under the License.
         </tr>
         <#list variantProducts as variant>
             <tr>
-                <td><a class="buttontext" href="javascript:set_value('${variant.productId}')">${variant.productId}</a></td>
+                <td><a class="btn btn-link" href="javascript:set_value('${variant.productId}')">${variant.productId}</a></td>
                 <td>${variant.brandName!}</td>
                 <td>${variant.internalName!}</td>
             </tr>
@@ -65,12 +65,12 @@ under the License.
     </table>
 </#if>
 <#if productFeatureIds??>
-    <table cellspacing="0" class="basic-table">
+    <table cellspacing="0" class="table">
         <form method="post" action="<@ofbizUrl>LookupVariantProduct</@ofbizUrl>" name="createNewVariant">
         <input type="hidden" name="productId" value="${product.productId}" />
         <input type="hidden" name="productFeatureIds" value="${productFeatureIds}" />
         <input type="text" name="productVariantId" value="${productVariantId}" />
-        <input type="submit" value="${uiLabelMap.ProductQuickAddVariants}" class="smallSubmit" />
+        <input type="submit" value="${uiLabelMap.ProductQuickAddVariants}" class="btn btn-default btn-sm" />
         </form>
     </table>
 </#if>

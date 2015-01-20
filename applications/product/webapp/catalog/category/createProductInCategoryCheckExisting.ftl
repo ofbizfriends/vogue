@@ -18,7 +18,7 @@ under the License.
 -->
 
 <#if productCategoryId?has_content>
-    <a href="<@ofbizUrl>EditCategory?productCategoryId=${productCategoryId}</@ofbizUrl>" class="buttontext">[${uiLabelMap.ProductBackToEditCategory}]</a>
+    <a href="<@ofbizUrl>EditCategory?productCategoryId=${productCategoryId}</@ofbizUrl>" class="btn btn-link">[${uiLabelMap.ProductBackToEditCategory}]</a>
 </#if>
 <div class="screenlet">
     <div class="screenlet-title-bar">
@@ -37,7 +37,7 @@ under the License.
     </div>
     <div class="screenlet-body">
         <#if products?has_content>
-        <table cellspacing="0" class="basic-table">
+        <table cellspacing="0" class="table">
             <tr>
                 <td>${uiLabelMap.ProductInternalName}</td>
                 <td>${uiLabelMap.ProductProductName}</td>
@@ -47,7 +47,7 @@ under the License.
             <tr>
                 <td>${product.internalName?default("-no internal name-")} [${product.productId}]</td>
                 <td>${product.productName?default("-no name-")} [${product.productId}]</td>
-                <td width="10%"><a href="<@ofbizUrl>EditProduct?productId=${product.productId}</@ofbizUrl>" class="buttontext">[${uiLabelMap.ProductThisIsIt}]</a></td>
+                <td width="10%"><a href="<@ofbizUrl>EditProduct?productId=${product.productId}</@ofbizUrl>" class="btn btn-link">[${uiLabelMap.ProductThisIsIt}]</a></td>
             </tr>
         </#list>
         </table>
@@ -59,7 +59,7 @@ under the License.
     <div class="screenlet-body">
         <form name="createProductInCategoryForm" method="post" action="<@ofbizUrl>createProductInCategory</@ofbizUrl>" style="margin: 0;">
             <input type="hidden" name="productCategoryId" value="${productCategoryId}" />
-            <table cellspacing="0" class="basic-table">
+            <table cellspacing="0" class="table">
                 <#list productFeatureAndTypeDatas! as productFeatureAndTypeData>
                 <#assign productFeatureType = productFeatureAndTypeData.productFeatureType>
                 <#assign productFeature = productFeatureAndTypeData.productFeature>
@@ -121,7 +121,7 @@ under the License.
                     <td colspan="3">
                         <div>
                             ${uiLabelMap.ProductNewProductId}: <input type="text" name="productId" value=""/>
-                            <input type="submit" value="${uiLabelMap.ProductCreateNewProduct}" class="smallSubmit"/>
+                            <input type="submit" value="${uiLabelMap.ProductCreateNewProduct}" class="btn btn-default btn-sm"/>
                         </div>
                     </td>
                 </tr>

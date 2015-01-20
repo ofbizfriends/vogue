@@ -26,7 +26,7 @@ under the License.
   </div>
   <form method="post" name="selectFactors" action="<@ofbizUrl>PicklistOptions</@ofbizUrl>">
     <input type="hidden" name="facilityId" value="${facilityId}"/>
-    <table class="basic-table" cellspacing='0'>
+    <table class="table" cellspacing='0'>
       <tr>
         <td class='label'>${uiLabelMap.FacilityGroupByShippingMethod}</td>
         <td><input type="checkbox" name="groupByShippingMethod" value="Y" <#if "${requestParameters.groupByShippingMethod!}" == "Y">checked="checked"</#if>/></td>
@@ -40,7 +40,7 @@ under the License.
     <div align ='right'>
       <span class="label">${uiLabelMap.FacilityGroupFirst}</span>
       <input type="text" size="4" name="maxNumberOfOrders" value="50"/>
-      <input type="submit" value="Submit" class="buttontext" align='right'/>
+      <input type="submit" value="Submit" class="btn btn-link" align='right'/>
     </div>
   </form>
   <div class="screenlet-title-bar">
@@ -51,9 +51,9 @@ under the License.
   </div>
   <div class="screenlet-body">
     <div align ='right'>
-      <a class="buttontext" href="<@ofbizUrl>ReviewOrdersNotPickedOrPacked?facilityId=${facilityId}</@ofbizUrl>">${uiLabelMap.FormFieldTitle_reviewOrdersNotPickedOrPacked}</a>
+      <a class="btn btn-link" href="<@ofbizUrl>ReviewOrdersNotPickedOrPacked?facilityId=${facilityId}</@ofbizUrl>">${uiLabelMap.FormFieldTitle_reviewOrdersNotPickedOrPacked}</a>
     </div>
-    <table cellspacing="0" class="basic-table">
+    <table cellspacing="0" class="table">
       <#if pickMoveInfoList?has_content || rushOrderInfo?has_content>
         <tr class="header-row">
           <#if !((requestParameters.groupByShippingMethod?? && requestParameters.groupByShippingMethod == "Y") || (requestParameters.groupByWarehouseArea?? && requestParameters.groupByWarehouseArea == "Y") || (requestParameters.groupByNoOfOrderItems?? && requestParameters.groupByNoOfOrderItems == "Y"))>
@@ -120,20 +120,20 @@ under the License.
                     </form>
               <#if ((requestParameters.groupByShippingMethod?? && requestParameters.groupByShippingMethod == "Y") || (requestParameters.groupByWarehouseArea?? && requestParameters.groupByWarehouseArea == "Y") || (requestParameters.groupByNoOfOrderItems?? && requestParameters.groupByNoOfOrderItems == "Y"))>
                   <#if groupName1?has_content>
-                    <a href="javascript:document.viewGroupDetail_${pickMoveInfo_index}.submit()" class="buttontext">${groupName1}</a>
+                    <a href="javascript:document.viewGroupDetail_${pickMoveInfo_index}.submit()" class="btn btn-link">${groupName1}</a>
                   </#if>
                 </td>
                 <td>
                   <#if groupName2?has_content>
-                    <a href="javascript:document.viewGroupDetail_${pickMoveInfo_index}.submit()" class="buttontext">${groupName2}</a>
+                    <a href="javascript:document.viewGroupDetail_${pickMoveInfo_index}.submit()" class="btn btn-link">${groupName2}</a>
                   </#if>
                 </td>
                 <td>
                   <#if groupName3?has_content>
-                    <a href="javascript:document.viewGroupDetail_${pickMoveInfo_index}.submit()" class="buttontext">${groupName3}</a></td>
+                    <a href="javascript:document.viewGroupDetail_${pickMoveInfo_index}.submit()" class="btn btn-link">${groupName3}</a></td>
                   </#if>
               <#else>
-                  <a href="javascript:document.viewGroupDetail_${pickMoveInfo_index}.submit()" class="buttontext">${groupName!}</a>
+                  <a href="javascript:document.viewGroupDetail_${pickMoveInfo_index}.submit()" class="btn btn-link">${groupName!}</a>
               </#if>
                 </td>
             <td>
@@ -255,7 +255,7 @@ under the License.
       <br class="clear"/>
     </div>
     <div class="screenlet-body">
-      <table cellspacing="0" class="basic-table">
+      <table cellspacing="0" class="table">
         <tr class="header-row">
           <td>${uiLabelMap.ProductOrderId}</td>
           <td>${uiLabelMap.FormFieldTitle_orderDate}</td>
@@ -275,14 +275,14 @@ under the License.
             <#assign orderProduct = oiasga.getRelatedOne("OrderItem", false).getRelatedOne("Product", false)!>
             <#assign product = oiasga.getRelatedOne("InventoryItem", false).getRelatedOne("Product", false)!>
             <tr valign="middle"<#if alt_row> class="alternate-row"</#if>>
-              <td><a href="/ordermgr/control/orderview?orderId=${oiasga.orderId}${StringUtil.wrapString(externalKeyParam)}" class="buttontext" target="_blank">${oiasga.orderId}</a></td>
+              <td><a href="/ordermgr/control/orderview?orderId=${oiasga.orderId}${StringUtil.wrapString(externalKeyParam)}" class="btn btn-link" target="_blank">${oiasga.orderId}</a></td>
               <td>${header.orderDate?string}</td>
               <td>${(channel.description)!}</td>
               <td>${oiasga.orderItemSeqId}</td>
               <td>
-                <a href="/catalog/control/EditProduct?productId=${orderProduct.productId!}${StringUtil.wrapString(externalKeyParam)}" class="buttontext" target="_blank">${(orderProduct.internalName)!}</a>
+                <a href="/catalog/control/EditProduct?productId=${orderProduct.productId!}${StringUtil.wrapString(externalKeyParam)}" class="btn btn-link" target="_blank">${(orderProduct.internalName)!}</a>
                 <#if orderProduct.productId != product.productId>
-                  &nbsp;[<a href="/catalog/control/EditProduct?productId=${product.productId!}${StringUtil.wrapString(externalKeyParam)}" class="buttontext" target="_blank">${(product.internalName)!}</a>]
+                  &nbsp;[<a href="/catalog/control/EditProduct?productId=${product.productId!}${StringUtil.wrapString(externalKeyParam)}" class="btn btn-link" target="_blank">${(product.internalName)!}</a>]
                 </#if>
               </td>
               <td>${oiasga.shipGroupSeqId}</td>

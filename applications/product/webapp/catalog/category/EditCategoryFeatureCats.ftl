@@ -19,7 +19,7 @@ under the License.
 <form method="post" action="<@ofbizUrl>attachProductFeaturesToCategory</@ofbizUrl>" name="attachProductFeaturesToCategory">
     <input type="hidden" name="productCategoryId" value="${productCategoryId!}" />
 </form>
-<a href="javascript:document.attachProductFeaturesToCategory.submit()" class="buttontext">${uiLabelMap.ProductFeatureCategoryAttach}</a>
+<a href="javascript:document.attachProductFeaturesToCategory.submit()" class="btn btn-link">${uiLabelMap.ProductFeatureCategoryAttach}</a>
 
 <#if productCategoryId?? && productCategory??>
   <div class="screenlet">
@@ -28,7 +28,7 @@ under the License.
     </div>
         <div class="screenlet-body">
             <#-- Feature Groups -->
-            <table cellspacing="0" class="basic-table">
+            <table cellspacing="0" class="table">
                 <tr class="header-row">
                     <td><b>${uiLabelMap.ProductFeatureGroup}</b></td>
                     <td><b>${uiLabelMap.CommonFromDateTime}</b></td>
@@ -41,7 +41,7 @@ under the License.
                 <#assign line = line + 1>
                 <#assign productFeatureGroup = (productFeatureCatGrpAppl.getRelatedOne("ProductFeatureGroup", false))?default(null)>
                 <tr valign="middle"<#if rowClass == "1"> class="alternate-row"</#if>>
-                    <td><a href="<@ofbizUrl>EditFeatureGroupAppls?productFeatureGroupId=${(productFeatureCatGrpAppl.productFeatureGroupId)!}</@ofbizUrl>" class="buttontext"><#if productFeatureGroup??>${(productFeatureGroup.description)!}</#if> [${(productFeatureCatGrpAppl.productFeatureGroupId)!}]</a></td>
+                    <td><a href="<@ofbizUrl>EditFeatureGroupAppls?productFeatureGroupId=${(productFeatureCatGrpAppl.productFeatureGroupId)!}</@ofbizUrl>" class="btn btn-link"><#if productFeatureGroup??>${(productFeatureGroup.description)!}</#if> [${(productFeatureCatGrpAppl.productFeatureGroupId)!}]</a></td>
                     <#assign hasntStarted = false>
                     <#if (productFeatureCatGrpAppl.getTimestamp("fromDate"))?? && nowTimestamp.before(productFeatureCatGrpAppl.getTimestamp("fromDate"))> <#assign hasntStarted = true></#if>
                     <td><div<#if hasntStarted> style="color: red;</#if>>${(productFeatureCatGrpAppl.fromDate)!}</div></td>
@@ -58,7 +58,7 @@ under the License.
                         </form>
                     </td>
                     <td align="center">
-                        <a href="javascript:document.removeProductFeatureCatGrpApplForm_${productFeatureCatGrpAppl_index}.submit()" class="buttontext">${uiLabelMap.CommonDelete}</a>
+                        <a href="javascript:document.removeProductFeatureCatGrpApplForm_${productFeatureCatGrpAppl_index}.submit()" class="btn btn-link">${uiLabelMap.CommonDelete}</a>
                         <form method="post" action="<@ofbizUrl>removeProductFeatureCatGrpAppl</@ofbizUrl>" name="removeProductFeatureCatGrpApplForm_${productFeatureCatGrpAppl_index}">
                             <input type="hidden" name="productFeatureGroupId" value="${(productFeatureCatGrpAppl.productFeatureGroupId)!}" />
                             <input type="hidden" name="productCategoryId" value="${(productFeatureCatGrpAppl.productCategoryId)!}" />
@@ -82,7 +82,7 @@ under the License.
         </div>
         <div class="screenlet-body">
             <#if productFeatureGroups?has_content>
-            <table cellspacing="0" class="basic-table">
+            <table cellspacing="0" class="table">
                 <tr><td>
                     <form method="post" action="<@ofbizUrl>createProductFeatureCatGrpAppl</@ofbizUrl>" style="margin: 0;" name="addNewGroupForm">
                     <input type="hidden" name="productCategoryId" value="${productCategoryId!}" />
@@ -107,7 +107,7 @@ under the License.
         </div>
         <div class="screenlet-body">
             <#-- Feature Categories -->
-            <table cellspacing="0" class="basic-table">
+            <table cellspacing="0" class="table">
                 <tr class="header-row">
                     <td><b>${uiLabelMap.ProductFeatureCategory}</b></td>
                     <td><b>${uiLabelMap.CommonFromDateTime}</b></td>
@@ -120,7 +120,7 @@ under the License.
                 <#assign line = line + 1>
                 <#assign productFeatureCategory = (productFeatureCategoryAppl.getRelatedOne("ProductFeatureCategory", false))?default(null)>
                 <tr valign="middle"<#if rowClass == "1"> class="alternate-row"</#if>>
-                    <td><a href="<@ofbizUrl>EditFeatureCategoryFeatures?productFeatureCategoryId=${(productFeatureCategoryAppl.productFeatureCategoryId)!}</@ofbizUrl>" class="buttontext"><#if productFeatureCategory??>${(productFeatureCategory.description)!}</#if> [${(productFeatureCategoryAppl.productFeatureCategoryId)!}]</a></td>
+                    <td><a href="<@ofbizUrl>EditFeatureCategoryFeatures?productFeatureCategoryId=${(productFeatureCategoryAppl.productFeatureCategoryId)!}</@ofbizUrl>" class="btn btn-link"><#if productFeatureCategory??>${(productFeatureCategory.description)!}</#if> [${(productFeatureCategoryAppl.productFeatureCategoryId)!}]</a></td>
                     <#assign hasntStarted = false>
                     <#if (productFeatureCategoryAppl.getTimestamp("fromDate"))?? && nowTimestamp.before(productFeatureCategoryAppl.getTimestamp("fromDate"))> <#assign hasntStarted = true></#if>
                     <td <#if hasntStarted> style="color: red;"</#if>>${(productFeatureCategoryAppl.fromDate)!}</td>
@@ -137,7 +137,7 @@ under the License.
                         </form>
                     </td>
                     <td align="center">
-                    <a href="javascript:document.removeProductFeatureCategoryApplForm_${productFeatureCategoryAppl_index}.submit()" class="buttontext">${uiLabelMap.CommonDelete}</a>
+                    <a href="javascript:document.removeProductFeatureCategoryApplForm_${productFeatureCategoryAppl_index}.submit()" class="btn btn-link">${uiLabelMap.CommonDelete}</a>
                     <form method="post" action="<@ofbizUrl>removeProductFeatureCategoryAppl</@ofbizUrl>" name="removeProductFeatureCategoryApplForm_${productFeatureCategoryAppl_index}">
                         <input type="hidden" name="productFeatureCategoryId" value="${(productFeatureCategoryAppl.productFeatureCategoryId)!}" />
                         <input type="hidden" name="productCategoryId" value="${(productFeatureCategoryAppl.productCategoryId)!}" />
@@ -160,7 +160,7 @@ under the License.
             <h3>${uiLabelMap.ProductApplyFeatureGroupToCategory}</h3>
         </div>
         <div class="screenlet-body">
-            <table cellspacing="0" class="basic-table">
+            <table cellspacing="0" class="table">
                 <tr><td>
                     <form method="post" action="<@ofbizUrl>createProductFeatureCategoryAppl</@ofbizUrl>" style="margin: 0;" name="addNewCategoryForm">
                         <input type="hidden" name="productCategoryId" value="${productCategoryId!}" />

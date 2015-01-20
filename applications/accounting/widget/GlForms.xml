@@ -22,7 +22,7 @@ under the License.
     xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-form.xsd">
 
     <form name="FindAcctgTrans" target="FindAcctgTrans" type="single" title="" default-map-name="journal"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <field name="organizationPartyId"><hidden/></field>
         <field name="acctgTransId" title="${uiLabelMap.FormFieldTitle_acctgTransId}" entity-name="AcctgTrans" position="1">
             <text size="20"/>
@@ -63,11 +63,11 @@ under the License.
         <field name="fromDate" position="1"><date-time/></field>
         <field name="thruDate" position="2"><date-time/></field>
         <field name="performSearch" position="1"><hidden value="Y"/></field>
-        <field name="searchButton" widget-style="buttontext"><submit button-type="text-link"/></field>
+        <field name="searchButton" widget-style="btn btn-link"><submit button-type="text-link"/></field>
     </form>
 
     <form name="ListAcctgTrans" type="list" title="List Accounting Transactions" list-name="acctgTransList"
-        odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" default-table-style="table table-hover">
         <actions>
             <entity-condition entity-name="AcctgTransAndEntries" list="acctgTransList" distinct="true">
                 <condition-list>
@@ -100,7 +100,7 @@ under the License.
             </entity-condition>
         </actions>
 
-        <field name="acctgTransId" widget-style="buttontext">
+        <field name="acctgTransId" widget-style="btn btn-link">
             <hyperlink also-hidden="false" description="${acctgTransId}" target="EditAcctgTrans">
                 <parameter param-name="acctgTransId"/>
                 <parameter param-name="organizationPartyId"/>
@@ -110,25 +110,25 @@ under the License.
         <field name="acctgTransTypeId" title="${uiLabelMap.FormFieldTitle_acctgTransType}"><display-entity entity-name="AcctgTransType"/></field>
         <field name="description"><display/></field>
         <field name="glFiscalTypeId" title="${uiLabelMap.FormFieldTitle_glFiscalType}"><display-entity entity-name="GlFiscalType"/></field>
-        <field name="invoiceId" use-when="invoiceId!=null" widget-style="buttontext">
+        <field name="invoiceId" use-when="invoiceId!=null" widget-style="btn btn-link">
             <hyperlink also-hidden="false" description="${invoiceId}" target="editInvoice">
                 <parameter param-name="invoiceId"/>
             </hyperlink>
         </field>
         <field name="invoiceId" use-when="invoiceId==null"><display/></field>
-        <field name="paymentId" use-when="paymentId!=null" widget-style="buttontext">
+        <field name="paymentId" use-when="paymentId!=null" widget-style="btn btn-link">
             <hyperlink also-hidden="false" description="${paymentId}" target="editPayment">
                 <parameter param-name="paymentId"/>
             </hyperlink>
         </field>
         <field name="paymentId" use-when="paymentId==null"><display/></field>
-        <field name="workEffortId" use-when="workEffortId!=null" widget-style="buttontext">
+        <field name="workEffortId" use-when="workEffortId!=null" widget-style="btn btn-link">
             <hyperlink also-hidden="false" description="${workEffortId}" target="/workeffort/control/EditWorkEffort" target-type="inter-app">
                 <parameter param-name="workEffortId"/>
             </hyperlink>
         </field>
         <field name="workEffortId" use-when="workEffortId==null"><display/></field>
-        <field name="shipmentId" use-when="shipmentId!=null" widget-style="buttontext">
+        <field name="shipmentId" use-when="shipmentId!=null" widget-style="btn btn-link">
             <hyperlink also-hidden="false" description="${shipmentId}" target="/facility/control/EditShipment" target-type="inter-app">
                 <parameter param-name="shipmentId"/>
             </hyperlink>
@@ -136,12 +136,12 @@ under the License.
         <field name="shipmentId" use-when="shipmentId==null"><display/></field>
         <field name="isPosted"><display/></field>
         <field name="postedDate"><display/></field>
-        <field name="postAcctgTrans" title=" " use-when="&quot;N&quot;.equals(isPosted)" widget-style="buttontext">
+        <field name="postAcctgTrans" title=" " use-when="&quot;N&quot;.equals(isPosted)" widget-style="btn btn-link">
             <hyperlink target="postAcctgTrans" description="${uiLabelMap.AccountingPostTransaction}">
                 <parameter param-name="acctgTransId"/>
             </hyperlink>
         </field>
-        <field name="createTransactionDetailReportPDF" title=" " use-when="${isPosted=='Y'}" widget-style="buttontext">
+        <field name="createTransactionDetailReportPDF" title=" " use-when="${isPosted=='Y'}" widget-style="btn btn-link">
             <hyperlink target="acctgTransDetailReportPdf.pdf" target-window="_BLANK" description="${uiLabelMap.AccountingInvoicePDF}">
                 <parameter param-name="acctgTransId"/>
             </hyperlink>
@@ -150,8 +150,8 @@ under the License.
     </form>
 
     <form name="ListUnpostedAcctgTrans" type="list" title="Unposted Accounting Transactions" list-name="transactions"
-        odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
-        <field name="acctgTransId" widget-style="buttontext">
+        odd-row-style="alternate-row" default-table-style="table table-hover">
+        <field name="acctgTransId" widget-style="btn btn-link">
             <hyperlink also-hidden="false" description="${acctgTransId}" target="EditAcctgTrans">
                 <parameter param-name="acctgTransId"/>
                 <parameter param-name="organizationPartyId"/>
@@ -160,13 +160,13 @@ under the License.
         <field name="transactionDate"><display/></field>
         <field name="acctgTransTypeId" title="${uiLabelMap.FormFieldTitle_acctgTransType}"><display-entity entity-name="AcctgTransType"/></field>
         <field name="glFiscalTypeId" title="${uiLabelMap.FormFieldTitle_glFiscalType}"><display-entity entity-name="GlFiscalType"/></field>
-        <field name="invoiceId" use-when="invoiceId!=null" widget-style="buttontext">
+        <field name="invoiceId" use-when="invoiceId!=null" widget-style="btn btn-link">
             <hyperlink also-hidden="false" description="${invoiceId}" target="editInvoice">
                 <parameter param-name="invoiceId"/>
             </hyperlink>
         </field>
         <field name="invoiceId" use-when="invoiceId==null"><display/></field>
-        <field name="paymentId" use-when="paymentId!=null" widget-style="buttontext">
+        <field name="paymentId" use-when="paymentId!=null" widget-style="btn btn-link">
             <hyperlink also-hidden="false" description="${paymentId}" target="editPayment">
                 <parameter param-name="paymentId"/>
             </hyperlink>
@@ -175,14 +175,14 @@ under the License.
         <field name="partyId"><display/></field>
         <field name="workEffortId"><display/></field>
         <field name="shipmentId"><display/></field>
-        <field name="verify" title=" " widget-style="buttontext">
+        <field name="verify" title=" " widget-style="btn btn-link">
             <hyperlink description="${uiLabelMap.AccountingVerifyTransaction}" target="postAcctgTrans" also-hidden="false">
                 <parameter param-name="acctgTransId"/>
                 <parameter param-name="organizationPartyId"/>
                 <parameter param-name="verifyOnly" value="Y"/>
             </hyperlink>
         </field>
-        <field name="post" title=" " widget-style="buttontext">
+        <field name="post" title=" " widget-style="btn btn-link">
             <hyperlink description="${uiLabelMap.AccountingPostTransaction}" target="postAcctgTrans" also-hidden="false">
                 <parameter param-name="acctgTransId"/>
                 <parameter param-name="organizationPartyId"/>
@@ -191,7 +191,7 @@ under the License.
     </form>
 
     <form name="FindAcctgTransEntries" target="FindAcctgTransEntries" type="single" title=""
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <field name="organizationPartyId"><hidden/></field>
         <field name="acctgTransId" title="${uiLabelMap.FormFieldTitle_acctgTransId}" entity-name="AcctgTrans">
             <text size="20"/>
@@ -249,10 +249,10 @@ under the License.
                 <option description="${uiLabelMap.AccountingByDate}" key="byDate"/>
             </drop-down>
         </field>
-        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="buttontext"><submit button-type="text-link"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="btn btn-link"><submit button-type="text-link"/></field>
     </form>
     <form name="ListFindAcctgTransEntriesByAccount" type="list" title="List Accounting Transaction Entries" list-name="acctgTransEntryList"
-        odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" default-table-style="table table-hover">
         <actions>
             <entity-condition entity-name="AcctgTransAndEntries" list="acctgTransEntryList">
                 <condition-list>
@@ -287,47 +287,47 @@ under the License.
             <display-entity entity-name="GlAccountClass"/>
         </field>
 
-        <field name="acctgTransId" widget-style="buttontext" position="2">
+        <field name="acctgTransId" widget-style="btn btn-link" position="2">
             <hyperlink also-hidden="false" description="${acctgTransId}" target="EditAcctgTrans">
                 <parameter param-name="acctgTransId"/>
                 <parameter param-name="organizationPartyId"/>
             </hyperlink>
         </field>
-        <field name="acctgTransEntrySeqId" widget-style="buttontext" position="2"><display/></field>
+        <field name="acctgTransEntrySeqId" widget-style="btn btn-link" position="2"><display/></field>
         <field name="transactionDate" position="2"><display/></field>
         <field name="acctgTransTypeId" title="${uiLabelMap.FormFieldTitle_acctgTransType}" position="2"><display-entity entity-name="AcctgTransType"/></field>
         <field name="glFiscalTypeId" title="${uiLabelMap.FormFieldTitle_glFiscalType}" position="2"><display-entity entity-name="GlFiscalType"/></field>
-        <field name="invoiceId" position="2" use-when="invoiceId!=null" widget-style="buttontext">
+        <field name="invoiceId" position="2" use-when="invoiceId!=null" widget-style="btn btn-link">
             <hyperlink also-hidden="false" description="${invoiceId}" target="editInvoice">
                 <parameter param-name="invoiceId"/>
             </hyperlink>
         </field>
         <field name="invoiceId" position="2" use-when="invoiceId==null"><display/></field>
-        <field name="paymentId" position="2" use-when="paymentId!=null" widget-style="buttontext">
+        <field name="paymentId" position="2" use-when="paymentId!=null" widget-style="btn btn-link">
             <hyperlink also-hidden="false" description="${paymentId}" target="editPayment">
                 <parameter param-name="paymentId"/>
             </hyperlink>
         </field>
         <field name="paymentId" position="2" use-when="paymentId==null"><display/></field>
-        <field name="workEffortId" position="2" use-when="workEffortId!=null" widget-style="buttontext">
+        <field name="workEffortId" position="2" use-when="workEffortId!=null" widget-style="btn btn-link">
             <hyperlink also-hidden="false" description="${workEffortId}" target="/workeffort/control/EditWorkEffort" target-type="inter-app">
                 <parameter param-name="workEffortId"/>
             </hyperlink>
         </field>
         <field name="workEffortId" position="2" use-when="workEffortId==null"><display/></field>
-        <field name="shipmentId" position="2" use-when="shipmentId!=null" widget-style="buttontext">
+        <field name="shipmentId" position="2" use-when="shipmentId!=null" widget-style="btn btn-link">
             <hyperlink also-hidden="false" description="${shipmentId}" target="/facility/control/EditShipment" target-type="inter-app">
                 <parameter param-name="shipmentId"/>
             </hyperlink>
         </field>
         <field name="shipmentId" position="2" use-when="shipmentId==null"><display/></field>
-        <field name="partyId" position="2" use-when="partyId!=null" widget-style="buttontext">
+        <field name="partyId" position="2" use-when="partyId!=null" widget-style="btn btn-link">
             <hyperlink also-hidden="false" description="${partyId}" target="/partymgr/control/viewprofile" target-type="inter-app">
                 <parameter param-name="partyId"/>
             </hyperlink>
         </field>
         <field name="partyId" position="2" use-when="partyId==null"><display/></field>
-        <field name="productId" position="2" use-when="productId!=null" widget-style="buttontext">
+        <field name="productId" position="2" use-when="productId!=null" widget-style="btn btn-link">
             <hyperlink also-hidden="false" description="${productId}" target="/catalog/control/EditProduct" target-type="inter-app">
                 <parameter param-name="productId"/>
             </hyperlink>
@@ -339,7 +339,7 @@ under the License.
         <field name="amount" position="2"><display type="currency" currency="${currencyUomId}"/></field>
     </form>
     <form name="ListFindAcctgTransEntriesByDate" type="list" title="List Accounting Transaction Entries" list-name="acctgTransEntryList"
-        odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" default-table-style="table table-hover">
         <actions>
             <entity-condition entity-name="AcctgTransAndEntries" list="acctgTransEntryList">
                 <condition-list>
@@ -364,13 +364,13 @@ under the License.
         </actions>
 
         <field name="transactionDate"><display/></field>
-        <field name="acctgTransId" widget-style="buttontext">
+        <field name="acctgTransId" widget-style="btn btn-link">
             <hyperlink also-hidden="false" description="${acctgTransId}" target="EditAcctgTrans">
                 <parameter param-name="acctgTransId"/>
                 <parameter param-name="organizationPartyId"/>
             </hyperlink>
         </field>
-        <field name="acctgTransEntrySeqId" widget-style="buttontext"><display/></field>
+        <field name="acctgTransEntrySeqId" widget-style="btn btn-link"><display/></field>
         <field name="acctgTransTypeId" title="${uiLabelMap.FormFieldTitle_acctgTransType}"><display-entity entity-name="AcctgTransType"/></field>
         <field name="glFiscalTypeId" title="${uiLabelMap.FormFieldTitle_glFiscalType}"><display-entity entity-name="GlFiscalType"/></field>
         <field name="glAccountId"><display/></field>
@@ -380,37 +380,37 @@ under the License.
         <field name="glAccountClassId">
             <display-entity entity-name="GlAccountClass"/>
         </field>
-        <field name="invoiceId" use-when="invoiceId!=null" widget-style="buttontext">
+        <field name="invoiceId" use-when="invoiceId!=null" widget-style="btn btn-link">
             <hyperlink also-hidden="false" description="${invoiceId}" target="editInvoice">
                 <parameter param-name="invoiceId"/>
             </hyperlink>
         </field>
         <field name="invoiceId" use-when="invoiceId==null"><display/></field>
-        <field name="paymentId" use-when="paymentId!=null" widget-style="buttontext">
+        <field name="paymentId" use-when="paymentId!=null" widget-style="btn btn-link">
             <hyperlink also-hidden="false" description="${paymentId}" target="editPayment">
                 <parameter param-name="paymentId"/>
             </hyperlink>
         </field>
         <field name="paymentId" use-when="paymentId==null"><display/></field>
-        <field name="workEffortId" use-when="workEffortId!=null" widget-style="buttontext">
+        <field name="workEffortId" use-when="workEffortId!=null" widget-style="btn btn-link">
             <hyperlink also-hidden="false" description="${workEffortId}" target="/workeffort/control/EditWorkEffort" target-type="inter-app">
                 <parameter param-name="workEffortId"/>
             </hyperlink>
         </field>
         <field name="workEffortId" use-when="workEffortId==null"><display/></field>
-        <field name="shipmentId" use-when="shipmentId!=null" widget-style="buttontext">
+        <field name="shipmentId" use-when="shipmentId!=null" widget-style="btn btn-link">
             <hyperlink also-hidden="false" description="${shipmentId}" target="/facility/control/EditShipment" target-type="inter-app">
                 <parameter param-name="shipmentId"/>
             </hyperlink>
         </field>
         <field name="shipmentId" use-when="shipmentId==null"><display/></field>
-        <field name="partyId" use-when="partyId!=null" widget-style="buttontext">
+        <field name="partyId" use-when="partyId!=null" widget-style="btn btn-link">
             <hyperlink also-hidden="false" description="${partyId}" target="/partymgr/control/viewprofile" target-type="inter-app">
                 <parameter param-name="partyId"/>
             </hyperlink>
         </field>
         <field name="partyId" use-when="partyId==null"><display/></field>
-        <field name="productId" use-when="productId!=null" widget-style="buttontext">
+        <field name="productId" use-when="productId!=null" widget-style="btn btn-link">
             <hyperlink also-hidden="false" description="${productId}" target="/catalog/control/EditProduct" target-type="inter-app">
                 <parameter param-name="productId"/>
             </hyperlink>
@@ -422,7 +422,7 @@ under the License.
         <field name="amount"><display type="currency" currency="${currencyUomId}"/></field>
     </form>
     <form name="CreateAcctgTransAndEntries" type="single" target="quickCreateAcctgTransAndEntries" title=""
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <actions>
             <set field="debitGlAccountClassId" from-field="parameters.debitGlAccountClassId"/>
             <set field="creditGlAccountClassId" from-field="parameters.creditGlAccountClassId"/>
@@ -505,7 +505,7 @@ under the License.
     </form>
 
     <form name="EditAcctgTrans" type="single" target="updateAcctgTrans" default-map-name="acctgTrans"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <auto-fields-service service-name="updateAcctgTrans"/>
         <field name="acctgTransId" tooltip="${uiLabelMap.CommonNotModifRecreat}"><display/></field>
         <field name="organizationPartyId" map-name="parameter"><hidden/></field>
@@ -622,10 +622,10 @@ under the License.
         <field name="settlementTermId" position="1"><text size="20"/></field>
         <field name="isSummary" position="2"><text size="10"/></field>
         <field name="description" position="1" entry-name="resetFieldValue"><text size="30"/></field>
-        <field name="createButton" title="${uiLabelMap.CommonCreate}" widget-style="buttontext" ><submit button-type="text-link"/></field>
+        <field name="createButton" title="${uiLabelMap.CommonCreate}" widget-style="btn btn-link" ><submit button-type="text-link"/></field>
     </form>
     <form name="ListAcctgTransEntries" type="list" list-name="acctgTransEntries" default-entity-name="AcctgTransEntry" target="updateAcctgTransEntry"
-        odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" default-table-style="table table-hover">
         <field name="organizationPartyId"><hidden/></field>
         <field name="acctgTransId"><hidden/></field>
         <field name="acctgTransEntrySeqId"><display/></field>
@@ -680,7 +680,7 @@ under the License.
         <field name="origAmount"><display type="currency" currency="${origCurrencyUomId}"/></field>
         <field name="amount"><display type="currency" currency="${currencyUomId}"/></field>
         <field name="updateButton" title="${uiLabelMap.CommonUpdate}"><submit button-type="button"/></field>
-        <field name="removeButton" title=" " widget-style="buttontext">
+        <field name="removeButton" title=" " widget-style="btn btn-link">
            <hyperlink description="${uiLabelMap.CommonRemove}" target="deleteAcctgTransEntry">
                 <parameter param-name="acctgTransId"/>
                 <parameter param-name="acctgTransEntrySeqId"/>
@@ -689,7 +689,7 @@ under the License.
         </field>
     </form>
     <form name="CreateAcctgTrans" type="single" target="createAcctgTrans"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <auto-fields-service service-name="createAcctgTrans"/>
         <field name="organizationPartyId"><hidden value="${organizationPartyId}"/></field>
         <field name="acctgTransTypeId" title="${uiLabelMap.FormFieldTitle_acctgTransType}" position="1">
@@ -761,7 +761,7 @@ under the License.
             </drop-down>
         </field>
         <field name="description"><textarea/></field>
-        <field name="createButton" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="createButton" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
         <sort-order>
             <sort-field name="organizationPartyId"/>        
             <sort-field name="acctgTransTypeId"/>
@@ -792,7 +792,7 @@ under the License.
         </sort-order>
     </form>
     <form name="FindGlAccountReconciliation" type="single" title="" target="findGlAccountReconciliation"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <field name="organizationPartyId"><hidden/></field>
         <field name="glAccountId">
             <drop-down allow-empty="false">
@@ -802,10 +802,10 @@ under the License.
             </drop-down>
         </field>
         <field name="performSearch"><hidden value="Y"/></field>
-        <field name="submitButton" title="${uiLabelMap.CommonSearch}" widget-style="buttontext"><submit button-type="text-link"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonSearch}" widget-style="btn btn-link"><submit button-type="text-link"/></field>
     </form>
     <form name="ListGlAccountReconciliation" type="multi" use-row-submit="true" target="EditGlReconciliation?organizationPartyId=${organizationPartyId}&amp;tabButtonItem=AccountReconciliation"
-        odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" default-table-style="table table-hover">
         <actions>
             <entity-condition entity-name="AcctgTransEntry">
                 <condition-list>
@@ -842,10 +842,10 @@ under the License.
         </field>
         <field name="amount"><display/></field>
         <field name="_rowSubmit" title="${uiLabelMap.CommonSelect}"><check/></field>
-        <field name="submitButton" title="${uiLabelMap.AccountingCreateAcctRecons}" widget-style="buttontext"><submit button-type="text-link"/></field>
+        <field name="submitButton" title="${uiLabelMap.AccountingCreateAcctRecons}" widget-style="btn btn-link"><submit button-type="text-link"/></field>
     </form>
     <form name="EditGlReconciliation" type="single" target="updateGlReconciliation?tabButtonItem=${tabButtonItem}" default-map-name="glReconciliation"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <auto-fields-service service-name="updateGlReconciliation"/>
         <field name="glReconciliationId"><display/></field>
         <field name="glReconciliationName"><text/></field>
@@ -863,10 +863,10 @@ under the License.
         <field name="organizationPartyId"><display/></field>
         <field name="reconciledBalance"><display/></field>
         <field name="openingBalance" use-when="&quot;GLREC_RECONCILED&quot;.equals(&quot;${glReconciliation.statusId}&quot;)"><display/></field>
-        <field use-when="glReconciliationId!=null" name="updateButton" title="${uiLabelMap.CommonUpdate}" widget-style="buttontext" ><submit button-type="text-link"/></field>
+        <field use-when="glReconciliationId!=null" name="updateButton" title="${uiLabelMap.CommonUpdate}" widget-style="btn btn-link" ><submit button-type="text-link"/></field>
     </form>
     <form name="ListGlReconciliationEntries" type="list" use-row-submit="true"
-        odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" default-table-style="table table-hover">
         <actions>
             <entity-condition entity-name="GlReconciliationEntry">
                 <condition-list>
@@ -881,7 +881,7 @@ under the License.
         <field name="lastUpdatedStamp"><display/></field>
     </form>
     <form name="FindGlAccountReconciliations" type="single" title="" target="findGlAccountReconciliations"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <field name="organizationPartyId"><hidden/></field>
         <field name="glAccountId">
             <drop-down allow-empty="false">
@@ -893,10 +893,10 @@ under the License.
         <field name="fromDate"><date-time/></field>
         <field name="thruDate"><date-time/></field>
         <field name="performSearch"><hidden value="Y"/></field>
-        <field name="submitButton" title="${uiLabelMap.CommonSearch}" widget-style="buttontext"><submit button-type="text-link"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonSearch}" widget-style="btn btn-link"><submit button-type="text-link"/></field>
     </form>
     <form name="ListGlAccountReconciliations" type="list" default-entity-name="GlReconciliation"
-        odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" default-table-style="table table-hover">
         <actions>
             <entity-condition entity-name="GlReconciliation">
                 <condition-list>
@@ -930,7 +930,7 @@ under the License.
         <field name="reconciledBalance"><display/></field>
     </form>
     <form name="ViewAcctgTrans" type="single" default-map-name="acctgTrans"
-            default-table-style="basic-table">
+            default-table-style="table">
         <auto-fields-service service-name="updateAcctgTrans" default-field-type="display"/>
         <field name="acctgTransId" position="1"/>
         <field name="acctgTransTypeId" title="${uiLabelMap.AccountingTransactionType}" position="1">
@@ -999,7 +999,7 @@ under the License.
         </sort-order>
     </form>
     <form name="ViewAcctgTransEntries" type="list" list-name="acctgTransEntries" default-entity-name="AcctgTransEntry"
-           default-table-style="basic-table">
+           default-table-style="table">
         <field name="organizationPartyId"><hidden/></field>
         <field name="acctgTransId"><hidden/></field>
         <field name="acctgTransEntrySeqId"><display/></field>
@@ -1011,16 +1011,16 @@ under the License.
         </field>
         <field name="description"><display/></field>
         <field name="voucherRef"><display/></field>
-        <field name="partyId" widget-style="buttontext">
+        <field name="partyId" widget-style="btn btn-link">
             <display-entity entity-name="PartyNameView" description="${firstName} ${middleName} ${lastName} ${groupName}">
-                <sub-hyperlink target="/partymgr/control/viewprofile" target-type="inter-app" description="${partyId}" link-style="buttontext">
+                <sub-hyperlink target="/partymgr/control/viewprofile" target-type="inter-app" description="${partyId}" link-style="btn btn-link">
                     <parameter param-name="partyId"/>
                 </sub-hyperlink>
             </display-entity>
         </field>
-        <field name="productId" widget-style="buttontext">
+        <field name="productId" widget-style="btn btn-link">
             <display-entity entity-name="Product" description="${internalName}">
-                <sub-hyperlink target="/catalog/control/EditProduct" target-type="inter-app" description="${productId}" link-style="buttontext">
+                <sub-hyperlink target="/catalog/control/EditProduct" target-type="inter-app" description="${productId}" link-style="btn btn-link">
                     <parameter param-name="productId"/>
                 </sub-hyperlink>
             </display-entity>

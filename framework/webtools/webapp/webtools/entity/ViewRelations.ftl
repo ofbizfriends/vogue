@@ -28,11 +28,11 @@ under the License.
         <br />
         <h2>${uiLabelMap.WebtoolsForEntity}: ${entityName}</h2>
         <br />
-        <div class="button-bar">
-            <a href="<@ofbizUrl>FindGeneric?entityName=${entityName}&amp;find=true&amp;VIEW_SIZE=50&amp;VIEW_INDEX=0</@ofbizUrl>" class="smallSubmit">${uiLabelMap.WebtoolsBackToFindScreen}</a>
+        <div class="btn-group">
+            <a href="<@ofbizUrl>FindGeneric?entityName=${entityName}&amp;find=true&amp;VIEW_SIZE=50&amp;VIEW_INDEX=0</@ofbizUrl>" class="btn btn-default btn-sm">${uiLabelMap.WebtoolsBackToFindScreen}</a>
         </div>
         <br />
-        <table class="basic-table hover-bar" cellspacing="0">
+        <table class="table table-hover" cellspacing="0">
             <tr class="header-row">
                 <td>${uiLabelMap.WebtoolsTitle}</td>
                 <td>${uiLabelMap.WebtoolsRelatedEntity}</td>

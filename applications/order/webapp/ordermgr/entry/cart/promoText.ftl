@@ -37,7 +37,7 @@ under the License.
           <tr><td><hr /></td></tr>
           <tr>
             <td>
-              <div><a href="<@ofbizUrl>showAllPromotions</@ofbizUrl>" class="buttontext">${uiLabelMap.OrderViewAllPromotions}</a></div>
+              <div><a href="<@ofbizUrl>showAllPromotions</@ofbizUrl>" class="btn btn-link">${uiLabelMap.OrderViewAllPromotions}</a></div>
             </td>
           </tr>
         </table>

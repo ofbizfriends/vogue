@@ -44,7 +44,7 @@ function lookupShipments() {
     <div class="screenlet-body">
         <form method="post" name="lookupShipmentForm" action="<@ofbizUrl>FindShipment</@ofbizUrl>">
             <input type="hidden" name="lookupFlag" value="Y" />
-            <table cellspacing="0" cellpadding="2" class="basic-table">
+            <table cellspacing="0" cellpadding="2" class="table">
               <tr>
                 <td width="25%" align="right" class="label">${uiLabelMap.ProductShipmentId}</td>
                 <td width="5%">&nbsp;</td>
@@ -130,7 +130,7 @@ function lookupShipments() {
                 <td width="25%" align="right" class="label">${uiLabelMap.ProductDateFilter}</td>
                 <td width="5%">&nbsp;</td>
                 <td>
-                  <table cellspacing="0" class="basic-table">
+                  <table cellspacing="0" class="table">
                     <tr>
                       <td>
                         <@htmlTemplate.renderDateTimeField name="minDate" event="" action="" className="" alert="" title="Format: yyyy-MM-dd HH:mm:ss.SSS" value="${requestParameters.minDate!}" size="25" maxlength="30" id="minDate1" dateType="date" shortDateInput=false timeDropdownParamName="" defaultDateTimeString="" localizedIconTitle="" timeDropdown="" timeHourName="" classString="" hour1="" hour2="" timeMinutesName="" minutes="" isTwelveHour="" ampmName="" amSelected="" pmSelected="" compositeType="" formName=""/>
@@ -172,7 +172,7 @@ function lookupShipments() {
         <br class="clear"/>
     </div>
     <div class="screenlet-body">
-        <table cellspacing="0" cellpadding="2" class="basic-table hover-bar">
+        <table cellspacing="0" cellpadding="2" class="table table-hover">
         <tr class="header-row">
           <td width="5%">${uiLabelMap.ProductShipmentId}</td>
           <td width="15%">${uiLabelMap.ProductShipmentType}</td>
@@ -190,14 +190,14 @@ function lookupShipments() {
             <#assign statusItem = delegator.findOne("StatusItem", Static["org.ofbiz.base.util.UtilMisc"].toMap("statusId", shipment.statusId), true)!/>
             <#assign shipmentType = delegator.findOne("ShipmentType", Static["org.ofbiz.base.util.UtilMisc"].toMap("shipmentTypeId", shipment.shipmentTypeId), true)!/>
             <tr valign="middle"<#if alt_row> class="alternate-row"</#if>>
-              <td><a href="<@ofbizUrl>ViewShipment?shipmentId=${shipment.shipmentId}</@ofbizUrl>" class="buttontext">${shipment.shipmentId}</a></td>
+              <td><a href="<@ofbizUrl>ViewShipment?shipmentId=${shipment.shipmentId}</@ofbizUrl>" class="btn btn-link">${shipment.shipmentId}</a></td>
               <td>${(shipmentType.get("description",locale))?default(shipmentType.shipmentTypeId?default(""))}</td>
               <td>${(statusItem.get("description",locale))?default(statusItem.statusId?default("N/A"))}</td>
               <td>${(originFacility.facilityName)!} [${shipment.originFacilityId!}]</td>
               <td>${(destinationFacility.facilityName)!} [${shipment.destinationFacilityId!}]</td>
               <td><span style="white-space: nowrap;">${(shipment.estimatedShipDate.toString())!}</span></td>
               <td align="right">
-                <a href="<@ofbizUrl>ViewShipment?shipmentId=${shipment.shipmentId}</@ofbizUrl>" class="buttontext">${uiLabelMap.CommonView}</a>
+                <a href="<@ofbizUrl>ViewShipment?shipmentId=${shipment.shipmentId}</@ofbizUrl>" class="btn btn-link">${uiLabelMap.CommonView}</a>
               </td>
             </tr>
             <#-- toggle the row color -->

@@ -20,7 +20,7 @@ under the License.
 <forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
         xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-form.xsd">
     <form name="ListEmploymentApps" type="multi" list-name="listIt" use-row-submit="true" separate-columns="true" target="updateEmploymentAppExt?partyId=${partyId}&amp;&amp;referredByPartyId=${partyId}" paginate-target="FindEmploymentApps"
-        odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar" >
+        odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="table table-hover" >
         <actions>
             <set field="partyId" from-field="parameters.partyId"/>
             <set field="referredByPartyId" from-field="parameters.partyId"/>
@@ -61,7 +61,7 @@ under the License.
         <field name="referredByPartyId" title="${uiLabelMap.FormFieldTitle_referredByPartyId}" use-when="&quot;${referredByPartyId}&quot;.equals(null)"><lookup target-form-name="LookupPartyName"/></field>
         <field name="referredByPartyId" use-when="referredByPartyId!=null"><lookup target-form-name="LookupPartyName"/></field>
         <field name="applicationDate" title="${uiLabelMap.FormFieldTitle_applicationDate}"><date-time/></field>
-        <field name="deleteLink" title="${uiLabelMap.CommonDelete}" widget-style="buttontext">
+        <field name="deleteLink" title="${uiLabelMap.CommonDelete}" widget-style="btn btn-link">
             <hyperlink target="deleteEmploymentApp" description="${uiLabelMap.CommonDelete}" also-hidden="true">
                 <parameter param-name="applicationId"/>
                 <parameter param-name="partyId"/>
@@ -69,9 +69,9 @@ under the License.
             </hyperlink>
         </field>
         <field name="_rowSubmit" title="${uiLabelMap.CommonSelect}"><hidden value="Y"/></field>
-        <field name="submitButton" title="${uiLabelMap.CommonSubmit}" widget-style="smallSubmit"><submit/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonSubmit}" widget-style="btn btn-default btn-sm"><submit/></field>
     </form>
-    <form name="FindEmploymentApps" type="single" target="FindEmploymentApps" header-row-style="header-row" default-table-style="basic-table" default-map-name="employmentApp">
+    <form name="FindEmploymentApps" type="single" target="FindEmploymentApps" header-row-style="header-row" default-table-style="table" default-map-name="employmentApp">
         <actions>
             <set field="referredByPartyId" from-field="parameters.partyId"/>
         </actions>
@@ -101,11 +101,11 @@ under the License.
         <field name="referredByPartyId" use-when="referredByPartyId!=null"><hidden/></field>
         <field name="approverPartyId"><hidden/></field>
         <field name="jobRequisitionId"><hidden/></field>
-         <field name="searchButton" widget-style="smallSubmit"><submit button-type="button"/></field>
-        <field name="searchButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit"><submit button-type="button"/></field>
+         <field name="searchButton" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
+        <field name="searchButton" title="${uiLabelMap.CommonFind}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
     <form name="AddEmploymentApp" type="single" target="createEmploymentApp" default-entity-name="EmploymentApp" paginate-target="FindEmploymentApps"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <actions>
             <set field="insideEmployee" from-field="parameters.insideEmployee"/>
         </actions>
@@ -133,6 +133,6 @@ under the License.
             </drop-down>
         </field>
         <field name="applicationDate"><date-time/></field>
-        <field name="submitButton" title="${uiLabelMap.CommonCreate}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonCreate}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
 </forms>

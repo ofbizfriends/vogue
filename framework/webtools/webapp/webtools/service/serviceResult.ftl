@@ -22,7 +22,7 @@ under the License.
   </div>
   <div class="screenlet-body" align="center">
     <form method="post" action="<@ofbizUrl>saveServiceResultsToSession</@ofbizUrl>"
-        <table class="basic-table" cellspacing="0">
+        <table class="table" cellspacing="0">
           <tr class="header-row">
             <td>${uiLabelMap.WebtoolsParameterName}</td>
             <td>${uiLabelMap.WebtoolsParameterValue}</td>

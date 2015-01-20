@@ -43,7 +43,7 @@ under the License.
             <#if shipGroups?size == 1>
                 <input type="hidden" name="shipGroupSeqId" value="${shipGroups.first.shipGroupSeqId}"/>
             </#if>
-            <table class="basic-table" cellspacing="0">
+            <table class="table" cellspacing="0">
               <#if catalogCol?has_content && (catalogCol?size > 1)>
                 <tr>
                   <td class="label">${uiLabelMap.ProductChooseCatalog}</td>
@@ -62,7 +62,7 @@ under the License.
                       <#-- FIXME Problem here: the input field is shared -->
                       <@htmlTemplate.lookupField formName="appendItemForm" name="productId" id="productId" fieldFormName="LookupProduct"/>
                       <#if "PURCHASE_ORDER" == orderHeader.orderTypeId>
-                          <a href="javascript:quicklookup(document.appendItemForm.orderId)" class="buttontext">${uiLabelMap.OrderQuickLookup}</a>
+                          <a href="javascript:quicklookup(document.appendItemForm.orderId)" class="btn btn-link">${uiLabelMap.OrderQuickLookup}</a>
                       </#if>
                   </td>
                 </tr>

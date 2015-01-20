@@ -34,7 +34,7 @@ under the License.
                 </span>
                 <span class="label">${uiLabelMap.ProductOrderShipGroupId}</span>
                 <input type="text" size="20" name="shipGroupSeqId" value="${shipGroupSeqId!}"/>
-                <input type="submit" value="${uiLabelMap.CommonSelect}" class="smallSubmit"/>
+                <input type="submit" value="${uiLabelMap.CommonSelect}" class="btn btn-default btn-sm"/>
             </div>
         </form>
     </div>
@@ -82,7 +82,7 @@ under the License.
         </#if>
         <input type="hidden" name="shipmentId" value="${shipmentId}" />
         <input type="hidden" name="_useRowSubmit" value="Y" />
-        <table cellspacing="0" cellpadding="2" class="basic-table hover-bar">
+        <table cellspacing="0" cellpadding="2" class="table table-hover">
             <tr class="header-row">
                 <td>${uiLabelMap.ProductOrderId}<br />${uiLabelMap.ProductOrderShipGroupId}<br />${uiLabelMap.ProductOrderItem}</td>
                 <td>${uiLabelMap.ProductProduct}</td>
@@ -225,7 +225,7 @@ under the License.
                 <#assign alt_row = !alt_row>
             </#list>
         </table>
-        <div align="right"><input type="submit" class="smallSubmit" value="${uiLabelMap.ProductIssueAll}"/></div>
+        <div align="right"><input type="submit" class="btn btn-default btn-sm" value="${uiLabelMap.ProductIssueAll}"/></div>
         <input type="hidden" name="_rowCount" value="${rowCount}" />
         </form>
         <script language="JavaScript" type="text/javascript">selectAll('selectAllForm');</script>

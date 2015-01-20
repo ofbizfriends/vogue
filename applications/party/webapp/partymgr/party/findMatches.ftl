@@ -26,7 +26,7 @@ under the License.
     <br class="clear"/>
   </div>
   <div class="screenlet-body">
-    <table class="basic-table" cellspacing="0">
+    <table class="table" cellspacing="0">
       <form name="matchform" method="post" action="<@ofbizUrl>findAddressMatch?match=true</@ofbizUrl>">
         <tr>
           <td class="label">${uiLabelMap.PartyLastName}</td>
@@ -75,7 +75,7 @@ under the License.
         <tr>
           <td colspan="2">
             <#if matches?has_content>
-              <table cellspacing="0" class="basic-table">
+              <table cellspacing="0" class="table">
                 <tr>
                   <td class="label" colspan="7">${uiLabelMap.PartyAddressMatching} ${lastName} / ${firstName} @ ${addressString}</td>
                 </tr>

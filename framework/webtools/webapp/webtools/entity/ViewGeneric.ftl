@@ -49,16 +49,16 @@ function ShowTab(lname) {
     <h2>${uiLabelMap.WebtoolsForEntity}: ${entityName}</h2>
     <h2>${uiLabelMap.WebtoolsWithPk}: ${findByPk}</h2>
     <br />
-    <div class="button-bar">
-      <a href='<@ofbizUrl>FindGeneric?entityName=${entityName}&amp;find=true&amp;VIEW_SIZE=50&amp;VIEW_INDEX=0</@ofbizUrl>' class="buttontext">${uiLabelMap.WebtoolsBackToFindScreen}</a>
+    <div class="btn-group">
+      <a href='<@ofbizUrl>FindGeneric?entityName=${entityName}&amp;find=true&amp;VIEW_SIZE=50&amp;VIEW_INDEX=0</@ofbizUrl>' class="btn btn-link">${uiLabelMap.WebtoolsBackToFindScreen}</a>
       <#if enableEdit = "false">
         <#if hasCreatePermission>
-          <a href='<@ofbizUrl>ViewGeneric?entityName=${entityName}&amp;enableEdit=true</@ofbizUrl>' class="buttontext create">${uiLabelMap.CommonCreateNew}</a>
-          <a href="<@ofbizUrl>ViewGeneric?${curFindString}&amp;enableEdit=true</@ofbizUrl>" class="buttontext">${uiLabelMap.CommonEdit}</a>
+          <a href='<@ofbizUrl>ViewGeneric?entityName=${entityName}&amp;enableEdit=true</@ofbizUrl>' class="btn btn-link create">${uiLabelMap.CommonCreateNew}</a>
+          <a href="<@ofbizUrl>ViewGeneric?${curFindString}&amp;enableEdit=true</@ofbizUrl>" class="btn btn-link">${uiLabelMap.CommonEdit}</a>
         </#if>
         <#if value?has_content>
           <#if hasDeletePermission>
-            <a href='<@ofbizUrl>UpdateGeneric?UPDATE_MODE=DELETE&amp;${curFindString}</@ofbizUrl>' class="buttontext delete">${uiLabelMap.WebtoolsDeleteThisValue}</a>
+            <a href='<@ofbizUrl>UpdateGeneric?UPDATE_MODE=DELETE&amp;${curFindString}</@ofbizUrl>' class="btn btn-link delete">${uiLabelMap.WebtoolsDeleteThisValue}</a>
           </#if>
         </#if>
       </#if>
@@ -81,7 +81,7 @@ function ShowTab(lname) {
       </div>
       <#if value?has_content>
         <#assign alt_row = false>
-        <table class="basic-table" cellspacing="0">
+        <table class="table" cellspacing="0">
           <#list fields as field>
             <tr<#if alt_row> class="alternate-row"</#if>>
               <td class="label">${field.name}</td>
@@ -107,7 +107,7 @@ function ShowTab(lname) {
           <form action='<@ofbizUrl>UpdateGeneric?entityName=${entityName}</@ofbizUrl>' method="post" name="updateForm">
             <#assign showFields = true>
             <#assign alt_row = false>
-            <table class="basic-table" cellspacing="0">
+            <table class="table" cellspacing="0">
               <#if value?has_content>
                 <#if hasUpdatePermission>
                   <#if newFieldPkList?has_content>
@@ -212,7 +212,7 @@ function ShowTab(lname) {
                     <td>&nbsp;</td>
                     <td>
                       <input type="submit" name="Update" value="${button}" />
-                      <a href="<@ofbizUrl>ViewGeneric?${curFindString}</@ofbizUrl>" class="smallSubmit">${uiLabelMap.CommonCancel}</a>
+                      <a href="<@ofbizUrl>ViewGeneric?${curFindString}</@ofbizUrl>" class="btn btn-default btn-sm">${uiLabelMap.CommonCancel}</a>
                     </td>
                   </tr>
                 </#if>
@@ -239,7 +239,7 @@ function ShowTab(lname) {
               <br class="clear"/>
             </div>
             <#if relation.valueRelated?has_content>
-              <table class="basic-table" cellspacing="0">
+              <table class="table" cellspacing="0">
                 <#assign alt_row = false>
                 <tr<#if alt_row> class="alternate-row"</#if>>
                   <td class="label">${uiLabelMap.WebtoolsPk}</td>
@@ -257,7 +257,7 @@ function ShowTab(lname) {
               <#if "one" = relation.type>
               <b>${uiLabelMap.WebtoolsNoValueFoundFor}</b> ${relation.title}${relation.relatedTable}.
               <#else/>
-              <a href="<@ofbizUrl>FindGeneric?${relation.encodeRelatedEntityFindString}&amp;find=true</@ofbizUrl>" class="buttontext">${uiLabelMap.CommonFind}</a>
+              <a href="<@ofbizUrl>FindGeneric?${relation.encodeRelatedEntityFindString}&amp;find=true</@ofbizUrl>" class="btn btn-link">${uiLabelMap.CommonFind}</a>
               </#if>
             </#if>
           </div>

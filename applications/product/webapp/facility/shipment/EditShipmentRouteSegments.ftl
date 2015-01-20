@@ -25,7 +25,7 @@ under the License.
         <br class="clear"/>
     </div>
     <div class="screenlet-body">
-        <table cellspacing="0" class="basic-table">
+        <table cellspacing="0" class="table">
         <tr class="header-row">
             <td valign="top">${uiLabelMap.ProductSegment}</td>
             <td valign="top">
@@ -86,11 +86,11 @@ under the License.
                 <div>
                     ${shipmentRouteSegment.shipmentRouteSegmentId}
                     <br />
-                    <a href="javascript:document.updateShipmentRouteSegmentForm${shipmentRouteSegmentData_index}.submit();" class="buttontext">${uiLabelMap.CommonUpdate}</a>
+                    <a href="javascript:document.updateShipmentRouteSegmentForm${shipmentRouteSegmentData_index}.submit();" class="btn btn-link">${uiLabelMap.CommonUpdate}</a>
                     <br />
-                    <a href="javascript:document.duplicateShipmentRouteSegment_${shipmentRouteSegmentData_index}.submit();" class="buttontext">${uiLabelMap.CommonDuplicate}</a>
+                    <a href="javascript:document.duplicateShipmentRouteSegment_${shipmentRouteSegmentData_index}.submit();" class="btn btn-link">${uiLabelMap.CommonDuplicate}</a>
                     <br />
-                    <a href="javascript:document.deleteShipmentRouteSegment_${shipmentRouteSegmentData_index}.submit();" class="buttontext">${uiLabelMap.CommonDelete}</a>
+                    <a href="javascript:document.deleteShipmentRouteSegment_${shipmentRouteSegmentData_index}.submit();" class="btn btn-link">${uiLabelMap.CommonDelete}</a>
                 </div>
             </td>
             <td valign="top">
@@ -172,28 +172,28 @@ under the License.
                 <div>
                     <#if "UPS" == shipmentRouteSegment.carrierPartyId!>
                         <#if !shipmentRouteSegment.carrierServiceStatusId?has_content || "SHRSCS_NOT_STARTED" == shipmentRouteSegment.carrierServiceStatusId!>
-                            <a href="javascript:document.upsShipmentConfirm_${shipmentRouteSegmentData_index}.submit()" class="buttontext">${uiLabelMap.ProductConfirmShipmentUps}</a>
+                            <a href="javascript:document.upsShipmentConfirm_${shipmentRouteSegmentData_index}.submit()" class="btn btn-link">${uiLabelMap.ProductConfirmShipmentUps}</a>
                             <br />
                             ${uiLabelMap.ProductShipmentUpsResidential}:
                             <input type="checkbox" name="homeDeliveryType" value="Y" ${(shipmentRouteSegment.homeDeliveryType?has_content)?string("checked=\"checked\"","")} />
                         <#elseif "SHRSCS_CONFIRMED" == shipmentRouteSegment.carrierServiceStatusId!>
-                            <a href="javascript:document.upsShipmentAccept_${shipmentRouteSegmentData_index}.submit()" class="buttontext">${uiLabelMap.ProductAcceptUpsShipmentConfirmation}</a>
+                            <a href="javascript:document.upsShipmentAccept_${shipmentRouteSegmentData_index}.submit()" class="btn btn-link">${uiLabelMap.ProductAcceptUpsShipmentConfirmation}</a>
                             <br />
-                            <a href="javascript:document.upsVoidShipment_${shipmentRouteSegmentData_index}.submit()" class="buttontext">${uiLabelMap.ProductVoidUpsShipmentConfirmation}</a>
+                            <a href="javascript:document.upsVoidShipment_${shipmentRouteSegmentData_index}.submit()" class="btn btn-link">${uiLabelMap.ProductVoidUpsShipmentConfirmation}</a>
                         <#elseif "SHRSCS_ACCEPTED" == shipmentRouteSegment.carrierServiceStatusId!>
-                            <a href="javascript:document.upsTrackShipment_${shipmentRouteSegmentData_index}.submit()" class="buttontext">${uiLabelMap.ProductTrackUpsShipment}</a>
+                            <a href="javascript:document.upsTrackShipment_${shipmentRouteSegmentData_index}.submit()" class="btn btn-link">${uiLabelMap.ProductTrackUpsShipment}</a>
                             <br />
-                            <a href="javascript:document.upsVoidShipment_${shipmentRouteSegmentData_index}.submit()" class="buttontext">${uiLabelMap.ProductVoidUpsShipment}</a>
+                            <a href="javascript:document.upsVoidShipment_${shipmentRouteSegmentData_index}.submit()" class="btn btn-link">${uiLabelMap.ProductVoidUpsShipment}</a>
                         </#if>
                     </#if>
                     <#if "DHL" == shipmentRouteSegment.carrierPartyId!>
                         <#if !shipmentRouteSegment.carrierServiceStatusId?has_content || "SHRSCS_NOT_STARTED" == shipmentRouteSegment.carrierServiceStatusId!>
-                            <a href="javascript:document.dhlShipmentConfirm_${shipmentRouteSegmentData_index}.submit()" class="buttontext">${uiLabelMap.ProductConfirmShipmentDHL}</a>
+                            <a href="javascript:document.dhlShipmentConfirm_${shipmentRouteSegmentData_index}.submit()" class="btn btn-link">${uiLabelMap.ProductConfirmShipmentDHL}</a>
                         </#if>
                     </#if>
                     <#if "FEDEX" == shipmentRouteSegment.carrierPartyId!>
                         <#if !shipmentRouteSegment.carrierServiceStatusId?has_content || "SHRSCS_NOT_STARTED" == shipmentRouteSegment.carrierServiceStatusId!>
-                            <a href="javascript:document.fedexShipmentConfirm_${shipmentRouteSegmentData_index}.submit()" class="buttontext">${uiLabelMap.ProductConfirmShipmentFedex}</a>
+                            <a href="javascript:document.fedexShipmentConfirm_${shipmentRouteSegmentData_index}.submit()" class="btn btn-link">${uiLabelMap.ProductConfirmShipmentFedex}</a>
                             <br />
                             <#if shipmentMethodType?? && shipmentMethodType.shipmentMethodTypeId=="GROUND_HOME">
                                 <select name="homeDeliveryType">
@@ -310,7 +310,7 @@ under the License.
                 <div>
                     <span class="label">${uiLabelMap.ProductPackage}</span> ${shipmentPackageRouteSeg.shipmentPackageSeqId}
                     <#if shipmentPackageRouteSeg.labelImage??>
-                        <a href="javascript:document.viewShipmentPackageRouteSegLabelImage_${shipmentRouteSegmentData_index}_${shipmentPackageRouteSeg_index}.submit();" class="buttontext">${uiLabelMap.ProductViewLabelImage}</a>
+                        <a href="javascript:document.viewShipmentPackageRouteSegLabelImage_${shipmentRouteSegmentData_index}_${shipmentPackageRouteSeg_index}.submit();" class="btn btn-link">${uiLabelMap.ProductViewLabelImage}</a>
                     </#if>
                     <span class="label">${uiLabelMap.ProductTrack} ${uiLabelMap.CommonNbr}</span><input type="text" size="22" name="trackingCode" value="${shipmentPackageRouteSeg.trackingCode!}"/>
                 </div>
@@ -323,8 +323,8 @@ under the License.
             </td>
             <td valign="top">
                 <div>
-                    <a href="javascript:document.updateShipmentPackageRouteSegForm${shipmentRouteSegmentData_index}${shipmentPackageRouteSeg_index}.submit();" class="buttontext">${uiLabelMap.CommonUpdate}</a>
-                    <a href="javascript:document.deleteRouteSegmentShipmentPackage_${shipmentRouteSegmentData_index}_${shipmentPackageRouteSeg_index}.submit();" class="buttontext">${uiLabelMap.CommonDelete}</a>
+                    <a href="javascript:document.updateShipmentPackageRouteSegForm${shipmentRouteSegmentData_index}${shipmentPackageRouteSeg_index}.submit();" class="btn btn-link">${uiLabelMap.CommonUpdate}</a>
+                    <a href="javascript:document.deleteRouteSegmentShipmentPackage_${shipmentRouteSegmentData_index}_${shipmentPackageRouteSeg_index}.submit();" class="btn btn-link">${uiLabelMap.CommonDelete}</a>
                 </div>
             </td>
         </tr>
@@ -357,7 +357,7 @@ under the License.
             </td>
             <td><span class="label">Track#:</span><input type="text" size="22" name="trackingCode"/></td>
             <td><span class="label">Box#:</span><input type="text" size="5" name="boxNumber"/></td>
-            <td><a href="javascript:document.createShipmentPackageRouteSegForm${shipmentRouteSegmentData_index}.submit()" class="buttontext">${uiLabelMap.CommonAdd}</a></td>
+            <td><a href="javascript:document.createShipmentPackageRouteSegForm${shipmentRouteSegmentData_index}.submit()" class="btn btn-link">${uiLabelMap.CommonAdd}</a></td>
             <td>&nbsp;</td>
             </form>
         </tr>
@@ -376,7 +376,7 @@ under the License.
         <br class="clear"/>
     </div>
     <div class="screenlet-body">
-        <table cellspacing="0" class="basic-table">
+        <table cellspacing="0" class="table">
             <form action="<@ofbizUrl>createShipmentRouteSegment</@ofbizUrl>" method="post" name="createShipmentRouteSegmentForm">
             <input type="hidden" name="shipmentId" value="${shipmentId}"/>
             <tr>
@@ -384,7 +384,7 @@ under the License.
                     <div>
                         <span class="label">${uiLabelMap.ProductNewSegment}</span>
                         <br />
-                        <a href="javascript:document.createShipmentRouteSegmentForm.submit();" class="buttontext">${uiLabelMap.CommonCreate}</a>
+                        <a href="javascript:document.createShipmentRouteSegmentForm.submit();" class="btn btn-link">${uiLabelMap.CommonCreate}</a>
                     </div>
                 </td>
                 <td valign="top">

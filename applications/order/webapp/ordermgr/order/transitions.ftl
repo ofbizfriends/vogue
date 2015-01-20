@@ -26,18 +26,18 @@ under the License.
     <br class="clear"/>
   </div>
   <div class="screenlet-body">
-    <table class="basic-table" cellspacing='0'>
+    <table class="table" cellspacing='0'>
       <tr>
         <td>
           <!-- Suspended Processes -->
           <#if workEffortStatus == "WF_SUSPENDED">
             <form action="<@ofbizUrl>releasehold</@ofbizUrl>" method="post" name="activityForm">
               <input type="hidden" name="workEffortId" value="${workEffortId}" />
-              <table class="basic-table" cellspacing='0'>
+              <table class="table" cellspacing='0'>
                 <tr>
                   <td>${uiLabelMap.OrderProcessingInHold}&nbsp;${uiLabelMap.OrderProcessingInHoldNote}</td>
                   <td align="right" valign="center">
-                    <a href="javascript:document.activityForm.submit()" class="buttontext">${uiLabelMap.OrderRelease}</a>
+                    <a href="javascript:document.activityForm.submit()" class="btn btn-link">${uiLabelMap.OrderRelease}</a>
                   </td>
                 </tr>
               </table>
@@ -47,11 +47,11 @@ under the License.
           <#if workEffortStatus == "WF_RUNNING">
             <form action="<@ofbizUrl>holdorder</@ofbizUrl>" method="post" name="activityForm">
               <input type="hidden" name="workEffortId" value="${workEffortId}" />
-              <table class="basic-table" cellspacing='0'>
+              <table class="table" cellspacing='0'>
                 <tr>
                   <td>${uiLabelMap.OrderProcessingInActive}</td>
                   <td align="right" valign="center">
-                    <a href="javascript:document.activityForm.submit()" class="buttontext">${uiLabelMap.OrderHold}</a>
+                    <a href="javascript:document.activityForm.submit()" class="btn btn-link">${uiLabelMap.OrderHold}</a>
                   </td>
                 </tr>
               </table>
@@ -73,7 +73,7 @@ under the License.
     <br class="clear"/>
   </div>
   <div class="screenlet-body">
-    <table class="basic-table" cellspacing='0'>
+    <table class="table" cellspacing='0'>
       <tr>
         <td>
           <form action="<@ofbizUrl>completeassignment</@ofbizUrl>" method="post" name="transitionForm">
@@ -81,7 +81,7 @@ under the License.
             <input type="hidden" name="partyId" value="${assignPartyId}" />
             <input type="hidden" name="roleTypeId" value="${assignRoleTypeId}" />
             <input type="hidden" name="fromDate" value="${fromDate}" />
-            <table class="basic-table" cellspacing='0'>
+            <table class="table" cellspacing='0'>
               <tr>
                 <td>
                   <select name="approvalCode">
@@ -96,7 +96,7 @@ under the License.
                   </select>
                 </td>
                 <td valign="center">
-                  <a href="javascript:document.transitionForm.submit()" class="buttontext">${uiLabelMap.CommonContinue}</a>
+                  <a href="javascript:document.transitionForm.submit()" class="btn btn-link">${uiLabelMap.CommonContinue}</a>
                 </td>
               </tr>
             </table>

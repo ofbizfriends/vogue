@@ -34,7 +34,7 @@ under the License.
     <#assign anchor="">
     <#assign alt_row = false>
     <#assign right_col = false>
-    <div class="button-bar">
+    <div class="btn-group">
       <#list entitiesList as entity>
         <#if entity.entityName?substring(0, 1) != firstChar>
           <#assign firstChar = entity.entityName?substring(0, 1)>
@@ -51,7 +51,7 @@ under the License.
       </div>
       <div class="screenlet-body">
         <#assign firstChar = "*">
-        <table class="basic-table hover-bar" cellspacing='0'>
+        <table class="table table-hover" cellspacing='0'>
           <tr class="header-row">
             <td>${uiLabelMap.WebtoolsEntityName}</td>
             <td>&nbsp;</td>

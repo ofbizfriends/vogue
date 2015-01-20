@@ -81,6 +81,8 @@ under the License.
         <h5${idText}>${text}</h5>
       <#elseif style=="h6">
         <h6${idText}>${text}</h6>
+      <#elseif style=="p">
+        <p${idText}>${text}</p>        
       <#else>
         <span${idText} class="${style}">${text}</span>
       </#if>
@@ -152,8 +154,8 @@ under the License.
 </#macro>
 
 <#macro renderContentFrame fullUrl width height border><iframe src="${fullUrl}" width="${width}" height="${height}" <#if border?has_content>border="${border}"</#if> /></#macro>
-<#macro renderScreenletBegin id title collapsible saveCollapsed collapsibleAreaId expandToolTip collapseToolTip fullUrlString padded menuString showMore collapsed javaScriptEnabled>
-<div class="screenlet"<#if id?has_content> id="${id}"</#if>><#rt/>
+<#macro renderScreenletBegin id title collapsible saveCollapsed collapsibleAreaId expandToolTip collapseToolTip fullUrlString padded menuString showMore collapsed javaScriptEnabled widgetAreaStyle="">
+<div class="<#if widgetAreaStyle?has_content>${widgetAreaStyle}<#else> screenlet </#if>"<#if id?has_content> id="${id}"</#if>><#rt/>
 <#if showMore>
 <div class="screenlet-title-bar"><ul><#if title?has_content><li class="h3">${title}</li></#if>
 <#if collapsible>
@@ -187,23 +189,32 @@ ${menuString}
 
 <#macro renderPortalPageBegin originalPortalPageId portalPageId confMode="false" addColumnLabel="Add column" addColumnHint="Add a new column to this portal">
   <#if confMode == "true">
-    <a class="buttontext" href="javascript:document.addColumn_${portalPageId}.submit()" title="${addColumnHint}">${addColumnLabel}</a> <b>PortalPageId: ${portalPageId}</b>
+    <a class="btn btn-link" href="javascript:document.addColumn_${portalPageId}.submit()" title="${addColumnHint}">${addColumnLabel}</a> <b>PortalPageId: ${portalPageId}</b>
     <form method="post" action="addPortalPageColumn" name="addColumn_${portalPageId}">
       <input name="portalPageId" value="${portalPageId}" type="hidden"/>
     </form>
   </#if>
-  <table width="100%">
-    <tr>
+  <div class="row">
+    
 </#macro>
 
 <#macro renderPortalPageEnd>
-    </tr>
-  </table>
+    </div>
 </#macro>
 
 <#macro renderPortalPageColumnBegin originalPortalPageId portalPageId columnSeqId confMode="false" width="auto" delColumnLabel="Delete column" delColumnHint="Delete this column" addPortletLabel="Add portlet" addPortletHint="Add a new portlet to this column" colWidthLabel="Col. width:" setColumnSizeHint="Set column size">
   <#assign columnKey = portalPageId+columnSeqId>
   <#assign columnKeyFields = '<input name="portalPageId" value="' + portalPageId + '" type="hidden"/><input name="columnSeqId" value="' + columnSeqId + '" type="hidden"/>'>
+
+    <#if width?has_content>        
+        <#assign span="col-md-12">
+        <#if width=="50%">
+            <#assign span="col-md-6">                  
+        </#if>       
+    <#else>
+        <#assign span="col-md-12">
+    </#if>
+    <div class="${span}">
   <script type="text/javascript">
     if (typeof SORTABLE_COLUMN_LIST != "undefined") {
       if (SORTABLE_COLUMN_LIST == null) {
@@ -213,7 +224,7 @@ ${menuString}
       }
     }
   </script>
-  <td class="portal-column<#if confMode == "true">-config</#if> connectedSortable" style="vertical-align: top; <#if width?has_content> width:${width};</#if>" id="portalColumn_${columnSeqId}">
+
     <#if confMode == "true">
       <div class="portal-column-config-title-bar">
         <ul>
@@ -221,19 +232,19 @@ ${menuString}
             <form method="post" action="deletePortalPageColumn" name="delColumn_${columnKey}">
               ${columnKeyFields}
             </form>
-            <a class="buttontext" href="javascript:document.delColumn_${columnKey}.submit()" title="${delColumnHint}">${delColumnLabel}</a>
+            <a class="btn btn-link" href="javascript:document.delColumn_${columnKey}.submit()" title="${delColumnHint}">${delColumnLabel}</a>
           </li>
           <li>
             <form method="post" action="addPortlet" name="addPortlet_${columnKey}">
               ${columnKeyFields}
             </form>
-            <a class="buttontext" href="javascript:document.addPortlet_${columnKey}.submit()" title="${addPortletHint}">${addPortletLabel}</a>
+            <a class="btn btn-link" href="javascript:document.addPortlet_${columnKey}.submit()" title="${addPortletHint}">${addPortletLabel}</a>
           </li>
           <li>
             <form method="post" action="editPortalPageColumnWidth" name="setColumnSize_${columnKey}">
               ${columnKeyFields}
             </form>
-            <a class="buttontext" href="javascript:document.setColumnSize_${columnKey}.submit()" title="${setColumnSizeHint}">${colWidthLabel}: ${width}</a>
+            <a class="btn btn-link" href="javascript:document.setColumnSize_${columnKey}.submit()" title="${setColumnSizeHint}">${colWidthLabel}: ${width}</a>
           </li>
         </ul>
       </div>
@@ -242,7 +253,7 @@ ${menuString}
 </#macro>
 
 <#macro renderPortalPageColumnEnd>
-  </td>
+  </div>
 </#macro>
 
 <#macro renderPortalPagePortletBegin originalPortalPageId portalPageId portalPortletId portletSeqId prevPortletId="" prevPortletSeqId="" nextPortletId="" nextPortletSeqId="" columnSeqId="" prevColumnSeqId="" nextColumnSeqId="" confMode="false" delPortletHint="Remove this portlet" editAttribute="false" editAttributeHint="Edit portlet parameters">

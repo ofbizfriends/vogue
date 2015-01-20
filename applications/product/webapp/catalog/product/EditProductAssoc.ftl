@@ -28,7 +28,7 @@ under the License.
             <#if productId?? && productIdTo?? && productAssocTypeId?? && fromDate??>
                 <div><b><#assign uiLabelWithVar=uiLabelMap.ProductAssociationNotFound?interpret><@uiLabelWithVar/></b></div>
                 <input type="hidden" name="UPDATE_MODE" value="CREATE" />
-                <table cellspacing="0" class="basic-table">
+                <table cellspacing="0" class="table">
                 <tr>
                 <td align="right" class="label">${uiLabelMap.ProductProductId}</td>
                 <td>&nbsp;</td>
@@ -69,7 +69,7 @@ under the License.
                 </tr>
             <#else>
                 <input type="hidden" name="UPDATE_MODE" value="CREATE" />
-                <table cellspacing="0" class="basic-table">
+                <table cellspacing="0" class="table">
                 <tr>
                 <td align="right" class="label">${uiLabelMap.ProductProductId}</td>
                 <td>&nbsp;</td>
@@ -114,7 +114,7 @@ under the License.
             <input type="hidden" name="PRODUCT_ID_TO" value="${productIdTo!}" />
             <input type="hidden" name="PRODUCT_ASSOC_TYPE_ID" value="${productAssocTypeId!}" />
             <input type="hidden" name="FROM_DATE" value="${fromDate!}" />
-            <table cellspacing="0" class="basic-table">
+            <table cellspacing="0" class="table">
             <tr>
                 <td align="right" class="label">${uiLabelMap.ProductProductId}</td>
                 <td>&nbsp;</td>
@@ -187,7 +187,7 @@ under the License.
         <h3>${uiLabelMap.ProductAssociationsFromProduct}</h3>
     </div>
     <div class="screenlet-body">
-        <table cellspacing="0" class="basic-table">
+        <table cellspacing="0" class="table">
             <tr class="header-row">
             <td><b>${uiLabelMap.ProductProductId}</b></td>
             <td><b>${uiLabelMap.ProductName}</b></td>
@@ -204,8 +204,8 @@ under the License.
             <#assign listToProduct = assocFromProduct.getRelatedOne("AssocProduct", true)>
             <#assign curProductAssocType = assocFromProduct.getRelatedOne("ProductAssocType", true)>
             <tr valign="middle"<#if rowClass == "1"> class="alternate-row"</#if>>
-                <td><a href="<@ofbizUrl>EditProduct?productId=${(assocFromProduct.productIdTo)!}</@ofbizUrl>" class="buttontext">${(assocFromProduct.productIdTo)!}</a></td>
-                <td><#if listToProduct??><a href="<@ofbizUrl>EditProduct?productId=${(assocFromProduct.productIdTo)!}</@ofbizUrl>" class="buttontext">${(listToProduct.internalName)!}</a></#if>&nbsp;</td>
+                <td><a href="<@ofbizUrl>EditProduct?productId=${(assocFromProduct.productIdTo)!}</@ofbizUrl>" class="btn btn-link">${(assocFromProduct.productIdTo)!}</a></td>
+                <td><#if listToProduct??><a href="<@ofbizUrl>EditProduct?productId=${(assocFromProduct.productIdTo)!}</@ofbizUrl>" class="btn btn-link">${(listToProduct.internalName)!}</a></#if>&nbsp;</td>
                 <td <#if (assocFromProduct.getTimestamp("fromDate"))?? && nowDate.before(assocFromProduct.getTimestamp("fromDate"))> style="color: red;"</#if>>
                 ${(assocFromProduct.fromDate)!}&nbsp;</td>
                 <td <#if (assocFromProduct.getTimestamp("thruDate"))?? && nowDate.after(assocFromProduct.getTimestamp("thruDate"))> style="color: red;"</#if>>
@@ -214,11 +214,11 @@ under the License.
                 <td>&nbsp;${(assocFromProduct.quantity)!}</td>
                 <td><#if curProductAssocType??> ${(curProductAssocType.get("description",locale))!}<#else>${(assocFromProduct.productAssocTypeId)!}</#if></td>
                 <td>
-                <a href="<@ofbizUrl>UpdateProductAssoc?UPDATE_MODE=DELETE&amp;productId=${productId}&amp;PRODUCT_ID=${productId}&amp;PRODUCT_ID_TO=${(assocFromProduct.productIdTo)!}&amp;PRODUCT_ASSOC_TYPE_ID=${(assocFromProduct.productAssocTypeId)!}&amp;FROM_DATE=${(assocFromProduct.fromDate)!}&amp;useValues=true</@ofbizUrl>" class="buttontext">
+                <a href="<@ofbizUrl>UpdateProductAssoc?UPDATE_MODE=DELETE&amp;productId=${productId}&amp;PRODUCT_ID=${productId}&amp;PRODUCT_ID_TO=${(assocFromProduct.productIdTo)!}&amp;PRODUCT_ASSOC_TYPE_ID=${(assocFromProduct.productAssocTypeId)!}&amp;FROM_DATE=${(assocFromProduct.fromDate)!}&amp;useValues=true</@ofbizUrl>" class="btn btn-link">
                 ${uiLabelMap.CommonDelete}</a>
                 </td>
                 <td>
-                <a href="<@ofbizUrl>EditProductAssoc?productId=${productId}&amp;PRODUCT_ID=${productId}&amp;PRODUCT_ID_TO=${(assocFromProduct.productIdTo)!}&amp;PRODUCT_ASSOC_TYPE_ID=${(assocFromProduct.productAssocTypeId)!}&amp;FROM_DATE=${(assocFromProduct.fromDate)!}&amp;useValues=true</@ofbizUrl>" class="buttontext">
+                <a href="<@ofbizUrl>EditProductAssoc?productId=${productId}&amp;PRODUCT_ID=${productId}&amp;PRODUCT_ID_TO=${(assocFromProduct.productIdTo)!}&amp;PRODUCT_ASSOC_TYPE_ID=${(assocFromProduct.productAssocTypeId)!}&amp;FROM_DATE=${(assocFromProduct.fromDate)!}&amp;useValues=true</@ofbizUrl>" class="btn btn-link">
                 ${uiLabelMap.CommonEdit}</a>
                 </td>
             </tr>
@@ -237,7 +237,7 @@ under the License.
         <h3>${uiLabelMap.ProductAssociationsToProduct}</h3>
     </div>
     <div class="screenlet-body">
-        <table cellspacing="0" class="basic-table">
+        <table cellspacing="0" class="table">
             <tr class="header-row">
             <td><b>${uiLabelMap.ProductProductId}</b></td>
             <td><b>${uiLabelMap.ProductName}</b></td>
@@ -251,13 +251,13 @@ under the License.
             <#assign listToProduct = assocToProduct.getRelatedOne("MainProduct", true)>
             <#assign curProductAssocType = assocToProduct.getRelatedOne("ProductAssocType", true)>
             <tr valign="middle"<#if rowClass == "1"> class="alternate-row"</#if>>
-                <td><a href="<@ofbizUrl>EditProduct?productId=${(assocToProduct.productId)!}</@ofbizUrl>" class="buttontext">${(assocToProduct.productId)!}</a></td>
-                <td><#if listToProduct??><a href="<@ofbizUrl>EditProduct?productId=${(assocToProduct.productId)!}</@ofbizUrl>" class="buttontext">${(listToProduct.internalName)!}</a></#if></td>
+                <td><a href="<@ofbizUrl>EditProduct?productId=${(assocToProduct.productId)!}</@ofbizUrl>" class="btn btn-link">${(assocToProduct.productId)!}</a></td>
+                <td><#if listToProduct??><a href="<@ofbizUrl>EditProduct?productId=${(assocToProduct.productId)!}</@ofbizUrl>" class="btn btn-link">${(listToProduct.internalName)!}</a></#if></td>
                 <td>${(assocToProduct.getTimestamp("fromDate"))!}&nbsp;</td>
                 <td>${(assocToProduct.getTimestamp("thruDate"))!}&nbsp;</td>
                 <td><#if curProductAssocType??> ${(curProductAssocType.get("description",locale))!}<#else> ${(assocToProduct.productAssocTypeId)!}</#if></td>
                 <td>
-                <a href="<@ofbizUrl>UpdateProductAssoc?UPDATE_MODE=DELETE&amp;productId=${(assocToProduct.productIdTo)!}&amp;PRODUCT_ID=${(assocToProduct.productId)!}&amp;PRODUCT_ID_TO=${(assocToProduct.productIdTo)!}&amp;PRODUCT_ASSOC_TYPE_ID=${(assocToProduct.productAssocTypeId)!}&amp;FROM_DATE=${(assocToProduct.fromDate)!}&amp;useValues=true</@ofbizUrl>" class="buttontext">
+                <a href="<@ofbizUrl>UpdateProductAssoc?UPDATE_MODE=DELETE&amp;productId=${(assocToProduct.productIdTo)!}&amp;PRODUCT_ID=${(assocToProduct.productId)!}&amp;PRODUCT_ID_TO=${(assocToProduct.productIdTo)!}&amp;PRODUCT_ASSOC_TYPE_ID=${(assocToProduct.productAssocTypeId)!}&amp;FROM_DATE=${(assocToProduct.fromDate)!}&amp;useValues=true</@ofbizUrl>" class="btn btn-link">
                 ${uiLabelMap.CommonDelete}</a>
                 </td>
             </tr>

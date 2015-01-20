@@ -33,7 +33,7 @@ under the License.
     </div>
     <div class="screenlet-body">
       <form method="post" action="<@ofbizUrl>login</@ofbizUrl>" name="loginform">
-        <table class="basic-table" cellspacing="0">
+        <table class="table" cellspacing="0">
           <tr>
             <td class="label">${uiLabelMap.CommonUsername}</td>
             <td><input type="text" name="USERNAME" value="${username}" size="20"/></td>

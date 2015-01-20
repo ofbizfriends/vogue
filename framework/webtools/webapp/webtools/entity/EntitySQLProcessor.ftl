@@ -17,7 +17,7 @@ specific language governing permissions and limitations
 under the License.
 -->
     <form method="post" action="EntitySQLProcessor" name="EntitySQLCommand">
-      <table class="basic-table" cellspacing="0">
+      <table class="table" cellspacing="0">
         <tr>
             <td class="label">
                 ${uiLabelMap.CommonGroup}
@@ -69,7 +69,7 @@ under the License.
     </#if>
 
     <#if columns?has_content>
-        <table class="basic-table hover-bar" cellspacing="0">
+        <table class="table table-hover" cellspacing="0">
             <tr class="header-row">
             <#list columns as column>
                 <td>${column}</td>

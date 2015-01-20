@@ -18,13 +18,13 @@ under the License.
 -->
 
 <#if curProductFeatureCategory??>
-<a href="<@ofbizUrl>EditFeature?productFeatureCategoryId=${productFeatureCategoryId!}</@ofbizUrl>" class="buttontext">${uiLabelMap.ProductCreateNewFeature}</a>
+<a href="<@ofbizUrl>EditFeature?productFeatureCategoryId=${productFeatureCategoryId!}</@ofbizUrl>" class="btn btn-link">${uiLabelMap.ProductCreateNewFeature}</a>
 <#elseif productFeatureGroup??>
-<a href="<@ofbizUrl>EditFeatureGroupAppls?productFeatureGroupId=${productFeatureGroup.productFeatureGroupId!}</@ofbizUrl>" class="buttontext">${uiLabelMap.CommonEdit} ${productFeatureGroup.description!}</a>
+<a href="<@ofbizUrl>EditFeatureGroupAppls?productFeatureGroupId=${productFeatureGroup.productFeatureGroupId!}</@ofbizUrl>" class="btn btn-link">${uiLabelMap.CommonEdit} ${productFeatureGroup.description!}</a>
 </#if>
 <#if productId?has_content>
-    <a href="<@ofbizUrl>EditProduct?productId=${productId}</@ofbizUrl>" class="buttontext">${uiLabelMap.ProductReturnToEditProduct}</a>
-    <a href="<@ofbizUrl>EditProductFeatures?productId=${productId}</@ofbizUrl>" class="buttontext">${uiLabelMap.ProductReturnToEditProductFeatures}</a>
+    <a href="<@ofbizUrl>EditProduct?productId=${productId}</@ofbizUrl>" class="btn btn-link">${uiLabelMap.ProductReturnToEditProduct}</a>
+    <a href="<@ofbizUrl>EditProductFeatures?productId=${productId}</@ofbizUrl>" class="btn btn-link">${uiLabelMap.ProductReturnToEditProductFeatures}</a>
 </#if>
 
 <#if (listSize > 0)>
@@ -33,17 +33,17 @@ under the License.
     <#if productId?has_content>
       <#assign productString = "&amp;productId=" + productId>
     </#if>
-    <table cellspacing="0" class="basic-table">
+    <table cellspacing="0" class="table">
         <tr>
         <td align="right">
             <span>
             <b>
             <#if (viewIndex > 0)>
-            <a href="<@ofbizUrl>ApplyFeaturesFromCategory?productFeatureCategoryId=${productFeatureCategoryId!}&amp;productFeatureApplTypeId=${selectedFeatureApplTypeId!}&amp;VIEW_SIZE=${viewSize}&amp;VIEW_INDEX=${viewIndex-1}${productString!}</@ofbizUrl>" class="buttontext">[${uiLabelMap.CommonPrevious}]</a> |
+            <a href="<@ofbizUrl>ApplyFeaturesFromCategory?productFeatureCategoryId=${productFeatureCategoryId!}&amp;productFeatureApplTypeId=${selectedFeatureApplTypeId!}&amp;VIEW_SIZE=${viewSize}&amp;VIEW_INDEX=${viewIndex-1}${productString!}</@ofbizUrl>" class="btn btn-link">[${uiLabelMap.CommonPrevious}]</a> |
             </#if>
             ${lowIndex+1} - ${highIndex} ${uiLabelMap.CommonOf} ${listSize}
             <#if (listSize > highIndex)>
-            | <a href="<@ofbizUrl>ApplyFeaturesFromCategory?productFeatureCategoryId=${productFeatureCategoryId!}&amp;productFeatureApplTypeId=${selectedFeatureApplTypeId!}&amp;VIEW_SIZE=${viewSize}&amp;VIEW_INDEX=${viewIndex+1}${productString!}</@ofbizUrl>" class="buttontext">[${uiLabelMap.CommonNext}]</a>
+            | <a href="<@ofbizUrl>ApplyFeaturesFromCategory?productFeatureCategoryId=${productFeatureCategoryId!}&amp;productFeatureApplTypeId=${selectedFeatureApplTypeId!}&amp;VIEW_SIZE=${viewSize}&amp;VIEW_INDEX=${viewIndex+1}${productString!}</@ofbizUrl>" class="btn btn-link">[${uiLabelMap.CommonNext}]</a>
             </#if>
             </b>
             </span>
@@ -51,7 +51,7 @@ under the License.
         </tr>
     </table>
 </#if>
-<table cellspacing="0" class="basic-table">
+<table cellspacing="0" class="table">
 <form method="post" action="<@ofbizUrl>ApplyFeaturesToProduct</@ofbizUrl>" name="selectAllForm">
   <input type="hidden" name="_useRowSubmit" value="Y" />
   <input type="hidden" name="_checkGlobalScope" value="Y" />
@@ -74,7 +74,7 @@ under the License.
   <#assign curProductFeatureType = productFeature.getRelatedOne("ProductFeatureType", true)>
     <tr id="productFeatureId_tableRow_${rowCount}"  valign="middle"<#if rowClass == "1"> class="alternate-row"</#if>>
         <input type="hidden" name="productFeatureId_o_${rowCount}" value="${productFeature.productFeatureId}" />
-        <td><a href="<@ofbizUrl>EditFeature?productFeatureId=${productFeature.productFeatureId}</@ofbizUrl>" class="buttontext">${productFeature.productFeatureId}</a></td>
+        <td><a href="<@ofbizUrl>EditFeature?productFeatureId=${productFeature.productFeatureId}</@ofbizUrl>" class="btn btn-link">${productFeature.productFeatureId}</a></td>
         <td>${productFeature.description!}</td>
         <td><#if curProductFeatureType??>${curProductFeatureType.description!}<#else> [${productFeature.productFeatureTypeId}]</#if></td>
         <td>

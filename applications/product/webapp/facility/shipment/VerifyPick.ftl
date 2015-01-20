@@ -31,7 +31,7 @@ under the License.
     </#if>
     <#if shipmentId?has_content>
       <div>
-        <span class="label">${uiLabelMap.ProductShipmentId}</span><a href="<@ofbizUrl>/ViewShipment?shipmentId=${shipmentId}</@ofbizUrl>" class="buttontext">${shipmentId}</a>
+        <span class="label">${uiLabelMap.ProductShipmentId}</span><a href="<@ofbizUrl>/ViewShipment?shipmentId=${shipmentId}</@ofbizUrl>" class="btn btn-link">${shipmentId}</a>
       </div>
       <#if invoiceIds?? && invoiceIds?has_content>
         <div>
@@ -39,8 +39,8 @@ under the License.
           <ul>
             <#list invoiceIds as invoiceId>
               <li>
-                ${uiLabelMap.CommonNbr}<a href="/accounting/control/invoiceOverview?invoiceId=${invoiceId}${StringUtil.wrapString(externalKeyParam)}" target="_blank" class="buttontext">${invoiceId}</a>
-                (<a href="/accounting/control/invoice.pdf?invoiceId=${invoiceId}${StringUtil.wrapString(externalKeyParam)}" target="_blank" class="buttontext">PDF</a>)
+                ${uiLabelMap.CommonNbr}<a href="/accounting/control/invoiceOverview?invoiceId=${invoiceId}${StringUtil.wrapString(externalKeyParam)}" target="_blank" class="btn btn-link">${invoiceId}</a>
+                (<a href="/accounting/control/invoice.pdf?invoiceId=${invoiceId}${StringUtil.wrapString(externalKeyParam)}" target="_blank" class="btn btn-link">PDF</a>)
               </li>
             </#list>
           </ul>
@@ -51,7 +51,7 @@ under the License.
     <div class="screenlet-body">
       <form name="selectOrderForm" method="post" action="<@ofbizUrl>VerifyPick</@ofbizUrl>">
         <input type="hidden" name="facilityId" value="${facility.facilityId!}"/>
-        <table cellspacing="0" class="basic-table">
+        <table cellspacing="0" class="table">
           <tr>
             <td width="25%" align="right"><span class="label">${uiLabelMap.ProductOrderId}</span></td>
             <td width="1">&nbsp;</td>
@@ -78,7 +78,7 @@ under the License.
       <!-- select picklist bin form -->
       <form name="selectPicklistBinForm" method="post" action="<@ofbizUrl>VerifyPick</@ofbizUrl>" style="margin: 0;">
         <input type="hidden" name="facilityId" value="${facility.facilityId!}"/>
-        <table cellspacing="0" class="basic-table">
+        <table cellspacing="0" class="table">
           <tr>
             <td width="25%" align='right'><span class="label">${uiLabelMap.FormFieldTitle_picklistBinId}</span></td>
             <td width="1">&nbsp;</td>
@@ -114,7 +114,7 @@ under the License.
         <#if orderItemShipGroup?has_content>
           <#assign postalAddress = orderItemShipGroup.getRelatedOne("PostalAddress", false)>
           <#assign carrier = orderItemShipGroup.carrierPartyId?default("N/A")>
-          <table cellpadding="4" cellspacing="4" class="basic-table">
+          <table cellpadding="4" cellspacing="4" class="table">
             <tr>
               <td valign="top">
                 <span class="label">${uiLabelMap.ProductShipToAddress}</span>
@@ -167,7 +167,7 @@ under the License.
           <input type="hidden" name="orderId" value="${orderId!}"/>
           <input type="hidden" name="shipGroupSeqId" value="${shipGroupSeqId!}"/>
           <input type="hidden" name="facilityId" value="${facility.facilityId!}"/>
-          <table cellpadding="2" cellspacing="0" class="basic-table">
+          <table cellpadding="2" cellspacing="0" class="table">
             <tr>
               <td>
                 <div>
@@ -188,7 +188,7 @@ under the License.
           <input type="hidden" name="userLoginId" value="${userLoginId!}"/>
           <input type="hidden" name="orderId" value="${orderId!}"/>
           <input type="hidden" name="shipGroupSeqId" value="${shipGroupSeqId!}"/>
-          <table class="basic-table" cellspacing='0'>
+          <table class="table" cellspacing='0'>
             <tr class="header-row">
               <td>&nbsp;</td>
               <td>${uiLabelMap.ProductItem} ${uiLabelMap.CommonNbr}</td>
@@ -234,7 +234,7 @@ under the License.
                   <td>${orderItemSeqId!}</td>
                   <td>${product.productId?default("N/A")}</td>
                   <td>
-                    <a href="/catalog/control/EditProduct?productId=${product.productId!}${StringUtil.wrapString(externalKeyParam)}" class="buttontext" target="_blank">${(product.internalName)!}</a>
+                    <a href="/catalog/control/EditProduct?productId=${product.productId!}${StringUtil.wrapString(externalKeyParam)}" class="btn btn-link" target="_blank">${(product.internalName)!}</a>
                   </td>
                   <td>
                     <select name="geo_${rowKey}">
@@ -332,7 +332,7 @@ under the License.
             <br class="clear"/>
           </div>
           <div class="screenlet-body">
-            <table class="basic-table" cellspacing='0'>
+            <table class="table" cellspacing='0'>
               <tr class="header-row">
                 <td>${uiLabelMap.ProductItem} ${uiLabelMap.CommonNbr}</td>
                 <td>${uiLabelMap.ProductProductId}</td>
@@ -352,7 +352,7 @@ under the License.
               </#list>
             </table>
             <div align="right">
-              <a href="javascript:document.completePickForm.submit()" class="buttontext">${uiLabelMap.ProductComplete}</a>
+              <a href="javascript:document.completePickForm.submit()" class="btn btn-link">${uiLabelMap.ProductComplete}</a>
             </div>
           </div>
         </div>

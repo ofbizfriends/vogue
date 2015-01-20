@@ -34,11 +34,11 @@ under the License.
 	            </#if>
 	            ${uiLabelMap.OrderOrder}
 	            <#if orderHeader?has_content>
-	                ${uiLabelMap.CommonNbr}<a href="<@ofbizUrl fullPath="true">orderstatus?orderId=${orderHeader.orderId}</@ofbizUrl>" class="lightbuttontext">${orderHeader.orderId}</a>
+	                ${uiLabelMap.CommonNbr}<a href="<@ofbizUrl fullPath="true">orderstatus?orderId=${orderHeader.orderId}</@ofbizUrl>" class="lightbtn btn-link">${orderHeader.orderId}</a>
 	            </#if>
 	            ${uiLabelMap.CommonInformation}
 	            <#if (orderHeader.orderId)??>
-	                ${externalOrder!} [ <a href="<@ofbizUrl fullPath="true">order.pdf?orderId=${(orderHeader.orderId)!}</@ofbizUrl>" target="_BLANK" class="lightbuttontext">PDF</a> ]
+	                ${externalOrder!} [ <a href="<@ofbizUrl fullPath="true">order.pdf?orderId=${(orderHeader.orderId)!}</@ofbizUrl>" target="_BLANK" class="lightbtn btn-link">PDF</a> ]
 	            </#if>
 	        </h3>
 	        <#-- placing customer information -->

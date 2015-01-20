@@ -40,7 +40,7 @@ under the License.
   </div>
   <div class="screenlet-body">
 </#if>
-      <table class="basic-table" cellspacing="0">
+      <table class="table" cellspacing="0">
         <tr class="header-row">
           <td width="10%">${uiLabelMap.ManufacturingProductLevel}</td>
           <td width="20%">${uiLabelMap.ProductProductId}</td>
@@ -83,7 +83,7 @@ under the License.
               </td>
               <td>${node.product.internalName?default("&nbsp;")}</td>
               <td align="right">${node.quantity}</td>
-              <td align="right"><a href="<@ofbizUrl>EditProductBom?productId=${(node.product.productId)!}&amp;productAssocTypeId=${(node.bomTypeId)!}</@ofbizUrl>" class="buttontext">${uiLabelMap.CommonEdit}</a></td>
+              <td align="right"><a href="<@ofbizUrl>EditProductBom?productId=${(node.product.productId)!}&amp;productAssocTypeId=${(node.bomTypeId)!}</@ofbizUrl>" class="btn btn-link">${uiLabelMap.CommonEdit}</a></td>
             </tr>
             <#-- toggle the row color -->
             <#assign alt_row = !alt_row>
@@ -95,7 +95,7 @@ under the License.
         </#if>
       </table>
       <br />
-      <table class="basic-table" cellspacing="0">
+      <table class="table" cellspacing="0">
         <tr class="header-row">
           <td width="20%">${uiLabelMap.ProductProductId}</td>
           <td width="50%">${uiLabelMap.ProductProductName}</td>
@@ -110,7 +110,7 @@ under the License.
           <#list productsData as productData>
             <#assign node = productData.node>
             <tr valign="middle"<#if alt_row> class="alternate-row"</#if>>
-              <td><a href="/catalog/control/EditProduct?productId=${node.product.productId}${StringUtil.wrapString(externalKeyParam)}" class="buttontext">${node.product.productId}</a></td>
+              <td><a href="/catalog/control/EditProduct?productId=${node.product.productId}${StringUtil.wrapString(externalKeyParam)}" class="btn btn-link">${node.product.productId}</a></td>
               <td>${node.product.internalName?default("&nbsp;")}</td>
               <td align="right">${node.quantity}</td>
               <td align="right">${productData.qoh!}</td>
@@ -118,7 +118,7 @@ under the License.
               <#if productData.unitCost?? && (productData.unitCost > 0)>
               <td align="right">${productData.unitCost!}</td>
               <#else>
-              <td align="right"><a href="/catalog/control/EditProductCosts?productId=${node.product.productId}${StringUtil.wrapString(externalKeyParam)}" class="buttontext">NA</a></td>
+              <td align="right"><a href="/catalog/control/EditProductCosts?productId=${node.product.productId}${StringUtil.wrapString(externalKeyParam)}" class="btn btn-link">NA</a></td>
               </#if>
               <td align="right">${productData.totalCost!}</td>
             </tr>

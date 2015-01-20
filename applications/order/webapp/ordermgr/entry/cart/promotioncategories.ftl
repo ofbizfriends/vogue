@@ -27,7 +27,7 @@ under the License.
           <#list productPromoCategoryIncludeList as productPromoCategory>
             <#assign productCategory = productPromoCategory.getRelatedOne("ProductCategory", true)>
             <div>
-                -&nbsp;<a href="<@ofbizUrl>category/~category_id=${productPromoCategory.productCategoryId}</@ofbizUrl>" class="buttontext">${(productCategory.description)?default(productPromoCategory.productCategoryId)}</a>
+                -&nbsp;<a href="<@ofbizUrl>category/~category_id=${productPromoCategory.productCategoryId}</@ofbizUrl>" class="btn btn-link">${(productCategory.description)?default(productPromoCategory.productCategoryId)}</a>
                 <#if productPromoCategory.includeSubCategories! = "Y">(${uiLabelMap.OrderIncludeSubCategories})</#if>
             </div>
           </#list>
@@ -37,7 +37,7 @@ under the License.
           <#list productPromoCategoryExcludeList as productPromoCategory>
             <#assign productCategory = productPromoCategory.getRelatedOne("ProductCategory", true)>
             <div>
-                -&nbsp;<a href="<@ofbizUrl>category/~category_id=${productPromoCategory.productCategoryId}</@ofbizUrl>" class="buttontext">${(productCategory.description)?default(productPromoCategory.productCategoryId)}</a>
+                -&nbsp;<a href="<@ofbizUrl>category/~category_id=${productPromoCategory.productCategoryId}</@ofbizUrl>" class="btn btn-link">${(productCategory.description)?default(productPromoCategory.productCategoryId)}</a>
                 <#if productPromoCategory.includeSubCategories! = "Y">(${uiLabelMap.OrderIncludeSubCategories})</#if>
             </div>
           </#list>
@@ -47,7 +47,7 @@ under the License.
           <#list productPromoCategoryAlwaysList as productPromoCategory>
             <#assign productCategory = productPromoCategory.getRelatedOne("ProductCategory", true)>
             <div>
-                -&nbsp;<a href="<@ofbizUrl>category/~category_id=${productPromoCategory.productCategoryId}</@ofbizUrl>" class="buttontext">${(productCategory.description)?default(productPromoCategory.productCategoryId)}</a>
+                -&nbsp;<a href="<@ofbizUrl>category/~category_id=${productPromoCategory.productCategoryId}</@ofbizUrl>" class="btn btn-link">${(productCategory.description)?default(productPromoCategory.productCategoryId)}</a>
                 <#if productPromoCategory.includeSubCategories! = "Y">(${uiLabelMap.OrderIncludeSubCategories})</#if>
             </div>
           </#list>

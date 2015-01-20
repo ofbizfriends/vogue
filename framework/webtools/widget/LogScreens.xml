@@ -107,10 +107,10 @@ under the License.
                  <decorator-screen name="log-decorator">
                      <decorator-section name="body">
                          <screenlet>
-                             <container style="button-bar">
-                                 <link target="LogView" text="${uiLabelMap.CommonRefresh}" style="buttontext refresh"/>
+                             <container style="btn-group">
+                                 <link target="LogView" text="${uiLabelMap.CommonRefresh}" style="btn btn-link refresh"/>
                              </container>
-                             <container style="button-bar">
+                             <container style="btn-group">
                                  <label style="label">${uiLabelMap.WebtoolsLogFileName}:</label>
                                  <label>${logFileName}</label>
                              </container>

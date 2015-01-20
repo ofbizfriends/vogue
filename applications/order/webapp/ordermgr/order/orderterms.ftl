@@ -26,7 +26,7 @@ under the License.
         <br class="clear"/>
     </div>
     <div class="screenlet-body">
-      <table class="basic-table" cellspacing='0'>
+      <table class="table" cellspacing='0'>
       <tr class="header-row">
         <td width="35%">${uiLabelMap.OrderOrderTermType}</td>
         <td width="10%" align="center">${uiLabelMap.OrderOrderTermValue}</td>

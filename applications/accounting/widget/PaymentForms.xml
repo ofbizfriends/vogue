@@ -22,7 +22,7 @@ under the License.
  xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-form.xsd">
 
     <form name="FindPayments" type="single" target="findPayments"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <field name="noConditionFind"><hidden value="Y"/><!-- if this isn't there then with all fields empty no query will be done --></field>
         <field name="paymentId"><text-find ignore-case="true"/></field>
         <field name="comments"><text-find ignore-case="true"/></field>
@@ -46,10 +46,10 @@ under the License.
         <field position="1" name="amount"><text/></field>
         <field name="paymentRefNum"><text-find ignore-case="true"/></field>
         <field name="paymentGatewayResponseId"><text/></field>
-        <field name="searchButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="searchButton" title="${uiLabelMap.CommonFind}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
     <form name="ListPayments" type="list" separate-columns="true" default-entity-name="Payment" list-name="listIt" paginate-target="findPayments" paginate="true"
-        odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" default-table-style="table table-hover">
         <actions>
             <service service-name="performFind" result-map="result" result-map-list="listIt">
                 <field-map field-name="inputFields" from-field="parameters"/>
@@ -62,7 +62,7 @@ under the License.
         <row-actions>
             <set field="amountToApply" value="${groovy:org.ofbiz.accounting.payment.PaymentWorker.getPaymentNotApplied(delegator,paymentId);}"/>
         </row-actions>
-        <field name="paymentId" widget-style="buttontext">
+        <field name="paymentId" widget-style="btn btn-link">
             <hyperlink description="${paymentId}" target="paymentOverview">
                 <parameter param-name="paymentId"/>
             </hyperlink>
@@ -105,7 +105,7 @@ under the License.
     </form>
 
     <form name="NewPaymentOut" type="single" target="createPayment" default-map-name="payment"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <actions>
             <entity-condition entity-name="PaymentType" list="paymentTypes">
                 <condition-list combine="or">
@@ -157,12 +157,12 @@ under the License.
         <field name="comments" position="2"><text size="70"/></field>
         <field name="isDepositWithDrawPayment"><hidden value="Y"/></field>
         <field name="finAccountTransTypeId"><hidden value="WITHDRAWAL"/></field>
-        <field position="1" name="createButton" widget-style="smallSubmit">
+        <field position="1" name="createButton" widget-style="btn btn-default btn-sm">
             <submit button-type="button"/>
         </field>
     </form>
     <form name="NewPaymentIn" type="single" target="createPayment" default-map-name="payment"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <field name="statusId"><hidden value="PMNT_NOT_PAID"/></field>
         <field name="currencyUomId"><hidden value="${defaultOrganizationPartyCurrencyUomId}"/></field>
         <field position="1" name="organizationPartyId" parameter-name="partyIdTo">
@@ -204,7 +204,7 @@ under the License.
         </field>
         <field name="isDepositWithDrawPayment"><hidden value="Y"/></field>
         <field name="finAccountTransTypeId"><hidden value="DEPOSIT"/></field>
-        <field position="1" name="createButton" widget-style="smallSubmit">
+        <field position="1" name="createButton" widget-style="btn btn-default btn-sm">
             <submit button-type="button"/>
         </field>
     </form>
@@ -260,11 +260,11 @@ under the License.
         <field name="paymentGatewayResponseId"><ignored/></field>
         <field name="finAccountTransId" position="1"><text/></field>
         <field name="overrideGlAccountId" position="2"><lookup target-form-name="LookupGlAccount"/></field>
-        <field position="1" name="updateButton" title="${uiLabelMap.CommonUpdate}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field position="1" name="updateButton" title="${uiLabelMap.CommonUpdate}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
 
     <form name="editPaymentApplicationsInv" default-entity-name="PaymentApplication" list-name="paymentApplicationsInv" target="removePaymentApplication" type="list" separate-columns="false"
-        odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" default-table-style="table table-hover">
         <field name="paymentApplicationId"><hidden/></field>
         <field name="paymentId"><hidden/></field>
         <field name="invoiceId">
@@ -279,7 +279,7 @@ under the License.
         <field name="removeButton"><submit/></field>
     </form>
     <form name="editPaymentApplicationsPay" default-entity-name="PaymentApplication" list-name="paymentApplicationsPay" target="removePaymentApplication" type="list" separate-columns="false"
-        odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" default-table-style="table table-hover">
         <field name="paymentApplicationId"><hidden/></field>
         <field name="paymentId"><hidden/></field>
         <field name="toPaymentId"><display/></field>
@@ -287,7 +287,7 @@ under the License.
         <field name="removeButton"><submit/></field>
     </form>
     <form name="editPaymentApplicationsBil" default-entity-name="PaymentApplication" list-name="paymentApplicationsBil" target="removePaymentApplication"  type="list" separate-columns="false"
-        odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" default-table-style="table table-hover">
         <field name="paymentApplicationId"><hidden/></field>
         <field name="paymentId"><hidden/></field>
         <field name="billingAccountId"><display/></field>
@@ -296,7 +296,7 @@ under the License.
         <field name="removeButton" title="${uiLabelMap.CommonRemove}"><submit/></field>
     </form>
     <form name="editPaymentApplicationsTax" default-entity-name="PaymentApplication" list-name="paymentApplicationsTax" target="removePaymentApplication"  type="list" separate-columns="false"
-        odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" default-table-style="table table-hover">
         <field name="paymentApplicationId"><hidden/></field>
         <field name="paymentId"><hidden/></field>
         <field name="taxAuthGeoId"><display/></field>
@@ -305,9 +305,9 @@ under the License.
     </form>
 
     <form name="listInvoicesNotApplied" type="list" list-name="invoices" target="createPaymentApplication" title=""
-        odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" default-table-style="table table-hover">
         <field name="paymentId"><hidden/></field>
-        <field name="invoiceId" widget-style="buttontext">
+        <field name="invoiceId" widget-style="btn btn-link">
             <hyperlink target="invoiceOverview" description="${invoiceId}">
                 <parameter param-name="invoiceId"/>
             </hyperlink>
@@ -319,7 +319,7 @@ under the License.
         <field name="amountToApply" parameter-name="amountApplied"><text size="10"/></field>
         <field name="invoiceProcessing" use-when="&quot;${uiConfigMap.invoiceProcessing}&quot;.equals(&quot;Y&quot;)"><check/></field>
         <field name="invoiceProcessing" use-when="&quot;${uiConfigMap.invoiceProcessing}&quot;.equals(&quot;N&quot;)"><check/></field>
-        <field name="applyButton" widget-style="smallSubmit">
+        <field name="applyButton" widget-style="btn btn-default btn-sm">
             <submit button-type="button"/>
         </field>
     </form>
@@ -327,9 +327,9 @@ under the License.
     <form name="listInvoicesNotAppliedOtherCurrency" extends="listInvoicesNotApplied" list-name="invoicesOtherCurrency"/>
 
     <form name="listPaymentsNotApplied" type="list" list-name="payments" target="createPaymentApplication" title=""
-        odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" default-table-style="table table-hover">
         <field name="paymentId"><hidden/></field>
-        <field name="toPaymentId" widget-style="buttontext">
+        <field name="toPaymentId" widget-style="btn btn-link">
             <hyperlink target="paymentOverview" description="[${toPaymentId}]">
                 <parameter param-name="paymentId" from-field="toPaymentId"/>
             </hyperlink>
@@ -338,13 +338,13 @@ under the License.
         <field name="amount"><display  type="currency" currency="${currencyUomId}"/></field>
         <field name="amountApplied" parameter-name="dummy"><display  type="currency" currency="${currencyUomId}"/></field>
         <field name="amountToApply" parameter-name="amountApplied"><text size="10"/></field>
-        <field name="applyButton" widget-style="smallSubmit">
+        <field name="applyButton" widget-style="btn btn-default btn-sm">
             <submit button-type="button"/>
         </field>
     </form>
 
     <form name="addPaymentApplication" type="single" target="createPaymentApplication" title=""
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <field name="paymentId"><hidden/></field>
         <field name="invoiceId"><lookup target-form-name="LookupInvoice"/></field>
         <field name="invoiceItemSeqId" use-when="&quot;${uiConfigMap.invoiceProcessing}&quot;.equals(&quot;YY&quot;)"><text size="10"/></field>
@@ -354,13 +354,13 @@ under the License.
         <field name="amountToApply" parameter-name="amountApplied" tooltip="${uiLabelMap.AccountingLeaveEmptyForMaximumAmount}"><text/></field>
         <field name="invoiceProcessing" use-when="&quot;${uiConfigMap.invoiceProcessing}&quot;.equals(&quot;Y&quot;)"><check/></field>
         <field name="invoiceProcessing" use-when="&quot;${uiConfigMap.invoiceProcessing}&quot;.equals(&quot;N&quot;)"><check/></field>
-        <field name="applyButton" widget-style="smallSubmit">
+        <field name="applyButton" widget-style="btn btn-default btn-sm">
             <submit button-type="button"/>
         </field>
     </form>
 
     <form name="paymentHeader" type="single" default-map-name="payment"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <actions>
             <service service-name="getPartyNameForDate" result-map="partyNameResultFrom">
                 <field-map field-name="partyId" from-field="payment.partyIdFrom"/>
@@ -403,7 +403,7 @@ under the License.
     </form>
 
     <form name="paymentApplications" type="list" list-name="paymentApplications"
-        odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" default-table-style="table table-hover">
         <actions>
             <entity-condition entity-name="PaymentApplication">
                 <condition-list combine="or">
@@ -420,23 +420,23 @@ under the License.
         <auto-fields-entity entity-name="PaymentApplication" default-field-type="display"/>
         <field name="paymentApplicationId"><hidden/></field>
         <field name="paymentId"><hidden/></field>
-        <field name="invoiceId" widget-style="buttontext">
+        <field name="invoiceId" widget-style="btn btn-link">
             <hyperlink target="invoiceOverview" description="${invoiceId}">
                 <parameter param-name="invoiceId"/>
             </hyperlink>
         </field>
-        <field name="invoiceItemSeqId" widget-style="buttontext">
+        <field name="invoiceItemSeqId" widget-style="btn btn-link">
             <hyperlink target="listInvoiceItems" description="${invoiceItemSeqId}">
                 <parameter param-name="invoiceId"/>
                 <parameter param-name="invoiceItemSeqId"/>
             </hyperlink>
         </field>
-        <field name="toPaymentId" widget-style="buttontext">
+        <field name="toPaymentId" widget-style="btn btn-link">
             <hyperlink target="paymentOverview" description="${toPaymentId}">
                 <parameter param-name="paymentId" from-field="toPaymentId"/>
             </hyperlink>
         </field>
-        <field name="billingAccountId" widget-style="buttontext">
+        <field name="billingAccountId" widget-style="btn btn-link">
             <hyperlink target="EditBillingAccount" description="${billingAccountId}">
                 <parameter param-name="billingAccountId"/>
             </hyperlink>
@@ -451,7 +451,7 @@ under the License.
     </form>
 
     <form name="ListChecksToPrint" type="multi" list-name="payments" target="printChecks" separate-columns="true"
-        odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" default-table-style="table table-hover">
         <field name="paymentId">
             <hyperlink target="paymentOverview" description="${paymentId}">
                 <parameter param-name="paymentId"/>
@@ -463,12 +463,12 @@ under the License.
         <field name="amount" widget-area-style="align-text"><display type="currency" currency="${currencyUomId}"/></field>
         <field name="effectiveDate"><display/></field>
         <field name="_rowSubmit" title="${uiLabelMap.CommonSelect}"><check/></field>
-        <field name="submitButton" title="${uiLabelMap.CommonPrint}" widget-style="smallSubmit">
+        <field name="submitButton" title="${uiLabelMap.CommonPrint}" widget-style="btn btn-default btn-sm">
             <submit/>
         </field>
     </form>
     <form name="ListChecksToSend" type="multi" use-row-submit="true" list-name="payments" target="quickSendPayment?organizationPartyId=${organizationPartyId}" separate-columns="true"
-        odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" default-table-style="table table-hover">
         <field name="paymentId"><hidden/></field>
         <field name="paymentId">
             <hyperlink target="paymentOverview" description="${paymentId}">
@@ -482,11 +482,11 @@ under the License.
         <field name="effectiveDate"><display/></field>
         <field name="paymentRefNum"><text/></field>
         <field name="_rowSubmit" title="${uiLabelMap.CommonSelect}"><check/></field>
-        <field name="submitButton" title="${uiLabelMap.CommonSend}" widget-style="smallSubmit"><submit/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonSend}" widget-style="btn btn-default btn-sm"><submit/></field>
     </form>
 
     <form name="FindSalesInvoicesByDueDate" type="single" target="findSalesInvoicesByDueDate"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <field name="invoiceTypeId"><hidden value="SALES_INVOICE"/></field>
         <field name="organizationPartyId" parameter-name="partyIdFrom">
             <drop-down allow-empty="false">
@@ -503,7 +503,7 @@ under the License.
         </field>
     </form>
     <form name="FindPurchaseInvoicesByDueDate" type="single" target="findPurchaseInvoicesByDueDate"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <field name="invoiceTypeId"><hidden value="PURCHASE_INVOICE"/></field>
         <field name="organizationPartyId" parameter-name="partyId">
             <drop-down allow-empty="false">
@@ -520,8 +520,8 @@ under the License.
         </field>
     </form>
     <form name="ListInvoicesByDueDate" type="list" list-name="invoicePaymentInfoList"
-        odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
-        <field name="invoiceId" widget-style="buttontext">
+        odd-row-style="alternate-row" default-table-style="table table-hover">
+        <field name="invoiceId" widget-style="btn btn-link">
             <hyperlink target="invoiceOverview" description="${invoiceId}">
                 <parameter param-name="invoiceId"/>
             </hyperlink>
@@ -534,7 +534,7 @@ under the License.
         <field name="paidAmount"><display/></field>
         <field name="outstandingAmount"><display/></field>
     </form>
-    <form name="FinAccountTransAssociatedWithPayment" type="single" default-map-name="finAccountTrans" odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
+    <form name="FinAccountTransAssociatedWithPayment" type="single" default-map-name="finAccountTrans" odd-row-style="alternate-row" default-table-style="table table-hover">
         <field name="finAccountTransId" position="1"><display/></field>
         <field name="finAccountTransTypeId" title="${uiLabelMap.FormFieldTitle_finAccountTransType}" position="2"><display-entity entity-name="FinAccountTransType" description="${description}"/></field>
         <field name="amount" position="1"><display type="currency" currency="${payment.currencyUomId}"/></field>

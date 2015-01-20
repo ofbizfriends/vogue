@@ -42,8 +42,8 @@ under the License.
                                 <container>
                                     <label style="h1">[${uiLabelMap.CommonId} ${productionRunId}]</label>
                                 </container>
-                                <container style="button-bar">
-                                    <link target="CreateProductionRun" text="${uiLabelMap.ManufacturingCreateProductionRun}" style="buttontext"/>
+                                <container style="btn-group">
+                                    <link target="CreateProductionRun" text="${uiLabelMap.ManufacturingCreateProductionRun}" style="btn btn-link"/>
                                 </container>
                                 <decorator-section-include name="body"/>
                             </widgets>
@@ -246,10 +246,10 @@ under the License.
                               <not><if-empty field="parameters.routingTaskId"/></not>
                             </condition>
                             <widgets>
-                              <container style="lefthalf">
+                              <container style="col-md-6 col-xs-12">
                                 <include-form name="EditProductionRunDeclRoutingTask" location="component://manufacturing/widget/manufacturing/ProductionRunForms.xml"/>
                               </container>
-                              <container style="righthalf">
+                              <container style="col-md-6 col-xs-12">
                                 <include-form name="CreateRoutingTaskDelivProduct" location="component://manufacturing/widget/manufacturing/ProductionRunForms.xml"/>
                                 <section>
                                   <condition><not><if-empty field="prunInventoryProduced"/></not></condition>
@@ -564,8 +564,8 @@ under the License.
                             <widgets>
                                 <decorator-screen name="FindScreenDecorator" location="component://common/widget/CommonScreens.xml">
                                     <decorator-section name="menu-bar">
-                                        <container style="button-bar">
-                                            <link target="CreateProductionRun" text="${uiLabelMap.ManufacturingCreateProductionRun}" style="buttontext create"/>
+                                        <container style="btn-group">
+                                            <link target="CreateProductionRun" text="${uiLabelMap.ManufacturingCreateProductionRun}" style="btn btn-link create"/>
                                         </container>
                                     </decorator-section>
                                     <decorator-section name="search-options">
@@ -618,23 +618,23 @@ under the License.
                                         <if-compare field="workInProgress" operator="equals" value="true"/>
                                     </condition>
                                     <widgets>
-                                        <link text="${uiLabelMap.ManufacturingTasksReport}" style="buttontext" target="ShipmentWorkEffortTasks.pdf" target-window="_BLANK">
+                                        <link text="${uiLabelMap.ManufacturingTasksReport}" style="btn btn-link" target="ShipmentWorkEffortTasks.pdf" target-window="_BLANK">
                                             <parameter param-name="shipmentId" from-field="shipment.shipmentId"/>
                                         </link>
-                                        <link text="${uiLabelMap.ManufacturingCuttingListReport}" style="buttontext" target="CuttingListReport.pdf" target-window="_BLANK">
+                                        <link text="${uiLabelMap.ManufacturingCuttingListReport}" style="btn btn-link" target="CuttingListReport.pdf" target-window="_BLANK">
                                             <parameter param-name="shipmentId" from-field="shipment.shipmentId"/>
                                         </link>
                                     </widgets>
                                     <fail-widgets>
-                                        <link text="${uiLabelMap.ManufacturingGenerateProductionRuns}" style="buttontext" target="createProductionRunsForShipment">
+                                        <link text="${uiLabelMap.ManufacturingGenerateProductionRuns}" style="btn btn-link" target="createProductionRunsForShipment">
                                             <parameter param-name="shipmentId" from-field="shipment.shipmentId"/>
                                         </link>
-                                        <link text="${uiLabelMap.ManufacturingShipmentPlanStockReport}" style="buttontext" target="ShipmentPlanStockReport.pdf" target-window="_BLANK">
+                                        <link text="${uiLabelMap.ManufacturingShipmentPlanStockReport}" style="btn btn-link" target="ShipmentPlanStockReport.pdf" target-window="_BLANK">
                                             <parameter param-name="shipmentId" from-field="shipment.shipmentId"/>
                                         </link>
                                     </fail-widgets>
                                 </section>
-                                <link text="${uiLabelMap.ManufacturingPackageLabelsReport}" style="buttontext" target="ShipmentLabel.pdf" target-window="_BLANK">
+                                <link text="${uiLabelMap.ManufacturingPackageLabelsReport}" style="btn btn-link" target="ShipmentLabel.pdf" target-window="_BLANK">
                                     <parameter param-name="shipmentId" from-field="shipment.shipmentId"/>
                                 </link>
                             </widgets>

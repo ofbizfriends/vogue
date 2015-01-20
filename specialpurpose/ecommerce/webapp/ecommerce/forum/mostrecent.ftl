@@ -65,7 +65,7 @@ under the License.
     <#if 0 < entityList?size >
         <tr>
           <td colspan="5">
-<div class="smallSubmit" ><a href="javascript:submitRows('${row?default(0)}')">${uiLabelMap.CommonUpdate}</a></div>
+<div class="btn btn-default btn-sm" ><a href="javascript:submitRows('${row?default(0)}')">${uiLabelMap.CommonUpdate}</a></div>
           </td>
         </tr>
     </#if>

@@ -36,8 +36,8 @@
                             <decorator-section name="menu-bar">
                                 <section>
                                     <widgets>
-                                        <container style="button-bar">
-                                            <link target="EditPayGrade" text="${uiLabelMap.HumanResNewPayGrade}" style="buttontext create"/>
+                                        <container style="btn-group">
+                                            <link target="EditPayGrade" text="${uiLabelMap.HumanResNewPayGrade}" style="btn btn-link create"/>
                                         </container>
                                     </widgets>
                                 </section>

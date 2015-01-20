@@ -22,7 +22,7 @@ under the License.
         <div class="h3">${uiLabelMap.OrderRequestItems}</div>
     </div>
     <div class="screenlet-body">
-        <table cellspacing="0" class="basic-table">
+        <table cellspacing="0" class="table">
             <tr valign="bottom" class="header-row">
                 <td width="10%">${uiLabelMap.ProductItem}</td>
                 <td width="35%">${uiLabelMap.OrderProduct}</td>
@@ -40,7 +40,7 @@ under the License.
                     <td valign="top">
                         <div>
                             <#if showRequestManagementLinks??>
-                                <a href="<@ofbizUrl>EditRequestItem?custRequestId=${requestItem.custRequestId}&amp;custRequestItemSeqId=${requestItem.custRequestItemSeqId}</@ofbizUrl>" class="buttontext">${requestItem.custRequestItemSeqId}</a>
+                                <a href="<@ofbizUrl>EditRequestItem?custRequestId=${requestItem.custRequestId}&amp;custRequestItemSeqId=${requestItem.custRequestItemSeqId}</@ofbizUrl>" class="btn btn-link">${requestItem.custRequestItemSeqId}</a>
                             <#else>
                                 ${requestItem.custRequestItemSeqId}
                             </#if>
@@ -50,9 +50,9 @@ under the License.
                         <div>
                             ${(product.internalName)!}&nbsp;
                             <#if showRequestManagementLinks??>
-                                <a href="/catalog/control/EditProduct?productId=${requestItem.productId!}" class="buttontext">${requestItem.productId!}</a>
+                                <a href="/catalog/control/EditProduct?productId=${requestItem.productId!}" class="btn btn-link">${requestItem.productId!}</a>
                             <#else>
-                                <a href="<@ofbizUrl>product?product_id=${requestItem.productId!}</@ofbizUrl>" class="buttontext">${requestItem.productId!}</a>
+                                <a href="<@ofbizUrl>product?product_id=${requestItem.productId!}</@ofbizUrl>" class="btn btn-link">${requestItem.productId!}</a>
                             </#if>
                         </div>
                     </td>

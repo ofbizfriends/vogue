@@ -58,7 +58,7 @@ under the License.
     </tr>
     <tr><td colspan="2">&nbsp;</td></tr>
     <tr>
-      <td colspan="2" align="center"><input type="submit" class="smallSubmit" value="${uiLabelMap.EcommerceCheckBalance}" /></td>
+      <td colspan="2" align="center"><input type="submit" class="btn btn-default btn-sm" value="${uiLabelMap.EcommerceCheckBalance}" /></td>
     </tr>
   </form>
 </table>

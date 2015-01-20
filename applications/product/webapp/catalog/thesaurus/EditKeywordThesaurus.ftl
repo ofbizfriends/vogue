@@ -36,13 +36,13 @@ under the License.
         <div>
             <#list letterList as letter>
               <#if letter == firstLetter><#assign highlight=true><#else><#assign highlight=false></#if>
-              <a href="<@ofbizUrl>editKeywordThesaurus?firstLetter=${letter}</@ofbizUrl>" class="buttontext"><#if highlight>[</#if>${letter}<#if highlight>]</#if></a>
+              <a href="<@ofbizUrl>editKeywordThesaurus?firstLetter=${letter}</@ofbizUrl>" class="btn btn-link"><#if highlight>[</#if>${letter}<#if highlight>]</#if></a>
             </#list>
         </div>
         <br />
         <#assign lastkeyword = "">
         <#if keywordThesauruses?has_content>
-        <table cellspacing="0" class="basic-table">
+        <table cellspacing="0" class="table">
             <#assign rowClass = "2">
             <#list keywordThesauruses as keyword>
               <#assign relationship = keyword.getRelatedOne("RelationshipEnumeration", true)>

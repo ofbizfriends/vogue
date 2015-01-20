@@ -21,9 +21,9 @@ under the License.
 <forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
         xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-form.xsd">
     <form name="ListCostComponentCalc" type="list" title="" list-name="allCostComponentCalcs"
-        odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="table table-hover">
         <auto-fields-entity entity-name="CostComponentCalc" default-field-type="display"/>
-        <field name="costComponentCalcId" widget-style="buttontext">
+        <field name="costComponentCalcId" widget-style="btn btn-link">
             <hyperlink target="EditCostCalcs" description="${costComponentCalcId}" also-hidden="false">
                 <parameter param-name="costComponentCalcId"/>
             </hyperlink>
@@ -36,14 +36,14 @@ under the License.
         <field name="costCustomMethodId">
             <display-entity entity-name="CustomMethod" key-field-name="customMethodId"/>
         </field>
-        <field name="removeCostComponentCalc" title=" " widget-style="buttontext">
+        <field name="removeCostComponentCalc" title=" " widget-style="btn btn-link">
             <hyperlink target="removeCostComponentCalc" description="${uiLabelMap.CommonRemove}" also-hidden="false">
                 <parameter param-name="costComponentCalcId"/>
             </hyperlink>
         </field>
     </form>
     <form name="EditCostComponentCalc" type="single" target="updateCostComponentCalc" title="" default-map-name="costComponentCalc"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <alt-target use-when="costComponentCalc==null" target="createCostComponentCalc"/>
         <auto-fields-entity entity-name="CostComponentCalc" default-field-type="edit"/>
         <field name="costComponentCalcId"><display/></field>
@@ -64,7 +64,7 @@ under the License.
                 </entity-options>
             </drop-down>
         </field>
-        <field name="submitButton" title="${uiLabelMap.CommonSubmit}" widget-style="smallSubmit">
+        <field name="submitButton" title="${uiLabelMap.CommonSubmit}" widget-style="btn btn-default btn-sm">
             <submit button-type="button"/>
         </field>
     </form>

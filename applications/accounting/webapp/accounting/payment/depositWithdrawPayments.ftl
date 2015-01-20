@@ -85,7 +85,7 @@ function getPaymentRunningTotal() {
                     <span class="label">${uiLabelMap.AccountingRunningTotal} :</span>
                     <span class="label" id="showPaymentRunningTotal"></span>
                 </div>
-                <table class="basic-table">
+                <table class="table">
                     <tr class="header-row-2">
                         <td>${uiLabelMap.FormFieldTitle_paymentId}</td>
                         <td>${uiLabelMap.AccountingPaymentType}</td>

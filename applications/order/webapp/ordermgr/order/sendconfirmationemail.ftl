@@ -26,8 +26,8 @@ under the License.
       <br class="clear"/>
     </div>
     <div class="screenlet-body">
-      <a href="<@ofbizUrl>authview/${donePage}?orderId=${orderId}</@ofbizUrl>" class="buttontext">${uiLabelMap.CommonGoBack}</a>
-      <a href="javascript:document.sendConfirmationForm.submit()" class="buttontext">${uiLabelMap.CommonSend}</a>      
+      <a href="<@ofbizUrl>authview/${donePage}?orderId=${orderId}</@ofbizUrl>" class="btn btn-link">${uiLabelMap.CommonGoBack}</a>
+      <a href="javascript:document.sendConfirmationForm.submit()" class="btn btn-link">${uiLabelMap.CommonSend}</a>      
       <br />
       <form method="post" action="<@ofbizUrl>sendconfirmationmail/${donePage}</@ofbizUrl>" name="sendConfirmationForm">
         <input type="hidden" name="orderId" value="${orderId!}" />
@@ -36,7 +36,7 @@ under the License.
         </#if>
         <input type="hidden" name="partyId" value="${partyId!}" />
         <input type="hidden" name="contentType" value="${productStoreEmailSetting.contentType?default("")}" />
-        <table class="basic-table" cellspacing='0'>
+        <table class="table" cellspacing='0'>
             <tr>
                 <td width="2%" align="right" class="label">${uiLabelMap.OrderSendConfirmationEmailSubject}&nbsp;</td>
                 <td width="54%">
@@ -85,8 +85,8 @@ under the License.
         </table>
       </form>
       <br />
-      <a href="<@ofbizUrl>authview/${donePage}?orderId=${orderId}</@ofbizUrl>" class="buttontext">${uiLabelMap.CommonGoBack}</a>
-      <a href="javascript:document.sendConfirmationForm.submit()" class="buttontext">${uiLabelMap.CommonSend}</a>
+      <a href="<@ofbizUrl>authview/${donePage}?orderId=${orderId}</@ofbizUrl>" class="btn btn-link">${uiLabelMap.CommonGoBack}</a>
+      <a href="javascript:document.sendConfirmationForm.submit()" class="btn btn-link">${uiLabelMap.CommonSend}</a>
     </div>
 </div>
 <#else>

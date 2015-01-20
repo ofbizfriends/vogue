@@ -17,7 +17,7 @@ specific language governing permissions and limitations
 under the License.
 -->
 
-<table class="basic-table hover-bar" cellspacing="0">
+<table class="table table-hover" cellspacing="0">
   <tr class="header-row-2">
     <td>${uiLabelMap.ProductInventoryItemId}</td>
     <td>${uiLabelMap.ProductFacilityId}</td>
@@ -31,7 +31,7 @@ under the License.
     <tr class="header-row-2"><td colspan="6"><span class="label">&nbsp;${uiLabelMap.ProductInventoryItemsFor} ${uiLabelMap.ProductPurchaseOrder} - ${orderId}</span></td></tr>
     <#list inventoryItemsForPo as inventoryItem>
       <tr>
-        <td><a class="buttontext" href="javascript:set_value('${inventoryItem.inventoryItemId}')">${inventoryItem.inventoryItemId}</a></td>
+        <td><a class="btn btn-link" href="javascript:set_value('${inventoryItem.inventoryItemId}')">${inventoryItem.inventoryItemId}</a></td>
         <td>${inventoryItem.facilityId!}</td>
         <td>${inventoryItem.locationSeqId!}</td>
         <td>${inventoryItem.quantityOnHandTotal!}</td>
@@ -44,7 +44,7 @@ under the License.
     <tr class="header-row-2"><td colspan="6"><span class="label centered">&nbsp;${uiLabelMap.ProductInventoryItemsFor} ${uiLabelMap.ProductSupplier} - ${partyId}</span></td></tr>
     <#list inventoryItemsForSupplier as inventoryItem>
       <tr>
-        <td><a class="buttontext" href="javascript:set_value('${inventoryItem.inventoryItemId}')">${inventoryItem.inventoryItemId}</a></td>
+        <td><a class="btn btn-link" href="javascript:set_value('${inventoryItem.inventoryItemId}')">${inventoryItem.inventoryItemId}</a></td>
         <td>${inventoryItem.facilityId!}</td>
         <td>${inventoryItem.locationSeqId!}</td>
         <td>${inventoryItem.quantityOnHandTotal!}</td>
@@ -57,7 +57,7 @@ under the License.
     <tr class="header-row-2"><td colspan="6"><span class="label">&nbsp;${uiLabelMap.ProductInventoryItemsFor} ${uiLabelMap.ProductProduct} - ${internalName!} [${productId}]</span></td></tr>
     <#list inventoryItemsForProduct as inventoryItem>
       <tr>
-        <td><a class="buttontext" href="javascript:set_value('${inventoryItem.inventoryItemId}')">${inventoryItem.inventoryItemId}</a></td>
+        <td><a class="btn btn-link" href="javascript:set_value('${inventoryItem.inventoryItemId}')">${inventoryItem.inventoryItemId}</a></td>
         <td>${inventoryItem.facilityId!}</td>
         <td>${inventoryItem.locationSeqId!}</td>
         <td>${inventoryItem.quantityOnHandTotal!}</td>

@@ -20,13 +20,13 @@ under the License.
     <div class="screenlet-title-bar">
         <div class="boxlink">
             <#if maySelectItems?default("N") == "Y">
-                <a href="javascript:document.addCommonToCartForm.add_all.value='true';document.addCommonToCartForm.submit()" class="buttontext">${uiLabelMap.OrderAddAllToCart}</a>
+                <a href="javascript:document.addCommonToCartForm.add_all.value='true';document.addCommonToCartForm.submit()" class="btn btn-link">${uiLabelMap.OrderAddAllToCart}</a>
             </#if>
         </div>
         <div class="h3">${uiLabelMap.OrderOrderQuoteItems}</div>
     </div>
     <div class="screenlet-body">
-        <table cellspacing="0" class="basic-table">
+        <table cellspacing="0" class="table">
             <tr valign="bottom" class="header-row">
                 <td width="15%">${uiLabelMap.ProductItem}</td>
                 <td width="20%">${uiLabelMap.ProductProduct}</td>
@@ -72,7 +72,7 @@ under the License.
                     <td >
                         <div>
                         <#if showQuoteManagementLinks?? && quoteItem.isPromo?default("N") == "N" && quote.statusId=="QUO_CREATED">
-                            <a href="<@ofbizUrl>EditQuoteItem?quoteId=${quoteItem.quoteId}&amp;quoteItemSeqId=${quoteItem.quoteItemSeqId}</@ofbizUrl>" class="buttontext">${quoteItem.quoteItemSeqId}</a>
+                            <a href="<@ofbizUrl>EditQuoteItem?quoteId=${quoteItem.quoteId}&amp;quoteItemSeqId=${quoteItem.quoteItemSeqId}</@ofbizUrl>" class="btn btn-link">${quoteItem.quoteItemSeqId}</a>
                         <#else>
                             ${quoteItem.quoteItemSeqId}
                         </#if>
@@ -83,7 +83,7 @@ under the License.
                         <div>
                             ${(product.internalName)!}&nbsp;
                             <#if showQuoteManagementLinks??>
-                                <a href="/catalog/control/EditProduct?productId=${quoteItem.productId!}" class="buttontext">
+                                <a href="/catalog/control/EditProduct?productId=${quoteItem.productId!}" class="btn btn-link">
                                   <#if quoteItem.productId??>
                                     ${quoteItem.productId}
                                   <#else>
@@ -91,7 +91,7 @@ under the License.
                                   </#if>
                                 </a>
                             <#else>
-                                <a href="<@ofbizUrl>product?product_id=${quoteItem.productId!}</@ofbizUrl>" class="buttontext">${quoteItem.productId!}</a>
+                                <a href="<@ofbizUrl>product?product_id=${quoteItem.productId!}</@ofbizUrl>" class="btn btn-link">${quoteItem.productId!}</a>
                             </#if>
                         </div>
                     </td>

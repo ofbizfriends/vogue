@@ -90,10 +90,10 @@ under the License.
                         <#assign fieldFormName="LookupProduct">
                       </#if>
                       <@htmlTemplate.lookupField formName="quickaddform" name="add_product_id" id="add_product_id" fieldFormName="${fieldFormName}"/>
-                      <a href="javascript:quicklookup(document.quickaddform.add_product_id)" class="buttontext">${uiLabelMap.OrderQuickLookup}</a>
-                      <a href="javascript:quicklookupGiftCertificate()" class="buttontext">${uiLabelMap.OrderAddGiftCertificate}</a>
+                      <a href="javascript:quicklookup(document.quickaddform.add_product_id)" class="btn btn-link">${uiLabelMap.OrderQuickLookup}</a>
+                      <a href="javascript:quicklookupGiftCertificate()" class="btn btn-link">${uiLabelMap.OrderAddGiftCertificate}</a>
                       <#if "PURCHASE_ORDER" == shoppingCart.getOrderType()>
-                        <a href="javascript:showQohAtp()" class="buttontext">${uiLabelMap.ProductAtpQoh}</a>
+                        <a href="javascript:showQohAtp()" class="btn btn-link">${uiLabelMap.ProductAtpQoh}</a>
                       </#if>
                     </span>
                   </td>
@@ -158,7 +158,7 @@ under the License.
                 </tr>
                 <tr>
                   <td></td>
-                  <td><input type="submit" class="smallSubmit" value="${uiLabelMap.OrderAddToOrder}"/></td>
+                  <td><input type="submit" class="btn btn-default btn-sm" value="${uiLabelMap.OrderAddToOrder}"/></td>
                 </tr>
               </table>
             </form>
@@ -178,7 +178,7 @@ under the License.
                     ${uiLabelMap.CommonDescription}:&nbsp;<input type="text" size="25" name="add_item_description" value=""/>
                     ${uiLabelMap.OrderQuantity}:&nbsp;<input type="text" size="3" name="quantity" value="${requestParameters.quantity?default("1")}"/>
                     ${uiLabelMap.OrderPrice}:&nbsp;<input type="text" size="6" name="price" value="${requestParameters.price!}"/>
-                    <input type="submit" class="smallSubmit" value="${uiLabelMap.OrderAddToOrder}"/>
+                    <input type="submit" class="btn btn-default btn-sm" value="${uiLabelMap.OrderAddToOrder}"/>
                 </div>
             </form>
           </td>

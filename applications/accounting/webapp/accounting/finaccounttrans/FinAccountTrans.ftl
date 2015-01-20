@@ -115,7 +115,7 @@ function getFinAccountTransRunningTotalAndBalances() {
           </#if>
         </div>
       </#if>
-      <table class="basic-table hover-bar" cellspacing="0">
+      <table class="table table-hover" cellspacing="0">
         <#-- Header Begins -->
         <tr class="header-row-2">
           <th>${uiLabelMap.FormFieldTitle_finAccountTransId}</th>
@@ -179,7 +179,7 @@ function getFinAccountTransRunningTotalAndBalances() {
               <#if payments?has_content>
                 <a id="togglePayment_${finAccountTrans.finAccountTransId}" href="javascript:void(0)"><img src="<@ofbizContentUrl>/images/expand.gif</@ofbizContentUrl>" alt=""/></a> ${finAccountTrans.finAccountTransId}
                 <div id="displayPayments_${finAccountTrans.finAccountTransId}" style="display: none;width: 650px;">
-                  <table class="basic-table hover-bar" cellspacing="0" style"width :">
+                  <table class="table table-hover" cellspacing="0" style"width :">
                     <tr class="header-row-2">
                       <th>${uiLabelMap.AccountingDepositSlipId}</th>
                       <th>${uiLabelMap.FormFieldTitle_paymentId}</th>
@@ -230,7 +230,7 @@ function getFinAccountTransRunningTotalAndBalances() {
                    jQuery("#togglePayment_${finAccountTrans.finAccountTransId}").click(function(){jQuery("#displayPayments_${finAccountTrans.finAccountTransId}").dialog("open")});
                    });
                 </script>
-                <a href="<@ofbizUrl>DepositSlip.pdf?finAccountTransId=${finAccountTrans.finAccountTransId}</@ofbizUrl>" target="_BLANK" class="buttontext">${uiLabelMap.AccountingDepositSlip}</a>
+                <a href="<@ofbizUrl>DepositSlip.pdf?finAccountTransId=${finAccountTrans.finAccountTransId}</@ofbizUrl>" target="_BLANK" class="btn btn-link">${uiLabelMap.AccountingDepositSlip}</a>
               <#else>
                 ${finAccountTrans.finAccountTransId}
               </#if>
@@ -253,7 +253,7 @@ function getFinAccountTransRunningTotalAndBalances() {
             <#if grandTotal??>
               <td>
                 <#if finAccountTrans.statusId?has_content && finAccountTrans.statusId == 'FINACT_TRNS_CREATED'>
-                  <a href="javascript:document.cancelFinAccountTrans_${finAccountTrans.finAccountTransId}.submit();" class="buttontext">${uiLabelMap.CommonCancel}</a>
+                  <a href="javascript:document.cancelFinAccountTrans_${finAccountTrans.finAccountTransId}.submit();" class="btn btn-link">${uiLabelMap.CommonCancel}</a>
                 </#if>
               </td>
             </#if>
@@ -265,7 +265,7 @@ function getFinAccountTransRunningTotalAndBalances() {
             <#if !(grandTotal??)>
               <#if (parameters.glReconciliationId?has_content && parameters.glReconciliationId != "_NA_")>
                 <#if finAccountTrans.statusId == "FINACT_TRNS_CREATED">
-                  <td><a href="javascript:document.removeFinAccountTransFromReconciliation_${finAccountTrans.finAccountTransId}.submit();" class="buttontext">${uiLabelMap.CommonRemove}</a></td>
+                  <td><a href="javascript:document.removeFinAccountTransFromReconciliation_${finAccountTrans.finAccountTransId}.submit();" class="btn btn-link">${uiLabelMap.CommonRemove}</a></td>
                 </#if>
               </#if>
             </#if>
@@ -297,7 +297,7 @@ function getFinAccountTransRunningTotalAndBalances() {
           </form>
         </#if>
       </#list>
-      <table class="basic-table">
+      <table class="table">
         <tr>
           <th>${uiLabelMap.FormFieldTitle_grandTotal} / ${uiLabelMap.AccountingNumberOfTransaction}</th>
           <th>${uiLabelMap.AccountingCreatedGrandTotal} / ${uiLabelMap.AccountingNumberOfTransaction}</th>
@@ -312,7 +312,7 @@ function getFinAccountTransRunningTotalAndBalances() {
         </tr>
       </table>
     <#else>
-      <table class="basic-table">
+      <table class="table">
         <tr>
           <th>${uiLabelMap.AccountingRunningTotal} / ${uiLabelMap.AccountingNumberOfTransaction}</th>
           <th>${uiLabelMap.AccountingOpeningBalance}</th>

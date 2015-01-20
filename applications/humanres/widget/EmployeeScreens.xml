@@ -35,8 +35,8 @@ under the License.
                                 <set field="tabButtonItem" value="Employee"/>
                             </actions>
                             <widgets>
-                                <container style="button-bar">
-                                    <link target="NewEmployee" text="${uiLabelMap.HumanResNewEmployee}" style="buttontext create"/>
+                                <container style="btn-group">
+                                    <link target="NewEmployee" text="${uiLabelMap.HumanResNewEmployee}" style="btn btn-link create"/>
                                 </container>
                                 <section>
                                     <widgets>
@@ -101,14 +101,14 @@ under the License.
                                         <if-compare field="showOld" operator="equals" value="true" type="Boolean"/>
                                     </condition>
                                     <widgets>
-                                        <container style="button-bar button-style-2">
+                                        <container style="btn-group button-style-2">
                                             <link target="viewprofile" text="${uiLabelMap.PartyHideOld}">
                                                 <parameter param-name="partyId" from-field="party.partyId"/>
                                             </link>
                                         </container>
                                     </widgets>
                                     <fail-widgets>
-                                        <container style="button-bar button-style-2">
+                                        <container style="btn-group button-style-2">
                                             <link target="viewprofile" text="${uiLabelMap.PartyShowOld}">
                                                 <parameter param-name="partyId" from-field="party.partyId"/>
                                                 <parameter param-name="SHOW_OLD" value="true"/>

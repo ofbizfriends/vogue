@@ -29,7 +29,7 @@ under the License.
     </div>
     <div class="screenlet-body">
       <#if attributes?has_content>
-        <table class="basic-table hover-bar" cellspacing="0">
+        <table class="table table-hover" cellspacing="0">
             <tr class="header-row">
               <td>${uiLabelMap.CommonName}</td>
               <td>${uiLabelMap.CommonValue}</td>

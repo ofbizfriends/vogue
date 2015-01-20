@@ -18,7 +18,7 @@ under the License.
 -->
 <div class="screenlet-body">
   <form action="<@ofbizUrl>SearchLabels</@ofbizUrl>" method="post">
-    <table class="basic-table">
+    <table class="table">
       <tr><td colspan="4">${uiLabelMap.WebtoolsLabelManagerTemporarySearchTitle}</td></tr>    
       <tr>
         <td class="label">

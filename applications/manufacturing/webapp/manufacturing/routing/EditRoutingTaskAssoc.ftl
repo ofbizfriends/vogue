@@ -36,7 +36,7 @@ function addRoutingTask() {
     <input type="hidden" name="workEffortIdFrom" value="${workEffortId}"/>
     <input type="hidden" name="workEffortAssocTypeId" value="ROUTING_COMPONENT"/>
     <input type="hidden" name="copyTask" value="N"/>
-    <table class="basic-table" cellspacing="0">
+    <table class="table" cellspacing="0">
         <tr>
             <th align="right">
                 ${uiLabelMap.ManufacturingRoutingTaskId}
@@ -71,9 +71,9 @@ function addRoutingTask() {
         <tr>
             <td >&nbsp;</td>
             <td colspan="3">
-                <a href="javascript:addRoutingTask();" class="buttontext">${uiLabelMap.ManufacturingAddExistingRoutingTask}</a>
+                <a href="javascript:addRoutingTask();" class="btn btn-link">${uiLabelMap.ManufacturingAddExistingRoutingTask}</a>
                 &nbsp;-&nbsp;
-                <a href="javascript:copyAndAddRoutingTask();" class="buttontext">${uiLabelMap.ManufacturingCopyAndAddRoutingTask}</a>
+                <a href="javascript:copyAndAddRoutingTask();" class="btn btn-link">${uiLabelMap.ManufacturingCopyAndAddRoutingTask}</a>
             </td>
             <td>&nbsp;</td>
         </tr>

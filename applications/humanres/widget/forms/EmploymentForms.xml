@@ -21,7 +21,7 @@
 <forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
         xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-form.xsd">
     <form name="FindEmployments" type="single" target="FindEmployments"
-        odd-row-style="header-row" default-table-style="basic-table">
+        odd-row-style="header-row" default-table-style="table">
         <field name="roleTypeIdFrom"><hidden value="INTERNAL_ORGANIZATIO"/></field>
         <field name="roleTypeIdTo"><hidden value="EMPLOYEE"/></field>
         <field name="partyIdFrom" title="${uiLabelMap.HumanResEmploymentPartyIdFrom}" tooltip="${uiLabelMap.HumanResEmploymentPartyIdFromToolTip}">
@@ -45,10 +45,10 @@
             </drop-down>
         </field>
         <field name="noConditionFind"><hidden value="Y"/><!-- if this isn't there then with all fields empty no query will be done --></field>
-        <field name="searchButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="searchButton" title="${uiLabelMap.CommonFind}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
     <form name="ListEmploymentsPerson" type="list" paginate-target="FindEmployments" default-entity-name="EmploymentAndPerson" list-name="listIt" separate-columns="true"
-        odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="table table-hover">
         <actions>
             <service service-name="performFind" result-map="result" result-map-list="listIt">
                 <field-map field-name="inputFields" from-field="employmentCtx"/>
@@ -58,7 +58,7 @@
             </service>
         </actions>
         <field name="partyIdFrom" title="${uiLabelMap.HumanResEmploymentPartyIdFrom}"><display></display></field>
-        <field name="partyIdTo" title="${uiLabelMap.HumanResEmployeePartyIdTo}" widget-style="buttontext">
+        <field name="partyIdTo" title="${uiLabelMap.HumanResEmployeePartyIdTo}" widget-style="btn btn-link">
             <hyperlink also-hidden="false" description="${partyIdTo}" target="EmployeeProfile">
                 <parameter param-name="partyId" from-field="partyIdTo"/>
             </hyperlink>
@@ -69,7 +69,7 @@
         <field name="thruDate"><display/></field>
         <field name="terminationReasonId" title="${uiLabelMap.HumanResTerminationReasonId}"><display/></field>
         <field name="terminationTypeId"><display/></field>
-        <field name="editLink" title=" " widget-style="buttontext">
+        <field name="editLink" title=" " widget-style="btn btn-link">
             <hyperlink target="EditEmployment" description="${uiLabelMap.CommonEdit}">
                 <parameter param-name="partyIdFrom"/>
                 <parameter param-name="partyIdTo"/>
@@ -80,7 +80,7 @@
         </field>
     </form>
     <form name="ListEmployments" type="list" paginate-target="FindEmployments" default-entity-name="EmploymentAndPerson" list-name="listIt" separate-columns="true"
-        odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="table table-hover">
         <actions>
             <service service-name="performFind" result-map="result" result-map-list="listIt">
                 <field-map field-name="inputFields" from-field="employmentCtx"/>
@@ -90,7 +90,7 @@
             </service>
         </actions>
         <field name="partyIdFrom" title="${uiLabelMap.HumanResEmploymentPartyIdFrom}"><display></display></field>
-        <field name="partyIdTo" title="${uiLabelMap.HumanResEmployeePartyIdTo}" widget-style="buttontext">
+        <field name="partyIdTo" title="${uiLabelMap.HumanResEmployeePartyIdTo}" widget-style="btn btn-link">
             <hyperlink also-hidden="false" description="${partyIdTo}" target="viewprofile">
                 <parameter param-name="partyId" from-field="partyIdTo"/>
             </hyperlink>
@@ -99,7 +99,7 @@
         <field name="thruDate"><display/></field>
         <field name="terminationReasonId" title="${uiLabelMap.HumanResTerminationReasonId}"><display/></field>
         <field name="terminationTypeId"><display/></field>
-        <field name="editLink" title=" " widget-style="buttontext">
+        <field name="editLink" title=" " widget-style="btn btn-link">
             <hyperlink target="EditEmployment" description="${uiLabelMap.CommonEdit}">
                 <parameter param-name="partyIdFrom"/>
                 <parameter param-name="partyIdTo"/>
@@ -110,7 +110,7 @@
         </field>
     </form>
     <form name="EditEmployment" type="single" target="updateEmployment" default-map-name="employment"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <alt-target use-when="employment==null" target="createEmployment"/>
         <auto-fields-service service-name="createEmployment" default-field-type="hidden"/>
         <field name="roleTypeIdFrom"><hidden value="INTERNAL_ORGANIZATIO"/></field>
@@ -142,11 +142,11 @@
                 </entity-options>
             </drop-down>
         </field>
-        <field name="submitButton" use-when="employment==null" title="${uiLabelMap.CommonCreate}" widget-style="smallSubmit"><submit button-type="button"/></field>
-        <field name="submitButton" use-when="employment!=null" title="${uiLabelMap.CommonUpdate}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" use-when="employment==null" title="${uiLabelMap.CommonCreate}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
+        <field name="submitButton" use-when="employment!=null" title="${uiLabelMap.CommonUpdate}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
     <form name="ListPayHistories" type="list" target="updatePayHistory" title="" paginate-target="findPayHistories"
-        odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" default-table-style="table table-hover">
         <actions>
             <entity-condition entity-name="PayHistory" filter-by-date="true">
                 <condition-list combine="and">
@@ -176,7 +176,7 @@
             </drop-down>
         </field>
         <field name="submitButton" title="${uiLabelMap.CommonUpdate}"><submit button-type="button"/></field>
-        <field name="deleteLink" title=" " widget-style="buttontext">
+        <field name="deleteLink" title=" " widget-style="btn btn-link">
             <hyperlink target="deletePayHistory" description="${uiLabelMap.CommonDelete}">
                 <parameter param-name="roleTypeIdFrom"/>
                 <parameter param-name="roleTypeIdTo"/>
@@ -187,7 +187,7 @@
         </field>
     </form>
     <form name="ListPartyBenefits" type="multi" target="updatePartyBenefit?benefitTypeId=${benefitTypeId}&amp;roleTypeIdFrom=${roleTypeIdFrom}&amp;roleTypeIdTo=${roleTypeIdTo}&amp;partyIdFrom=${partyIdFrom}&amp;partyIdTo=${partyIdTo}&amp;fromDate=${fromDate}" title="" paginate-target="findPartyBenefits"
-        odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="table table-hover">
         <actions>
             <entity-condition entity-name="PartyBenefit"><order-by field-name="fromDate"/></entity-condition>
         </actions>
@@ -207,8 +207,8 @@
         </field>
         <field name="thruDate"><date-time/></field>
         <field name="_rowSubmit" title="${uiLabelMap.CommonSelect}"><hidden value="Y"/></field>
-        <field name="submitButton" title="${uiLabelMap.CommonSubmit}" widget-style="smallSubmit"><submit/></field>
-        <field name="deleteLink" title="${uiLabelMap.CommonDelete}" widget-style="buttontext">
+        <field name="submitButton" title="${uiLabelMap.CommonSubmit}" widget-style="btn btn-default btn-sm"><submit/></field>
+        <field name="deleteLink" title="${uiLabelMap.CommonDelete}" widget-style="btn btn-link">
             <hyperlink target="deletePartyBenefit" description="${uiLabelMap.CommonDelete}">
                 <parameter param-name="benefitTypeId"/>
                 <parameter param-name="roleTypeIdFrom"/>
@@ -220,7 +220,7 @@
         </field>
     </form>
     <form name="AddPartyBenefit" type="single" target="createPartyBenefit"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <auto-fields-service service-name="createPartyBenefit"/>
         <field name="roleTypeIdFrom"><hidden/></field>
         <field name="roleTypeIdTo"><hidden/></field>
@@ -245,7 +245,7 @@
         <field name="submitButton" title="${uiLabelMap.CommonAdd}"><submit button-type="button"/></field>
     </form>
     <form name="ListPayrollPreferences" type="multi" target="updatePayrollPreference?partyId=${partyId}&amp;roleTypeId=${roleTypeId}&amp;payrollPreferenceSeqId=${payrollPreferenceSeqId}" separate-columns="true" paginate-target="findPayRollPreferences"
-        odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="table table-hover">
         <actions>
             <entity-condition entity-name="PayrollPreference">
                 <condition-list combine="and">
@@ -263,7 +263,7 @@
         <field name="periodTypeId"><display-entity entity-name="PeriodType" description="${description}"/></field>
         <field name="fromDate"><display/></field>
         <field name="thruDate"><date-time/></field>
-        <field name="deleteLink" title="${uiLabelMap.CommonDelete}" widget-style="buttontext">
+        <field name="deleteLink" title="${uiLabelMap.CommonDelete}" widget-style="btn btn-link">
             <hyperlink target="deletePayrollPreference" description="${uiLabelMap.CommonDelete}" also-hidden="true">
                 <parameter param-name="partyId"/>
                 <parameter param-name="roleTypeId"/>
@@ -271,10 +271,10 @@
             </hyperlink>
         </field>
         <field name="_rowSubmit" title="${uiLabelMap.CommonSelect}"><hidden value="Y"/></field>
-        <field name="submitButton" title="${uiLabelMap.CommonSubmit}" widget-style="smallSubmit"><submit/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonSubmit}" widget-style="btn btn-default btn-sm"><submit/></field>
     </form>
     <form name="AddPayrollPreference" type="single" target="createPayrollPreference"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <auto-fields-service service-name="createPayrollPreference"/>
         <field name="payrollPreferenceSeqId" title="${uiLabelMap.HumanResPayrollPreferenceSeqId}" tooltip="${uiLabelMap.CommonRequired}" widget-style="required"><lookup target-form-name="LookupPayRollPreference"/></field>
         <field name="partyId"><hidden/></field>
@@ -301,24 +301,24 @@
                 </entity-options>
             </drop-down>
         </field>
-        <field name="submitButton" title="${uiLabelMap.CommonCreate}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonCreate}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
     <form name="ListPerformanceNotes" type="list" target="updatePerformanceNote" title="" paginate-target="findPerformanceNotes"
-        odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="table table-hover">
         <actions>
             <entity-condition entity-name="PerformanceNote"/>
         </actions>
         <auto-fields-service default-field-type="display" service-name="updatePerformanceNote"/>
         <field name="partyId" title="${uiLabelMap.PartyPartyId}">
            <display-entity description="${firstName} ${middleName} ${lastName} ${groupName}" entity-name="PartyNameView">
-               <sub-hyperlink target="/partymgr/control/viewprofile" link-style="smallSubmit" target-type="inter-app" description="${partyId}">
+               <sub-hyperlink target="/partymgr/control/viewprofile" link-style="btn btn-default btn-sm" target-type="inter-app" description="${partyId}">
                 <parameter param-name="partyId"/>
             </sub-hyperlink>
            </display-entity>
         </field>
     </form>
     <form name="AddPerformanceNote" type="single" target="createPerformanceNote" default-map-name="performanceNote"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <auto-fields-service service-name="createPerformanceNote" map-name="performanceNote"/>
         <field name="partyId"><hidden/></field>
         <field name="roleTypeId">
@@ -328,10 +328,10 @@
                 </entity-options>
             </drop-down>
         </field>
-        <field name="submitButton" title="${uiLabelMap.CommonCreate}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonCreate}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
     <form name="ListUnemploymentClaims" type="multi" target="updateUnemploymentClaim?unemploymentClaimId=${unemploymentClaimId}&amp;roleTypeIdFrom=${roleTypeIdFrom}&amp;roleTypeIdTo=${roleTypeIdTo}&amp;partyIdFrom=${partyIdFrom}&amp;partyIdTo=${partyIdTo}&amp;fromDate=${fromDate}" paginate-target="FindUnemploymentClaim"
-         odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
+         odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="table table-hover">
          <actions>
             <entity-condition entity-name="UnemploymentClaim" filter-by-date="true">
                 <condition-list combine="and">
@@ -360,8 +360,8 @@
             </drop-down>
         </field>
         <field name="_rowSubmit" title="${uiLabelMap.CommonSelect}"><hidden value="Y"/></field>
-        <field name="submitButton" title="${uiLabelMap.CommonSubmit}" widget-style="smallSubmit"><submit/></field>
-        <field name="deleteLink" title=" " widget-style="buttontext">
+        <field name="submitButton" title="${uiLabelMap.CommonSubmit}" widget-style="btn btn-default btn-sm"><submit/></field>
+        <field name="deleteLink" title=" " widget-style="btn btn-link">
             <hyperlink target="deleteUnemploymentClaim" description="${uiLabelMap.CommonDelete}">
                 <parameter param-name="unemploymentClaimId"/>
                 <parameter param-name="roleTypeIdFrom"/>
@@ -373,7 +373,7 @@
         </field>
     </form>
     <form name="AddUnemploymentClaim" type="single" target="createUnemploymentClaim" title="" default-map-name="unemploymentClaim"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <auto-fields-service service-name="createUnemploymentClaim"/>
         <field name="unemploymentClaimId" tooltip="${uiLabelMap.CommonRequired}" widget-style="required"><lookup target-form-name="LookupUnemploymentClaim"/></field>
         <field name="statusId">
@@ -389,10 +389,10 @@
         <field name="partyIdFrom"><hidden/></field>
         <field name="partyIdTo"><hidden/></field>
         <field name="fromDate"><hidden/></field>
-        <field name="submitButton" title="${uiLabelMap.CommonCreate}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonCreate}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
     <form name="ListAgreementEmploymentAppls" type="multi" title="" target="updateAgreementEmploymentAppl?agreementId=${agreementId}&amp;partyIdTo=${partyIdTo}&amp;partyIdFrom=${partyIdFrom}&amp;roleTypeIdFrom=${roleTypeIdFrom}&amp;roleTypeIdTo=${roleTypeIdTo}&amp;fromDate=${fromDate}&amp;agreementItemSeqId=${agreementItemSeqId}" paginate-target="EditAgreementEmploymentAppls"
-        odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="table table-hover">
         <actions>
             <entity-condition entity-name="AgreementEmploymentAppl"><order-by field-name="fromDate"/></entity-condition>
         </actions>
@@ -405,7 +405,7 @@
         <field name="fromDate"><display/></field>
         <field name="thruDate"><date-time/></field>
         <field name="agreementDate"><date-time/></field>
-        <field name="deleteLink" title="${uiLabelMap.CommonDelete}" widget-style="buttontext">
+        <field name="deleteLink" title="${uiLabelMap.CommonDelete}" widget-style="btn btn-link">
             <hyperlink target="deleteAgreementEmploymentAppl"  also-hidden="false">
                 <parameter param-name="agreementId"/>
                 <parameter param-name="partyIdTo"/>
@@ -417,10 +417,10 @@
             </hyperlink>
         </field>
         <field name="_rowSubmit" title="${uiLabelMap.CommonSelect}"><hidden value="Y"/></field>
-        <field name="submitButton" title="${uiLabelMap.CommonSubmit}" widget-style="smallSubmit"><submit/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonSubmit}" widget-style="btn btn-default btn-sm"><submit/></field>
     </form>
     <form name="AddAgreementEmploymentAppl" type="single" target="createAgreementEmploymentAppl" default-map-name="agreementEmploymentAppl"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <auto-fields-service service-name="createAgreementEmploymentAppl" default-field-type="display"/>
         <field name="agreementId" title="${uiLabelMap.AccountingAgreementId}" tooltip="${uiLabelMap.CommonRequired}" widget-style="required"><lookup target-form-name="LookupAgreement"/></field>
         <field name="agreementItemSeqId" title="${uiLabelMap.AccountingAgreementItemSeqId}" tooltip="${uiLabelMap.CommonRequired}" widget-style="required"><lookup target-form-name="LookupAgreementEmploymentAppl"/></field>
@@ -443,6 +443,6 @@
         <field name="fromDate"><date-time/></field>
         <field name="agreementDate"><date-time/></field>
         <field name="thruDate"><date-time/></field>
-        <field name="submitButton" title="${uiLabelMap.CommonCreate}" widget-style="buttontext"><submit button-type="text-link"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonCreate}" widget-style="btn btn-link"><submit button-type="text-link"/></field>
     </form>
 </forms>

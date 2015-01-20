@@ -30,11 +30,11 @@ under the License.
       <br class="clear"/>
     </div>
     <div class="screenlet-body">
-      <table class="basic-table" cellspacing='0'>
+      <table class="table" cellspacing='0'>
         <tr>
           <td>
             <#if orderNotes?has_content>
-            <table class="basic-table" cellspacing='0'>
+            <table class="table" cellspacing='0'>
               <#list orderNotes as note>
                 <tr>
                   <td valign="top" width="35%">
@@ -53,7 +53,7 @@ under the License.
                           <input type="hidden" name="orderId" value="${orderId}"/>
                           <input type="hidden" name="noteId" value="${note.noteId}"/>
                           <input type="hidden" name="internalNote" value="Y"/>
-                          <a href="javascript:document.privateNotesForm_${note_index}.submit()" class="buttontext">${uiLabelMap.OrderNotesPrivate}</a>
+                          <a href="javascript:document.privateNotesForm_${note_index}.submit()" class="btn btn-link">${uiLabelMap.OrderNotesPrivate}</a>
                         </form>
                     </#if>
                     <#if note.internalNote! == "Y">
@@ -62,7 +62,7 @@ under the License.
                           <input type="hidden" name="orderId" value="${orderId}"/>
                           <input type="hidden" name="noteId" value="${note.noteId}"/>
                           <input type="hidden" name="internalNote" value="N"/>
-                          <a href="javascript:document.publicNotesForm_${note_index}.submit()" class="buttontext">${uiLabelMap.OrderNotesPublic}</a>
+                          <a href="javascript:document.publicNotesForm_${note_index}.submit()" class="btn btn-link">${uiLabelMap.OrderNotesPublic}</a>
                         </form>
                     </#if>
                   </td>

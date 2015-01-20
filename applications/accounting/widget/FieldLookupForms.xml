@@ -22,7 +22,7 @@ under the License.
         xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-form.xsd">
 
     <form name="lookupFixedAsset" target="LookupFixedAsset" title="" type="single"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <auto-fields-entity entity-name="FixedAsset" default-field-type="hidden"/>
         <field name="fixedAssetId"><text-find/></field>
         <field name="fixedAssetName"><text-find/></field>
@@ -34,10 +34,10 @@ under the License.
              </drop-down>
         </field>
         <field name="noConditionFind"><hidden value="Y"/><!-- if this isn't there then with all fields empty no query will be done --></field>
-        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
     <form name="listLookupFixedAsset" list-name="listIt" title="" type="list" paginate-target="LookupFixedAsset"
-        odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" default-table-style="table table-hover">
         <actions>
             <service service-name="performFind" result-map="result" result-map-list="listIt">
                 <field-map field-name="inputFields" from-field="parameters"/>
@@ -46,14 +46,14 @@ under the License.
                 <field-map field-name="viewSize" from-field="viewSize"/>
             </service>
         </actions>
-        <field name="fixedAssetId" widget-style="buttontext">
+        <field name="fixedAssetId" widget-style="btn btn-link">
             <hyperlink also-hidden="false" target-type="plain" description="${fixedAssetId}" target="javascript:set_value('${fixedAssetId}')"/>
         </field>
         <field name="fixedAssetName" title="${uiLabelMap.CommonName}"><display/></field>
         <field name="fixedAssetTypeId" title="${uiLabelMap.AccountingFixedAssetTypeId}"><display-entity entity-name="FixedAssetType"/></field>
     </form>
     <form name="lookupBudget" target="LookupBudget" title="" type="single"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <auto-fields-entity entity-name="Budget" default-field-type="hidden"/>
         <field name="budgetId"><text-find/></field>
         <field name="budgetTypeId" title="${uiLabelMap.AccountingBudgetType}">
@@ -66,10 +66,10 @@ under the License.
         <field name="customTimePeriodId"><text-find/></field>
         <field name="comments"><text-find/></field>
         <field name="noConditionFind"><hidden value="Y"/><!-- if this isn't there then with all fields empty no query will be done --></field>
-        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
     <form name="listLookupBudget" list-name="listIt" title="" type="list" paginate-target="LookupBudget"
-        odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" default-table-style="table table-hover">
         <actions>
             <service service-name="performFind" result-map="result" result-map-list="listIt">
                 <field-map field-name="inputFields" from-field="parameters"/>
@@ -78,24 +78,24 @@ under the License.
                 <field-map field-name="viewSize" from-field="viewSize"/>
             </service>
         </actions>
-        <field name="fixedAssetId" widget-style="buttontext">
+        <field name="fixedAssetId" widget-style="btn btn-link">
             <hyperlink also-hidden="false" target-type="plain" description="${fixedAssetId}" target="javascript:set_value('${fixedAssetId}')"/>
         </field>
         <field name="fixedAssetName" title="${uiLabelMap.CommonName}"><display/></field>
         <field name="fixedAssetTypeId" title="${uiLabelMap.AccountingFixedAssetTypeId}"><display-entity entity-name="FixedAssetType"/></field>
     </form>
     <form name="lookupBillingAccount" target="LookupBillingAccount" title="" type="single"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <auto-fields-entity entity-name="BillingAccount" default-field-type="hidden"/>
         <field name="billingAccountId" title="${uiLabelMap.AccountingBillingAccountId}"><text-find/></field>
         <field name="description" title="${uiLabelMap.CommonDescription}"><text-find/></field>
         <field name="externalAccountId" title="${uiLabelMap.AccountingExternalAccountId}"><text-find/></field>
 
         <field name="noConditionFind"><hidden value="Y"/><!-- if this isn't there then with all fields empty no query will be done --></field>
-        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
     <form name="listBillingAccount" list-name="listIt" title="" type="list" paginate-target="LookupBillingAccount"
-        odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" default-table-style="table table-hover">
         <actions>
             <service service-name="performFind" result-map="result" result-map-list="listIt">
                 <field-map field-name="inputFields" from-field="parameters"/>
@@ -105,7 +105,7 @@ under the License.
                 <field-map field-name="viewSize" from-field="viewSize"/>
             </service>
         </actions>
-        <field name="billingAccountId" title="${uiLabelMap.AccountingBillingAccountId}" widget-style="buttontext">
+        <field name="billingAccountId" title="${uiLabelMap.AccountingBillingAccountId}" widget-style="btn btn-link">
             <hyperlink also-hidden="false" target-type="plain" description="${billingAccountId}" target="javascript:set_value('${billingAccountId}')"/>
         </field>
         <field name="description"><display/></field>
@@ -113,7 +113,7 @@ under the License.
     </form>
 
     <form name="lookupGlAccount" target="LookupGlAccount" title="" type="single"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <auto-fields-entity entity-name="GlAccount" default-field-type="hidden"/>
         <field name="glAccountId" title="${uiLabelMap.AccountingGlAccountId}"><text-find/></field>
         <field name="accountName" title="${uiLabelMap.CommonName}"><text-find/></field>
@@ -132,10 +132,10 @@ under the License.
             </drop-down>
         </field>
         <field name="noConditionFind"><hidden value="Y"/><!-- if this isn't there then with all fields empty no query will be done --></field>
-        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
     <form name="listLookupGlAccount" list-name="listIt" title="" type="list" paginate-target="LookupGlAccount"
-        odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" default-table-style="table table-hover">
         <actions>
             <service service-name="performFind" result-map="result" result-map-list="listIt">
                 <field-map field-name="inputFields" from-field="parameters"/>
@@ -144,7 +144,7 @@ under the License.
                 <field-map field-name="viewSize" from-field="viewSize"/>
             </service>
         </actions>
-        <field name="glAccountId" title="${uiLabelMap.AccountingGlAccountId}" widget-style="buttontext">
+        <field name="glAccountId" title="${uiLabelMap.AccountingGlAccountId}" widget-style="btn btn-link">
             <hyperlink also-hidden="false" target-type="plain" description="${glAccountId}" target="javascript:set_value('${glAccountId}')"/>
         </field>
         <field name="accountName" title="${uiLabelMap.CommonName}"><display/></field>
@@ -152,7 +152,7 @@ under the License.
         <field name="glAccountClassId" title="${uiLabelMap.AccountingGlAccountClass}"><display-entity entity-name="GlAccountClass"/></field>
     </form>
     <form name="lookupPayment" target="LookupPayment" title="" type="single"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <auto-fields-entity entity-name="Payment" default-field-type="hidden"/>
         <field name="paymentId" title="${uiLabelMap.AccountingPaymentID}"><text-find/></field>
         <field name="partyIdFrom"><lookup  target-form-name="LookupPartyName"/></field>
@@ -160,10 +160,10 @@ under the License.
         <field name="amountApplied"><text-find default-value=""></text-find> </field>
 
         <field name="noConditionFind"><hidden value="Y"/><!-- if this isn't there then with all fields empty no query will be done --></field>
-        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
     <form name="listPayment" list-name="listIt" title="" type="list" paginate-target="LookupPayment"
-        odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" default-table-style="table table-hover">
         <actions>
             <service service-name="performFind" result-map="result" result-map-list="listIt">
                 <field-map field-name="inputFields" from-field="parameters"/>
@@ -172,7 +172,7 @@ under the License.
                 <field-map field-name="viewSize" from-field="viewSize"/>
             </service>
         </actions>
-        <field name="paymentId" widget-style="buttontext">
+        <field name="paymentId" widget-style="btn btn-link">
             <hyperlink also-hidden="false" target-type="plain" description="${paymentId}" target="javascript:set_value('${paymentId}')"/>
         </field>
         <field name="partyIdFrom"><display-entity entity-name="PartyNameView" key-field-name="partyId" description="${groupName}${lastName}[${partyId}]"/></field>
@@ -183,7 +183,7 @@ under the License.
     </form>
 
     <form name="lookupInvoice" target="LookupInvoice" title="" type="single"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <!--auto-fields-entity entity-name="Invoice" default-field-type="hidden" /-->
         <field position="1" name="invoiceId" ><text-find/></field>
         <field position="1" name="invoiceTypeId">
@@ -204,10 +204,10 @@ under the License.
         <field position="2" name="DateThru" title="${uiLabelMap.CommonThruDate}"><date-time/></field>
 
         <field name="noConditionFind"><hidden value="Y"/><!-- if this isn't there then with all fields empty no query will be done --></field>
-        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
     <form name="listInvoice" list-name="listIt" title="" type="list" paginate-target="LookupInvoice"
-        odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" default-table-style="table table-hover">
         <actions>
             <service service-name="performFind" result-map="result" result-map-list="listIt">
                 <field-map field-name="inputFields" from-field="parameters"/>
@@ -216,7 +216,7 @@ under the License.
                 <field-map field-name="viewSize" from-field="viewSize"/>
             </service>
         </actions>
-        <field name="invoiceId" widget-style="buttontext">
+        <field name="invoiceId" widget-style="btn btn-link">
             <hyperlink also-hidden="false" target-type="plain" description="${invoiceId}" target="javascript:set_value('${invoiceId}')"/>
         </field>
         <field name="invoiceTypeId"><display-entity entity-name="InvoiceType"/></field>
@@ -229,24 +229,24 @@ under the License.
     </form>
 
     <form name="lookupAgreement" target="LookupAgreement" title="" type="single"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <field name="agreementId" ><text-find/></field>
         <field name="productId" ><text-find/></field>
         <field name="partyIdFrom"><text-find/></field>
         <field name="partyId" title="${uiLabelMap.AccountingPartyIdTo}"><text-find/></field>
         <field name="agreementDate" title="${uiLabelMap.CommonFromDate}"><date-time/></field>
         <field name="noConditionFind"><hidden value="Y"/><!-- if this isn't there then with all fields empty no query will be done --></field>
-        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
     <form name="listAgreements" list-name="listIt" title="" type="list" target="LookupAgreement"
-        odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" default-table-style="table table-hover">
         <actions>
             <service service-name="performFind" result-map="result" result-map-list="listIt">
                 <field-map field-name="inputFields" from-field="parameters"/>
                 <field-map field-name="entityName" value="Agreement"/>
             </service>
         </actions>
-        <field name="agreementId" widget-style="buttontext">
+        <field name="agreementId" widget-style="btn btn-link">
             <hyperlink also-hidden="false" target-type="plain" description="${agreementId}" target="javascript:set_value('${agreementId}')"/>
         </field>
         <field name="productId"><display/></field>
@@ -258,7 +258,7 @@ under the License.
     </form>
 
     <form name="lookupAgreementItem" target="LookupAgreementItem" title="" type="single"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <field name="agreementId"><text-find/></field>
         <field name="agreementItemSeqId"><text-find/></field>
         <field name="agreementItemTypeId" title="${uiLabelMap.FormFieldTitle_agreementItemType}">
@@ -267,10 +267,10 @@ under the License.
             </drop-down>
         </field>
         <field name="noConditionFind"><hidden value="Y"/><!-- if this isn't there then with all fields empty no query will be done --></field>
-        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
     <form name="listAgreementItems" list-name="listIt" title="" type="list" target="LookupAgreementItem"
-        odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" default-table-style="table table-hover">
         <actions>
             <service service-name="performFind" result-map="result" result-map-list="listIt">
                 <field-map field-name="inputFields" from-field="parameters"/>
@@ -280,24 +280,24 @@ under the License.
             </service>
         </actions>
         <field name="agreementId"><display/></field>
-        <field name="agreementItemSeqId" widget-style="buttontext">
+        <field name="agreementItemSeqId" widget-style="btn btn-link">
             <hyperlink also-hidden="false" target-type="plain" description="${agreementItemSeqId}" target="javascript:set_value('${agreementItemSeqId}')"/>
         </field>
         <field name="agreementItemTypeId"><display/></field>
         <field name="currencyUomId"><display/></field>
     </form>
 
-    <form name="lookupPaymentGroupMember" target="LookupPaymentGroupMember" title="" type="single" header-row-style="header-row" default-table-style="basic-table">
+    <form name="lookupPaymentGroupMember" target="LookupPaymentGroupMember" title="" type="single" header-row-style="header-row" default-table-style="table">
         <field name="paymentGroupId"><text-find/></field>
         <field name="paymentId"><text-find/></field>
         <field name="fromDate" position="1"><date-time/></field>
         <field name="thruDate" position="2"><date-time/></field>
         <field name="sequenceNum"><text-find/></field>
         <field name="noConditionFind"><hidden value="Y"/><!-- if this isn't there then with all fields empty no query will be done --></field>
-        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
     <form name="listPaymentGroupMember" list-name="listIt" title="" type="list" target="LookupPaymentGroupMember"
-        odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" default-table-style="table table-hover">
         <actions>
             <service service-name="performFind" result-map="result" result-map-list="listIt">
                 <field-map field-name="inputFields" from-field="parameters"/>
@@ -306,7 +306,7 @@ under the License.
                 <field-map field-name="viewSize" from-field="viewSize"/>
             </service>
         </actions>
-        <field name="paymentGroupId" widget-style="buttontext">
+        <field name="paymentGroupId" widget-style="btn btn-link">
             <hyperlink also-hidden="false" target-type="plain" description="${paymentGroupId}" target="javascript:set_value('${paymentGroupId}')"/>
         </field>
         <field name="paymentId"><display/></field>
@@ -314,17 +314,17 @@ under the License.
     </form>
 
     <form name="LookupGlReconciliation" target="LookupGlReconciliation" type="single"
-            header-row-style="header-row" default-table-style="basic-table">
+            header-row-style="header-row" default-table-style="table">
         <field name="glReconciliationId" title="${uiLabelMap.FormFieldTitle_glReconciliationId}"><text-find/></field>
         <field name="glReconciliationName" title="${uiLabelMap.FormFieldTitle_glReconciliationName}"><text-find/></field>
         <field name="organizationPartyId" title="${uiLabelMap.FormFieldTitle_organizationPartyId}"><lookup  target-form-name="LookupPartyName"/></field>
         <field name="description" title="${uiLabelMap.CommonDescription}"><text-find/></field>
         <field name="noConditionFind"><hidden value="Y"/><!-- if this isn't there then with all fields empty no query will be done --></field>
-        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
     
     <form name="ListLookupReconciliation" list-name="listIt" type="list" target="LookupGlReconciliation"
-            odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
+            odd-row-style="alternate-row" default-table-style="table table-hover">
         <actions>
             <service service-name="performFind" result-map="result" result-map-list="listIt">
                 <field-map field-name="inputFields" from-field="parameters"/>
@@ -333,7 +333,7 @@ under the License.
                 <field-map field-name="viewSize" from-field="viewSize"/>
             </service>
         </actions>
-        <field name="glReconciliationId" widget-style="buttontext">
+        <field name="glReconciliationId" widget-style="btn btn-link">
             <hyperlink also-hidden="false" target-type="plain" description="${glReconciliationId}" target="javascript:set_value('${glReconciliationId}')"/>
         </field>
         <field name="glReconciliationName"><display/></field>
@@ -342,7 +342,7 @@ under the License.
     </form>
     
     <form name="lookupCustomTimePeriod" target="LookupCustomTimePeriod" title="" type="single"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <auto-fields-entity entity-name="CustomTimePeriod" default-field-type="hidden"/>
         <field name="customTimePeriodId"><text-find/></field>
         <field name="parentPeriodId"><text-find/></field>
@@ -364,10 +364,10 @@ under the License.
             </drop-down>
         </field>
         <field name="noConditionFind"><hidden value="Y"/><!-- if this isn't there then with all fields empty no query will be done --></field>
-        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
     <form name="listLookupCustomTimePeriod" list-name="listIt" title="" type="list" paginate-target="LookupCustomTimePeriod"
-        odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" default-table-style="table table-hover">
         <actions>
             <service service-name="performFind" result-map="result" result-map-list="listIt">
                 <field-map field-name="inputFields" from-field="parameters"/>
@@ -376,7 +376,7 @@ under the License.
                 <field-map field-name="viewSize" from-field="viewSize"/>
             </service>
         </actions>
-        <field name="customTimePeriodId" widget-style="buttontext">
+        <field name="customTimePeriodId" widget-style="btn btn-link">
             <hyperlink also-hidden="false" target-type="plain" description="${customTimePeriodId}" target="javascript:set_value('${customTimePeriodId}')"/>
         </field>
         <field name="parentPeriodId"><display/></field>

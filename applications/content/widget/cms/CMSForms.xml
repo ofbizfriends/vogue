@@ -21,7 +21,7 @@ under the License.
 <forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
         xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-form.xsd">
     <form name="findContent" default-entity-name="ContentAssocDataResourceViewFrom" target="CMSContentFind" title="" type="single"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <field name="caContentIdTo"><text-find/></field>
         <field name="caMapKey"><text-find/></field>
         <field name="caContentAssocTypeId"><text-find/></field>
@@ -29,11 +29,11 @@ under the License.
         <field name="contentId"><text-find/></field>
         <field name="dataResourceId" title="${uiLabelMap.ContentDataResourceId}"><text-find/></field>
         <field name="contentName"><text-find/></field>
-        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
 
     <form name="listFindContent" type="list" list-name="listIt" target="" paginate-target="/CMSContentFind" view-size="20"
-        odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" default-table-style="table table-hover">
         <actions>
             <service service-name="performFind" result-map-list="listIt">
                 <field-map field-name="inputFields" from-field="requestParameters"/>
@@ -73,7 +73,7 @@ under the License.
     </form>
 
     <form name="EditContent" target="uploadContentAndImage" title="" type="upload"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <field name="imageData" >
             <file />
         </field>
@@ -139,7 +139,7 @@ under the License.
             </hyperlink>
         </field>
         -->
-        <field name="submitButton" title="${uiLabelMap.CommonUpload}" widget-style="smallSubmit">
+        <field name="submitButton" title="${uiLabelMap.CommonUpload}" widget-style="btn btn-default btn-sm">
             <submit button-type="button"/>
         </field>
         <field name="ftlContentId" >
@@ -182,9 +182,9 @@ under the License.
 
     <!-- ContentPurposeOperation forms -->
    <form name="UpdateContentPurposeOperation" list-name="contentList" target="updateContentPurposeOperation" title="" type="list"
-        odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" default-table-style="table table-hover">
         <auto-fields-service service-name="updateContentPurposeOperation" default-field-type="display"/>
-        <field name="deleteLink" title=" " widget-style="buttontext">
+        <field name="deleteLink" title=" " widget-style="btn btn-link">
             <hyperlink also-hidden="false" description="${uiLabelMap.CommonDelete}" target="removeContentPurposeOperation">
                 <parameter param-name="contentPurposeTypeId"/>
                 <parameter param-name="contentOperationId"/>
@@ -195,7 +195,7 @@ under the License.
         </field>
     </form>
     <form name="AddContentPurposeOperation" target="addContentPurposeOperation" title="" type="single"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <auto-fields-service service-name="createContentPurposeOperation"/>
         <field name="contentPurposeTypeId">
             <drop-down allow-empty="false">
@@ -234,12 +234,12 @@ under the License.
                 </entity-options>
             </drop-down>
         </field>
-        <field name="submitButton" title="${uiLabelMap.CommonAdd}" widget-style="smallSubmit">
+        <field name="submitButton" title="${uiLabelMap.CommonAdd}" widget-style="btn btn-default btn-sm">
             <submit button-type="button"/>
         </field>
     </form>
     <form name="EditAddContentMaster" target="" title="" type="single"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <field name="dataResourceId" map-name="currentValue">
             <hidden/>
         </field>
@@ -262,7 +262,7 @@ under the License.
         <field name="privilegeEnumId" >
             <hidden/>
         </field>
-        <field name="submitButton" title="${uiLabelMap.CommonUpload}" widget-style="smallSubmit">
+        <field name="submitButton" title="${uiLabelMap.CommonUpload}" widget-style="btn btn-default btn-sm">
             <submit button-type="button"/>
         </field>
         <field name="statusId"  map-name="currentValue">
@@ -304,16 +304,16 @@ under the License.
                 <hidden value="true"/>
         </field>
     </form>
-    <form name="EditAddContent" target="persistContent" title="" type="single" extends="EditAddContentMaster" header-row-style="header-row" default-table-style="basic-table">
+    <form name="EditAddContent" target="persistContent" title="" type="single" extends="EditAddContentMaster" header-row-style="header-row" default-table-style="table">
     </form>
-    <form name="EditAddBioContent" target="persistBioContent" title="" type="single" extends="EditAddContentMaster" header-row-style="header-row" default-table-style="basic-table">
+    <form name="EditAddBioContent" target="persistBioContent" title="" type="single" extends="EditAddContentMaster" header-row-style="header-row" default-table-style="table">
     </form>
 <!--
     <form name="AddResponse" target="uploadResponse" title="" type="single" extends="EditAddContentMaster">
     </form>
 -->
 
-    <form name="EditAddImageMaster" target="" title="" type="upload" header-row-style="header-row" default-table-style="basic-table">
+    <form name="EditAddImageMaster" target="" title="" type="upload" header-row-style="header-row" default-table-style="table">
         <field name="dataResourceId" map-name="currentValue">
             <hidden/>
         </field>
@@ -332,7 +332,7 @@ under the License.
         <field name="contentName" map-name="currentValue">
             <hidden/>
         </field>
-        <field name="submitButton" title="${uiLabelMap.CommonUpload}" widget-style="smallSubmit">
+        <field name="submitButton" title="${uiLabelMap.CommonUpload}" widget-style="btn btn-default btn-sm">
             <submit button-type="button"/>
         </field>
         <field name="statusId"  map-name="currentValue">
@@ -383,13 +383,13 @@ under the License.
                 <hidden value="true"/>
         </field>
     </form>
-    <form name="EditAddImage" target="persistImage" title="" type="upload" extends="EditAddImageMaster" header-row-style="header-row" default-table-style="basic-table">
+    <form name="EditAddImage" target="persistImage" title="" type="upload" extends="EditAddImageMaster" header-row-style="header-row" default-table-style="table">
     </form>
-    <form name="EditAddBioImage" target="persistBioImage" title="" type="upload" extends="EditAddImageMaster" header-row-style="header-row" default-table-style="basic-table">
+    <form name="EditAddBioImage" target="persistBioImage" title="" type="upload" extends="EditAddImageMaster" header-row-style="header-row" default-table-style="table">
     </form>
 
     <form name="EditAddContentStuff" target="persistContentStuff" title="" type="upload" default-map-name="currentValue"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <field name="contentAssocTitle" title="${uiLabelMap.ContentAssoc}" title-style="h1" map-name="dummy">
             <display description=""/>
         </field>
@@ -424,16 +424,16 @@ under the License.
                 <entity-options description="${description}" entity-name="MetaDataPredicate" key-field-name="metaDataPredicateId"/>
             </drop-down>
         </field>
-        <field name="caFromDate" title="${uiLabelMap.CommonFromDate}" widget-style="buttontext" position="1" use-when="&quot;${caFromDate}&quot;.length()>0">
+        <field name="caFromDate" title="${uiLabelMap.CommonFromDate}" widget-style="btn btn-link" position="1" use-when="&quot;${caFromDate}&quot;.length()>0">
             <display default-value="${nowTimestamp}"/>
         </field>
-        <field name="caFromDate" title="${uiLabelMap.CommonFromDate}" widget-style="buttontext" position="1" use-when="&quot;${caFromDate}&quot;.length()==0">
+        <field name="caFromDate" title="${uiLabelMap.CommonFromDate}" widget-style="btn btn-link" position="1" use-when="&quot;${caFromDate}&quot;.length()==0">
             <date-time default-value="${nowTimestamp}"/>
         </field>
-        <field name="caThruDate" title="${uiLabelMap.CommonThruDate}" widget-style="buttontext" position="2" use-when="&quot;${caThruDate}&quot;.length()>0">
+        <field name="caThruDate" title="${uiLabelMap.CommonThruDate}" widget-style="btn btn-link" position="2" use-when="&quot;${caThruDate}&quot;.length()>0">
             <date-time/>
         </field>
-        <field name="caThruDate" title="${uiLabelMap.CommonThruDate}" widget-style="buttontext" position="2" use-when="&quot;${caThruDate}&quot;.length()==0">
+        <field name="caThruDate" title="${uiLabelMap.CommonThruDate}" widget-style="btn btn-link" position="2" use-when="&quot;${caThruDate}&quot;.length()==0">
             <date-time/>
         </field>
         <field name="contentTitle" title="${uiLabelMap.ContentContent}" title-style="h1" map-name="dummy">
@@ -500,14 +500,14 @@ under the License.
         </field>
         <field name="dataResourceId" title="${uiLabelMap.ContentDataResourceId}">
             <lookup target-form-name="LookupDataResource">
-            <sub-hyperlink use-when="&quot;${currentValue.dataResourceId}&quot;.length()>0" link-style="buttontext" target-type="intra-app" target="gotoDataResource" description="${uiLabelMap.ContentGoToDataResource}">
+            <sub-hyperlink use-when="&quot;${currentValue.dataResourceId}&quot;.length()>0" link-style="btn btn-link" target-type="intra-app" target="gotoDataResource" description="${uiLabelMap.ContentGoToDataResource}">
                 <parameter param-name="dataResourceId" from-field="currentValue.dataResourceId"/>
             </sub-hyperlink>
 <!--
-            <sub-hyperlink link-style="buttontext" target-type="intra-app" target="gotoDataResource" description="${uiLabelMap.ContentGoToDataResource}">
+            <sub-hyperlink link-style="btn btn-link" target-type="intra-app" target="gotoDataResource" description="${uiLabelMap.ContentGoToDataResource}">
                 <parameter param-name="dataResourceId" from-field="currentValue.dataResourceId"/>
             </sub-hyperlink>
-            <sub-hyperlink use-when="&quot;${currentValue.dataResourceId}&quot;.length()>0" link-style="buttontext" target-type="intra-app" target="gotoDataResource" description="${uiLabelMap.ContentGoToDataResource}">
+            <sub-hyperlink use-when="&quot;${currentValue.dataResourceId}&quot;.length()>0" link-style="btn btn-link" target-type="intra-app" target="gotoDataResource" description="${uiLabelMap.ContentGoToDataResource}">
                 <parameter param-name="dataResourceId" from-field="currentValue.dataResourceId"/>
             </sub-hyperlink>
 -->
@@ -588,7 +588,7 @@ under the License.
         <field name="createdDate" position="2"><display/></field>
         <field name="lastModifiedByUserLogin" position="1"><display/></field>
         <field name="lastModifiedDate" position="2"><display/></field>
-        <field name="submitButton" title="${uiLabelMap.CommonUpload}" widget-style="smallSubmit">
+        <field name="submitButton" title="${uiLabelMap.CommonUpload}" widget-style="btn btn-default btn-sm">
             <submit button-type="button"/>
         </field>
 
@@ -600,7 +600,7 @@ under the License.
         <field name="MASTER_drDataResource" ><hidden value="${MASTER_drDataResource}"/></field>
     </form>
     <form name="EditAddSubContentStuff" target="persistSubContentStuff" title="" type="upload" default-map-name="currentValue" extends="EditAddContentStuff"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
     </form>
 
 </forms>

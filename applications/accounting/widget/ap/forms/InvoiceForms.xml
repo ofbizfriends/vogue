@@ -21,7 +21,7 @@ under the License.
 <forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
     xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-form.xsd">
     <form name="ListReports" type="list" separate-columns="true" title="${uiLabelMap.AccountingInvoice} ${uiLabelMap.CommonList}" list-name="invoices" target=""
-        odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" default-table-style="table table-hover">
         <row-actions>
             <service service-name="getPartyNameForDate" result-map="partyNameResultFrom">
                 <field-map field-name="partyId" from-field="partyIdFrom"/>
@@ -40,7 +40,7 @@ under the License.
                 import java.text.NumberFormat;
                 return(NumberFormat.getNumberInstance(context.get(&quot;locale&quot;)).format(org.ofbiz.accounting.invoice.InvoiceWorker.getInvoiceTotal(delegator,invoiceId)));}"/>
         </row-actions>
-        <field name="invoiceId" widget-style="buttontext">
+        <field name="invoiceId" widget-style="btn btn-link">
             <hyperlink description="${invoiceId}" target="invoiceOverview">
                 <parameter param-name="invoiceId"/>
             </hyperlink>
@@ -100,7 +100,7 @@ under the License.
                 </entity-options>
             </drop-down>
         </field>
-        <field name="search" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="search" title="${uiLabelMap.CommonFind}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
 
     <form name="CommissionRun" type="single" target="CommissionRun">
@@ -115,7 +115,7 @@ under the License.
         <field name="statusId"><hidden value="INVOICE_PAID"/></field>
         <field name="fromDate" position="1"><date-time/></field>
         <field name="thruDate" position="2"><date-time/></field>
-        <field name="search" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="search" title="${uiLabelMap.CommonFind}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
 
     <form name="CommissionReport" type="single" target="FindCommissions">
@@ -130,6 +130,6 @@ under the License.
         </field>
         <field name="fromDate" position="1"><date-time/></field>
         <field name="thruDate" position="2"><date-time/></field>
-        <field name="search" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit" position="1"><submit button-type="button"/></field>
+        <field name="search" title="${uiLabelMap.CommonFind}" widget-style="btn btn-default btn-sm" position="1"><submit button-type="button"/></field>
     </form>
 </forms>

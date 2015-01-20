@@ -81,7 +81,7 @@ under the License.
             <@htmlTemplate.lookupField value="${orderId!}" formName="ReceiveInventoryAgainstPurchaseOrder" name="purchaseOrderId" id="purchaseOrderId" fieldFormName="LookupOrderHeaderAndShipInfo"/>
         </span>
         <span class="label">${uiLabelMap.ProductOrderShipGroupId}</span>&nbsp;<input type="text" size="20" name="shipGroupSeqId" value="${shipGroupSeqId!}"/>
-        <input type="submit" value="${uiLabelMap.CommonSelect}" class="smallSubmit"/>
+        <input type="submit" value="${uiLabelMap.CommonSelect}" class="btn btn-default btn-sm"/>
     </div>
 </form>
 
@@ -98,7 +98,7 @@ under the License.
                 <input type="hidden" name="purchaseOrderId" value="${orderId}"/>
                 <input type="hidden" name="shipmentId" value="${shipmentId}" />
                 <input type="hidden" name="_useRowSubmit" value="Y"/>
-                <table cellspacing="0" class="basic-table">
+                <table cellspacing="0" class="table">
                     <tr class="header-row">
                         <td>${uiLabelMap.ProductProduct}</td>
 
@@ -191,7 +191,7 @@ under the License.
                                     </select>
                                 </td>
                                 <td align="right">
-                                    <a href="<@ofbizUrl>ReceiveInventoryAgainstPurchaseOrder?shipmentId=${shipmentId}&amp;purchaseOrderId=${orderId}&amp;productId=${product.productId}</@ofbizUrl>" class="buttontext">${uiLabelMap.CommonClear}</a>
+                                    <a href="<@ofbizUrl>ReceiveInventoryAgainstPurchaseOrder?shipmentId=${shipmentId}&amp;purchaseOrderId=${orderId}&amp;productId=${product.productId}</@ofbizUrl>" class="btn btn-link">${uiLabelMap.CommonClear}</a>
                                 </td>
                                 <td align="right">
                                   <input type="checkbox" name="_rowSubmit_o_${rowCount}" value="Y" onclick="javascript:checkToggle(this, 'selectAllForm');highlightRow(this,'orderItemData_tableRow_${rowCount}');" />
@@ -205,15 +205,15 @@ under the License.
                     <#if itemsAvailableToReceive>
                         <tr>
                             <td colspan="11" align="right">
-                                <a href="<@ofbizUrl>ReceiveInventoryAgainstPurchaseOrder?shipmentId=${shipmentId}&amp;purchaseOrderId=${orderId}&amp;clearAll=Y</@ofbizUrl>" class="buttontext">${uiLabelMap.CommonClearAll}</a>
+                                <a href="<@ofbizUrl>ReceiveInventoryAgainstPurchaseOrder?shipmentId=${shipmentId}&amp;purchaseOrderId=${orderId}&amp;clearAll=Y</@ofbizUrl>" class="btn btn-link">${uiLabelMap.CommonClearAll}</a>
                             </td>
                             <td align="right">
-                                <a class="smallSubmit" href="javascript:populateQuantities(${rowCount - 1});document.selectAllForm.submit();">${uiLabelMap.ProductReceiveItem}</a>
+                                <a class="btn btn-default btn-sm" href="javascript:populateQuantities(${rowCount - 1});document.selectAllForm.submit();">${uiLabelMap.ProductReceiveItem}</a>
                             </td>
                         </tr>
                         <tr>
                             <td colspan="12" align="right">
-                                <a class="smallSubmit" href="<@ofbizUrl>completePurchaseOrder?orderId=${orderId}&amp;facilityId=${facilityId}&amp;shipmentId=${shipmentId}</@ofbizUrl>">${uiLabelMap.OrderForceCompletePurchaseOrder}</a>
+                                <a class="btn btn-default btn-sm" href="<@ofbizUrl>completePurchaseOrder?orderId=${orderId}&amp;facilityId=${facilityId}&amp;shipmentId=${shipmentId}</@ofbizUrl>">${uiLabelMap.OrderForceCompletePurchaseOrder}</a>
                             </td>
                         </tr>
                     </#if>
@@ -232,7 +232,7 @@ under the License.
                     <input type="text" size="20" id="productId" name="productId" value=""/>
                         @
                     <input type="text"  name="quantity" size="6" maxlength="6" value="1" tabindex="0"/>
-                    <input type="submit" value="${uiLabelMap.CommonAdd}" class="smallSubmit"/>
+                    <input type="submit" value="${uiLabelMap.CommonAdd}" class="btn btn-default btn-sm"/>
                 </div>
             </form>
             <script language="javascript" type="text/javascript">

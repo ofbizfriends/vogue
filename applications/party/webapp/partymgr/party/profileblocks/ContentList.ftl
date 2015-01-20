@@ -19,7 +19,7 @@ under the License.
 
   <div id="partyContentList">
       <#if partyContent?has_content>
-        <table class="basic-table" cellspacing="0">
+        <table class="table" cellspacing="0">
           <#list partyContent as pContent>
             <#assign content = pContent.getRelatedOne("Content", false)>
             <#assign contentType = content.getRelatedOne("ContentType", true)>

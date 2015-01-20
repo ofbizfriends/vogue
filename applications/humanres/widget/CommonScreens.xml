@@ -57,7 +57,7 @@ under the License.
                     <decorator-section name="body">
                         <section>
                             <widgets>
-                                <container style="lefthalf">
+                                <container style="col-md-6 col-xs-12">
                                     <include-screen name="OrgTree"/>
                                 </container>
                             </widgets>
@@ -178,8 +178,8 @@ under the License.
                                             </condition>
                                             <widgets>
                                                 <include-menu name="EmploymentBar" location="component://humanres/widget/HumanresMenus.xml"/>
-                                                <container style="button-bar">
-                                                    <link target="EditEmployment" text="${uiLabelMap.HumanResNewEmployment}" style="buttontext"/>
+                                                <container style="btn-group">
+                                                    <link target="EditEmployment" text="${uiLabelMap.HumanResNewEmployment}" style="btn btn-link"/>
                                                 </container>
                                                 <label style="h1" text="${emplName.lastName},${emplName.firstName} ${emplName.middleName} [${emplName.partyId}] ${uiLabelMap.CommonFor}"></label>
                                                 <label style="h1" text="${orgName.groupName} [${orgName.partyId}]"></label>

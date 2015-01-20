@@ -17,9 +17,9 @@ specific language governing permissions and limitations
 under the License.
 -->
 <#if parameters.showAllFacilities??>
-<a href="EditProductInventoryItems?productId=${productId}" class="buttontext">${uiLabelMap.ProductShowProductFacilities}</a>
+<a href="EditProductInventoryItems?productId=${productId}" class="btn btn-link">${uiLabelMap.ProductShowProductFacilities}</a>
 <#else>
-<a href="EditProductInventoryItems?productId=${productId}&amp;showAllFacilities=Y" class="buttontext">${uiLabelMap.ProductShowAllFacilities}</a>
+<a href="EditProductInventoryItems?productId=${productId}&amp;showAllFacilities=Y" class="btn btn-link">${uiLabelMap.ProductShowAllFacilities}</a>
 </#if>
 <div class="screenlet">
   <#if product??>
@@ -27,7 +27,7 @@ under the License.
         <h3>${uiLabelMap.ProductInventorySummary}</h3>
     </div>
     <div class="screenlet-body">
-        <table cellspacing="0" class="basic-table">
+        <table cellspacing="0" class="table">
             <tr class="header-row">
                 <td><b>${uiLabelMap.ProductFacility}</b></td>
                 <td><b>${uiLabelMap.ProductAtp}</b></td>
@@ -58,7 +58,7 @@ under the License.
                     <#assign outgoingQuantityTotal = manufacturingOutQuantitySummary.estimatedQuantityTotal!>
                     <tr valign="middle"<#if rowClass == "1"> class="alternate-row"</#if>>
                         <td>${(facility.facilityName)!} [${facilityId?default("[No Facility]")}]
-                        <a href="/facility/control/ReceiveInventory?facilityId=${facilityId}&amp;productId=${productId}&amp;externLoginKey=${externalLoginKey}" class="buttontext">${uiLabelMap.ProductInventoryReceive}</a></td>
+                        <a href="/facility/control/ReceiveInventory?facilityId=${facilityId}&amp;productId=${productId}&amp;externLoginKey=${externalLoginKey}" class="btn btn-link">${uiLabelMap.ProductInventoryReceive}</a></td>
                         <td><#if totalAvailableToPromise??>${totalAvailableToPromise}<#else>&nbsp;</#if></td>
                         <td><#if totalQuantityOnHand??>${totalQuantityOnHand}<#else>&nbsp;</#if></td>
                         <#if isMarketingPackage == "true">

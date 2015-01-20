@@ -45,16 +45,16 @@ under the License.
         <div class="h3">${uiLabelMap.OrderOrderNeedingAttention}</div>
     </div>
     <div class="screenlet-body">
-        <table cellspacing="0" class="basic-table">
+        <table cellspacing="0" class="table">
             <tr>
               <td width='100%'>
                 <#if poList?has_content>
                   <#assign tasksFound = true>
-                  <table cellspacing="0" class="basic-table">
+                  <table cellspacing="0" class="table">
                     <tr>
                       <td>
                         <h3>${uiLabelMap.OrderOrderPurchaseToBeScheduled}</h3>
-                        <table cellspacing="0" class="basic-table hover-bar">
+                        <table cellspacing="0" class="table table-hover">
                           <tr class="header-row">
                             <td>${uiLabelMap.OrderOrderNumber}</td>
                             <td>${uiLabelMap.CommonName}</td>
@@ -71,7 +71,7 @@ under the License.
                             <#assign statusItem = orderHeaderAndRole.getRelatedOne("StatusItem", true)>
                             <#assign placingParty = orh.getPlacingParty()!>
                             <tr valign="middle"<#if alt_row> class="alternate-row"</#if>>
-                              <td><a href="<@ofbizUrl>orderview?orderId=${orderHeaderAndRole.orderId}</@ofbizUrl>" class='buttontext'>${orderHeaderAndRole.orderId}</a></td>
+                              <td><a href="<@ofbizUrl>orderview?orderId=${orderHeaderAndRole.orderId}</@ofbizUrl>" class='btn btn-link'>${orderHeaderAndRole.orderId}</a></td>
                               <td>
                                 <div>
                                   <#assign partyId = "_NA_">
@@ -101,7 +101,7 @@ under the License.
                               <td align="right"><@ofbizCurrency amount=orh.getOrderGrandTotal() isoCode=orderHeaderAndRole.currencyUom!/></td>
                               <td width="1">&nbsp;&nbsp;</td>
                               <td align='right'>
-                                <a href="<@ofbizUrl>OrderDeliveryScheduleInfo?orderId=${orderHeaderAndRole.orderId}</@ofbizUrl>" class='buttontext'>Schedule&nbsp;Delivery</a>
+                                <a href="<@ofbizUrl>OrderDeliveryScheduleInfo?orderId=${orderHeaderAndRole.orderId}</@ofbizUrl>" class='btn btn-link'>Schedule&nbsp;Delivery</a>
                               </td>
                             </tr>
                             <#-- toggle the row color -->
@@ -115,11 +115,11 @@ under the License.
 
                 <#if partyTasks?has_content>
                   <#assign tasksFound = true>
-                  <table cellspacing="0" class="basic-table hover-bar">
+                  <table cellspacing="0" class="table table-hover">
                     <tr>
                       <td>
                         <h3>${uiLabelMap.OrderWorkflow}</h3>
-                        <table cellspacing="0" class="basic-table">
+                        <table cellspacing="0" class="table">
                           <tr class="header-row">
                             <td><a href="<@ofbizUrl>tasklist?sort=orderId</@ofbizUrl>">${uiLabelMap.OrderOrderNumber}</a></td>
                             <td><a href="<@ofbizUrl>tasklist?sort=name</@ofbizUrl>">${uiLabelMap.CommonName}</a></td>
@@ -135,14 +135,14 @@ under the License.
                             <tr valign="middle"<#if alt_row> class="alternate-row"</#if>>
                               <td>
                                 <#assign orderStr = "orderId=" + task.orderId + "&amp;partyId=" + userLogin.partyId + "&amp;roleTypeId=" + task.roleTypeId + "&amp;workEffortId=" + task.workEffortId + "&amp;fromDate=" + task.get("fromDate").toString()>
-                                <a href="<@ofbizUrl>orderview?${orderStr}</@ofbizUrl>" class="buttontext">
+                                <a href="<@ofbizUrl>orderview?${orderStr}</@ofbizUrl>" class="btn btn-link">
                                   ${task.orderId}
                                 </a>
                               </td>
                               <td>
                                 <div>
                                   <#if task.customerPartyId??>
-                                    <a href="${customerDetailLink}${task.customerPartyId}${StringUtil.wrapString(externalKeyParam)}" target="partymgr" class="buttontext">${Static["org.ofbiz.order.task.TaskWorker"].getCustomerName(task)}</a>
+                                    <a href="${customerDetailLink}${task.customerPartyId}${StringUtil.wrapString(externalKeyParam)}" target="partymgr" class="btn btn-link">${Static["org.ofbiz.order.task.TaskWorker"].getCustomerName(task)}</a>
                                   <#else>
                                     N/A
                                   </#if>
@@ -165,7 +165,7 @@ under the License.
                               </td>
                               <td>${task.priority?default("0")}</td>
                               <td>
-                                <a href="/workeffort/control/activity?workEffortId=${task.workEffortId}${StringUtil.wrapString(externalKeyParam)}" target="workeffort" class="buttontext">
+                                <a href="/workeffort/control/activity?workEffortId=${task.workEffortId}${StringUtil.wrapString(externalKeyParam)}" target="workeffort" class="btn btn-link">
                                   ${Static["org.ofbiz.order.task.TaskWorker"].getPrettyStatus(task)}
                                 </a>
                               </td>
@@ -181,11 +181,11 @@ under the License.
 
                 <#if roleTasks?has_content>
                   <#assign tasksFound = true>
-                  <table cellspacing="0" class="basic-table">
+                  <table cellspacing="0" class="table">
                     <tr>
                       <td>
                         <h3>${uiLabelMap.CommonWorkflowActivityUserRole}</h3>
-                        <table cellspacing="0" class="basic-table hover-bar">
+                        <table cellspacing="0" class="table table-hover">
                           <tr class="header-row">
                             <td><a href="<@ofbizUrl>tasklist?sort=orderId</@ofbizUrl>">${uiLabelMap.OrderOrderNumber}</a></td>
                             <td><a href="<@ofbizUrl>tasklist?sort=name</@ofbizUrl>">${uiLabelMap.CommonName}</a></td>
@@ -223,13 +223,13 @@ under the License.
                               </#if>
                               <tr valign="middle"<#if alt_row> class="alternate-row"</#if>>
                                 <td>
-                                  <a href="javascript:viewOrder(document.F${task.workEffortId});" class="buttontext">
+                                  <a href="javascript:viewOrder(document.F${task.workEffortId});" class="btn btn-link">
                                     ${task.orderId}
                                   </a>
                                 </td>
                                 <td>
                                   <#if task.customerPartyId??>
-                                  <a href="${customerDetailLink}${task.customerPartyId}${StringUtil.wrapString(externalKeyParam)}" target="partymgr" class="buttontext">${Static["org.ofbiz.order.task.TaskWorker"].getCustomerName(task)}</a>
+                                  <a href="${customerDetailLink}${task.customerPartyId}${StringUtil.wrapString(externalKeyParam)}" target="partymgr" class="btn btn-link">${Static["org.ofbiz.order.task.TaskWorker"].getCustomerName(task)}</a>
                                   <#else>
                                   &nbsp;
                                   </#if>
@@ -253,13 +253,13 @@ under the License.
                                   <#if task.wepaPartyId == "_NA_">
                                     <div>N/A</div>
                                   <#else>
-                                    <a href="${customerDetailLink}${task.wepaPartyId}${StringUtil.wrapString(externalKeyParam)}" target="partymgr" class="buttontext">${task.wepaPartyId}</a>
+                                    <a href="${customerDetailLink}${task.wepaPartyId}${StringUtil.wrapString(externalKeyParam)}" target="partymgr" class="btn btn-link">${task.wepaPartyId}</a>
                                   </#if>
                                 </td>
                                 <td>${Static["org.ofbiz.order.task.TaskWorker"].getRoleDescription(task)}</td>
                                 <td>${task.priority?default("0")}</td>
                                 <td>
-                                  <a href="/workeffort/control/activity?workEffortId=${task.workEffortId}" target="workeffort" class="buttontext">
+                                  <a href="/workeffort/control/activity?workEffortId=${task.workEffortId}" target="workeffort" class="btn btn-link">
                                     ${Static["org.ofbiz.order.task.TaskWorker"].getPrettyStatus(task)}
                                   </a>
                                 </td>

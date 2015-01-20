@@ -25,7 +25,7 @@ under the License.
         <field name="partyId" title="${uiLabelMap.PartySupplier}"><lookup target-form-name="LookupPartyName"/></field>
         <field name="productId" title="${uiLabelMap.ProductProductId}"><lookup target-form-name="LookupProduct"/></field>
         <field name="requirementByDate"><date-find type="date"/></field>
-        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
     <form name="RequirementsList" type="multi" use-row-submit="true" target="addRequirementsToCart" title="" list-name="requirementsForSupplier"
         default-title-style="tableheadtext"
@@ -50,10 +50,10 @@ under the License.
         <field name="requiredByDate"><display/></field>
         <field name="quantity"><text/></field>
         <field name="_rowSubmit" title="${uiLabelMap.CommonSelect}"><check/></field>
-        <field name="submitButton" widget-style="smallSubmit"><submit/></field>
+        <field name="submitButton" widget-style="btn btn-default btn-sm"><submit/></field>
     </form>
     <form name="FindQuotes" target="FindQuoteForCart" title="" type="single"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <auto-fields-entity entity-name="Quote" default-field-type="find"/>
         <field name="quoteId" title="${uiLabelMap.OrderOrderQuoteId}"></field>
         <field name="quoteTypeId" title="${uiLabelMap.OrderOrderQuoteTypeId}">
@@ -70,7 +70,7 @@ under the License.
         <field name="validFromDate"><hidden/></field>
         <field name="validThruDate"><hidden/></field>
         <field name="description"><hidden/></field>
-        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit">
+        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="btn btn-default btn-sm">
             <submit button-type="button"/>
         </field>
     </form>
@@ -88,7 +88,7 @@ under the License.
         </actions>
         <auto-fields-entity entity-name="Quote" default-field-type="display"/>
 
-        <field name="quoteId" title="${uiLabelMap.OrderOrderQuoteId}" widget-style="buttontext">
+        <field name="quoteId" title="${uiLabelMap.OrderOrderQuoteId}" widget-style="btn btn-link">
             <hyperlink also-hidden="false" description="${quoteId}" target="loadCartFromQuote">
                 <parameter param-name="quoteId"/>
             </hyperlink>
@@ -111,12 +111,12 @@ under the License.
             <display-entity entity-name="ShoppingListType"/>
         </field>
         <field name="description" title="${uiLabelMap.CommonDescription}"><display/></field>
-        <field name="addFromList" title=" " widget-style="buttontext">
+        <field name="addFromList" title=" " widget-style="btn btn-link">
             <hyperlink target="addFromShoppingList" description="${uiLabelMap.OrderToAddSelectedItemsToShoppingList}" also-hidden="false">
                 <parameter param-name="shoppingListId"/>
             </hyperlink>
         </field>
-        <field name="addAllFromList" title=" " widget-style="buttontext">
+        <field name="addAllFromList" title=" " widget-style="btn btn-link">
             <hyperlink target="addAllFromShoppingList" description="${uiLabelMap.OrderQuickAdd}" also-hidden="false">
                 <parameter param-name="shoppingListId"/>
             </hyperlink>
@@ -128,7 +128,7 @@ under the License.
         <field name="productId" title="${uiLabelMap.ProductProduct}">
             <display-entity entity-name="Product" description="${productId} - ${description}"/>
         </field>
-        <field name="addToCart" title=" " widget-style="buttontext">
+        <field name="addToCart" title=" " widget-style="btn btn-link">
             <hyperlink target="additem/editShoppingList" description="${uiLabelMap.CommonAdd} ${quantity} ${uiLabelMap.OrderAddQntToOrder}" also-hidden="false">
                 <parameter param-name="shoppingListId"/>
                 <parameter param-name="shoppingListItemSeqId"/>
@@ -139,24 +139,24 @@ under the License.
         </field>
     </form>
     <form name="AddFromShoppingListAll" type="single" target="">
-        <field name="addAllFromList" title=" " widget-style="buttontext">
+        <field name="addAllFromList" title=" " widget-style="btn btn-link">
             <hyperlink target="addAllFromShoppingList" description="${uiLabelMap.OrderQuickAdd}" also-hidden="false">
                 <parameter param-name="shoppingListId"/>
             </hyperlink>
         </field>
-        <field name="returnToOrderEntry" title=" " widget-style="buttontext">
+        <field name="returnToOrderEntry" title=" " widget-style="btn btn-link">
             <hyperlink target="orderentry" description="${uiLabelMap.OrderOrderReturn}" also-hidden="false"/>
         </field>
     </form>
 
     <form name="LookupBulkAddProducts" type="multi" use-row-submit="true" list-name="productList" title="" target="BulkAddProducts"
-        odd-row-style="alternate-row" default-table-style="basic-table hover-bar" paginate-target="LookupBulkAddProducts">
+        odd-row-style="alternate-row" default-table-style="table table-hover" paginate-target="LookupBulkAddProducts">
         <row-actions>
             <entity-one entity-name="Product" value-field="product" auto-field-map="true"/>
             <set field=""/>
             <set field="hasAmount" value="${groovy:product.getString('requireAmount')?:'N'}"/>
         </row-actions>
-        <field name="productId"  title="${uiLabelMap.ProductProductId}" widget-style="buttontext">
+        <field name="productId"  title="${uiLabelMap.ProductProductId}" widget-style="btn btn-link">
             <hyperlink description="${productId}" target="/catalog/control/EditProductInventoryItems" target-type="inter-app">
                 <parameter param-name="productId"/>
             </hyperlink>
@@ -175,13 +175,13 @@ under the License.
         <field name="itemDesiredDeliveryDate" title="${uiLabelMap.OrderDesiredDeliveryDate}">
             <date-time/>
         </field>
-        <field name="submitButton" title="${uiLabelMap.OrderAddToOrder}" widget-style="smallSubmit">
+        <field name="submitButton" title="${uiLabelMap.OrderAddToOrder}" widget-style="btn btn-default btn-sm">
             <submit/>
         </field>
     </form>
     <form name="LookupBulkAddSupplierProducts" type="multi" use-row-submit="true" list-name="productList" title="" target="BulkAddProducts"
-        odd-row-style="alternate-row" default-table-style="basic-table hover-bar" paginate-target="LookupBulkAddSupplierProducts" view-size="5">
-        <field name="productId" widget-style="buttontext">
+        odd-row-style="alternate-row" default-table-style="table table-hover" paginate-target="LookupBulkAddSupplierProducts" view-size="5">
+        <field name="productId" widget-style="btn btn-link">
             <hyperlink description="${productId}" target="/catalog/control/EditProductInventoryItems" target-type="inter-app">
                 <parameter param-name="productId"/>
             </hyperlink>
@@ -200,13 +200,13 @@ under the License.
         <field name="itemDesiredDeliveryDate" title="${uiLabelMap.OrderDesiredDeliveryDate}">
             <date-time/>
         </field>
-        <field name="submitButton" title="${uiLabelMap.OrderAddToOrder}" widget-style="smallSubmit">
+        <field name="submitButton" title="${uiLabelMap.OrderAddToOrder}" widget-style="btn btn-default btn-sm">
             <submit/>
         </field>
     </form>
     <form name="LookupAssociatedProducts" type="multi" use-row-submit="true" list-name="productList" title="" target="BulkAddProducts"
         paginate-target="LookupAssociatedProducts" default-title-style="tableheadtext" default-widget-style="inputBox">
-        <field name="productId"  title="${uiLabelMap.ProductProductId}" widget-style="buttontext">
+        <field name="productId"  title="${uiLabelMap.ProductProductId}" widget-style="btn btn-link">
             <hyperlink description="${productId}" target="/catalog/control/EditProductInventoryItems?productId=${productId}" target-type="inter-app"/>
         </field>
         <field name="brandName" title="${uiLabelMap.ProductBrandName}"><display/></field>
@@ -220,7 +220,7 @@ under the License.
         <field name="itemDesiredDeliveryDate" title="${uiLabelMap.OrderDesiredDeliveryDate}">
             <date-time/>
         </field>
-        <field name="submitButton" title="${uiLabelMap.OrderAddToOrder}" widget-style="smallSubmit">
+        <field name="submitButton" title="${uiLabelMap.OrderAddToOrder}" widget-style="btn btn-default btn-sm">
             <submit/>
         </field>
     </form>

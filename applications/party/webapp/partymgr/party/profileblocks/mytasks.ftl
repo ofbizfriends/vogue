@@ -28,7 +28,7 @@ under the License.
     <br class="clear"/>
   </div>
   <h3>${uiLabelMap.WorkEffortAssignedTasks}</h3>
-  <table class="basic-table hover-bar" cellspacing="0">
+  <table class="table table-hover" cellspacing="0">
     <tr class="header-row">
       <td>${uiLabelMap.CommonStartDateTime}</td>
       <td>${uiLabelMap.WorkEffortPriority}</td>
@@ -50,7 +50,7 @@ under the License.
   </table>
   <#if (activities.size() > 0)>
     <h3>${uiLabelMap.WorkEffortWorkflowActivitiesUser}</h3>
-    <table class="basic-table hover-bar" cellspacing="0">
+    <table class="table table-hover" cellspacing="0">
       <tr class="header-row">
         <td>${uiLabelMap.CommonStartDateTime}</td>
         <td>${uiLabelMap.WorkEffortPriority}</td>
@@ -79,7 +79,7 @@ under the License.
   </#if>
   <#if (roleActivities.size() > 0)>
     <h3>${uiLabelMap.WorkEffortWorkflowActivitiesUserRole}</h3>
-    <table class="basic-table hover-bar" cellspacing="0">
+    <table class="table table-hover" cellspacing="0">
       <tr class="header-row">
         <td>${uiLabelMap.CommonStartDateTime}</td>
         <td>${uiLabelMap.WorkEffortPriority}</td>
@@ -108,7 +108,7 @@ under the License.
   </#if>
   <#if (groupActivities.size() > 0)>
     <h3>${uiLabelMap.WorkEffortWorkflowActivitiesUserGroup}</h3>
-    <table class="basic-table hover-bar" cellspacing="0">
+    <table class="table table-hover" cellspacing="0">
       <tr class="header-row">
         <td>${uiLabelMap.CommonStartDateTime}</td>
         <td>${uiLabelMap.WorkEffortPriority}</td>

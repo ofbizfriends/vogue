@@ -116,6 +116,6 @@ under the License.
     </tr>
   </#list>
   <tr>
-    <td align="center"><input type="submit" value="<#if survey.submitCaption?has_content>${survey.submitCaption}<#else>Submit</#if>" class="smallSubmit"/></td>
+    <td align="center"><input type="submit" value="<#if survey.submitCaption?has_content>${survey.submitCaption}<#else>Submit</#if>" class="btn btn-default btn-sm"/></td>
   </tr>
 </table>

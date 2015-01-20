@@ -63,7 +63,7 @@ under the License.
               <#if distinctInvoiceIds?has_content>
                 <td>
                   <#list distinctInvoiceIds as invoiceId>
-                     <a href="<@ofbizUrl>invoice.pdf?invoiceId=${invoiceId}</@ofbizUrl>" class="buttontext">(${invoiceId} PDF) </a>
+                     <a href="<@ofbizUrl>invoice.pdf?invoiceId=${invoiceId}</@ofbizUrl>" class="btn btn-link">(${invoiceId} PDF) </a>
                   </#list>
                 </td>
               <#else>

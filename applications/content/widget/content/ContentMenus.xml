@@ -33,7 +33,7 @@ under the License.
         <menu-item name="CompDoc" title="${uiLabelMap.ContentCompDoc}"><link target="FindCompDoc"/></menu-item>
     </menu>
 
-    <menu name="content"  menu-container-style="button-bar tab-bar" default-selected-style="selected" default-menu-item-name="content" default-permission-operation="HAS_AUTHOR_ROLE|CONTENT_ADMIN"
+    <menu name="content"  menu-container-style="btn-group tab-bar" default-selected-style="selected" default-menu-item-name="content" default-permission-operation="HAS_AUTHOR_ROLE|CONTENT_ADMIN"
         default-permission-entity-action="_ADMIN" default-associated-content-id="${userLogin.userLoginId}" selected-menuitem-context-field-name="tabButtonItem"
         title="" type="simple">
 
@@ -121,7 +121,7 @@ under the License.
         </menu-item>
     </menu>
     
-    <menu name="contentSub" menu-container-style="button-bar button-style-2" default-menu-item-name="content" default-permission-operation="HAS_AUTHOR_ROLE|CONTENT_ADMIN"
+    <menu name="contentSub" menu-container-style="btn-group button-style-2" default-menu-item-name="content" default-permission-operation="HAS_AUTHOR_ROLE|CONTENT_ADMIN"
         default-permission-entity-action="_ADMIN" default-associated-content-id="${userLogin.userLoginId}" selected-menuitem-context-field-name="currentMenuItemName"
         title="" type="simple">
 
@@ -141,7 +141,7 @@ under the License.
         </menu-item>
     </menu>
 
-    <menu name="website"  menu-container-style="button-bar tab-bar" default-selected-style="selected" default-menu-item-name="content" default-permission-operation="CONTENT_ADMIN"
+    <menu name="website"  menu-container-style="btn-group tab-bar" default-selected-style="selected" default-menu-item-name="content" default-permission-operation="CONTENT_ADMIN"
         default-permission-entity-action="_ADMIN" default-associated-content-id="${userLogin.userLoginId}" selected-menuitem-context-field-name="tabButtonItem"
         title="" type="simple">
         <menu-item name="EditWebSite" title="${uiLabelMap.ContentWebSite}">
@@ -185,7 +185,7 @@ under the License.
             </link>
         </menu-item>
     </menu>
-    <menu name="blog"  menu-container-style="button-bar tab-bar" default-selected-style="selected" default-menu-item-name="content" default-permission-operation="CONTENT_ADMIN"
+    <menu name="blog"  menu-container-style="btn-group tab-bar" default-selected-style="selected" default-menu-item-name="content" default-permission-operation="CONTENT_ADMIN"
         default-permission-entity-action="_ADMIN" default-associated-content-id="${userLogin.userLoginId}" selected-menuitem-context-field-name="tabButtonItem"
         title="" type="simple">
         <menu-item name="ListBlog" title="${uiLabelMap.CommonList}">
@@ -208,13 +208,13 @@ under the License.
         </menu-item>
     </menu>
 
-    <menu name="blogSub" menu-container-style="button-bar" default-menu-item-name="content" default-permission-operation="HAS_AUTHOR_ROLE|CONTENT_ADMIN"
+    <menu name="blogSub" menu-container-style="btn-group" default-menu-item-name="content" default-permission-operation="HAS_AUTHOR_ROLE|CONTENT_ADMIN"
         default-permission-entity-action="_ADMIN" default-associated-content-id="${userLogin.userLoginId}" selected-menuitem-context-field-name="currentMenuItemName"
         title="" type="simple">
-        <menu-item name="NewBlog" title="${uiLabelMap.ContentCreateNewBlog}" widget-style="buttontext create">
+        <menu-item name="NewBlog" title="${uiLabelMap.ContentCreateNewBlog}" widget-style="btn btn-link create">
             <link target="editBlog"/>
         </menu-item>
-        <menu-item name="NewBlogArticle" title="${uiLabelMap.ContentCreateNewBlogArticle}" widget-style="buttontext create">
+        <menu-item name="NewBlogArticle" title="${uiLabelMap.ContentCreateNewBlogArticle}" widget-style="btn btn-link create">
             <condition>
                 <if-compare field="tabButtonItem" operator="equals" value="Articles"/>
             </condition>
@@ -224,7 +224,7 @@ under the License.
         </menu-item>
     </menu>
 
-    <menu name="blogArt"  menu-container-style="button-bar tab-bar" default-selected-style="selected" default-menu-item-name="content" default-permission-operation="CONTENT_ADMIN"
+    <menu name="blogArt"  menu-container-style="btn-group tab-bar" default-selected-style="selected" default-menu-item-name="content" default-permission-operation="CONTENT_ADMIN"
         default-permission-entity-action="_ADMIN" default-associated-content-id="${userLogin.userLoginId}" selected-menuitem-context-field-name="tabButtonItem"
         title="" type="simple">
         <menu-item name="ListlogArt" title="${uiLabelMap.CommonList}">
@@ -250,7 +250,7 @@ under the License.
             </link>
         </menu-item>
     </menu>
-    <menu name="blogArtSub" menu-container-style="button-bar button-style-2" default-menu-item-name="content" default-permission-operation="HAS_AUTHOR_ROLE|CONTENT_ADMIN"
+    <menu name="blogArtSub" menu-container-style="btn-group button-style-2" default-menu-item-name="content" default-permission-operation="HAS_AUTHOR_ROLE|CONTENT_ADMIN"
         default-permission-entity-action="_ADMIN" default-associated-content-id="${userLogin.userLoginId}" selected-menuitem-context-field-name="currentMenuItemName"
         title="" type="simple">
         <menu-item name="NewBlogArticle" title="${uiLabelMap.ContentCreateNewBlogArticle}">
@@ -259,7 +259,7 @@ under the License.
             </link>
         </menu-item>
     </menu>
-    <menu name="contentTopMenu" menu-container-style="button-bar tab-bar" default-selected-style="selected" type="simple" selected-menuitem-context-field-name="tabButtonItem">
+    <menu name="contentTopMenu" menu-container-style="btn-group tab-bar" default-selected-style="selected" type="simple" selected-menuitem-context-field-name="tabButtonItem">
         <menu-item name="findContent" title="${uiLabelMap.CommonFind}">
             <link target="findContent"/>
         </menu-item>
@@ -267,7 +267,7 @@ under the License.
             <link target="navigateContent"/>
         </menu-item>
     </menu>
-    <menu name="lookupMenu" menu-container-style="button-bar tab-bar" default-selected-style="selected" type="simple" selected-menuitem-context-field-name="tabButtonItem">
+    <menu name="lookupMenu" menu-container-style="btn-group tab-bar" default-selected-style="selected" type="simple" selected-menuitem-context-field-name="tabButtonItem">
         <menu-item name="close" title="${uiLabelMap.CommonClose}">
             <link target="javascript:window.close();" url-mode="plain"/>
         </menu-item>
@@ -275,31 +275,31 @@ under the License.
             <link target="showHelp?helpTopic=navigateHelp"/>
         </menu-item>
     </menu>
-    <menu name="contentMenu" menu-container-style="button-bar button-style-2" default-selected-style="selected">
-        <menu-item name="EditContent" title="${uiLabelMap.CommonCreateNew}" widget-style="buttontext create">
+    <menu name="contentMenu" menu-container-style="btn-group button-style-2" default-selected-style="selected">
+        <menu-item name="EditContent" title="${uiLabelMap.CommonCreateNew}" widget-style="btn btn-link create">
             <link target="EditContent"/>
         </menu-item>
-        <menu-item name="ContentSearchOptions" title="${uiLabelMap.CommonAdvancedSearch}" widget-style="buttontext">
+        <menu-item name="ContentSearchOptions" title="${uiLabelMap.CommonAdvancedSearch}" widget-style="btn btn-link">
             <link target="ContentSearchOptions"/>
         </menu-item>
-        <menu-item name="UpdateContentAllKeywords" title="${uiLabelMap.ContentAutoCreateKeywords}" widget-style="buttontext">
+        <menu-item name="UpdateContentAllKeywords" title="${uiLabelMap.ContentAutoCreateKeywords}" widget-style="btn btn-link">
             <link target="updateContentAllKeywords"/>
         </menu-item>
     </menu>
-    <menu name="websiteMenu" menu-container-style="button-bar button-style-2" default-selected-style="selected">
-        <menu-item name="EditWebSite" title="${uiLabelMap.ContentCreateNewWebSite}" widget-style="buttontext create">
+    <menu name="websiteMenu" menu-container-style="btn-group button-style-2" default-selected-style="selected">
+        <menu-item name="EditWebSite" title="${uiLabelMap.ContentCreateNewWebSite}" widget-style="btn btn-link create">
             <link target="EditWebSite"/>
         </menu-item>
     </menu>
     <!-- Web Analytics -->
     <menu name="WebAnalyticsConfigButtonBar" extends="CommonButtonBarMenu" extends-resource="component://common/widget/CommonMenus.xml" selected-menuitem-context-field-name="tabButtonItem2">
         <menu-item name="EditWebAnalyticsConfig" title="${uiLabelMap.CommonCreate}">
-            <link target="EditWebAnalyticsConfig" style="buttontext create">
+            <link target="EditWebAnalyticsConfig" style="btn btn-link create">
                 <parameter param-name="webSiteId" from-field="parameters.webSiteId"/>
             </link>
         </menu-item>
         <!--<menu-item name="WebAnalyticsTypes" title="Create ${uiLabelMap.CatalogWebAnalyticsTypes}">
-            <link target="EditWebAnalyticsType" style="buttontext create">
+            <link target="EditWebAnalyticsType" style="btn btn-link create">
                 <parameter param-name="webSiteId" from-field="parameters.webSiteId"/>
             </link>
         </menu-item>-->

@@ -27,7 +27,7 @@ under the License.
   </div>
   <div class="screenlet-body">
     <form name="addaddrmap" method="post" action="<@ofbizUrl>createAddressMatchMap</@ofbizUrl>">
-    <table class="basic-table" cellspacing="0">
+    <table class="table" cellspacing="0">
         <tr>
           <td class="label">${uiLabelMap.PartyAddressMatchKey}</td>
           <td><input type="text" name="mapKey"/></td>
@@ -42,11 +42,11 @@ under the License.
         </tr>
         <tr>
           <td></td>
-          <td><a href="javascript:document.addaddrmap.submit()" class="smallSubmit">${uiLabelMap.CommonCreate}</a></td>
+          <td><a href="javascript:document.addaddrmap.submit()" class="btn btn-default btn-sm">${uiLabelMap.CommonCreate}</a></td>
         </tr>
     </table>
     </form>
-    <table class="basic-table" cellspacing="0">
+    <table class="table" cellspacing="0">
       <tr><td colspan="2">&nbsp;</td></tr>
         <tr>
           <td></td>
@@ -70,7 +70,7 @@ under the License.
   </div>
   <div class="screenlet-body">
       <#if addressMatchMaps?has_content>
-        <table class="basic-table hover-bar" cellspacing="0">
+        <table class="table table-hover" cellspacing="0">
           <tr class="header-row">
             <td>${uiLabelMap.PartyAddressMatchKey}</td>
             <td>=></td>

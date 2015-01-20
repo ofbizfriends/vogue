@@ -26,8 +26,8 @@ under the License.
       <br class="clear"/>
     </div>
     <div class="screenlet-body">
-      <a href="<@ofbizUrl>authview/${donePage}</@ofbizUrl>" class="buttontext">${uiLabelMap.CommonBack}</a>
-      <a href="javascript:document.paysetupform.submit()" class="buttontext">${uiLabelMap.CommonSave}</a>
+      <a href="<@ofbizUrl>authview/${donePage}</@ofbizUrl>" class="btn btn-link">${uiLabelMap.CommonBack}</a>
+      <a href="javascript:document.paysetupform.submit()" class="btn btn-link">${uiLabelMap.CommonSave}</a>
 
       <form method="post" action="<@ofbizUrl>receiveOfflinePayments/${donePage}</@ofbizUrl>" name="paysetupform">
         <#if requestParameters.workEffortId??>
@@ -36,7 +36,7 @@ under the License.
         <input type="hidden" name="partyId" value="${orderRoles[0].partyId}" />
 
         <#if paymentMethods?has_content>
-        <table class="basic-table" cellspacing='0'>
+        <table class="table" cellspacing='0'>
           <tr class="header-row">
             <td width="30%" align="right">${uiLabelMap.PaymentMethod}</td>
             <td width="1">&nbsp;&nbsp;&nbsp;</td>
@@ -57,7 +57,7 @@ under the License.
         </#if>
         <br /> <br />
         <#if paymentMethodTypes?has_content>
-        <table class="basic-table" cellspacing='0'>
+        <table class="table" cellspacing='0'>
           <tr class="header-row">
             <td width="30%" align="right">${uiLabelMap.OrderPaymentType}</td>
             <td width="1">&nbsp;&nbsp;&nbsp;</td>
@@ -78,8 +78,8 @@ under the License.
         </#if>
       </form>
 
-      <a href="<@ofbizUrl>authview/${donePage}</@ofbizUrl>" class="buttontext">${uiLabelMap.CommonBack}</a>
-      <a href="javascript:document.paysetupform.submit()" class="buttontext">${uiLabelMap.CommonSave}</a>
+      <a href="<@ofbizUrl>authview/${donePage}</@ofbizUrl>" class="btn btn-link">${uiLabelMap.CommonBack}</a>
+      <a href="javascript:document.paysetupform.submit()" class="btn btn-link">${uiLabelMap.CommonSave}</a>
     </div>
 </div>
 <br />

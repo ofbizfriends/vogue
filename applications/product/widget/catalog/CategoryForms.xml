@@ -20,17 +20,17 @@ under the License.
 
 <forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
         xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-form.xsd">
-    <form name="CreateProductCategoryAttribute" header-row-style="header-row" default-table-style="basic-table" type="single" target="createProductCategoryAttribute" title="">
+    <form name="CreateProductCategoryAttribute" header-row-style="header-row" default-table-style="table" type="single" target="createProductCategoryAttribute" title="">
         <auto-fields-service service-name="createProductCategoryAttribute" default-field-type="edit"/>
         <field name="productCategoryId"><display/></field>
         <field name="submitForm" title="${uiLabelMap.CommonCreate}"><submit/></field>
     </form>
-    <form name="EditProductCategoryAttributes" odd-row-style="alternate-row" default-table-style="basic-table" type="list" target="updateProductCategoryAttribute" title="" list-name="categoryAttributes">
+    <form name="EditProductCategoryAttributes" odd-row-style="alternate-row" default-table-style="table" type="list" target="updateProductCategoryAttribute" title="" list-name="categoryAttributes">
         <auto-fields-service service-name="updateProductCategoryAttribute" default-field-type="display"/>
         <field name="productCategoryId"><hidden/></field>
         <field name="attrValue"><text size="60"/></field>
-        <field name="submitButton" title="${uiLabelMap.CommonUpdate}" widget-style="smallSubmit"><submit button-type="button"/></field>
-        <field name="deleteLink" title=" " widget-style="buttontext">
+        <field name="submitButton" title="${uiLabelMap.CommonUpdate}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
+        <field name="deleteLink" title=" " widget-style="btn btn-link">
             <hyperlink target="deleteProductCategoryAttribute" description="${uiLabelMap.CommonDelete}">
                 <parameter param-name="productCategoryId"/>
                 <parameter param-name="attrName"/>
@@ -40,7 +40,7 @@ under the License.
 
     <!-- Product Category Content Forms  -->
     <form name="AddCategoryContentAssoc" type="single" target="addContentToCategory" title="${uiLabelMap.ProductAddProductCategoryContentFromDate}"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <auto-fields-entity entity-name="ProductCategoryContent"/>
         <field name="productCategoryId" map-name="productCategory"><hidden/></field>
         <field name="contentId" title="${uiLabelMap.ProductContentId}">
@@ -53,11 +53,11 @@ under the License.
                 </entity-options>
             </drop-down>
         </field>
-        <field name="submitButton" title="${uiLabelMap.CommonAdd}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonAdd}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
 
     <form name="PrepareAddCategoryContentAssoc" type="single" target="prepareAddContentToCategory" title="${uiLabelMap.ProductAddProductCategoryContentFromDate}"
-        odd-row-style="alternate-row" default-table-style="basic-table">
+        odd-row-style="alternate-row" default-table-style="table">
         <field name="productId"><hidden/></field>
         <field name="productCategoryId" map-name="productCategory"><hidden/></field>
         <field name="prodCatContentTypeId">
@@ -68,15 +68,15 @@ under the License.
             </drop-down>
         </field>
         <!-- <field name="description"><text size="40"/></field> -->
-        <field name="submitButton" title="${uiLabelMap.ProductPrepareCreate}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" title="${uiLabelMap.ProductPrepareCreate}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
 
     <form name="UpdateCategoryContentAssoc" type="list" target="updateContentToCategory" title="" list-name="productCategoryContentList"
-        odd-row-style="alternate-row" default-table-style="basic-table">
+        odd-row-style="alternate-row" default-table-style="table">
         <field name="productCategoryId"><hidden/></field>
         <field name="contentId" title="${uiLabelMap.ProductContent}">
             <display-entity entity-name="Content" description="${description}" also-hidden="true">
-                <sub-hyperlink target="EditCategoryContentContent" description="${contentId}" link-style="buttontext">
+                <sub-hyperlink target="EditCategoryContentContent" description="${contentId}" link-style="btn btn-link">
                     <parameter param-name="productCategoryId"/>
                     <parameter param-name="contentId"/>
                     <parameter param-name="prodCatContentTypeId"/>
@@ -99,14 +99,14 @@ under the License.
                 </entity-options>
             </drop-down>
         </field>
-        <field name="submitButton" title="${uiLabelMap.CommonUpdate}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonUpdate}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
         -->
-        <field name="editLink" title="${uiLabelMap.ProductEditContent}" widget-style="buttontext">
+        <field name="editLink" title="${uiLabelMap.ProductEditContent}" widget-style="btn btn-link">
             <hyperlink target="/content/control/EditContent" target-type="inter-app" description="${contentId}">
                 <parameter param-name="contentId"/>
             </hyperlink>
         </field>
-        <field name="deleteLink" title=" " widget-style="buttontext">
+        <field name="deleteLink" title=" " widget-style="btn btn-link">
             <hyperlink target="removeContentFromCategory" description="${uiLabelMap.CommonDelete}" also-hidden="false">
                 <parameter param-name="productCategoryId"/>
                 <parameter param-name="contentId"/>
@@ -117,7 +117,7 @@ under the License.
     </form>
 
     <form name="EditCategoryContentSimpleText" type="single" default-map-name="categoryContent" target="updateSimpleTextContentForCategory" title="${uiLabelMap.ProductUpdateSimpleTextContentCategory}"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <alt-target use-when="content==null" target="createSimpleTextContentForCategory"/>
         <auto-fields-entity entity-name="ProductCategoryContent"/>
 
@@ -135,12 +135,12 @@ under the License.
         <field name="purchaseThruDate"><hidden/></field>
         <field name="purchaseFromDate"><hidden/></field>
         <field name="productCategoryId"><hidden/></field>
-        <field use-when="content == null" name="submitButton" title="${uiLabelMap.CommonCreate}" widget-style="smallSubmit"><submit button-type="button"/></field>
-        <field use-when="content != null" name="submitButton" title="${uiLabelMap.CommonUpdate}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field use-when="content == null" name="submitButton" title="${uiLabelMap.CommonCreate}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
+        <field use-when="content != null" name="submitButton" title="${uiLabelMap.CommonUpdate}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
 
     <form name="CreateSimpleTextContentForAlternateLocale" type="single" target="createSimpleTextContentForAlternateLocaleInCategory" title="${uiLabelMap.ProductCreateSimpleTextContentForAlternateLocale}"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <field name="productCategoryId"><hidden/></field>
         <field name="mainContentId" entry-name="contentId"><hidden/></field>
         <field name="localeString"><text/></field>
@@ -150,7 +150,7 @@ under the License.
 
     <!-- ProductCategoryLink Forms-->
     <form name="ListProductCategoryLinks" type="list" list-name="productCategoryLinks" target="updateProductCategoryLink" separate-columns="true"
-        title="" odd-row-style="alternate-row" default-table-style="basic-table">
+        title="" odd-row-style="alternate-row" default-table-style="table">
         <actions>
             <entity-condition entity-name="ProductCategoryLink">
                 <condition-expr field-name="productCategoryId" from-field="productCategoryId"/>
@@ -172,7 +172,7 @@ under the License.
         <field name="detailSubScreen"><ignored/></field>
         <field name="imageUrl"><ignored/></field>
         <field name="imageTwoUrl"><ignored/></field>
-        <field name="deleteLink" title=" " widget-style="buttontext">
+        <field name="deleteLink" title=" " widget-style="btn btn-link">
             <hyperlink target="deleteProductCategoryLink" description="${uiLabelMap.CommonDelete}" also-hidden="false">
                 <parameter param-name="productCategoryId"/>
                 <parameter param-name="linkSeqId"/>
@@ -183,7 +183,7 @@ under the License.
     </form>
 
     <form name="AddProductCategoryLink" type="single" target="createProductCategoryLink" title="" default-map-name="productCategoryLink"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <alt-target use-when="productCategoryLink != null" target="updateProductCategoryLink"/>
         <auto-fields-service service-name="createProductCategoryLink"/>
         <field name="productCategoryId"><hidden/></field>
@@ -212,8 +212,8 @@ under the License.
         </field>
     </form>
 
-    <form name="ListTopCategory" type="list" list-name="noParentCategories" odd-row-style="alternate-row" default-table-style="basic-table">
-        <field name="productCategoryId"  widget-style="buttontext">
+    <form name="ListTopCategory" type="list" list-name="noParentCategories" odd-row-style="alternate-row" default-table-style="table">
+        <field name="productCategoryId"  widget-style="btn btn-link">
             <hyperlink target="EditCategory" description="${productCategoryId}" also-hidden="false">
                 <parameter param-name="CATALOG_TOP_CATEGORY" value="${productCategoryId}"/>
                 <parameter param-name="productCategoryId" value="${productCategoryId}"/>
@@ -223,17 +223,17 @@ under the License.
     </form>
 
     <form name="FindCategory" type="single" target="FindCategory" title="" default-map-name="category"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <field name="noConditionFind"><hidden value="Y"/><!-- if this isn't there then with all fields empty no query will be done --></field>
         <field name="productCategoryId" title="${uiLabelMap.ProductCategoryId}"><text-find/></field>
         <field name="categoryName" title="${uiLabelMap.FormFieldTitle_categoryName}"><text-find/></field>
-        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit">
+        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="btn btn-default btn-sm">
             <submit button-type="button"/>
         </field>
     </form>
 
     <form name="ListCategory" list-name="listIt" target="" title="" type="list" paginate-target="FindCategory"
-        odd-row-style="alternate-row" default-table-style="basic-table hover-bar" header-row-style="header-row-2">
+        odd-row-style="alternate-row" default-table-style="table table-hover" header-row-style="header-row-2">
         <actions>
             <set field="entityName" value="ProductCategory"/>
             <service service-name="performFind" result-map="result" result-map-list="listIt">
@@ -257,17 +257,17 @@ under the License.
     </form>
 
     <form name="EditCategoryContentSEO" type="single" target="updateContentSEOForCategory" title="${uiLabelMap.ProductUpdateSEOContentCategory}"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <field name="title" title="${uiLabelMap.PageTitle}"><text size="40"/></field>
         <field name="metaKeyword" title="${uiLabelMap.MetaKeywords}"><textarea cols="60" rows="5"/></field>
         <field name="metaDescription" title="${uiLabelMap.MetaDescription}"><textarea cols="60" rows="5"/></field>
         <field name="productCategoryId"><hidden/></field>
         <field name="prodCatContentTypeId"><hidden/></field>
-        <field name="submitButton" title="${uiLabelMap.CommonUpdate}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonUpdate}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
 
     <form name="EditCategoryContentRelatedUrl" type="single" target="updateRelatedUrlContentForCategory" title="${uiLabelMap.ProductUpdateRelatedURLContentCategory}"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <alt-target use-when="content==null" target="createRelatedUrlContentForCategory"/>
         <auto-fields-entity entity-name="ProductCategoryContent"/>
         <field use-when="content==null" name="contentId"><ignored/></field>
@@ -287,8 +287,8 @@ under the License.
         <field name="useCountLimit"><hidden/></field>
         <field name="useDaysLimit"><hidden/></field>
         <field name="productCategoryId"><hidden/></field>
-        <field use-when="content == null" name="submitButton" title="${uiLabelMap.CommonCreate}" widget-style="smallSubmit"><submit button-type="button"/></field>
-        <field use-when="content != null" name="submitButton" title="${uiLabelMap.CommonUpdate}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field use-when="content == null" name="submitButton" title="${uiLabelMap.CommonCreate}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
+        <field use-when="content != null" name="submitButton" title="${uiLabelMap.CommonUpdate}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
     
     <form name="EditCategoryContentDownload" type="upload" target="updateDownloadContentForCategory" title="${uiLabelMap.ProductUpdateDownloadContentCategory}">
@@ -314,7 +314,7 @@ under the License.
         <field name="productCategoryId"><hidden/></field>
         <field name="prodCatContentTypeId"><hidden/></field>
         <field name="dataResourceTypeId"><hidden/></field>
-        <field use-when="contentId == null" name="submitButton" title="${uiLabelMap.CommonCreate}" widget-style="smallSubmit"><submit button-type="button"/></field>
-        <field use-when="contentId != null" name="submitButton" title="${uiLabelMap.CommonUpdate}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field use-when="contentId == null" name="submitButton" title="${uiLabelMap.CommonCreate}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
+        <field use-when="contentId != null" name="submitButton" title="${uiLabelMap.CommonUpdate}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
 </forms>

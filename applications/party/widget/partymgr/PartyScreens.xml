@@ -113,14 +113,14 @@ under the License.
                                         <if-compare field="showOld" operator="equals" value="true" type="Boolean"/>
                                     </condition>
                                     <widgets>
-                                        <container style="button-bar button-style-2">
+                                        <container style="btn-group button-style-2">
                                             <link target="viewprofile" text="${uiLabelMap.PartyHideOld}">
                                                 <parameter param-name="partyId" from-field="party.partyId"/>
                                             </link>
                                         </container>
                                     </widgets>
                                     <fail-widgets>
-                                        <container style="button-bar button-style-2">
+                                        <container style="btn-group button-style-2">
                                             <link target="viewprofile" text="${uiLabelMap.PartyShowOld}">
                                                 <parameter param-name="partyId" from-field="party.partyId"/>
                                                 <parameter param-name="SHOW_OLD" value="true"/>
@@ -283,7 +283,7 @@ under the License.
                         <screenlet title="${uiLabelMap.PartyRelationships}" navigation-form-name="ListPartyRelationships">
                             <include-form name="ListPartyRelationships" location="component://party/widget/partymgr/PartyForms.xml"/>
                         </screenlet>
-                        <container style="lefthalf">
+                        <container style="col-md-6 col-xs-12">
                         <section>
                             <condition>
                                 <if-has-permission permission="PARTYMGR" action="_CREATE"/>
@@ -295,7 +295,7 @@ under the License.
                             </widgets>
                         </section>
                         </container>
-                        <container style="righthalf">
+                        <container style="col-md-6 col-xs-12">
                         <screenlet title="${uiLabelMap.PartyAddOtherRelationship}">
                             <include-form name="AddOtherPartyRelationship" location="component://party/widget/partymgr/PartyForms.xml"/>
                         </screenlet>
@@ -455,8 +455,8 @@ under the License.
                                 </platform-specific>
                             </widgets>
                             <fail-widgets>
-                                <container style="button-bar">
-                                    <link target="backHome" text="[${uiLabelMap.CommonBack}]" style="smallSubmit"/>
+                                <container style="btn-group">
+                                    <link target="backHome" text="[${uiLabelMap.CommonBack}]" style="btn btn-default btn-sm"/>
                                 </container>
                                 <container>
                                     <label style="h3">${uiLabelMap.PartyMsgContactNotBelongToYou}</label>
@@ -881,7 +881,7 @@ under the License.
                     <decorator-section name="body">
                         <screenlet title="${uiLabelMap.PageTitleListContent}">
                             <container>
-                                <link target="EditPartyContents" text="${uiLabelMap.CommonCreateNew}" style="smallSubmit">
+                                <link target="EditPartyContents" text="${uiLabelMap.CommonCreateNew}" style="btn btn-default btn-sm">
                                     <parameter param-name="partyId"/>
                                 </link>
                             </container>
@@ -1157,8 +1157,8 @@ under the License.
                                 <not><if-empty field="geoChart"/></not>
                             </condition>
                             <widgets>
-                                <container style="button-bar">
-                                    <link target="addGeoLocation" text="${uiLabelMap.CommonUpdate}" style="buttontext">
+                                <container style="btn-group">
+                                    <link target="addGeoLocation" text="${uiLabelMap.CommonUpdate}" style="btn btn-link">
                                         <parameter param-name="partyId" from-field="parameters.partyId"/>
                                     </link>
                                 </container>
@@ -1168,8 +1168,8 @@ under the License.
                                 <include-screen name="geoChart" location="component://common/widget/CommonScreens.xml"/>
                             </widgets>
                             <fail-widgets>
-                                <container style="button-bar">
-                                    <link target="addGeoLocation" text="${uiLabelMap.CommonCreateNew}" style="buttontext create">
+                                <container style="btn-group">
+                                    <link target="addGeoLocation" text="${uiLabelMap.CommonCreateNew}" style="btn btn-link create">
                                         <parameter param-name="partyId" from-field="parameters.partyId"/>
                                     </link>
                                 </container>
@@ -1314,11 +1314,11 @@ under the License.
                 <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
                     <decorator-section name="body">
                         <screenlet title="${uiLabelMap.PartyParty} ${uiLabelMap.CommonImportExport} ID Name, single role (employee, customer, supplier) and contactmechs">
-                            <container style="lefthalf">
+                            <container style="col-md-6 col-xs-12">
                                 <label style="h2">${uiLabelMap.CommonImport}</label>
                                 <include-form name="ImportParty" location="component://party/widget/partymgr/PartyForms.xml"/>
                             </container>
-                            <container style="righthalf">
+                            <container style="col-md-6 col-xs-12">
                                 <label style="h2">${uiLabelMap.CommonExport}</label>
                                 <include-form name="ExportParty" location="component://party/widget/partymgr/PartyForms.xml"/>
                             </container>

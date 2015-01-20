@@ -23,14 +23,14 @@ under the License.
         <#if invalidProductId??>
             <div class="errorMessage">${invalidProductId}</div>
         </#if>
-        <div class="button-bar button-style-1">
+        <div class="btn-group button-style-1">
           <a href="<@ofbizUrl>EditFacility</@ofbizUrl>" class="create">${uiLabelMap.ProductNewFacility}</a>
         </div>
         <#-- Receiving Results -->
         <#if receivedItems?has_content>
           <h3>${uiLabelMap.ProductReceiptPurchaseOrder} ${purchaseOrder.orderId}</h3>
           <hr />
-          <table class="basic-table" cellspacing="0">
+          <table class="table" cellspacing="0">
             <tr class="header-row">
               <td>${uiLabelMap.ProductShipmentId}</td>
               <td>${uiLabelMap.ProductReceipt}</td>
@@ -50,10 +50,10 @@ under the License.
                 <input type="hidden" name="purchaseOrderId" value ="${(item.orderId)!}"/>
                 <input type="hidden" name="facilityId" value ="${facilityId!}"/>
                 <tr>
-                  <td><a href="<@ofbizUrl>ViewShipment?shipmentId=${item.shipmentId!}</@ofbizUrl>" class="buttontext">${item.shipmentId!} ${item.shipmentItemSeqId!}</a></td>
+                  <td><a href="<@ofbizUrl>ViewShipment?shipmentId=${item.shipmentId!}</@ofbizUrl>" class="btn btn-link">${item.shipmentId!} ${item.shipmentItemSeqId!}</a></td>
                   <td>${item.receiptId}</td>
                   <td>${item.getString("datetimeReceived").toString()}</td>
-                  <td><a href="/ordermgr/control/orderview?orderId=${item.orderId}" class="buttontext">${item.orderId}</a></td>
+                  <td><a href="/ordermgr/control/orderview?orderId=${item.orderId}" class="btn btn-link">${item.orderId}</a></td>
                   <td>${item.orderItemSeqId}</td>
                   <td>${item.productId?default("Not Found")}</td>
                   <td>${item.lotId?default("")}</td>
@@ -62,7 +62,7 @@ under the License.
                   <td>${item.quantityAccepted?string.number}</td>
                   <td>
                     <#if (item.quantityAccepted?int > 0 || item.quantityRejected?int > 0)>
-                      <a href="javascript:document.cancelReceivedItemsForm_${item_index}.submit();" class="buttontext">${uiLabelMap.CommonCancel}</a>
+                      <a href="javascript:document.cancelReceivedItemsForm_${item_index}.submit();" class="btn btn-link">${uiLabelMap.CommonCancel}</a>
                     </#if>
                   </td>
                 </tr>
@@ -76,7 +76,7 @@ under the License.
         <#-- Single Product Receiving -->
         <#if requestParameters.initialSelected?? && product?has_content>
           <form method="post" action="<@ofbizUrl>receiveSingleInventoryProduct</@ofbizUrl>" name="selectAllForm">
-            <table class="basic-table" cellspacing="0">
+            <table class="table" cellspacing="0">
               <#-- general request fields -->
               <input type="hidden" name="facilityId" value="${requestParameters.facilityId!}"/>
               <input type="hidden" name="purchaseOrderId" value="${requestParameters.purchaseOrderId!}"/>
@@ -113,7 +113,7 @@ under the License.
                 <td width="6%" align="right" nowrap="nowrap" class="label">${uiLabelMap.ProductProductName}</td>
                 <td width="6%">&nbsp;</td>
                 <td width="74%">
-                  <a href="/catalog/control/EditProduct?productId=${product.productId}${externalKeyParam!}" target="catalog" class="buttontext">${product.internalName!}</a>
+                  <a href="/catalog/control/EditProduct?productId=${product.productId}${externalKeyParam!}" target="catalog" class="btn btn-link">${product.internalName!}</a>
                 </td>
               </tr>
               <tr>
@@ -182,7 +182,7 @@ under the License.
                 <td width="6%">&nbsp;</td>
                 <td width="74%">
                   <input type="text" name="datetimeReceived" size="24" value="${nowTimestamp}" />
-                  <#-- <a href="#" onclick="setNow("datetimeReceived")" class="buttontext">[Now]</a> -->
+                  <#-- <a href="#" onclick="setNow("datetimeReceived")" class="btn btn-link">[Now]</a> -->
                 </td>
               </tr>
               
@@ -281,7 +281,7 @@ under the License.
             <input type="hidden" name="purchaseOrderId" value="${requestParameters.purchaseOrderId!}"/>
             <input type="hidden" name="initialSelected" value="Y"/>
             <input type="hidden" name="partialReceive" value="${partialReceive!}"/>
-            <table class="basic-table" cellspacing="0">
+            <table class="table" cellspacing="0">
               <#list shipments! as shipment>
                 <#assign originFacility = shipment.getRelatedOne("OriginFacility", true)!/>
                 <#assign destinationFacility = shipment.getRelatedOne("DestinationFacility", true)!/>
@@ -293,7 +293,7 @@ under the License.
                 </tr>
                 <tr>
                   <td>
-                    <table class="basic-table" cellspacing="0">
+                    <table class="table" cellspacing="0">
                       <tr>
                         <td width="5%" nowrap="nowrap"><input type="radio" name="shipmentId" value="${shipment.shipmentId}" /></td>
                         <td width="5%" nowrap="nowrap">${shipment.shipmentId}</td>
@@ -312,7 +312,7 @@ under the License.
               </tr>
               <tr>
                 <td>
-                  <table class="basic-table" cellspacing="0">
+                  <table class="table" cellspacing="0">
                     <tr>
                       <td width="5%" nowrap="nowrap"><input type="radio" name="shipmentId" value="_NA_" /></td>
                       <td width="5%" nowrap="nowrap">${uiLabelMap.ProductNoSpecificShipment}</td>
@@ -322,7 +322,7 @@ under the License.
                 </td>
               </tr>
               <tr>
-                <td>&nbsp;<a href="javascript:document.selectAllForm.submit();" class="buttontext">${uiLabelMap.ProductReceiveSelectedShipment}</a></td>
+                <td>&nbsp;<a href="javascript:document.selectAllForm.submit();" class="btn btn-link">${uiLabelMap.ProductReceiveSelectedShipment}</a></td>
               </tr>
             </table>
           </form>
@@ -341,7 +341,7 @@ under the License.
             </#if>
             <input type="hidden" name="_useRowSubmit" value="Y"/>
             <#assign rowCount = 0/>
-            <table class="basic-table" cellspacing="0">
+            <table class="table" cellspacing="0">
               <#if !purchaseOrderItems?? || purchaseOrderItems.size() == 0>
                 <tr>
                   <td colspan="2">${uiLabelMap.ProductNoItemsPoReceive}.</td>
@@ -391,19 +391,19 @@ under the License.
                   </tr>
                   <tr>
                     <td>
-                      <table class="basic-table" cellspacing="0">
+                      <table class="table" cellspacing="0">
                         <tr>
                           <#if orderItem.productId??>
                             <#assign product = orderItem.getRelatedOne("Product", true)/>
                             <input type="hidden" name="productId_o_${rowCount}" value="${product.productId}"/>
                             <td width="45%">
-                                ${orderItem.orderItemSeqId}:&nbsp;<a href="/catalog/control/EditProduct?productId=${product.productId}${externalKeyParam!}" target="catalog" class="buttontext">${product.productId}&nbsp;-&nbsp;${orderItem.itemDescription!}</a> : ${product.description!}
+                                ${orderItem.orderItemSeqId}:&nbsp;<a href="/catalog/control/EditProduct?productId=${product.productId}${externalKeyParam!}" target="catalog" class="btn btn-link">${product.productId}&nbsp;-&nbsp;${orderItem.itemDescription!}</a> : ${product.description!}
                             </td>
                           <#else>
                             <td width="45%">
                                 <b>${orderItemType.get("description",locale)}</b> : ${orderItem.itemDescription!}&nbsp;&nbsp;
                                 <input type="text" size="12" name="productId_o_${rowCount}"/>
-                                <a href="/catalog/control/EditProduct?${StringUtil.wrapString(externalKeyParam)}" target="catalog" class="buttontext">${uiLabelMap.ProductCreateProduct}</a>
+                                <a href="/catalog/control/EditProduct?${StringUtil.wrapString(externalKeyParam)}" target="catalog" class="btn btn-link">${uiLabelMap.ProductCreateProduct}</a>
                             </td>
                           </#if>
                           <td align="right">${uiLabelMap.ProductLocation}:</td>
@@ -523,13 +523,13 @@ under the License.
                   </tr>
                   <tr>
                     <td colspan="2" align="right">
-                      <a href="<@ofbizUrl>ReceiveInventory?facilityId=${requestParameters.facilityId!}</@ofbizUrl>" class="buttontext">${uiLabelMap.ProductReturnToReceiving}</a>
+                      <a href="<@ofbizUrl>ReceiveInventory?facilityId=${requestParameters.facilityId!}</@ofbizUrl>" class="btn btn-link">${uiLabelMap.ProductReturnToReceiving}</a>
                     </td>
                   </tr>
                 <#else>
                   <tr>
                     <td colspan="2" align="right">
-                      <a href="javascript:document.selectAllForm.submit();" class="buttontext">${uiLabelMap.ProductReceiveSelectedProduct}</a>
+                      <a href="javascript:document.selectAllForm.submit();" class="btn btn-link">${uiLabelMap.ProductReceiveSelectedProduct}</a>
                     </td>
                   </tr>
                 </#if>
@@ -545,7 +545,7 @@ under the License.
           <form name="selectAllForm" method="post" action="<@ofbizUrl>ReceiveInventory</@ofbizUrl>">
             <input type="hidden" name="facilityId" value="${requestParameters.facilityId!}"/>
             <input type="hidden" name="initialSelected" value="Y"/>
-            <table class="basic-table" cellspacing="0">
+            <table class="table" cellspacing="0">
               <tr>
                 <td class="label">${uiLabelMap.ProductPurchaseOrderNumber}</td>
                 <td>
@@ -563,7 +563,7 @@ under the License.
               <tr>
                 <td>&nbsp;</td>
                 <td>
-                  <a href="javascript:document.selectAllForm.submit();" class="buttontext">${uiLabelMap.ProductReceiveProduct}</a>
+                  <a href="javascript:document.selectAllForm.submit();" class="btn btn-link">${uiLabelMap.ProductReceiveProduct}</a>
                 </td>
               </tr>
             </table>

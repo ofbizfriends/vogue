@@ -23,7 +23,7 @@ under the License.
   <div class="screenlet-body">
     <form name="advToKeyWordSearchForm" method="post" action="<@ofbizUrl>ContentSearchResults</@ofbizUrl>" style="margin: 0;">
       <input type="hidden" name="VIEW_SIZE" value="25"/>
-      <table class="basic-table" cellspacing="0">
+      <table class="table" cellspacing="0">
         <tr>
           <td align="right" valign="middle" class="label">${uiLabelMap.ContentKeywords}</td>
           <td valign="middle">
@@ -82,7 +82,7 @@ under the License.
         <tr>
           <td width='25%' align='right' class='label'>${uiLabelMap.ContentLastUpdatedDateFilter}</td>
           <td>
-            <table class="basic-table" cellspacing="0">
+            <table class="table" cellspacing="0">
                <tr>
                   <td nowrap="nowrap">
                     <@htmlTemplate.renderDateTimeField name="fromDate" event="" action="" className="" alert="" title="Format: yyyy-MM-dd HH:mm:ss.SSS" value="${requestParameters.fromDate!}" size="25" maxlength="30" id="fromDate1" dateType="date" shortDateInput=false timeDropdownParamName="" defaultDateTimeString="" localizedIconTitle="" timeDropdown="" timeHourName="" classString="" hour1="" hour2="" timeMinutesName="" minutes="" isTwelveHour="" ampmName="" amSelected="" pmSelected="" compositeType="" formName=""/>
@@ -129,7 +129,7 @@ under the License.
         <tr>
           <td colspan="2" align="center">
             <div>
-              <a href="javascript:document.advToKeyWordSearchForm.submit()" class="buttontext">${uiLabelMap.CommonFind}</a>
+              <a href="javascript:document.advToKeyWordSearchForm.submit()" class="btn btn-link">${uiLabelMap.CommonFind}</a>
             </div>
           </td>
         </tr>

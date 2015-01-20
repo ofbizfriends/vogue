@@ -40,7 +40,7 @@ under the License.
           </div>
           <#if autoUserLogin?has_content>
               <div>
-                  (${uiLabelMap.CommonNot}&nbsp;${autoUserLogin.userLoginId}?&nbsp;<a href="<@ofbizUrl>${autoLogoutUrl}</@ofbizUrl>" class="buttontext">${uiLabelMap.CommonClickHere}</a>)
+                  (${uiLabelMap.CommonNot}&nbsp;${autoUserLogin.userLoginId}?&nbsp;<a href="<@ofbizUrl>${autoLogoutUrl}</@ofbizUrl>" class="btn btn-link">${uiLabelMap.CommonClickHere}</a>)
               </div>
           </#if>
           <div>
@@ -56,7 +56,7 @@ under the License.
               <input type="password" class="inputBox" name="newPasswordVerify" value="" size="20"/>
           </div>
           <div>
-              <input type="submit" class="smallSubmit" value="${uiLabelMap.CommonLogin}"/>
+              <input type="submit" class="btn btn-default btn-sm" value="${uiLabelMap.CommonLogin}"/>
           </div>
       </form>
     </div>

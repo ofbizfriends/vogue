@@ -18,10 +18,10 @@ under the License.
 -->
 
 <h1>${uiLabelMap.OrderReturnsCurrent}</h1>
-<div><a href="<@ofbizUrl>returnMain</@ofbizUrl>" class="buttontext">${uiLabelMap.OrderCreateReturn}</a></div>
+<div><a href="<@ofbizUrl>returnMain</@ofbizUrl>" class="btn btn-link">${uiLabelMap.OrderCreateReturn}</a></div>
 
 <br />
-<table cellspacing="0" class="basic-table">
+<table cellspacing="0" class="table">
   <tr class="header-row">
     <td>${uiLabelMap.OrderReturnId} ${uiLabelMap.CommonNbr}</td>
     <td>${uiLabelMap.FormFieldTitle_entryDate}</td>
@@ -35,11 +35,11 @@ under the License.
     <#assign facility = returnHeader.getRelatedOne("Facility", false)>
   </#if>
   <tr>
-    <td><a href="<@ofbizUrl>returnMain?returnId=${returnHeader.returnId}</@ofbizUrl>" class="buttontext">${returnHeader.returnId}</a></td>
+    <td><a href="<@ofbizUrl>returnMain?returnId=${returnHeader.returnId}</@ofbizUrl>" class="btn btn-link">${returnHeader.returnId}</a></td>
     <td><div>${returnHeader.entryDate.toString()}</div></td>
     <td>
       <#if returnHeader.fromPartyId??>
-        <a href="${customerDetailLink}${returnHeader.fromPartyId}${StringUtil.wrapString(externalKeyParam)}" class='buttontext'>${returnHeader.fromPartyId}</a>
+        <a href="${customerDetailLink}${returnHeader.fromPartyId}${StringUtil.wrapString(externalKeyParam)}" class='btn btn-link'>${returnHeader.fromPartyId}</a>
       <#else>
         <span class="label">${uiLabelMap.CommonNA}</span>
       </#if>

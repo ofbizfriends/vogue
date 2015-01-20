@@ -40,7 +40,7 @@ under the License.
     <h3>${uiLabelMap.CertSaveToKeyStore}</h3>
   </div>
   <div class="screenlet-body">
-    <table cellspacing="0" class="basic-table">
+    <table cellspacing="0" class="table">
       <tr class="header-row">
         <td>${uiLabelMap.CertComponent}</td>
         <td>${uiLabelMap.CertKeyStore}</td>

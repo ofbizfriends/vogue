@@ -24,7 +24,7 @@ under the License.
     </ul>
   </div>
   <div class="screenlet-body">
-    <table cellspacing="0" cellpadding="2" class="basic-table hover-bar">
+    <table cellspacing="0" cellpadding="2" class="table table-hover">
       <tr class="header-row">
         <td>${uiLabelMap.CommonReturn} ${uiLabelMap.CommonDescription}</td>
         <td>${uiLabelMap.ProductProduct}</td>
@@ -37,15 +37,15 @@ under the License.
       </tr>
       <#list items as item>
         <tr>
-          <td><a href="/ordermgr/control/returnMain?returnId=${item.returnId}" class="buttontext">${item.returnId}</a> [${item.returnItemSeqId}]</td>
-          <td><a href="/catalog/control/EditProductInventoryItems?productId=${item.productId}" class="buttontext">${item.productId}</a> ${item.internalName!}</td>
+          <td><a href="/ordermgr/control/returnMain?returnId=${item.returnId}" class="btn btn-link">${item.returnId}</a> [${item.returnItemSeqId}]</td>
+          <td><a href="/catalog/control/EditProductInventoryItems?productId=${item.productId}" class="btn btn-link">${item.productId}</a> ${item.internalName!}</td>
           <td>${item.returnQuantity}</td>
           <td>${item.shipmentItemQty}</td>
           <td>${item.totalQtyIssued}</td>
           <td>
             <#if item.issuedItems?has_content>
               <#list item.issuedItems as issuedItem>
-                <div><a href="/facility/control/EditInventoryItem?inventoryItemId=${issuedItem.inventoryItemId}" class="buttontext">${issuedItem.inventoryItemId}</a> ${issuedItem.quantity}</div>
+                <div><a href="/facility/control/EditInventoryItem?inventoryItemId=${issuedItem.inventoryItemId}" class="btn btn-link">${issuedItem.inventoryItemId}</a> ${issuedItem.quantity}</div>
               </#list>
             </#if>
           </td>
@@ -61,7 +61,7 @@ under the License.
                     <@htmlTemplate.lookupField formName="issueInventoryItemToShipment_${item_index}" name="inventoryItemId" id="inventoryItemId" fieldFormName="LookupInventoryItem?orderId=${item.orderId}&amp;partyId=${item.partyId}&amp;productId=${item.productId}"/>
                   </span>
                   <input type="text" size="5" name="quantity"/>
-                  <input type="submit" value="${uiLabelMap.CommonSubmit}" class="smallSubmit"/>
+                  <input type="submit" value="${uiLabelMap.CommonSubmit}" class="btn btn-default btn-sm"/>
                 </form>
               </div>
             </td>

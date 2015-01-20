@@ -51,7 +51,7 @@
               <td>${alias.aliasTo?default("N/A")}</td>
               <td>${alias.contentId?default("N/A")}</td>
               <td>${alias.mapKey?default("N/A")}</td>
-              <td><a href="javascript:void(0);" onclick="javascript:pathRemove('${webSiteId}', '${alias.pathAlias}', '${contentId}');" class="buttontext">Remove</a></td>
+              <td><a href="javascript:void(0);" onclick="javascript:pathRemove('${webSiteId}', '${alias.pathAlias}', '${contentId}');" class="btn btn-link">Remove</a></td>
             </tr>
         </#list>
       <#else>
@@ -86,7 +86,7 @@
                 <td><input type="text" name="mapKey" value="" /></td>
             </tr>
             <tr>
-                <td colspan="2" align="center"><input id="submit" type="button" onclick="javascript:pathSave('${contentId}');" class="smallSubmit" value="Create"/></td>
+                <td colspan="2" align="center"><input id="submit" type="button" onclick="javascript:pathSave('${contentId}');" class="btn btn-default btn-sm" value="Create"/></td>
             </tr>
         </table>
     </form>

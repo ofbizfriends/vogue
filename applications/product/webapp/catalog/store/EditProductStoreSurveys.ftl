@@ -21,7 +21,7 @@ under the License.
         <h3>${uiLabelMap.PageTitleEditProductStoreSurveys}</h3>
     </div>
     <div class="screenlet-body">
-        <table cellspacing="0" class="basic-table">
+        <table cellspacing="0" class="table">
             <tr class="header-row">
               <td><b>${uiLabelMap.CommonType}</b></td>
               <td><b>${uiLabelMap.CommonName}</b></td>
@@ -39,7 +39,7 @@ under the License.
               <tr valign="middle"<#if alt_row>class="alternate-row"</#if>>
                 <td>${surveyType.get("description",locale)}</td>
                 <td>${storeSurvey.groupName!}</td>
-                <td><a href="/content/control/EditSurvey?surveyId=${storeSurvey.surveyId}" class="buttontext">${survey.description?default("[" + survey.surveyId + "]")}</a></td>
+                <td><a href="/content/control/EditSurvey?surveyId=${storeSurvey.surveyId}" class="btn btn-link">${survey.description?default("[" + survey.surveyId + "]")}</a></td>
                 <td>${storeSurvey.productId?default("${uiLabelMap.CommonNA}")}</td>
                 <td>${storeSurvey.productCategoryId?default("${uiLabelMap.CommonNA}")}</td>
                 <td>${storeSurvey.fromDate!?string}</td>
@@ -48,7 +48,7 @@ under the License.
                   <form name="deleteProductStoreSurveyAppl_${storeSurvey_index}" method="post" action="<@ofbizUrl>deleteProductStoreSurveyAppl</@ofbizUrl>">
                     <input type="hidden" name="productStoreId" value="${productStoreId}" />
                     <input type="hidden" name="productStoreSurveyId" value="${storeSurvey.productStoreSurveyId}" />
-                    <a href="javascript:document.deleteProductStoreSurveyAppl_${storeSurvey_index}.submit()" class="buttontext">${uiLabelMap.CommonDelete}</a>
+                    <a href="javascript:document.deleteProductStoreSurveyAppl_${storeSurvey_index}.submit()" class="btn btn-link">${uiLabelMap.CommonDelete}</a>
                   </form>
                 </td>
               </tr>
@@ -65,7 +65,7 @@ under the License.
     <div class="screenlet-body">
         <form name="addSurvey" action="<@ofbizUrl>createProductStoreSurveyAppl</@ofbizUrl>" method="post">
             <input type="hidden" name="productStoreId" value="${productStoreId}" />
-            <table cellspacing="0" class="basic-table">
+            <table cellspacing="0" class="table">
               <tr>
                 <td class="label">${uiLabelMap.CommonType}</td>
                 <td>
@@ -136,7 +136,7 @@ under the License.
               </tr>
               <tr>
                 <td>&nbsp;</td>
-                <td><input type="submit" class="smallSubmit" value="${uiLabelMap.CommonAdd}" /></td>
+                <td><input type="submit" class="btn btn-default btn-sm" value="${uiLabelMap.CommonAdd}" /></td>
               </tr>
             </table>
         </form>

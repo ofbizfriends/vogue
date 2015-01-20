@@ -36,8 +36,8 @@ under the License.
                    <decorator-section name="body">
                         <decorator-screen name="FindScreenDecorator" location="component://common/widget/CommonScreens.xml">
                             <decorator-section name="menu-bar">
-                                <container style="button-bar">
-                                    <link  text="${uiLabelMap.MarketingContactListCreate}" target="EditContactList" style="buttontext create">
+                                <container style="btn-group">
+                                    <link  text="${uiLabelMap.MarketingContactListCreate}" target="EditContactList" style="btn btn-link create">
                                         <parameter param-name="DONE_PAGE" from-field="donePage"/>
                                     </link>
                                 </container>
@@ -75,8 +75,8 @@ under the License.
                             </condition>
                             <widgets>
                                 <screenlet title="${uiLabelMap.PageTitleEditContactList}">
-                                    <container style="button-bar">
-                                        <link  text="${uiLabelMap.MarketingContactListCreate}" target="EditContactList" style="buttontext create">
+                                    <container style="btn-group">
+                                        <link  text="${uiLabelMap.MarketingContactListCreate}" target="EditContactList" style="btn btn-link create">
                                             <parameter param-name="DONE_PAGE" from-field="donePage"/>
                                         </link>
                                     </container>
@@ -116,7 +116,7 @@ under the License.
                     <decorator-section name="body">
                         <screenlet title="${uiLabelMap.PageTitleListContactList}">
                             <container>
-                                <link text="${uiLabelMap.MarketingContactListCreate}" target="EditContactList" style="buttontext">
+                                <link text="${uiLabelMap.MarketingContactListCreate}" target="EditContactList" style="btn btn-link">
                                     <parameter param-name="DONE_PAGE" from-field="donePage"/>
                                 </link>
                             </container>
@@ -153,8 +153,8 @@ under the License.
                 <decorator-screen name="CommonContactListDecorator" location="${parameters.mainDecoratorLocation}">
                     <decorator-section name="body">
                         <screenlet title="${uiLabelMap.PageTitleEditContactListParty}">
-                            <container style="button-bar">
-                                <link  text="${uiLabelMap.MarketingContactListPartyCreate}" target="EditContactListParty" style="buttontext create">
+                            <container style="btn-group">
+                                <link  text="${uiLabelMap.MarketingContactListPartyCreate}" target="EditContactListParty" style="btn btn-link create">
                                     <parameter param-name="contactListId"/>
                                     <parameter param-name="DONE_PAGE" from-field="donePage"/>
                                 </link>
@@ -222,8 +222,8 @@ under the License.
                     <decorator-section name="body">
                         <decorator-screen name="FindScreenDecorator" location="component://common/widget/CommonScreens.xml">
                             <decorator-section name="menu-bar">
-                                <container style="button-bar">
-                                    <link  text="${uiLabelMap.MarketingContactListPartyCreate}" target="EditContactListParty" style="buttontext create">
+                                <container style="btn-group">
+                                    <link  text="${uiLabelMap.MarketingContactListPartyCreate}" target="EditContactListParty" style="btn btn-link create">
                                         <parameter param-name="contactListId"/>
                                         <parameter param-name="DONE_PAGE" from-field="donePage"/>
                                     </link>
@@ -270,8 +270,8 @@ under the License.
                     <decorator-section name="body">
                         <screenlet title="${uiLabelMap.PageTitleEditContactList}">
                             <include-menu location="component://marketing/widget/ContactListMenus.xml" name="ContactListCommBar"/>
-                            <container style="button-bar">
-                                <link  text="${uiLabelMap.MarketingContactListCommEventCreate}" target="EditContactListCommEvent" style="buttontext create">
+                            <container style="btn-group">
+                                <link  text="${uiLabelMap.MarketingContactListCommEventCreate}" target="EditContactListCommEvent" style="btn btn-link create">
                                     <parameter param-name="contactListId"/>
                                     <parameter param-name="DONE_PAGE" from-field="donePage"/>
                                 </link>
@@ -329,8 +329,8 @@ under the License.
                 <decorator-screen name="CommonContactListDecorator" location="${parameters.mainDecoratorLocation}">
                     <decorator-section name="body">
                         <screenlet title="${uiLabelMap.PageTitleFindContactListCommEvents}">
-                            <container style="button-bar">
-                                <link  text="${uiLabelMap.MarketingContactListCommEventCreate}" target="EditContactListCommEvent" style="buttontext create">
+                            <container style="btn-group">
+                                <link  text="${uiLabelMap.MarketingContactListCommEventCreate}" target="EditContactListCommEvent" style="btn btn-link create">
                                     <parameter param-name="contactListId"/>
                                     <parameter param-name="DONE_PAGE" from-field="donePage"/>
                                 </link>

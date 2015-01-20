@@ -19,7 +19,7 @@ under the License.
 
 <#if canNotView>
   <p><h3>${uiLabelMap.AccountingCardInfoNotBelongToYou}.</h3></p>
-&nbsp;<a href="<@ofbizUrl>${donePage}</@ofbizUrl>" class="buttontext">[${uiLabelMap.CommonGoBack}]</a>
+&nbsp;<a href="<@ofbizUrl>${donePage}</@ofbizUrl>" class="btn btn-link">[${uiLabelMap.CommonGoBack}]</a>
 <#else>
     <#if !giftCard??>
       <h1>${uiLabelMap.AccountingAddNewGiftCard}</h1>

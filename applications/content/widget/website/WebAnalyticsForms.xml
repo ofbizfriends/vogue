@@ -22,7 +22,7 @@ under the License.
         xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-form.xsd">
 
     <form name="ListWebAnalyticsConfig" type="list" list-name="listIt" paginate-target="FindWebAnalyticsConfigs" default-entity-name="WebAnalyticsConfig" separate-columns="true"
-        odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="table table-hover">
         <actions>
             <service service-name="performFind" result-map="result" result-map-list="listIt">
                 <field-map field-name="inputFields" from-field="webAnalyticsConfigCtx"/>
@@ -44,7 +44,7 @@ under the License.
             </hyperlink>
         </field>
         <field name="webSiteId"><hidden value="${webSiteId}"/></field>
-        <field name="removeButton" title="${uiLabelMap.CommonRemove}" widget-style="buttontext">
+        <field name="removeButton" title="${uiLabelMap.CommonRemove}" widget-style="btn btn-link">
             <hyperlink target="deleteWebAnalyticsConfig" description="${uiLabelMap.CommonRemove}">
                 <parameter param-name="webSiteId"/>
                 <parameter param-name="webAnalyticsTypeId"/>
@@ -53,7 +53,7 @@ under the License.
     </form>
 
     <form name="EditWebAnalyticsConfig" type="single" target="updateWebAnalyticsConfig" title="" default-map-name="webAnalyticsConfig"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <alt-target use-when="webAnalyticsConfig==null" target="createWebAnalyticsConfig"/>
         <auto-fields-service service-name="updateWebAnalyticsConfig" map-name="webAnalyticsConfig"/>
         <field use-when="webAnalyticsConfig!=null" name="webAnalyticsTypeId" tooltip="${uiLabelMap.CommonNotModifRecreat}" title="${uiLabelMap.CatalogWebAnalyticsType}">
@@ -71,7 +71,7 @@ under the License.
         </field>
         <field name="webSiteId" title="${uiLabelMap.CommonWebsite}"><hidden value="${parameters.webSiteId}"/></field>
         <field name="noConditionFind"><hidden value="Y"/><!-- if this isn't there then with all fields empty no query will be done --></field>
-        <field use-when="webAnalyticsConfig!=null" name="submitButton" title="${uiLabelMap.CommonUpdate}" widget-style="smallSubmit"><submit button-type="button"/></field>
-        <field use-when="webAnalyticsConfig==null" name="submitButton" title="${uiLabelMap.CommonCreate}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field use-when="webAnalyticsConfig!=null" name="submitButton" title="${uiLabelMap.CommonUpdate}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
+        <field use-when="webAnalyticsConfig==null" name="submitButton" title="${uiLabelMap.CommonCreate}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
 </forms>

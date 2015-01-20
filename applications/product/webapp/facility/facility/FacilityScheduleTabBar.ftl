@@ -20,7 +20,7 @@ under the License.
 
 <#if facilityId?has_content>
     <br />
-    <div class="button-bar tab-bar">
+    <div class="btn-group tab-bar">
         <ul>
             <li<#if selected="ScheduleTabButton"> class="selected"</#if>><a href="<@ofbizUrl>ScheduleShipmentRouteSegment?facilityId=${facilityId}</@ofbizUrl>">${uiLabelMap.ProductSchedule}</a></li>
             <li<#if selected="LabelsTabButton"> class="selected"</#if>><a href="<@ofbizUrl>Labels?facilityId=${facilityId}</@ofbizUrl>">${uiLabelMap.ProductLabels}</a></li>

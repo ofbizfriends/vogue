@@ -35,7 +35,7 @@ under the License.
             <input type="hidden" name="returnHeaderTypeId" value="CUSTOMER_RETURN"/>
         </#if>
 
-        <table cellspacing="0" class="basic-table">
+        <table cellspacing="0" class="table">
           <#if returnHeader??>
           <tr>
             <td width='14%'>&nbsp;</td>
@@ -155,7 +155,7 @@ under the License.
                 <input type='text' size='20' name='paymentMethodId' value="${(returnHeader.paymentMethodId)!}"/>
               </#if>
               <#if (returnHeader.fromPartyId)?has_content>
-                <a href="/partymgr/control/editcreditcard?partyId=${returnHeader.fromPartyId}${StringUtil.wrapString(externalKeyParam)}" target="partymgr" class="smallSubmit">${uiLabelMap.AccountingCreateNewCreditCard}</a>
+                <a href="/partymgr/control/editcreditcard?partyId=${returnHeader.fromPartyId}${StringUtil.wrapString(externalKeyParam)}" target="partymgr" class="btn btn-default btn-sm">${uiLabelMap.AccountingCreateNewCreditCard}</a>
               </#if>
             </td>
           </tr>

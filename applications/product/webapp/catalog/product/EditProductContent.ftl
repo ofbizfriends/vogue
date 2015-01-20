@@ -40,7 +40,7 @@ under the License.
     </#if>
     <form action="<@ofbizUrl>updateProductContent</@ofbizUrl>" method="post" style="margin: 0;" name="productForm">
         <input type="hidden" name="productId" value="${productId!}"/>
-        <table cellspacing="0" class="basic-table">
+        <table cellspacing="0" class="table">
             <tr>
                 <td width="20%" align="right" valign="top"><b>${uiLabelMap.ProductProductName}</b></td>
                 <td>&nbsp;</td>
@@ -83,9 +83,9 @@ under the License.
     <#if productId?has_content>
                     <div>
                         <span>${uiLabelMap.ProductInsertDefaultImageUrl}: </span>
-                        <a href="javascript:insertImageName('small','${imageNameSmall}.jpg');" class="buttontext">.jpg</a>
-                        <a href="javascript:insertImageName('small','${imageNameSmall}.gif');" class="buttontext">.gif</a>
-                        <a href="javascript:insertImageName('small','');" class="buttontext">${uiLabelMap.CommonClear}</a>
+                        <a href="javascript:insertImageName('small','${imageNameSmall}.jpg');" class="btn btn-link">.jpg</a>
+                        <a href="javascript:insertImageName('small','${imageNameSmall}.gif');" class="btn btn-link">.gif</a>
+                        <a href="javascript:insertImageName('small','');" class="btn btn-link">${uiLabelMap.CommonClear}</a>
                     </div>
     </#if>
                 </td>
@@ -103,9 +103,9 @@ under the License.
     <#if productId?has_content>
                     <div>
                         <span>${uiLabelMap.ProductInsertDefaultImageUrl}: </span>
-                        <a href="javascript:insertImageName('medium','${imageNameMedium}.jpg');" class="buttontext">.jpg</a>
-                        <a href="javascript:insertImageName('medium','${imageNameMedium}.gif');" class="buttontext">.gif</a>
-                        <a href="javascript:insertImageName('medium','');" class="buttontext">${uiLabelMap.CommonClear}</a>
+                        <a href="javascript:insertImageName('medium','${imageNameMedium}.jpg');" class="btn btn-link">.jpg</a>
+                        <a href="javascript:insertImageName('medium','${imageNameMedium}.gif');" class="btn btn-link">.gif</a>
+                        <a href="javascript:insertImageName('medium','');" class="btn btn-link">${uiLabelMap.CommonClear}</a>
                     </div>
     </#if>
                 </td>
@@ -123,9 +123,9 @@ under the License.
     <#if productId?has_content>
                     <div>
                         <span>${uiLabelMap.ProductInsertDefaultImageUrl}: </span>
-                        <a href="javascript:insertImageName('large','${imageNameLarge}.jpg');" class="buttontext">.jpg</a>
-                        <a href="javascript:insertImageName('large','${imageNameLarge}.gif');" class="buttontext">.gif</a>
-                        <a href="javascript:insertImageName('large','');" class="buttontext">${uiLabelMap.CommonClear}</a>
+                        <a href="javascript:insertImageName('large','${imageNameLarge}.jpg');" class="btn btn-link">.jpg</a>
+                        <a href="javascript:insertImageName('large','${imageNameLarge}.gif');" class="btn btn-link">.gif</a>
+                        <a href="javascript:insertImageName('large','');" class="btn btn-link">${uiLabelMap.CommonClear}</a>
                     </div>
     </#if>
                 </td>
@@ -143,9 +143,9 @@ under the License.
     <#if productId?has_content>
                     <div>
                         <span>${uiLabelMap.ProductInsertDefaultImageUrl}: </span>
-                        <a href="javascript:insertImageName('detail','${imageNameDetail}.jpg');" class="buttontext">.jpg</a>
-                        <a href="javascript:insertImageName('detail','${imageNameDetail}.gif');" class="buttontext">.gif</a>
-                        <a href="javascript:insertImageName('detail','');" class="buttontext">${uiLabelMap.CommonClear}</a>
+                        <a href="javascript:insertImageName('detail','${imageNameDetail}.jpg');" class="btn btn-link">.jpg</a>
+                        <a href="javascript:insertImageName('detail','${imageNameDetail}.gif');" class="btn btn-link">.gif</a>
+                        <a href="javascript:insertImageName('detail','');" class="btn btn-link">${uiLabelMap.CommonClear}</a>
                     </div>
     </#if>
                 </td>
@@ -163,16 +163,16 @@ under the License.
     <#if productId?has_content>
                     <div>
                         <span>${uiLabelMap.ProductInsertDefaultImageUrl}: </span>
-                        <a href="javascript:insertImageName('original','${imageNameOriginal}.jpg');" class="buttontext">.jpg</a>
-                        <a href="javascript:insertImageName('original','${imageNameOriginal}.gif');" class="buttontext">.gif</a>
-                        <a href="javascript:insertImageName('original','');" class="buttontext">${uiLabelMap.CommonClear}</a>
+                        <a href="javascript:insertImageName('original','${imageNameOriginal}.jpg');" class="btn btn-link">.jpg</a>
+                        <a href="javascript:insertImageName('original','${imageNameOriginal}.gif');" class="btn btn-link">.gif</a>
+                        <a href="javascript:insertImageName('original','');" class="btn btn-link">${uiLabelMap.CommonClear}</a>
                     </div>
     </#if>
                 </td>
             </tr>
             <tr>
                 <td colspan="2">&nbsp;</td>
-                <td><input type="submit" name="Update" value="${uiLabelMap.CommonUpdate}" class="smallSubmit"/></td>
+                <td><input type="submit" name="Update" value="${uiLabelMap.CommonUpdate}" class="btn btn-default btn-sm"/></td>
                 <td colspan="3">&nbsp;</td>
             </tr>
         </table>
@@ -185,7 +185,7 @@ under the License.
     </script>
     <h3>${uiLabelMap.ProductUploadImage}</h3>
     <form method="post" enctype="multipart/form-data" action="<@ofbizUrl>UploadProductImage?productId=${productId}&amp;upload_file_type=original</@ofbizUrl>" name="imageUploadForm">
-        <table cellspacing="0" class="basic-table">
+        <table cellspacing="0" class="table">
             <tr>
                 <td width="20%" align="right" valign="top">
                     <input type="file" size="50" name="fname"/>
@@ -197,7 +197,7 @@ under the License.
                     <input type="radio" name="upload_file_type_bogus" value="large"onclick='setUploadUrl("<@ofbizUrl>UploadProductImage?productId=${productId}&amp;upload_file_type=large</@ofbizUrl>");'/>${uiLabelMap.CommonLarge}
                     <input type="radio" name="upload_file_type_bogus" value="detail" onclick='setUploadUrl("<@ofbizUrl>UploadProductImage?productId=${productId}&amp;upload_file_type=detail</@ofbizUrl>");'/>${uiLabelMap.CommonDetail}
                     <input type="radio" name="upload_file_type_bogus" value="original" checked="checked" onclick='setUploadUrl("<@ofbizUrl>UploadProductImage?productId=${productId}&amp;upload_file_type=original</@ofbizUrl>");'/>${uiLabelMap.ProductOriginal}
-                    <input type="submit" class="smallSubmit" value="${uiLabelMap.ProductUploadImage}"/>
+                    <input type="submit" class="btn btn-default btn-sm" value="${uiLabelMap.ProductUploadImage}"/>
                 </td>
             </tr>
         </table>

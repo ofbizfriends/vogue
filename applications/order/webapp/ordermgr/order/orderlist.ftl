@@ -36,16 +36,16 @@ under the License.
 </script>
 
 <#macro pagination>
-    <table class="basic-table" cellspacing='0'>
+    <table class="table" cellspacing='0'>
          <tr>
         <td>
           <#if state.hasPrevious()>
-            <a href="<@ofbizUrl>orderlist?viewIndex=${state.getViewIndex() - 1}&amp;viewSize=${state.getViewSize()}&amp;filterDate=${filterDate!}</@ofbizUrl>" class="buttontext">${uiLabelMap.CommonPrevious}</a>
+            <a href="<@ofbizUrl>orderlist?viewIndex=${state.getViewIndex() - 1}&amp;viewSize=${state.getViewSize()}&amp;filterDate=${filterDate!}</@ofbizUrl>" class="btn btn-link">${uiLabelMap.CommonPrevious}</a>
           </#if>
         </td>
         <td align="right">
           <#if state.hasNext()>
-            <a href="<@ofbizUrl>orderlist?viewIndex=${state.getViewIndex() + 1}&amp;viewSize=${state.getViewSize()}&amp;filterDate=${filterDate!}</@ofbizUrl>" class="buttontext">${uiLabelMap.CommonNext}</a>
+            <a href="<@ofbizUrl>orderlist?viewIndex=${state.getViewIndex() + 1}&amp;viewSize=${state.getViewSize()}&amp;filterDate=${filterDate!}</@ofbizUrl>" class="btn btn-link">${uiLabelMap.CommonNext}</a>
           </#if>
         </td>
       </tr>
@@ -63,7 +63,7 @@ under the License.
     <div class="screenlet-body">
       <form method="post" name="findorder" action="<@ofbizUrl>orderlist</@ofbizUrl>">
         <input type="hidden" name="changeStatusAndTypeState" value="Y" />
-        <table class="basic-table" cellspacing='0'>
+        <table class="table" cellspacing='0'>
           <tr>
             <td align="right" class="label">${uiLabelMap.CommonStatus}</td>
             <td>&nbsp;&nbsp;</td>
@@ -131,7 +131,7 @@ under the License.
           </tr>
           <tr>
             <td colspan="3" align="center">
-              <a href="javascript:document.findorder.submit()" class="buttontext">${uiLabelMap.CommonFind}</a>
+              <a href="javascript:document.findorder.submit()" class="btn btn-link">${uiLabelMap.CommonFind}</a>
             </td>
           </tr>
         </table>
@@ -147,7 +147,7 @@ under the License.
       <br class="clear"/>
     </div>
     <div class="screenlet-body">
-        <table class="basic-table hover-bar" cellspacing='0'>
+        <table class="table table-hover" cellspacing='0'>
           <tr class="header-row">
             <td width="15%">${uiLabelMap.CommonDate}</td>
             <td width="10%">${uiLabelMap.OrderOrder} ${uiLabelMap.CommonNbr}</td>
@@ -186,7 +186,7 @@ under the License.
             <tr>
               <td><#if orderHeader.orderDate?has_content>${Static["org.ofbiz.base.util.UtilFormatOut"].formatDateTime(orderHeader.orderDate, "", locale, timeZone)!}</#if></td>
               <td>
-                <a href="<@ofbizUrl>orderview?orderId=${orderHeader.orderId}</@ofbizUrl>" class="buttontext">${orderHeader.orderId}</a>
+                <a href="<@ofbizUrl>orderview?orderId=${orderHeader.orderId}</@ofbizUrl>" class="btn btn-link">${orderHeader.orderId}</a>
               </td>
               <td>${orderHeader.orderName!}</td>
               <td>${orderHeader.getRelatedOne("OrderType", true).get("description",locale)}</td>

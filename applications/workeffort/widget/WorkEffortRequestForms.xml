@@ -21,14 +21,14 @@ under the License.
 <forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-form.xsd">
 
     <form name="ListWorkEffortRequests" separate-columns="true" target="ListWorkEffortRequests" title="" type="list"
-        odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="table table-hover">
         <actions>
             <entity-and entity-name="WorkEffortCustRequestView">
                 <field-map field-name="workEffortId"/>
             </entity-and>
         </actions>
         <field name="workEffortId"><hidden/></field>
-        <field name="custRequestId" widget-style="buttontext">
+        <field name="custRequestId" widget-style="btn btn-link">
             <hyperlink description="${custRequestId}" target="/ordermgr/control/EditRequest" target-type="inter-app">
                 <parameter param-name="custRequestId"/>
             </hyperlink>
@@ -36,7 +36,7 @@ under the License.
         <field name="description"><display/></field>
         <field name="custRequestTypeDescription"><display/></field>
         <field name="statusItemDescription"><display/></field>
-        <field name="deleteLink" title=" " widget-style="buttontext">
+        <field name="deleteLink" title=" " widget-style="btn btn-link">
             <hyperlink also-hidden="false" description="${uiLabelMap.CommonDelete}" target="deleteWorkEffortRequest">
                 <parameter param-name="workEffortId"/>
                 <parameter param-name="custRequestId"/>
@@ -44,28 +44,28 @@ under the License.
         </field>
     </form>
     <form name="AddWorkEffortRequest" target="createWorkEffortRequest" title="" type="single"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <field name="workEffortId"><hidden/></field>
         <field name="custRequestId"><lookup target-form-name="LookupCustRequest"/></field>
-        <field name="submitButton" title="${uiLabelMap.CommonSave}" widget-style="buttontext">
+        <field name="submitButton" title="${uiLabelMap.CommonSave}" widget-style="btn btn-link">
             <submit button-type="text-link"/>
         </field>
     </form>
 
     <form name="ListWorkEffortRequestItems" separate-columns="true" target="ListWorkEffortRequestItems" title="" type="list"
-        odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="table table-hover">
         <actions>
             <entity-and entity-name="WorkEffortCustRequestItemView">
                 <field-map field-name="workEffortId"/>
             </entity-and>
         </actions>
         <field name="workEffortId"><hidden/></field>
-        <field name="custRequestId" widget-style="buttontext">
+        <field name="custRequestId" widget-style="btn btn-link">
             <hyperlink description="${custRequestId}" target="/ordermgr/control/EditRequest" target-type="inter-app">
                 <parameter param-name="custRequestId"/>
             </hyperlink>
         </field>
-        <field name="custRequestItemSeqId" widget-style="buttontext"><display/></field>
+        <field name="custRequestItemSeqId" widget-style="btn btn-link"><display/></field>
         <field name="statusItemDescription"><display/></field>
         <field name="priority"><display/></field>
         <field name="productId"><display/></field>
@@ -79,10 +79,10 @@ under the License.
         </field>
     </form>
     <form name="AddWorkEffortRequestItem" target="createWorkEffortRequestItem" title="" type="single"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <field name="workEffortId"><hidden/></field>
         <field name="custRequestId"><lookup target-form-name="LookupCustRequest"/></field>
         <field name="custRequestItemSeqId"><lookup target-form-name="LookupCustRequestItem" target-parameter="custRequestId"/></field>
-        <field name="submitButton" title="${uiLabelMap.CommonAdd}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonAdd}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
 </forms>

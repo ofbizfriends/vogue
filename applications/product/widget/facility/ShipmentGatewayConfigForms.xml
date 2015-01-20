@@ -20,7 +20,7 @@ under the License.
 <forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-form.xsd">
     
     <!-- form whose input filters the FindPaymentGatewayConfig -->
-    <form name="FindShipmentGatewayConfig" type="single" target="FindShipmentGatewayConfig" header-row-style="header-row" default-table-style="basic-table">
+    <form name="FindShipmentGatewayConfig" type="single" target="FindShipmentGatewayConfig" header-row-style="header-row" default-table-style="table">
         <field name="shipmentGatewayConfigId" title="${uiLabelMap.FacilityShipmentGatewayConfigId}"><text-find ignore-case="true"/></field>
         <field name="description" title="${uiLabelMap.FacilityShipmentGatewayConfigDescription}"><text-find ignore-case="true"/></field>
         <field name="shipmentGatewayConfTypeId" title="${uiLabelMap.FacilityShipmentGatewayConfigTypeId}">
@@ -32,12 +32,12 @@ under the License.
         </field>
         <field name="performSearch"><hidden value="Y"/></field>
         <field name="noConditionFind"><hidden value="Y"/><!-- if this isn't there then with all fields empty no query will be done --></field>
-        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit">
+        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="btn btn-default btn-sm">
             <submit button-type="button"/>
         </field>
     </form>
     
-    <form name="ListShipmentGatewayConfig" type="list" list-name="listIt" odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
+    <form name="ListShipmentGatewayConfig" type="list" list-name="listIt" odd-row-style="alternate-row" default-table-style="table table-hover">
         <actions>
             <service service-name="performFind" result-map="result" result-map-list="listIt">
                 <field-map field-name="inputFields" from-field="parameters"/>
@@ -57,18 +57,18 @@ under the License.
         </field>
     </form>
     
-    <form name="EditShipmentGatewayConfig" type="single" target="UpdateShipmentGatewayConfig" default-map-name="shipmentGatewayConfig" header-row-style="header-row" default-table-style="basic-table">
+    <form name="EditShipmentGatewayConfig" type="single" target="UpdateShipmentGatewayConfig" default-map-name="shipmentGatewayConfig" header-row-style="header-row" default-table-style="table">
         <field name="shipmentGatewayConfigId"><hidden/></field>
         <field name="description" title="${uiLabelMap.FacilityShipmentGatewayConfigDescription}"><text size="60" maxlength="60"/></field>
         <field name="shipmentGatewayConfTypeId" title="${uiLabelMap.FacilityShipmentGatewayConfigTypeId}">
             <display-entity entity-name="ShipmentGatewayConfigType" key-field-name="shipmentGatewayConfTypeId" description="${description}"/>
         </field>
-        <field name="submitButton" title="${uiLabelMap.CommonUpdate}" widget-style="smallSubmit">
+        <field name="submitButton" title="${uiLabelMap.CommonUpdate}" widget-style="btn btn-default btn-sm">
             <submit button-type="button"/>
         </field>
     </form>
     
-    <form name="EditShipmentGatewayConfigDhl" type="single" target="UpdateShipmentGatewayConfigDhl" default-map-name="shipmentGatewayDhl" header-row-style="header-row" default-table-style="basic-table">
+    <form name="EditShipmentGatewayConfigDhl" type="single" target="UpdateShipmentGatewayConfigDhl" default-map-name="shipmentGatewayDhl" header-row-style="header-row" default-table-style="table">
         <auto-fields-entity entity-name="ShipmentGatewayDhl" default-field-type="edit"/>
         <field name="shipmentGatewayConfigId"><hidden/></field>
         <field name="connectUrl" title="${uiLabelMap.FacilityShipmentDhlConnectUrl}">
@@ -107,12 +107,12 @@ under the License.
                 <option key="api.schema.DHL" description="${uiLabelMap.FacilityShipmentDhlRateEstimate}"/>
             </drop-down>
         </field>
-        <field name="submitButton" title="${uiLabelMap.CommonUpdate}" widget-style="smallSubmit">
+        <field name="submitButton" title="${uiLabelMap.CommonUpdate}" widget-style="btn btn-default btn-sm">
             <submit button-type="button"/>
         </field>
     </form>
     
-    <form name="EditShipmentGatewayConfigFedex" type="single" target="UpdateShipmentGatewayConfigFedex" default-map-name="shipmentGatewayFedex" header-row-style="header-row" default-table-style="basic-table">
+    <form name="EditShipmentGatewayConfigFedex" type="single" target="UpdateShipmentGatewayConfigFedex" default-map-name="shipmentGatewayFedex" header-row-style="header-row" default-table-style="table">
         <auto-fields-entity entity-name="ShipmentGatewayFedex" default-field-type="edit"/>
         <field name="shipmentGatewayConfigId"><hidden/></field>
         <field name="connectUrl" title="${uiLabelMap.FacilityShipmentFedexConnectUrl}">
@@ -175,12 +175,12 @@ under the License.
         <field name="rateEstimateTemplate" title="${uiLabelMap.FacilityShipmentFedexRateEstimateTemplateLocation}">
             <text size="80" maxlength="80"/>
         </field>
-        <field name="submitButton" title="${uiLabelMap.CommonUpdate}" widget-style="smallSubmit">
+        <field name="submitButton" title="${uiLabelMap.CommonUpdate}" widget-style="btn btn-default btn-sm">
             <submit button-type="button"/>
         </field>
     </form>
     
-    <form name="EditShipmentGatewayConfigUps" type="single" target="UpdateShipmentGatewayConfigUps" default-map-name="shipmentGatewayUps" header-row-style="header-row" default-table-style="basic-table">
+    <form name="EditShipmentGatewayConfigUps" type="single" target="UpdateShipmentGatewayConfigUps" default-map-name="shipmentGatewayUps" header-row-style="header-row" default-table-style="table">
         <auto-fields-entity entity-name="ShipmentGatewayUps" default-field-type="edit"/>
         <field name="shipmentGatewayConfigId"><hidden/></field>
         <field name="connectUrl" title="${uiLabelMap.FacilityShipmentUpsConnectUrl}">
@@ -269,12 +269,12 @@ under the License.
         <field name="defaultReturnLabelSubject" title="${uiLabelMap.FacilityShipmentUpsDefaultReturnLabelSubject}">
             <text size="60" maxlength="60"/>
         </field>
-        <field name="submitButton" title="${uiLabelMap.CommonUpdate}" widget-style="smallSubmit">
+        <field name="submitButton" title="${uiLabelMap.CommonUpdate}" widget-style="btn btn-default btn-sm">
             <submit button-type="button"/>
         </field>
     </form>
     
-    <form name="EditShipmentGatewayConfigUsps" type="single" target="UpdateShipmentGatewayConfigUsps" default-map-name="shipmentGatewayUsps" header-row-style="header-row" default-table-style="basic-table">
+    <form name="EditShipmentGatewayConfigUsps" type="single" target="UpdateShipmentGatewayConfigUsps" default-map-name="shipmentGatewayUsps" header-row-style="header-row" default-table-style="table">
         <auto-fields-entity entity-name="ShipmentGatewayUsps" default-field-type="edit"/>
         <field name="shipmentGatewayConfigId"><hidden/></field>
         <field name="connectUrl" title="${uiLabelMap.FacilityShipmentUspsConnectUrl}">
@@ -298,22 +298,22 @@ under the License.
                 <option key="N" description="${uiLabelMap.CommonNo}"/>
             </drop-down>
         </field>
-        <field name="submitButton" title="${uiLabelMap.CommonUpdate}" widget-style="smallSubmit">
+        <field name="submitButton" title="${uiLabelMap.CommonUpdate}" widget-style="btn btn-default btn-sm">
             <submit button-type="button"/>
         </field>
     </form>
     
-    <form name="FindShipmentGatewayConfigTypes" type="single" target="FindShipmentGatewayConfigTypes" header-row-style="header-row" default-table-style="basic-table">
+    <form name="FindShipmentGatewayConfigTypes" type="single" target="FindShipmentGatewayConfigTypes" header-row-style="header-row" default-table-style="table">
         <field name="shipmentGatewayConfTypeId" title="${uiLabelMap.FacilityShipmentGatewayConfigTypeId}"><text-find ignore-case="true"/></field>
         <field name="description" title="${uiLabelMap.FacilityShipmentGatewayConfigDescription}"><text-find ignore-case="true"/></field>
         <field name="performSearch"><hidden value="Y"/></field>
         <field name="noConditionFind"><hidden value="Y"/><!-- if this isn't there then with all fields empty no query will be done --></field>
-        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit">
+        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="btn btn-default btn-sm">
             <submit button-type="button"/>
         </field>
     </form>
     
-    <form name="ListShipmentGatewayConfigTypes" type="list" list-name="listIt" odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
+    <form name="ListShipmentGatewayConfigTypes" type="list" list-name="listIt" odd-row-style="alternate-row" default-table-style="table table-hover">
         <actions>
             <service service-name="performFind" result-map="result" result-map-list="listIt">
                 <field-map field-name="inputFields" from-field="parameters"/>
@@ -330,7 +330,7 @@ under the License.
         </field>
     </form>
     
-    <form name="EditShipmentGatewayConfigType" type="single" target="UpdateShipmentGatewayConfigType" default-map-name="shipmentGatewayConfigType" header-row-style="header-row" default-table-style="basic-table">
+    <form name="EditShipmentGatewayConfigType" type="single" target="UpdateShipmentGatewayConfigType" default-map-name="shipmentGatewayConfigType" header-row-style="header-row" default-table-style="table">
         <field name="shipmentGatewayConfTypeId"><hidden/></field>
         <field name="description" title="${uiLabelMap.FacilityShipmentGatewayConfigTypeDescription}"><text size="60" maxlength="60"/></field>
         <field name="parentTypeId">
@@ -347,7 +347,7 @@ under the License.
                 <option key="N" description="${uiLabelMap.CommonNo}"/>
             </drop-down>
         </field>
-        <field name="submitButton" title="${uiLabelMap.CommonUpdate}" widget-style="smallSubmit">
+        <field name="submitButton" title="${uiLabelMap.CommonUpdate}" widget-style="btn btn-default btn-sm">
             <submit button-type="button"/>
         </field>
     </form>

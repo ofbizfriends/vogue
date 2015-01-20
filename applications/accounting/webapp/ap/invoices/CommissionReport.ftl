@@ -19,9 +19,9 @@ under the License.
 
 <#if commissionReportList?has_content>
   <div>
-    <a href="<@ofbizUrl>CommissionReport.pdf?isSearch=Y&amp;productId=${parameters.productId!}&amp;partyId=${parameters.partyId!}&amp;fromDate=${parameters.fromDate!}&amp;thruDate=${parameters.thruDate!}</@ofbizUrl>" target="_BLANK" class="buttontext">${uiLabelMap.AccountingInvoicePDF}</a>
+    <a href="<@ofbizUrl>CommissionReport.pdf?isSearch=Y&amp;productId=${parameters.productId!}&amp;partyId=${parameters.partyId!}&amp;fromDate=${parameters.fromDate!}&amp;thruDate=${parameters.thruDate!}</@ofbizUrl>" target="_BLANK" class="btn btn-link">${uiLabelMap.AccountingInvoicePDF}</a>
   </div>
-  <table class="basic-table hover-bar" cellspacing="0">
+  <table class="table table-hover" cellspacing="0">
     <#-- Header Begins -->
     <tr class="header-row-2">
       <th>${uiLabelMap.AccountingLicensedProduct}</th>

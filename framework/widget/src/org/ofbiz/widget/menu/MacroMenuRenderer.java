@@ -348,6 +348,7 @@ public class MacroMenuRenderer implements MenuStringRenderer {
         parameters.put("id", menu.getId());
         parameters.put("style", menu.getMenuContainerStyle(context));
         parameters.put("title", menu.getTitle(context));
+        parameters.put("titleStyle", menu.getDefaultTitleStyle());
         try {
             executeMacro(writer, "renderMenuBegin", parameters);
         } catch (TemplateException e) {

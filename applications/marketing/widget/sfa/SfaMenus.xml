@@ -63,7 +63,7 @@ under the License.
     </menu>
 
     <menu name="OpportunitySubTabBar" extends="CommonTabBarMenu" extends-resource="component://common/widget/CommonMenus.xml"
-          menu-container-style="button-bar button-style-2 no-clear">
+          menu-container-style="btn-group button-style-2 no-clear">
         <menu-item name="NewCommEvent" title="${uiLabelMap.PartyNewEmail}">
             <link target="/partymgr/control/NewDraftCommunicationEvent" url-mode="inter-app" link-type="hidden-form">
                 <parameter param-name="communicationEventTypeId" value="EMAIL_COMMUNICATION"/>
@@ -143,7 +143,7 @@ under the License.
         </menu-item>
     </menu>
     <menu name="AccountSubTabBar" extends="CommonTabBarMenu" extends-resource="component://common/widget/CommonMenus.xml"
-          menu-container-style="button-bar button-style-2 no-clear">
+          menu-container-style="btn-group button-style-2 no-clear">
         <menu-item name="NewAccounts" title="${uiLabelMap.PageTitleCreateAccount}">
             <link target="NewAccount"/>
         </menu-item>
@@ -220,7 +220,7 @@ under the License.
     </menu>
 
     <menu name="LeadSubTabBar" extends="CommonTabBarMenu" extends-resource="component://common/widget/CommonMenus.xml"
-          menu-container-style="button-bar button-style-2 no-clear">
+          menu-container-style="btn-group button-style-2 no-clear">
         <menu-item name="NewLead" title="${uiLabelMap.CommonCreateNew}">
             <link target="NewLead"/>
         </menu-item>
@@ -292,7 +292,7 @@ under the License.
         </menu-item>
     </menu>
     <menu name="ContactSubTabBar" extends="CommonTabBarMenu" extends-resource="component://common/widget/CommonMenus.xml"
-          menu-container-style="button-bar button-style-2 no-clear">
+          menu-container-style="btn-group button-style-2 no-clear">
         <menu-item name="NewContact" title="${uiLabelMap.CommonCreateNew}">
             <link target="NewContact"/>
         </menu-item>
@@ -346,7 +346,7 @@ under the License.
         <menu-item name="find" title="${uiLabelMap.CommonFind}"><link target="Events"/></menu-item>
     </menu>
     <menu name="EventSubTabBar" extends="CommonTabBarMenu" extends-resource="component://common/widget/CommonMenus.xml"
-          menu-container-style="button-bar button-style-2 no-clear">
+          menu-container-style="btn-group button-style-2 no-clear">
         <menu-item name="NewEvent" title="${uiLabelMap.CommonCreateNew}"><link target="EditEvent"/></menu-item>
     </menu>
 </menus>

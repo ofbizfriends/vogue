@@ -88,8 +88,8 @@
                                 <not><if-empty field="partyId"/></not>
                             </condition>
                             <widgets>
-                                <container style="button-bar">
-                                    <link target="OrganizationToComplete" text="${uiLabelMap.SetupSetToComplete}" style="buttontext">
+                                <container style="btn-group">
+                                    <link target="OrganizationToComplete" text="${uiLabelMap.SetupSetToComplete}" style="btn btn-link">
                                         <parameter param-name="partyId" from-field="organizationPartyId"/>
                                         <parameter param-name="roleTypeId" value="ORGANIZATION_ROLE"/>
                                     </link>

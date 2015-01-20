@@ -96,7 +96,7 @@ under the License.
         <br class="clear"/>
     </div>
     <div class="screenlet-body">
-        <table class="basic-table" cellspacing='0'>
+        <table class="table" cellspacing='0'>
             <#if orderHeader.orderName?has_content>
             <tr>
               <td align="right" valign="top" width="15%" class="label">&nbsp;${uiLabelMap.OrderOrderName}</td>
@@ -164,7 +164,7 @@ under the License.
                 <td align="right" valign="top" width="15%" class="label">&nbsp;${uiLabelMap.OrderProductStore}</td>
                 <td width="5%">&nbsp;</td>
                 <td valign="top" width="80%">
-                  ${productStore.storeName!}&nbsp;<a href="/catalog/control/EditProductStore?productStoreId=${productStore.productStoreId}${StringUtil.wrapString(externalKeyParam)}" target="catalogmgr" class="buttontext">(${productStore.productStoreId})</a>
+                  ${productStore.storeName!}&nbsp;<a href="/catalog/control/EditProductStore?productStoreId=${productStore.productStoreId}${StringUtil.wrapString(externalKeyParam)}" target="catalogmgr" class="btn btn-link">(${productStore.productStoreId})</a>
                 </td>
               </tr>
               <tr><td colspan="3"><hr /></td></tr>
@@ -174,7 +174,7 @@ under the License.
               <td width="5%">&nbsp;</td>
               <td valign="top" width="80%">
                   <#if orderHeader.originFacilityId?has_content>
-                    <a href="/facility/control/EditFacility?facilityId=${orderHeader.originFacilityId}${StringUtil.wrapString(externalKeyParam)}" target="facilitymgr" class="buttontext">${orderHeader.originFacilityId}</a>
+                    <a href="/facility/control/EditFacility?facilityId=${orderHeader.originFacilityId}${StringUtil.wrapString(externalKeyParam)}" target="facilitymgr" class="btn btn-link">${orderHeader.originFacilityId}</a>
                   <#else>
                     ${uiLabelMap.CommonNA}
                   </#if>
@@ -186,7 +186,7 @@ under the License.
               <td width="5%">&nbsp;</td>
               <td valign="top" width="80%">
                   <#if orderHeader.createdBy?has_content>
-                    <a href="/partymgr/control/viewprofile?userlogin_id=${orderHeader.createdBy}${StringUtil.wrapString(externalKeyParam)}" target="partymgr" class="buttontext">${orderHeader.createdBy}</a>
+                    <a href="/partymgr/control/viewprofile?userlogin_id=${orderHeader.createdBy}${StringUtil.wrapString(externalKeyParam)}" target="partymgr" class="btn btn-link">${orderHeader.createdBy}</a>
                   <#else>
                     ${uiLabelMap.CommonNotSet}
                   </#if>
@@ -229,7 +229,7 @@ under the License.
               <td align="right" valign="top" width="15%" class="label">&nbsp;${uiLabelMap.OrderImage}</td>
               <td width="5%">&nbsp;</td>
               <td valign="top" width="80%">
-                  <a href="<@ofbizUrl>viewimage?orderId=${orderId}&amp;orderContentTypeId=IMAGE_URL</@ofbizUrl>" target="_orderImage" class="buttontext">${uiLabelMap.OrderViewImage}</a>
+                  <a href="<@ofbizUrl>viewimage?orderId=${orderId}&amp;orderContentTypeId=IMAGE_URL</@ofbizUrl>" target="_orderImage" class="btn btn-link">${uiLabelMap.OrderViewImage}</a>
               </td>
             </tr>
             </#if>
@@ -246,7 +246,7 @@ under the License.
                       <option value="2" <#if (orderHeader.priority)! == "2">selected="selected" <#elseif !(orderHeader.priority)?has_content>selected="selected"</#if>>${uiLabelMap.CommonNormal}</option>
                       <option value="3" <#if (orderHeader.priority)! == "3">selected="selected" </#if>>${uiLabelMap.CommonLow}</option>
                     </select>
-                    <input type="submit" class="smallSubmit" value="${uiLabelMap.FormFieldTitle_reserveInventory}"/>
+                    <input type="submit" class="btn btn-default btn-sm" value="${uiLabelMap.FormFieldTitle_reserveInventory}"/>
                     </form>
                   </td>
                 </tr>
@@ -262,7 +262,7 @@ under the License.
                   <option value="Y" <#if (orderHeader.invoicePerShipment)! == "Y">selected="selected" </#if>>${uiLabelMap.CommonYes}</option>
                   <option value="N" <#if (orderHeader.invoicePerShipment)! == "N">selected="selected" </#if>>${uiLabelMap.CommonNo}</option>
                 </select>
-                <input type="submit" class="smallSubmit" value="${uiLabelMap.CommonUpdate}"/>
+                <input type="submit" class="btn btn-default btn-sm" value="${uiLabelMap.CommonUpdate}"/>
                 </form>
               </td>
             </tr>

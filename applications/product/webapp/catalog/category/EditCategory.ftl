@@ -49,7 +49,7 @@ function insertImageName(type,nameValue) {
         </div>
         <div class="screenlet-body">
             <form action="<@ofbizUrl>createProductCategory</@ofbizUrl>" method="post" style="margin: 0;" name="productCategoryForm">
-                <table cellspacing="0" class="basic-table">
+                <table cellspacing="0" class="table">
                     <tr>
                         <td align="right" class="label">${uiLabelMap.ProductProductCategoryId}</td>
                         <td>&nbsp;</td>
@@ -66,7 +66,7 @@ function insertImageName(type,nameValue) {
         </div>
         <div class="screenlet-body">
             <form action="<@ofbizUrl>createProductCategory</@ofbizUrl>" method="post" style="margin: 0;" name="productCategoryForm">
-                <table cellspacing="0" class="basic-table">
+                <table cellspacing="0" class="table">
                     <tr>
                         <td align="right" class="label">${uiLabelMap.ProductProductCategoryId}</td>
                         <td>&nbsp;</td>
@@ -82,7 +82,7 @@ function insertImageName(type,nameValue) {
     <div class="screenlet-body">
         <form action="<@ofbizUrl>updateProductCategory</@ofbizUrl>" method="post" style="margin: 0;" name="productCategoryForm">
             <input type="hidden" name="productCategoryId" value="${productCategoryId}"/>
-            <table cellspacing="0" class="basic-table">
+            <table cellspacing="0" class="table">
                 <tr>
                     <td align="right" class="label">${uiLabelMap.ProductProductCategoryId}</td>
                     <td>&nbsp;</td>
@@ -131,9 +131,9 @@ function insertImageName(type,nameValue) {
                         <#if productCategory?has_content>
                             <div>
                             ${uiLabelMap.ProductInsertDefaultImageUrl}:
-                            <a href="javascript:insertImageName('category','${imageNameCategory}.jpg');" class="buttontext">.jpg</a>
-                            <a href="javascript:insertImageName('category','${imageNameCategory}.gif');" class="buttontext">.gif</a>
-                            <a href="javascript:insertImageName('category','');" class="buttontext">${uiLabelMap.CommonClear}</a>
+                            <a href="javascript:insertImageName('category','${imageNameCategory}.jpg');" class="btn btn-link">.jpg</a>
+                            <a href="javascript:insertImageName('category','${imageNameCategory}.gif');" class="btn btn-link">.gif</a>
+                            <a href="javascript:insertImageName('category','');" class="btn btn-link">${uiLabelMap.CommonClear}</a>
                             </div>
                         </#if>
                     </td>
@@ -151,9 +151,9 @@ function insertImageName(type,nameValue) {
                         <#if productCategory?has_content>
                             <div>
                                 ${uiLabelMap.ProductInsertDefaultImageUrl}:
-                                <a href="javascript:insertImageName('linkOne','${imageNameLinkOne}.jpg');" class="buttontext">.jpg</a>
-                                <a href="javascript:insertImageName('linkOne','${imageNameLinkOne}.gif');" class="buttontext">.gif</a>
-                                <a href="javascript:insertImageName('linkOne','');" class="buttontext">${uiLabelMap.CommonClear}</a>
+                                <a href="javascript:insertImageName('linkOne','${imageNameLinkOne}.jpg');" class="btn btn-link">.jpg</a>
+                                <a href="javascript:insertImageName('linkOne','${imageNameLinkOne}.gif');" class="btn btn-link">.gif</a>
+                                <a href="javascript:insertImageName('linkOne','');" class="btn btn-link">${uiLabelMap.CommonClear}</a>
                             </div>
                         </#if>
                     </td>
@@ -171,9 +171,9 @@ function insertImageName(type,nameValue) {
                         <#if productCategory?has_content>
                             <div>
                                 ${uiLabelMap.ProductInsertDefaultImageUrl}:
-                                <a href="javascript:insertImageName('linkTwo','${imageNameLinkTwo}.jpg');" class="buttontext">.jpg</a>
-                                <a href="javascript:insertImageName('linkTwo','${imageNameLinkTwo}.gif');" class="buttontext">.gif</a>
-                                <a href="javascript:insertImageName('linkTwo','');" class="buttontext">${uiLabelMap.CommonClear}</a>
+                                <a href="javascript:insertImageName('linkTwo','${imageNameLinkTwo}.jpg');" class="btn btn-link">.jpg</a>
+                                <a href="javascript:insertImageName('linkTwo','${imageNameLinkTwo}.gif');" class="btn btn-link">.gif</a>
+                                <a href="javascript:insertImageName('linkTwo','');" class="btn btn-link">${uiLabelMap.CommonClear}</a>
                             </div>
                         </#if>
                     </td>
@@ -214,7 +214,7 @@ function insertImageName(type,nameValue) {
         </div>
         <div class="screenlet-body">
             <form method="post" enctype="multipart/form-data" action="<@ofbizUrl>UploadCategoryImage?productCategoryId=${productCategoryId!}&amp;upload_file_type=category</@ofbizUrl>" name="imageUploadForm">
-                <table cellspacing="0" class="basic-table">
+                <table cellspacing="0" class="table">
                     <tr><td>
                         <input type="file" size="50" name="fname"/>
                         <br />
@@ -223,7 +223,7 @@ function insertImageName(type,nameValue) {
                             <input type="radio" name="upload_file_type_bogus" value="linkOne" onclick='setUploadUrl("<@ofbizUrl>UploadCategoryImage?productCategoryId=${productCategoryId}&amp;upload_file_type=linkOne</@ofbizUrl>");'/>${uiLabelMap.ProductLinkOneImageUrl}
                             <input type="radio" name="upload_file_type_bogus" value="linkTwo"onclick='setUploadUrl("<@ofbizUrl>UploadCategoryImage?productCategoryId=${productCategoryId}&amp;upload_file_type=linkTwo</@ofbizUrl>");'/>${uiLabelMap.ProductLinkTwoImageUrl}
                         </span>
-                        <input type="submit" class="smallSubmit" value="${uiLabelMap.ProductUploadImage}"/>
+                        <input type="submit" class="btn btn-default btn-sm" value="${uiLabelMap.ProductUploadImage}"/>
                     </td></tr>
                 </table>
             </form>
@@ -235,12 +235,12 @@ function insertImageName(type,nameValue) {
         </div>
         <div class="screenlet-body">
             <form action="<@ofbizUrl>DuplicateProductCategory</@ofbizUrl>" method="post" style="margin: 0;">
-                <table cellspacing="0" class="basic-table">
+                <table cellspacing="0" class="table">
                     <tr><td>
                         ${uiLabelMap.ProductDuplicateProductCategorySelected}:
                         <input type="hidden" name="oldProductCategoryId" value="${productCategoryId}"/>
                         <div>
-                            <input type="text" size="20" maxlength="20" name="productCategoryId"/>&nbsp;<input type="submit" class="smallSubmit" value="${uiLabelMap.CommonGo}"/>
+                            <input type="text" size="20" maxlength="20" name="productCategoryId"/>&nbsp;<input type="submit" class="btn btn-default btn-sm" value="${uiLabelMap.CommonGo}"/>
                         </div>
                         <div>
                             <b>${uiLabelMap.CommonDuplicate}:</b>

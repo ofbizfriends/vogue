@@ -35,8 +35,8 @@
                             <decorator-section name="menu-bar">
                                 <section>
                                     <widgets>
-                                        <container style="button-bar">
-                                            <link target="EditPartyResume" text="${uiLabelMap.HumanResNewPartyResume}" style="buttontext create"/>
+                                        <container style="btn-group">
+                                            <link target="EditPartyResume" text="${uiLabelMap.HumanResNewPartyResume}" style="btn btn-link create"/>
                                         </container>
                                     </widgets>
                                 </section>

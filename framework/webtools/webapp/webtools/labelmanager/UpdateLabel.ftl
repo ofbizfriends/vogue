@@ -24,7 +24,7 @@ under the License.
 </script>
 <div class="screenlet-body">
     <form method="post" action="<@ofbizUrl>SaveLabelsToXmlFile</@ofbizUrl>" name="UpdateLabelForm">
-        <table class="basic-table" cellspacing="3">
+        <table class="table" cellspacing="3">
             <tr>
                 <td colspan="2">&nbsp;</td>
             </tr>

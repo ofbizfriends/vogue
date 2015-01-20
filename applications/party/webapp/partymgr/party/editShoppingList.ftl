@@ -25,7 +25,7 @@ under the License.
       <li>
         <form id="createEmptyShoppingList" action="<@ofbizUrl>createEmptyShoppingList</@ofbizUrl>" method="post">
           <input type="hidden" name="partyId" value="${partyId!}" />
-          <a href="javascript:document.getElementById('createEmptyShoppingList').submit();" class="buttontext">${uiLabelMap.CommonCreateNew}</a>
+          <a href="javascript:document.getElementById('createEmptyShoppingList').submit();" class="btn btn-link">${uiLabelMap.CommonCreateNew}</a>
         </form>
       </li>
     </ul>
@@ -44,7 +44,7 @@ under the License.
           </#list>
         </select>
         <input type="hidden" name="partyId" value="${partyId!}" />
-        <a href="javascript:document.selectShoppingList.submit();" class="smallSubmit">${uiLabelMap.CommonEdit}</a>
+        <a href="javascript:document.selectShoppingList.submit();" class="btn btn-default btn-sm">${uiLabelMap.CommonEdit}</a>
       </form>
     <#else>
       ${uiLabelMap.PartyNoShoppingListsParty}.
@@ -74,7 +74,7 @@ under the License.
     <form name="updateList" method="post" action="<@ofbizUrl>updateShoppingList</@ofbizUrl>">
       <input type="hidden" name="shoppingListId" value="${shoppingList.shoppingListId}" />
       <input type="hidden" name="partyId" value="${shoppingList.partyId!}" />
-      <table class="basic-table" cellspacing='0'>
+      <table class="table" cellspacing='0'>
         <tr>
           <td class="label">${uiLabelMap.PartyListName}</td>
           <td><input type="text" size="25" name="listName" value="${shoppingList.listName}" <#if shoppingList.listName?default("") == "auto-save">disabled="disabled"</#if> />
@@ -121,14 +121,14 @@ under the License.
               </#list>
             </select>
             <#if parentShoppingList??>
-              <a href="<@ofbizUrl>editShoppingList?shoppingListId=${parentShoppingList.shoppingListId}</@ofbizUrl>" class="smallSubmit">${uiLabelMap.CommonGotoParent} (${parentShoppingList.listName?default(parentShoppingList.shoppingListId)})</a>
+              <a href="<@ofbizUrl>editShoppingList?shoppingListId=${parentShoppingList.shoppingListId}</@ofbizUrl>" class="btn btn-default btn-sm">${uiLabelMap.CommonGotoParent} (${parentShoppingList.listName?default(parentShoppingList.shoppingListId)})</a>
             </#if>
           </td>
         </tr>
         <#if shoppingList.listName?default("") != "auto-save">
           <tr>
             <td>&nbsp;</td>
-            <td><a href="javascript:document.updateList.submit();" class="smallSubmit">${uiLabelMap.CommonSave}</a></td>
+            <td><a href="javascript:document.updateList.submit();" class="btn btn-default btn-sm">${uiLabelMap.CommonSave}</a></td>
           </tr>
         </#if>
       </table>
@@ -146,7 +146,7 @@ under the License.
     <br class="clear"/>
   </div>
   <div class="screenlet-body">
-    <table class="basic-table" cellspacing="0">
+    <table class="table" cellspacing="0">
       <tr class="header-row">
         <td>${uiLabelMap.PartyListName}</td>
         <td>&nbsp;</td>
@@ -155,7 +155,7 @@ under the License.
         <#assign childShoppingList = childShoppingListData.childShoppingList>
         <tr>
           <td class="button-col"><a href="<@ofbizUrl>editShoppingList?shoppingListId=${childShoppingList.shoppingListId}</@ofbizUrl>">${childShoppingList.listName?default(childShoppingList.shoppingListId)}</a></li>
-          <td class="button-col align-float">
+          <td class="btn-group">
             <a href="<@ofbizUrl>editShoppingList?shoppingListId=${childShoppingList.shoppingListId}</@ofbizUrl>">${uiLabelMap.PartyGotoList}</a>
             <a href="<@ofbizUrl>addListToCart?shoppingListId=${childShoppingList.shoppingListId}</@ofbizUrl>">${uiLabelMap.PartyAddListToCart}</a>
           </td>
@@ -185,8 +185,8 @@ under the License.
         <#assign viewIndexLast = Static["org.ofbiz.base.util.UtilMisc"].getViewLastIndex(listSize, viewSize) />
         <#assign messageMap = Static["org.ofbiz.base.util.UtilMisc"].toMap("lowCount", lowIndex, "highCount", highIndex, "total", listSize)/>
         <#assign commonDisplaying = Static["org.ofbiz.base.util.UtilProperties"].getMessage("CommonUiLabels", "CommonDisplaying", messageMap, locale)/>
-        <@nextPrev commonUrl=commonUrl ajaxEnabled=false javaScriptEnabled=false paginateStyle="nav-pager" paginateFirstStyle="nav-first" viewIndex=viewIndex highIndex=highIndex listSize=listSize viewSize=viewSize ajaxFirstUrl="" firstUrl="" paginateFirstLabel="" paginatePreviousStyle="nav-previous" ajaxPreviousUrl="" previousUrl="" paginatePreviousLabel="" pageLabel="" ajaxSelectUrl="" selectUrl="" ajaxSelectSizeUrl="" selectSizeUrl="" commonDisplaying=commonDisplaying paginateNextStyle="nav-next" ajaxNextUrl="" nextUrl="" paginateNextLabel="" paginateLastStyle="nav-last" ajaxLastUrl="" lastUrl="" paginateLastLabel="" paginateViewSizeLabel="" />
-      <table class="basic-table" cellspacing="0">
+        <@nextPrev commonUrl=commonUrl ajaxEnabled=false javaScriptEnabled=false paginateStyle="pagination" paginateFirstStyle="nav-first" viewIndex=viewIndex highIndex=highIndex listSize=listSize viewSize=viewSize ajaxFirstUrl="" firstUrl="" paginateFirstLabel="" paginatePreviousStyle="nav-previous" ajaxPreviousUrl="" previousUrl="" paginatePreviousLabel="" pageLabel="" ajaxSelectUrl="" selectUrl="" ajaxSelectSizeUrl="" selectSizeUrl="" commonDisplaying=commonDisplaying paginateNextStyle="nav-next" ajaxNextUrl="" nextUrl="" paginateNextLabel="" paginateLastStyle="nav-last" ajaxLastUrl="" lastUrl="" paginateLastLabel="" paginateViewSizeLabel="" />
+      <table class="table" cellspacing="0">
         <tr class="header-row">
           <td>${uiLabelMap.PartyProduct}</td>
           <td>${uiLabelMap.PartyQuantity}</td>
@@ -227,7 +227,7 @@ under the License.
             </form>
             <td class="align-float"><@ofbizCurrency amount=unitPrice isoCode=currencyUomId/></td>
             <td class="align-float"><@ofbizCurrency amount=totalPrice isoCode=currencyUomId/></td>
-            <td class="button-col align-float">
+            <td class="btn-group">
               <a href="javascript:document.listform_${shoppingListItem.shoppingListItemSeqId}.submit();">${uiLabelMap.CommonUpdate}</a>
               <a href="javascript:document.removeform_${shoppingListItem.shoppingListItemSeqId}.submit();">${uiLabelMap.CommonRemove}</a>
             </td>

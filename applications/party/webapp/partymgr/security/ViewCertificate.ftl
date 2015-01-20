@@ -46,7 +46,7 @@ under the License.
     <br class="clear" />
   </div>
   <div class="screenlet-body">
-    <table cellspacing="0" class="basic-table">
+    <table cellspacing="0" class="table">
       <tr class="header-row">
         <td>${uiLabelMap.PartyCertComponent}</td>
         <td>${uiLabelMap.PartyCertKeyStore}</td>

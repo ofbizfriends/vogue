@@ -50,8 +50,8 @@
                                     <decorator-section name="menu-bar">
                                         <section>
                                             <widgets>
-                                                <container style="button-bar">
-                                                    <link target="EditEmplLeave" text="${uiLabelMap.HumanResNewLeave}" style="buttontext create"/>
+                                                <container style="btn-group">
+                                                    <link target="EditEmplLeave" text="${uiLabelMap.HumanResNewLeave}" style="btn btn-link create"/>
                                                 </container>
                                             </widgets>
                                         </section>

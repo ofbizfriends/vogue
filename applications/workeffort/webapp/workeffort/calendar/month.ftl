@@ -24,7 +24,7 @@ under the License.
   <#if !newCalEventUrl??>
     <#assign newCalEventUrl = parameters._LAST_VIEW_NAME_>
   </#if>
-<table cellspacing="0" class="basic-table calendar">
+<table cellspacing="0" class="table calendar">
   <tr class="header-row">
     <td width="1%">&nbsp;</td>
     <#list periods as day>

@@ -21,14 +21,14 @@
 <forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
         xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-form.xsd">
     <form name="ListProductStore" type="list" list-name="productStores"
-        odd-row-style="alternate-row" default-table-style="basic-table hover-bar" header-row-style="header-row-2">
+        odd-row-style="alternate-row" default-table-style="table table-hover" header-row-style="header-row-2">
         <actions>
             <set field="parameters.sortField" from-field="parameters.sortField" default-value="storeName"/>
             <entity-condition entity-name="ProductStore" use-cache="true" list="productStores">
                 <order-by field-name="${parameters.sortField}"/>
             </entity-condition>
         </actions>
-        <field name="productStoreId" title="${uiLabelMap.ProductStoreId}" widget-style="buttontext" sort-field="true">
+        <field name="productStoreId" title="${uiLabelMap.ProductStoreId}" widget-style="btn btn-link" sort-field="true">
             <hyperlink target="EditProductStore" description="${productStoreId}">
                 <parameter param-name="productStoreId"/>
             </hyperlink>
@@ -38,7 +38,7 @@
         <field name="subtitle" title="${uiLabelMap.ProductSubTitle}" sort-field="true"><display/></field>
     </form>
     <form name="EditProductStore" type="single" target="updateProductStore" title="" default-map-name="productStore"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <alt-target use-when="productStore==null" target="createProductStore"/>
 
         <auto-fields-service service-name="updateProductStore" map-name=""/>
@@ -65,7 +65,7 @@
                 </entity-options>
             </drop-down>
         </field>
-        <field use-when="productStore!=null&amp;&amp;productStore.getString(&quot;inventoryFacilityId&quot;)!=null" name="inventoryFacilityLink" title=" " widget-style="buttontext">
+        <field use-when="productStore!=null&amp;&amp;productStore.getString(&quot;inventoryFacilityId&quot;)!=null" name="inventoryFacilityLink" title=" " widget-style="btn btn-link">
             <hyperlink target="/facility/control/EditFacility" target-type="inter-app" description="${uiLabelMap.CommonEdit} ${uiLabelMap.ProductFacility} ${productStore.inventoryFacilityId}" also-hidden="false">
                 <parameter param-name="facilityId" from-field="productStore.inventoryFacilityId"/>
             </hyperlink>
@@ -419,7 +419,7 @@
     </form>
 
     <form name="ListProductStoreFinAccountSettings" type="list" target="UpdateProductStoreFinAccountSettings" list-name="productStoreFinActSettings"
-        odd-row-style="alternate-row" default-table-style="basic-table">
+        odd-row-style="alternate-row" default-table-style="table">
         <auto-fields-service service-name="updateProductStoreFinActSetting" default-field-type="display"/>
         <field name="productStoreId"><ignored/></field>
         <field name="finAccountTypeId">
@@ -428,13 +428,13 @@
         <field name="replenishMethodEnumId">
             <display-entity entity-name="Enumeration" description="${description}" key-field-name="enumId"/>
         </field>
-        <field name="remove" title=" " widget-style="buttontext">
+        <field name="remove" title=" " widget-style="btn btn-link">
             <hyperlink target="RemoveProductStoreFinAccountSettings" description="${uiLabelMap.CommonRemove}">
                 <parameter param-name="productStoreId"/>
                 <parameter param-name="finAccountTypeId"/>
             </hyperlink>
         </field>
-        <field name="edit" title=" " widget-style="buttontext">
+        <field name="edit" title=" " widget-style="btn btn-link">
             <hyperlink target="EditProductStoreFinAccountSettings" description="${uiLabelMap.CommonEdit}">
                 <parameter param-name="productStoreId"/>
                 <parameter param-name="finAccountTypeId"/>
@@ -442,7 +442,7 @@
         </field>
     </form>
     <form name="EditProductStoreFinAccountSettings" type="single" target="UpdateProductStoreFinAccountSettings" default-map-name="finAccountSetting"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <alt-target use-when="finAccountSetting==null" target="CreateProductStoreFinAccountSettings"/>
         <auto-fields-service service-name="updateProductStoreFinActSetting"/>
 
@@ -466,11 +466,11 @@
         </field>
 
         <field name="spacer" title=" "><display/></field>
-        <field name="submit" title="${uiLabelMap.CommonSubmit}" widget-style="smallSubmit"><submit/></field>
+        <field name="submit" title="${uiLabelMap.CommonSubmit}" widget-style="btn btn-default btn-sm"><submit/></field>
     </form>
 
     <form name="CreateProductStoreCatalog" type="single" target="createProductStoreCatalog" title=""
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <auto-fields-service service-name="createProductStoreCatalog"/>
         <field name="productStoreId" map-name="productStore"><hidden/></field>
         <field name="prodCatalogId" title="${uiLabelMap.ProductCatalog}">
@@ -480,23 +480,23 @@
                 </entity-options>
             </drop-down>
         </field>
-        <field name="submitButton" title="${uiLabelMap.CommonAdd}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonAdd}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
     <form name="UpdateProductStoreCatalog" type="list" target="updateProductStoreCatalog" title="" list-name="productStoreCatalogs"
-        odd-row-style="alternate-row" default-table-style="basic-table">
+        odd-row-style="alternate-row" default-table-style="table">
         <auto-fields-service service-name="updateProductStoreCatalog"/>
         <field name="productStoreId"><hidden/></field>
         <field name="prodCatalogId" title="${uiLabelMap.ProductCatalogId}">
             <display-entity entity-name="ProdCatalog" description="${catalogName}" also-hidden="true">
-                <sub-hyperlink target="EditProdCatalog" description="${prodCatalogId}" link-style="buttontext">
+                <sub-hyperlink target="EditProdCatalog" description="${prodCatalogId}" link-style="btn btn-link">
                     <parameter param-name="prodCatalogId"/>
                 </sub-hyperlink>
             </display-entity>
         </field>
         <field name="fromDate" title="${uiLabelMap.CommonFromDateTime}"><display/></field>
         <field name="thruDate" title="${uiLabelMap.CommonThruDateTime}"></field>
-        <field name="submitButton" title="${uiLabelMap.CommonUpdate}" widget-style="smallSubmit"><submit button-type="button"/></field>
-        <field name="deleteLink" title=" " widget-style="buttontext">
+        <field name="submitButton" title="${uiLabelMap.CommonUpdate}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
+        <field name="deleteLink" title=" " widget-style="btn btn-link">
             <hyperlink target="deleteProductStoreCatalog" description="${uiLabelMap.CommonDelete}" also-hidden="false">
                 <parameter param-name="prodCatalogId"/>
                 <parameter param-name="productStoreId"/>
@@ -506,7 +506,7 @@
     </form>
 
     <form name="createProductStoreEmail" type="single" target="createProductStoreEmail" title=""
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <auto-fields-service service-name="createProductStoreEmailSetting"/>
         <field name="productStoreId" map-name="productStore"><hidden/></field>
         <field name="emailType" title="${uiLabelMap.CommonEmailType}">
@@ -521,10 +521,10 @@
         <field name="xslfoAttachScreenLocation" title="${uiLabelMap.ProductAttachmentScreenLocation}"></field>
         <field name="subject" title="${uiLabelMap.ProductSubject}"></field>
         <field name="fromAddress" title="${uiLabelMap.CommonFromAddress}"></field>
-        <field name="submitButton" title="${uiLabelMap.CommonAdd}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonAdd}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
     <form name="updateProductStoreEmail" type="list" target="updateProductStoreEmail" title="" list-name="productStoreEmailSettings"
-        odd-row-style="alternate-row" default-table-style="basic-table">
+        odd-row-style="alternate-row" default-table-style="table">
         <auto-fields-service service-name="updateProductStoreEmailSetting"/>
         <field name="productStoreId"><hidden/></field>
         <field name="emailType" title="${uiLabelMap.CommonEmailType}">
@@ -534,8 +534,8 @@
         <field name="xslfoAttachScreenLocation" title="${uiLabelMap.ProductAttachmentScreenLocation}"></field>
         <field name="subject" title="${uiLabelMap.ProductSubject}"></field>
         <field name="fromAddress" title="${uiLabelMap.CommonFromAddress}"></field>
-        <field name="submitButton" title="${uiLabelMap.CommonUpdate}" widget-style="smallSubmit"><submit button-type="button"/></field>
-        <field name="deleteLink" title="${uiLabelMap.CommonDelete}" widget-style="buttontext">
+        <field name="submitButton" title="${uiLabelMap.CommonUpdate}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
+        <field name="deleteLink" title="${uiLabelMap.CommonDelete}" widget-style="btn btn-link">
             <hyperlink target="removeProductStoreEmail" description="${uiLabelMap.CommonDelete}" also-hidden="false">
                 <parameter param-name="productStoreId"/>
                 <parameter param-name="emailType"/>
@@ -544,7 +544,7 @@
     </form>
 
     <form name="CreateproductStorekeywordOvrdForm" type="single" target="createProductStoreKeywordOvrd" title=""
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <auto-fields-service service-name="createProductStoreKeywordOvrd"/>
         <field name="productStoreId" map-name="productStore"><hidden/></field>
         <field name="targetTypeEnumId" title="${uiLabelMap.ProductTargetTypeEnumId}">
@@ -555,10 +555,10 @@
                 </entity-options>
             </drop-down>
         </field>
-        <field name="submitButton" title="${uiLabelMap.CommonAdd}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonAdd}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
     <form name="UpdateproductStorekeywordOvrdForm" type="list" target="updateProductStoreKeywordOvrd" title="" list-name="productStorekeywordOvrdList"
-        odd-row-style="alternate-row" default-table-style="basic-table">
+        odd-row-style="alternate-row" default-table-style="table">
         <auto-fields-service service-name="updateProductStoreKeywordOvrd"/>
         <field name="productStoreId"><hidden/></field>
         <field name="keyword" title="${uiLabelMap.ProductKeyword}"><display description="${keyword}"/></field>
@@ -571,8 +571,8 @@
                 </entity-options>
             </drop-down>
         </field>
-        <field name="submitButton" title="${uiLabelMap.CommonUpdate}" widget-style="smallSubmit"><submit button-type="button"/></field>
-        <field name="deleteLink" title=" " widget-style="buttontext">
+        <field name="submitButton" title="${uiLabelMap.CommonUpdate}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
+        <field name="deleteLink" title=" " widget-style="btn btn-link">
             <hyperlink target="deleteProductStoreKeywordOvrd" description="${uiLabelMap.CommonDelete}" also-hidden="false">
                 <parameter param-name="productStoreId"/>
                 <parameter param-name="keyword"/>
@@ -581,30 +581,30 @@
         </field>
     </form>
     <form name="ViewProductStoreSegments" target="" title="" type="list"
-        odd-row-style="alternate-row" default-table-style="basic-table" paginate-target="">
+        odd-row-style="alternate-row" default-table-style="table" paginate-target="">
         <actions>
             <entity-and entity-name="SegmentGroup">
                 <field-map field-name="productStoreId"/>
             </entity-and>
         </actions>
-        <field name="segmentGroupId"  widget-style="buttontext" title="${uiLabelMap.ProductSegmentGroupId}">
+        <field name="segmentGroupId"  widget-style="btn btn-link" title="${uiLabelMap.ProductSegmentGroupId}">
             <hyperlink also-hidden="false" target-type="inter-app" description="${segmentGroupId}" target="/marketing/control/viewSegmentGroup">
                 <parameter param-name="segmentGroupId"/>
             </hyperlink>
         </field>
         <field name="segmentGroupTypeId" title="${uiLabelMap.ProductSegmentGroupTypeId}"><display-entity entity-name="SegmentGroupType"/></field>
         <field name="description" title="${uiLabelMap.CommonDescription}"><display/></field>
-        <field name="deleteLink" title=" " widget-style="buttontext">
+        <field name="deleteLink" title=" " widget-style="btn btn-link">
             <hyperlink target="/marketing/control/deleteSegmentGroup" description="${uiLabelMap.CommonDelete}" also-hidden="false" target-type="inter-app">
                 <parameter param-name="segmentGroupId"/>
             </hyperlink>
         </field>
     </form>
     <form name="ListProductStoreShipmentMeths" target="" title="" type="list"  list-name="storeShipMethods"
-        paginate-target="EditProductStoreShipSetup" odd-row-style="alternate-row" default-table-style="basic-table">
+        paginate-target="EditProductStoreShipSetup" odd-row-style="alternate-row" default-table-style="table">
         <auto-fields-entity entity-name="ProductStoreShipmentMeth" default-field-type="display"/>
         <field name="productStoreId"><hidden/></field>
-        <field name="productStoreShipMethId" title=" " widget-style="buttontext">
+        <field name="productStoreShipMethId" title=" " widget-style="btn btn-link">
             <hyperlink target="EditProductStoreShipSetup" description="${productStoreShipMethId}" also-hidden="false">
                 <parameter param-name="productStoreId"/>
                 <parameter param-name="productStoreShipMethId"/>
@@ -632,7 +632,7 @@
         <field name="shipmentGatewayConfigId" title="${uiLabelMap.FacilityShipmentGatewayConfigId}">
             <display-entity entity-name="ShipmentGatewayConfig" key-field-name="shipmentGatewayConfigId"  description="${description}"/>
         </field>
-        <field name="deleteLink" title=" " widget-style="buttontext">
+        <field name="deleteLink" title=" " widget-style="btn btn-link">
             <hyperlink target="storeRemoveShipMeth" description="${uiLabelMap.CommonRemove}" also-hidden="false">
                 <parameter param-name="productStoreId"/>
                 <parameter param-name="productStoreShipMethId"/>
@@ -640,7 +640,7 @@
         </field>
     </form>
     <form name="EditProductStoreShipmentMeth" type="single" target="storeUpdateShipMeth" title="" default-map-name="productStoreShipmentMeth"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <alt-target use-when="productStoreShipmentMeth==null" target="storeCreateShipMeth"/>
         <!--<auto-fields-service service-name="updateProductStoreShipMeth"/>-->
         <field name="productStoreId"><hidden/></field>
@@ -701,16 +701,16 @@
             </drop-down>
         </field>
         <field name="sequenceNumber" title="${uiLabelMap.FormFieldTitle_sequenceNum}" tooltip="${uiLabelMap.ProductUsedForDisplayOrdering}"><text/></field>
-        <field name="submitButton" title="${uiLabelMap.CommonSubmit}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonSubmit}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
 
 
     <form name="ListShipmentCostEstimates" target="" title="" type="list"  list-name="estimates"
-        paginate-target="EditProductStoreShipmentCostEstimates" odd-row-style="alternate-row" default-table-style="basic-table">
+        paginate-target="EditProductStoreShipmentCostEstimates" odd-row-style="alternate-row" default-table-style="table">
         <auto-fields-entity entity-name="ShipmentCostEstimate" default-field-type="display"/>
         <field name="productStoreId"><hidden/></field>
         <field name="carrierRoleTypeId"><hidden/></field>
-        <field name="shipmentCostEstimateId" title=" " widget-style="buttontext">
+        <field name="shipmentCostEstimateId" title=" " widget-style="btn btn-link">
             <hyperlink target="EditProductStoreShipmentCostEstimates" description="${shipmentCostEstimateId}" also-hidden="false">
                 <parameter param-name="productStoreId"/>
                 <parameter param-name="shipmentCostEstimateId"/>
@@ -743,7 +743,7 @@
         <field name="priceUomId" title="${uiLabelMap.ProductUnitOfMeasure}">
             <display-entity entity-name="Uom" key-field-name="uomId" description="${description}"/>
         </field>
-        <field name="deleteLink" title=" " widget-style="buttontext">
+        <field name="deleteLink" title=" " widget-style="btn btn-link">
             <hyperlink target="storeRemoveShipRate" description="${uiLabelMap.CommonRemove}" also-hidden="false">
                 <parameter param-name="productStoreId"/>
                 <parameter param-name="shipmentCostEstimateId"/>
@@ -751,7 +751,7 @@
         </field>
     </form>
     <form name="AddShipmentCostEstimate" type="single" target="storeCreateShipRate" title=""
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <field name="productStoreId"><hidden/></field>
         <field name="productStoreShipMethId" title="${uiLabelMap.ProductShipmentMethod}">
             <drop-down allow-empty="false">
@@ -845,7 +845,7 @@
             </drop-down>
         </field>
         <field name="pprice" title="${uiLabelMap.ProductPerUnitPrice}" tooltip="${uiLabelMap.ProductOnlyAppliesWithinSpan}"><text/></field>
-        <field name="submitButton" title="${uiLabelMap.CommonSubmit}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonSubmit}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
 
         <sort-order>
             <field-group>
@@ -898,7 +898,7 @@
         </sort-order>
     </form>
     <form name="ViewShipmentCostEstimate" type="single" title="" default-map-name="estimate"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <field name="shipmentCostEstimateId"><display/></field>
         <field name="productStoreId"><hidden/></field>
         <field name="shipmentMethodTypeId">
@@ -959,7 +959,7 @@
         <field name="priceUnitPrice" title="${uiLabelMap.ProductPerUnitPrice}" tooltip="${uiLabelMap.ProductOnlyAppliesWithinSpan}"><display/></field>
     </form>
     <form name="ListProductStoreVendorPayments" type="list" list-name="productStoreVendorPaymentList" target="deleteProductStoreVendorPayment" paginate-target="EditProductStoreVendorPayments"
-        odd-row-style="alternate-row" default-table-style="basic-table">
+        odd-row-style="alternate-row" default-table-style="table">
         <field name="productStoreId"><hidden/></field>
         <field name="vendorPartyId"><display/></field>
         <field name="paymentMethodTypeId">
@@ -968,10 +968,10 @@
         <field name="creditCardEnumId">
             <display-entity entity-name="Enumeration" key-field-name="enumId" description="${description}"/>
         </field>
-        <field name="submitButton" title="${uiLabelMap.CommonDelete}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonDelete}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
     <form name="EditProductStoreVendorPayment" type="single" target="createProductStoreVendorPayment"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <field name="productStoreId"><hidden/></field>
         <field name="vendorPartyId"><lookup target-form-name="LookupPartyName"/></field>
         <field name="paymentMethodTypeId">
@@ -986,20 +986,20 @@
                 </entity-options>
             </drop-down>
         </field>
-        <field name="submitButton" title="${uiLabelMap.CommonAdd}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonAdd}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
     <form name="ListProductStoreVendorShipments" type="list" list-name="productStoreVendorShipmentList" target="deleteProductStoreVendorShipment"
-        paginate-target="EditProductStoreVendorShipments" odd-row-style="alternate-row" default-table-style="basic-table">
+        paginate-target="EditProductStoreVendorShipments" odd-row-style="alternate-row" default-table-style="table">
         <field name="productStoreId"><hidden/></field>
         <field name="carrierPartyId"><display/></field>
         <field name="vendorPartyId"><display/></field>
         <field name="shipmentMethodTypeId">
             <display-entity entity-name="ShipmentMethodType" key-field-name="shipmentMethodTypeId" description="${description}"/>
         </field>
-        <field name="submitButton" title="${uiLabelMap.CommonDelete}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonDelete}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
     <form name="EditProductStoreVendorShipment" type="single" target="createProductStoreVendorShipment"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <field name="productStoreId"><hidden/></field>
         <field name="carrierPartyId"><lookup target-form-name="LookupPartyName"/></field>
         <field name="vendorPartyId"><lookup target-form-name="LookupPartyName"/></field>
@@ -1008,13 +1008,13 @@
                 <entity-options entity-name="ShipmentMethodType" key-field-name="shipmentMethodTypeId" description="${description}"/>
             </drop-down>
         </field>
-        <field name="submitButton" title="${uiLabelMap.CommonAdd}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonAdd}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
 
     <form name="ListProductStorePromos" type="list" list-name="productStorePromoAndAppls" target="updateProductStorePromoAppl"
-        odd-row-style="alternate-row" default-table-style="basic-table">
+        odd-row-style="alternate-row" default-table-style="table">
         <field name="productStoreId"><hidden/></field>
-        <field name="productPromoId" widget-style="buttontext">
+        <field name="productPromoId" widget-style="btn btn-link">
             <hyperlink target="EditProductPromo" description="${productPromoId}" also-hidden="true">
                 <parameter param-name="productPromoId"/>
             </hyperlink>
@@ -1032,7 +1032,7 @@
          <field name="submitButton" title="${uiLabelMap.CommonUpdate}"><submit button-type="button"/></field>
     </form>
     <form name="CreateProductStorePromo" type="single" target="createProductStorePromoAppl"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <field name="productStoreId"><hidden/></field>
         <field name="productPromoId">
             <drop-down allow-empty="false">
@@ -1047,10 +1047,10 @@
                 <option key="Y" description="${uiLabelMap.CommonY}"/>
             </drop-down>
         </field>
-        <field name="submitButton" title="${uiLabelMap.CommonAdd}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonAdd}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
 
-    <form name="ListProductStorePaymentSettings" type="list" odd-row-style="alternate-row" default-table-style="basic-table" paginate-target="EditProductStorePaySetup">
+    <form name="ListProductStorePaymentSettings" type="list" odd-row-style="alternate-row" default-table-style="table" paginate-target="EditProductStorePaySetup">
         <actions>
             <entity-and entity-name="ProductStorePaymentSetting">
                 <field-map field-name="productStoreId"/>
@@ -1074,7 +1074,7 @@
         </field>
         <field name="paymentPropertiesPath" title="${uiLabelMap.ProductPaymentProps}"><display/></field>
         <field name="applyToAllProducts" title="${uiLabelMap.ProductApplyToAll}"><display/></field>
-        <field name="editLink" title=" " use-when="${bsh:security.hasEntityPermission(&quot;CATALOG&quot;, &quot;_UPDATE&quot;, session);}" widget-style="buttontext">
+        <field name="editLink" title=" " use-when="${bsh:security.hasEntityPermission(&quot;CATALOG&quot;, &quot;_UPDATE&quot;, session);}" widget-style="btn btn-link">
             <hyperlink target="EditProductStorePaySetup" description="${uiLabelMap.CommonEdit}" also-hidden="false">
                 <parameter param-name="productStoreId"/>
                 <parameter param-name="paymentMethodTypeId"/>
@@ -1084,7 +1084,7 @@
         <field name="editLink" title=" " use-when="${bsh:!security.hasEntityPermission(&quot;CATALOG&quot;, &quot;_UPDATE&quot;, session);}">
             <display/>
         </field>
-        <field name="deleteLink" title=" " use-when="${bsh:security.hasEntityPermission(&quot;CATALOG&quot;, &quot;_DELETE&quot;, session);}" widget-style="buttontext">
+        <field name="deleteLink" title=" " use-when="${bsh:security.hasEntityPermission(&quot;CATALOG&quot;, &quot;_DELETE&quot;, session);}" widget-style="btn btn-link">
             <hyperlink target="storeRemovePaySetting" description="${uiLabelMap.CommonDelete}" also-hidden="false">
                 <parameter param-name="productStoreId"/>
                 <parameter param-name="paymentMethodTypeId"/>
@@ -1097,7 +1097,7 @@
     </form>
 
     <form name="EditProductStorePaymentSetting" type="single" target="storeUpdatePaySetting" default-map-name="productStorePaymentSetting"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <alt-target use-when="productStorePaymentSetting==null" target="storeCreatePaySetting"/>
         <field name="productStoreId"><hidden/></field>
         <field name="paymentMethodTypeId" title="${uiLabelMap.CommonPaymentMethodType}" use-when="productStorePaymentSetting!=null">
@@ -1141,6 +1141,6 @@
                 <option key="N" description="${uiLabelMap.CommonN}"/>
             </drop-down>
         </field>
-        <field name="submitButton" title="${uiLabelMap.CommonSubmit}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonSubmit}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
 </forms>

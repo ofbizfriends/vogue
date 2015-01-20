@@ -20,7 +20,7 @@ under the License.
 <forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-form.xsd">
 
     <form name="ListPartyContactLists" type="list" target="updateContactListParty"
-        separate-columns="false" header-row-style="header-row-2"  odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
+        separate-columns="false" header-row-style="header-row-2"  odd-row-style="alternate-row" default-table-style="table table-hover">
         <actions>
             <entity-and entity-name="ContactListParty">
                 <field-map field-name="partyId"/>
@@ -29,7 +29,7 @@ under the License.
         <field name="partyId"><hidden/></field>
         <field name="contactListId" title="${uiLabelMap.PartyContactLists}">
             <display-entity entity-name="ContactList" description="${contactListName}">
-                <sub-hyperlink target="/marketing/control/EditContactList" description="${contactListId}" target-type="inter-app" link-style="smallSubmit">
+                <sub-hyperlink target="/marketing/control/EditContactList" description="${contactListId}" target-type="inter-app" link-style="btn btn-default btn-sm">
                     <parameter param-name="contactListId"/>
                 </sub-hyperlink>
             </display-entity>
@@ -64,11 +64,11 @@ under the License.
                 </entity-options>
             </drop-down>
         </field>
-        <field name="submitButton" title="${uiLabelMap.CommonSave}" widget-style="smallSubmit"><submit button-type="text-link"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonSave}" widget-style="btn btn-default btn-sm"><submit button-type="text-link"/></field>
     </form>
 
     <form name="AddPartyContactList" type="single" target="createContactListParty"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <field name="contactListId"><lookup target-form-name="LookupContactList"/></field>
         <field name="partyId"><hidden/></field>
         <field name="fromDate"><date-time/></field>
@@ -89,15 +89,15 @@ under the License.
                 </entity-options>
             </drop-down>
         </field>
-        <field name="submitButton" title="${uiLabelMap.CommonSave}" widget-style="smallSubmit"><submit button-type="text-link"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonSave}" widget-style="btn btn-default btn-sm"><submit button-type="text-link"/></field>
     </form>
 
     <form name="ListLookupContactList" type="list" target="LookupContactList" default-map-name="contactList"
-        odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" default-table-style="table table-hover">
         <actions>
             <entity-condition entity-name="ContactList"/>
         </actions>
-        <field name="contactListId"  widget-style="smallSubmit">
+        <field name="contactListId"  widget-style="btn btn-default btn-sm">
             <hyperlink also-hidden="false" target-type="plain" description="${contactListId}" target="javascript:set_value('${contactListId}')"/>
         </field>
         <field name="contactListName"><display/></field>

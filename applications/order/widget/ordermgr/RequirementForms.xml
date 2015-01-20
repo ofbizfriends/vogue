@@ -21,7 +21,7 @@ under the License.
 <forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
         xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-form.xsd">
     <form name="FindRequirements" type="single" target="FindRequirements" title=""
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <field name="noConditionFind"><hidden value="Y"/><!-- if this isn't there then with all fields empty no query will be done --></field>
         <field name="requirementId"><text-find/></field>
         <field name="requirementTypeId">
@@ -48,12 +48,12 @@ under the License.
         <field name="description"><text-find/></field>
         <field name="requirementStartDate" title="${uiLabelMap.OrderRequirementStartDate}"><date-find type="date"/></field>
         <field name="requiredByDate" title="${uiLabelMap.OrderRequirementByDate}"><date-find type="date"/></field>
-        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit">
+        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="btn btn-default btn-sm">
             <submit button-type="button"/>
         </field>
     </form>
     <form name="ListRequirements" type="list" target="" title="" list-name="listIt" paginate-target="FindRequirements"
-        odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" default-table-style="table table-hover">
         <actions>
             <service service-name="performFind" result-map="result" result-map-list="listIt">
                 <field-map field-name="inputFields" from-field="requestParameters"/>
@@ -76,7 +76,7 @@ under the License.
             <set field="facilityQuantityOnHandTotal" from-field="resultQoh.quantityOnHandTotal"/>
             <set field="quantityOnHandTotal" from-field="resultQohTotal.quantityOnHandTotal"/>
         </row-actions>
-        <field name="requirementId" widget-style="buttontext">
+        <field name="requirementId" widget-style="btn btn-link">
             <hyperlink target-type="inter-app" description="${requirementId}" target="/ordermgr/control/EditRequirement">
                 <parameter param-name="requirementId"/>
             </hyperlink>
@@ -94,24 +94,24 @@ under the License.
         <field name="quantity" title="${uiLabelMap.CommonQuantity}"><display/></field>
         <field name="facilityQuantityOnHandTotal"><display/></field>
         <field name="quantityOnHandTotal"><display/></field>
-        <field name="requestsLink" widget-style="buttontext">
+        <field name="requestsLink" widget-style="btn btn-link">
             <hyperlink description="${uiLabelMap.OrderRequests}" target="ListRequirementCustRequests">
                 <parameter param-name="requirementId"/>
             </hyperlink>
         </field>
-        <field name="ordersLink" widget-style="buttontext">
+        <field name="ordersLink" widget-style="btn btn-link">
             <hyperlink description="${uiLabelMap.CommonOrders}" target="ListRequirementOrders">
                 <parameter param-name="requirementId"/>
             </hyperlink>
         </field>
-        <field name="deleteLink" widget-style="buttontext" title=" ">
+        <field name="deleteLink" widget-style="btn btn-link" title=" ">
             <hyperlink description="${uiLabelMap.CommonRemove}" target="deleteRequirement">
                 <parameter param-name="requirementId"/>
             </hyperlink>
         </field>
     </form>
     <form name="EditRequirement" type="single" target="updateRequirement" title="" default-map-name="requirement"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <alt-target use-when="requirement==null" target="createRequirement"/>
         <auto-fields-service service-name="updateRequirement" default-field-type="edit"/>
         <field name="requirementId"><hidden/></field>
@@ -137,21 +137,21 @@ under the License.
         <field name="fixedAssetId"><lookup target-form-name="LookupFixedAsset"/></field>
         <field name="custRequestId" map-name="parameters"><text/></field>
         <field name="custRequestItemSeqId" map-name="parameters"><text/></field>
-        <field name="submitButton" title="${uiLabelMap.CommonSubmit}" widget-style="smallSubmit">
+        <field name="submitButton" title="${uiLabelMap.CommonSubmit}" widget-style="btn btn-default btn-sm">
             <submit button-type="button"/>
         </field>
     </form>
     <form name="ListRequirementCustRequests" type="list" title="" list-name="requirementCustRequests" paginate-target="ListRequirementCustRequests"
-        odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" default-table-style="table table-hover">
         <auto-fields-entity entity-name="RequirementCustRequest" default-field-type="display"/>
         <field name="requirementId"><hidden/></field>
-        <field name="custRequestId" widget-style="buttontext">
+        <field name="custRequestId" widget-style="btn btn-link">
             <hyperlink description="${custRequestId}" target="request">
                 <parameter param-name="custRequestId"/>
                 <parameter param-name="custRequestItemSeqId"/>
             </hyperlink>
         </field>
-        <field name="custRequestItemSeqId" widget-style="buttontext">
+        <field name="custRequestItemSeqId" widget-style="btn btn-link">
             <hyperlink description="${custRequestItemSeqId}" target="requestitem">
                 <parameter param-name="custRequestId"/>
                 <parameter param-name="custRequestItemSeqId"/>
@@ -161,9 +161,9 @@ under the License.
 
     <!-- lists the orders associated with a requirement -->
     <form name="ListRequirementOrders" type="list" title="" list-name="orderRequirements" paginate-target="ListRequirementOrders"
-        odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" default-table-style="table table-hover">
         <auto-fields-entity entity-name="OrderRequirementCommitment" default-field-type="display"/>
-        <field name="orderId" widget-style="buttontext">
+        <field name="orderId" widget-style="btn btn-link">
             <hyperlink description="${orderId}" target-type="inter-app" target="/ordermgr/control/orderview">
                 <parameter param-name="orderId"/>
             </hyperlink>
@@ -171,10 +171,10 @@ under the License.
     </form>
     <!-- lists the roles associated with a requirement -->
     <form name="ListRequirementRoles" type="list" title="" list-name="requirementRoles" paginate-target="ListRequirementRoles"
-        odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" default-table-style="table table-hover">
         <auto-fields-entity entity-name="RequirementRole" default-field-type="display"/>
         <field name="requirementId"><hidden/></field>
-        <field name="editLink" widget-style="buttontext" title="${uiLabelMap.CommonEdit}">
+        <field name="editLink" widget-style="btn btn-link" title="${uiLabelMap.CommonEdit}">
             <hyperlink description="${uiLabelMap.CommonEdit}" target="EditRequirementRole">
                 <parameter param-name="requirementId"/>
                 <parameter param-name="partyId"/>
@@ -182,7 +182,7 @@ under the License.
                 <parameter param-name="fromDate"/>
             </hyperlink>
         </field>
-        <field name="removeLink" widget-style="buttontext" title="${uiLabelMap.CommonRemove}">
+        <field name="removeLink" widget-style="btn btn-link" title="${uiLabelMap.CommonRemove}">
             <hyperlink description="${uiLabelMap.CommonRemove}" target="removeRequirementRole">
                 <parameter param-name="requirementId"/>
                 <parameter param-name="partyId"/>
@@ -192,7 +192,7 @@ under the License.
         </field>
     </form>
     <form name="EditRequirementRole" type="single" target="updateRequirementRole" title="" default-map-name="requirementRole"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <alt-target use-when="requirementRole==null" target="createRequirementRole"/>
         <field name="requirementId"><hidden/></field>
         <field name="partyId" use-when="requirementRole!=null"><display/></field>
@@ -206,12 +206,12 @@ under the License.
         <field name="fromDate" use-when="requirementRole!=null"><display/></field>
         <field name="fromDate" use-when="requirementRole==null"><date-time/></field>
         <field name="thruDate"><date-time/></field>
-        <field name="submitButton" title="${uiLabelMap.CommonSubmit}" widget-style="smallSubmit">
+        <field name="submitButton" title="${uiLabelMap.CommonSubmit}" widget-style="btn btn-default btn-sm">
             <submit button-type="button"/>
         </field>
     </form>
     <form name="FindNotApprovedRequirements" type="single" target="ApproveRequirements" title=""
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <field name="requirementId"><text-find/></field>
         <field name="requirementTypeId">
             <drop-down allow-empty="true">
@@ -229,13 +229,13 @@ under the License.
         <field name="description" title="${uiLabelMap.CommonDescription}"><text-find/></field>
         <field name="requirementStartDate"><date-find type="date"/></field>
         <field name="requiredByDate"><date-find type="date"/></field>
-        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit">
+        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="btn btn-default btn-sm">
             <submit button-type="button"/>
         </field>
     </form>
     <form name="ApproveRequirements" type="multi" use-row-submit="true" target="approveRequirements" title="" list-name="requirements"
-        paginate-target="ApproveRequirements" odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
-        <field name="requirementId" widget-style="buttontext">
+        paginate-target="ApproveRequirements" odd-row-style="alternate-row" default-table-style="table table-hover">
+        <field name="requirementId" widget-style="btn btn-link">
             <hyperlink also-hidden="true" description="${requirementId}" target="EditRequirement">
                 <parameter param-name="requirementId"/>
             </hyperlink>
@@ -251,12 +251,12 @@ under the License.
         <field name="requiredByDate"><display/></field>
         <field name="quantity" title="${uiLabelMap.CommonQuantity}"><display/></field>
         <field name="_rowSubmit" title="${uiLabelMap.CommonSelect}"><check/></field>
-        <field name="submitButton" title="${uiLabelMap.CommonSubmit}" widget-style="smallSubmit">
+        <field name="submitButton" title="${uiLabelMap.CommonSubmit}" widget-style="btn btn-default btn-sm">
           <submit/>
         </field>
     </form>
     <form name="FindApprovedProductRequirements" type="single" target="ApprovedProductRequirements" title=""
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <field name="showList"><hidden value="Y"/></field>
         <field name="requirementId"><text-find/></field>
         <field name="billToCustomerPartyId">
@@ -283,10 +283,10 @@ under the License.
         </field>
         <field name="productId" title="${uiLabelMap.ProductProductId}"><lookup target-form-name="LookupProduct"/></field>
         <field name="requirementByDate"><date-find type="date"/></field>
-        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
     <form name="ApprovedProductRequirementsList" type="list" title="" list-name="requirementsForSupplier" paginate-target="RequirementsForSupplier"
-        odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" default-table-style="table table-hover">
         <actions>
             <service service-name="prepareFind" result-map="resultConditions">
                 <field-map field-name="inputFields" from-field="requestParameters"/>
@@ -299,12 +299,12 @@ under the License.
                 <field-map field-name="unassignedRequirements" from-field="parameters.unassignedRequirements"/>
             </service>
         </actions>
-        <field name="requirementId" widget-style="buttontext">
+        <field name="requirementId" widget-style="btn btn-link">
             <hyperlink also-hidden="true" description="${requirementId}" target="EditRequirement">
                 <parameter param-name="requirementId"/>
             </hyperlink>
         </field>
-        <field name="productId" widget-style="buttontext">
+        <field name="productId" widget-style="btn btn-link">
             <hyperlink also-hidden="true" target-type="inter-app" description="${productId}" target="/catalog/control/EditProductInventoryItems" target-window="top">
                 <parameter param-name="productId"/>
             </hyperlink>
@@ -329,16 +329,16 @@ under the License.
         <field name="comments"><display/></field>
     </form>
     <form name="ApprovedProductRequirements" type="multi" use-row-submit="true" target="quickPurchaseOrderEntry" title="" list-name="requirementsForSupplier"
-        paginate-target="RequirementsForSupplier" odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
+        paginate-target="RequirementsForSupplier" odd-row-style="alternate-row" default-table-style="table table-hover">
         <field name="orderId" id-name="orderId"><hidden/></field>
         <field name="billToCustomerPartyId"><hidden value="${parameters.billToCustomerPartyId}"/></field>
         <field name="supplierPartyId"><hidden value="${parameters.partyId}"/></field>
-        <field name="requirementId" widget-style="buttontext">
+        <field name="requirementId" widget-style="btn btn-link">
             <hyperlink also-hidden="true" description="${requirementId}" target="EditRequirement">
                 <parameter param-name="requirementId"/>
             </hyperlink>
         </field>
-        <field name="productId" widget-style="buttontext">
+        <field name="productId" widget-style="btn btn-link">
             <hyperlink also-hidden="true" target-type="inter-app" description="${productId}" target="/catalog/control/EditProductInventoryItems" target-window="top">
                 <parameter param-name="productId"/>
             </hyperlink>
@@ -364,20 +364,20 @@ under the License.
         <field name="_rowSubmit" title="${uiLabelMap.CommonSelect}"><check/></field>
     </form>
     <form name="ApprovedProductRequirementsSubmit" type="single"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <field name="orderId" id-name="orderId_o_0"><text/></field>
-        <field name="submitButton" title=" " widget-style="buttontext">
+        <field name="submitButton" title=" " widget-style="btn btn-link">
             <hyperlink also-hidden="false" target-type="plain" description="${uiLabelMap.OrderInputQuickPurchaseOrder}" target="javascript:document.ApprovedProductRequirements.orderId_o_0.value=document.ApprovedProductRequirementsSubmit.orderId_o_0.value;document.ApprovedProductRequirements.submit()"/>
         </field>
     </form>
     <form name="ApprovedProductRequirementsSummary" type="single" default-map-name="quantityReport" target="ApprovedProductRequirements"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <field name="distinctProductCount" title="${uiLabelMap.OrderRequirementNumberOfProducts}"><display/></field>
         <field name="quantityTotal"><display/></field>
         <field name="amountTotal"><display type="currency" currency="${currencyUomId}"/></field>
     </form>
     <form name="ApprovedProductRequirementsByVendor" type="list" use-row-submit="true" list-name="requirements" target="ApprovedProductRequirements" separate-columns="true"
-        paginate-target="ApprovedProductRequirementsByVendor" odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
+        paginate-target="ApprovedProductRequirementsByVendor" odd-row-style="alternate-row" default-table-style="table table-hover">
         <row-actions>
             <entity-one entity-name="Party" value-field="supplierParty">
                 <field-map field-name="partyId" from-field="partyId"/>
@@ -407,7 +407,7 @@ under the License.
                 </entity-options>
             </drop-down>
         </field>
-        <field name="prepare" title="${uiLabelMap.OrderPrepareOrder}" widget-style="buttontext">
+        <field name="prepare" title="${uiLabelMap.OrderPrepareOrder}" widget-style="btn btn-link">
             <submit button-type="button"/>
         </field>
     </form>

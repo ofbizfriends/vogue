@@ -52,7 +52,7 @@ under the License.
               <input type="hidden" name="supplierPartyId" value="${partyId}"/>
               <input type="hidden" name="orderTypeId" value="PURCHASE_ORDER"/>
             </#if>
-            <table class="basic-table order-items" cellspacing="0">
+            <table class="table order-items" cellspacing="0">
                 <tr class="header-row">
                     <td width="30%" style="border-bottom:none;">${uiLabelMap.ProductProduct}</td>
                     <td width="30%" style="border-bottom:none;">${uiLabelMap.CommonStatus}</td>
@@ -104,10 +104,10 @@ under the License.
                                   </div>
                                   <#if productId??>
                                   <div>
-                                      <a href="/catalog/control/EditProduct?productId=${productId}" class="buttontext" target="_blank">${uiLabelMap.ProductCatalog}</a>
-                                      <a href="/ecommerce/control/product?product_id=${productId}" class="buttontext" target="_blank">${uiLabelMap.OrderEcommerce}</a>
+                                      <a href="/catalog/control/EditProduct?productId=${productId}" class="btn btn-link" target="_blank">${uiLabelMap.ProductCatalog}</a>
+                                      <a href="/ecommerce/control/product?product_id=${productId}" class="btn btn-link" target="_blank">${uiLabelMap.OrderEcommerce}</a>
                                       <#if orderItemContentWrapper.get("IMAGE_URL")?has_content>
-                                      <a href="<@ofbizUrl>viewimage?orderId=${orderId}&amp;orderItemSeqId=${orderItem.orderItemSeqId}&amp;orderContentTypeId=IMAGE_URL</@ofbizUrl>" target="_orderImage" class="buttontext">${uiLabelMap.OrderViewImage}</a>
+                                      <a href="<@ofbizUrl>viewimage?orderId=${orderId}&amp;orderItemSeqId=${orderItem.orderItemSeqId}&amp;orderContentTypeId=IMAGE_URL</@ofbizUrl>" target="_orderImage" class="btn btn-link">${uiLabelMap.OrderViewImage}</a>
                                       </#if>
                                   </div>
                                   </#if>
@@ -129,7 +129,7 @@ under the License.
                                   <#assign returnHeader = returnItem.getRelatedOne("ReturnHeader", false)>
                                   <#if returnHeader.statusId != "RETURN_CANCELLED">
                                   <div class="alert">
-                                      <span class="label">${uiLabelMap.OrderReturned}</span> ${uiLabelMap.CommonNbr}<a href="<@ofbizUrl>returnMain?returnId=${returnItem.returnId}</@ofbizUrl>" class="buttontext">${returnItem.returnId}</a>
+                                      <span class="label">${uiLabelMap.OrderReturned}</span> ${uiLabelMap.CommonNbr}<a href="<@ofbizUrl>returnMain?returnId=${returnItem.returnId}</@ofbizUrl>" class="btn btn-link">${returnItem.returnId}</a>
                                   </div>
                                   </#if>
                                   </#list>
@@ -262,7 +262,7 @@ under the License.
                                     <td colspan="4">&nbsp;</td>
                                     <td>
                                         <#if itemSelectable>
-                                            <a href="javascript:document.updateItemInfo.action='<@ofbizUrl>cancelOrderItem</@ofbizUrl>';document.updateItemInfo.orderItemSeqId.value='${orderItem.orderItemSeqId}';document.updateItemInfo.shipGroupSeqId.value='${shipGroup.shipGroupSeqId}';document.updateItemInfo.submit()" class="buttontext">${uiLabelMap.CommonCancel}</a>
+                                            <a href="javascript:document.updateItemInfo.action='<@ofbizUrl>cancelOrderItem</@ofbizUrl>';document.updateItemInfo.orderItemSeqId.value='${orderItem.orderItemSeqId}';document.updateItemInfo.shipGroupSeqId.value='${shipGroup.shipGroupSeqId}';document.updateItemInfo.submit()" class="btn btn-link">${uiLabelMap.CommonCancel}</a>
                                         <#else>
                                             &nbsp;
                                         </#if>
@@ -286,7 +286,7 @@ under the License.
                 <tr>
                     <td colspan="7">&nbsp;</td>
                     <td>
-                        <input type="submit" value="${uiLabelMap.OrderUpdateItems}" class="buttontext"/>
+                        <input type="submit" value="${uiLabelMap.OrderUpdateItems}" class="btn btn-link"/>
                     </td>
                 </tr>
                 <tr><td colspan="8"><hr /></td></tr>
@@ -315,7 +315,7 @@ under the License.
                 <form name="updateOrderAdjustmentForm${orderAdjustmentId}" method="post" action="<@ofbizUrl>updateOrderAdjustment</@ofbizUrl>">
                     <input type="hidden" name="orderAdjustmentId" value="${orderAdjustmentId!}"/>
                     <input type="hidden" name="orderId" value="${orderId!}"/>
-                    <table class="basic-table" cellspacing="0">
+                    <table class="table" cellspacing="0">
                         <tr>
                             <td class="align-text" width="55%">
                                 <span class="label">${adjustmentType.get("description",locale)}</span>&nbsp;${orderHeaderAdjustment.comments!}
@@ -330,8 +330,8 @@ under the License.
                             <td nowrap="nowrap" width="15%">
                                 <#if (allowPriceChange)>
                                     <input type="text" name="amount" size="6" value="<@ofbizAmount amount=adjustmentAmount/>"/>
-                                    <input class="smallSubmit" type="submit" value="${uiLabelMap.CommonUpdate}"/>
-                                    <a href="javascript:document.deleteOrderAdjustment${orderAdjustmentId}.submit();" class="buttontext">${uiLabelMap.CommonDelete}</a>
+                                    <input class="btn btn-default btn-sm" type="submit" value="${uiLabelMap.CommonUpdate}"/>
+                                    <a href="javascript:document.deleteOrderAdjustment${orderAdjustmentId}.submit();" class="btn btn-link">${uiLabelMap.CommonDelete}</a>
                                 <#else>
                                     <@ofbizAmount amount=adjustmentAmount/>
                                 </#if>
@@ -354,7 +354,7 @@ under the License.
             <form name="addAdjustmentForm" method="post" action="<@ofbizUrl>createOrderAdjustment</@ofbizUrl>">
                 <input type="hidden" name="comments" value="Added manually by [${userLogin.userLoginId}]"/>
                 <input type="hidden" name="orderId" value="${orderId!}"/>
-                <table class="basic-table" cellspacing="0">
+                <table class="table" cellspacing="0">
                     <tr><td colspan="3"><hr /></td></tr>
                     <tr>
                         <td class="align-text" width="55%">
@@ -374,7 +374,7 @@ under the License.
                         <td width="30%"><input type="text" name="description" value="" size="30" maxlength="60"/></td>
                         <td width="15%">
                             <input type="text" name="amount" size="6" value="<@ofbizAmount amount=0.00/>"/>
-                            <input class="smallSubmit" type="submit" value="${uiLabelMap.CommonAdd}"/>
+                            <input class="btn btn-default btn-sm" type="submit" value="${uiLabelMap.CommonAdd}"/>
                         </td>
                     </tr>
                 </table>
@@ -382,7 +382,7 @@ under the License.
         </#if>
 
         <#-- subtotal -->
-        <table class="basic-table" cellspacing="0">
+        <table class="table" cellspacing="0">
             <tr><td colspan="4"><hr /></td></tr>
             <tr class="align-text">
               <td width="80%"><span class="label">${uiLabelMap.OrderItemsSubTotal}</span></td>

@@ -22,7 +22,7 @@ under the License.
     </div>
     <div class="screenlet-body">
         <br />
-        <table cellspacing="0" class="basic-table">
+        <table cellspacing="0" class="table">
           <tr class="header-row">
             <td><b>${uiLabelMap.CommonId}</b></td>
             <td><b>${uiLabelMap.CommonDescription}</b></td>
@@ -32,7 +32,7 @@ under the License.
           <#assign rowClass = "2">
           <#list productFeatureGroups as productFeatureGroup>
             <tr valign="middle"<#if rowClass == "1"> class="alternate-row"</#if>>
-                <td><a href='<@ofbizUrl>EditFeatureGroupAppls?productFeatureGroupId=${productFeatureGroup.productFeatureGroupId}</@ofbizUrl>' class="buttontext">${productFeatureGroup.productFeatureGroupId}</a></td>
+                <td><a href='<@ofbizUrl>EditFeatureGroupAppls?productFeatureGroupId=${productFeatureGroup.productFeatureGroupId}</@ofbizUrl>' class="btn btn-link">${productFeatureGroup.productFeatureGroupId}</a></td>
                 <td>
                     <form method='post' action='<@ofbizUrl>UpdateProductFeatureGroup</@ofbizUrl>'>
                     <input type='hidden' name="productFeatureGroupId" value="${productFeatureGroup.productFeatureGroupId}" />
@@ -40,7 +40,7 @@ under the License.
                     <input type="submit" value="${uiLabelMap.CommonUpdate}" />
                     </form>
                 </td>
-                <td><a href='<@ofbizUrl>EditFeatureGroupAppls?productFeatureGroupId=${productFeatureGroup.productFeatureGroupId}</@ofbizUrl>' class="buttontext">${uiLabelMap.ProductFeatureGroupAppls}</a></td>
+                <td><a href='<@ofbizUrl>EditFeatureGroupAppls?productFeatureGroupId=${productFeatureGroup.productFeatureGroupId}</@ofbizUrl>' class="btn btn-link">${uiLabelMap.ProductFeatureGroupAppls}</a></td>
             </tr>
             <#-- toggle the row color -->
             <#if rowClass == "2">
@@ -60,7 +60,7 @@ under the License.
     <div class="screenlet-body">
         <form method="post" action="<@ofbizUrl>CreateProductFeatureGroup</@ofbizUrl>">
           <br />
-          <table cellspacing="0" class="basic-table">
+          <table cellspacing="0" class="table">
             <tr>
               <td class="label">${uiLabelMap.CommonDescription}:</td>
               <td><input type="text" size='30' name='description' value='' /></td>

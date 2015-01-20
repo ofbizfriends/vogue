@@ -19,7 +19,7 @@ under the License.
 <#if shipmentRouteSegmentDatas?has_content>
 <div class="screenlet">
     <div class="screenlet-body">
-        <table cellspacing="0" cellpadding="2"  class="basic-table">
+        <table cellspacing="0" cellpadding="2"  class="table">
             <tr class="header-row">
                 <td>${uiLabelMap.ProductSegment}</td>
                 <td>

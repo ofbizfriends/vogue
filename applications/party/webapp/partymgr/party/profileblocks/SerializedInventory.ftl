@@ -25,7 +25,7 @@ under the License.
       <br class="clear" />
     </div>
     <div class="screenlet-body">
-        <table id="serialized-inventory" class="basic-table" cellspacing="0" cellpadding="2">
+        <table id="serialized-inventory" class="table" cellspacing="0" cellpadding="2">
             <thead>
                 <tr class="header-row">
                     <td>${uiLabelMap.ProductInventoryItemId}</td>

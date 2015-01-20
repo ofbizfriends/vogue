@@ -325,7 +325,7 @@ under the License.
          <td colspan="3" align="center">&nbsp;</td>
       </tr>
       <tr>
-         <td colspan="3" align="center"><input type="submit" class="smallsubmit" value="${uiLabelMap.CommonContinue}"/></td>
+         <td colspan="3" align="center"><input type="submit" class="btn btn-default btn-sm" value="${uiLabelMap.CommonContinue}"/></td>
       </tr>
   </table>
   </form>

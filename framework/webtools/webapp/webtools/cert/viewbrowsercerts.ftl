@@ -29,7 +29,7 @@ under the License.
   </div>
   <#if (isSecure)>
     <#if (clientCerts?has_content)>
-      <table class="basic-table">
+      <table class="table">
         <#list clientCerts as cert>
           <#assign certString = Static["org.ofbiz.base.util.KeyStoreUtil"].certToString(cert)!>
           <#if (certString?has_content)>

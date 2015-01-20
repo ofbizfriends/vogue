@@ -22,7 +22,7 @@ under the License.
  xsi:noNamespaceSchemaLocation="../../widget/dtd/widget-form.xsd">
 
     <form name="ListPortalPages" type="list" list-name="portalPages" separate-columns="true"
-        odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="table table-hover">
         <field name="portalPageId" title="${uiLabelMap.CommonEdit}">
             <hyperlink description="${uiLabelMap.CommonEdit}" target="ManagePortalPages">
                 <parameter param-name="portalPageId"/>
@@ -80,13 +80,13 @@ under the License.
             </display>
         </field>
         <field name="originalPortalPageId"><display-entity entity-name="PortalPage" description="${portalPageName} [${portalPageId}]" key-field-name="portalPageId"/></field>
-        <field name="deleteLink" use-when="!ownerUserLoginId.equals(&quot;_NA_&quot;)" title=" " widget-style="buttontext" >
+        <field name="deleteLink" use-when="!ownerUserLoginId.equals(&quot;_NA_&quot;)" title=" " widget-style="btn btn-link" >
             <hyperlink target="deletePortalPage" description="${uiLabelMap.CommonDelete}">
                 <parameter param-name="portalPageId"/>
                 <parameter param-name="parentPortalPageId" from-field="parameters.parentPortalPageId"/>
             </hyperlink>
         </field>
-        <field name="deleteLink" use-when="!ownerUserLoginId.equals(&quot;_NA_&quot;)&amp;&amp;originalPortalPageId!=null" title=" " widget-style="buttontext" >
+        <field name="deleteLink" use-when="!ownerUserLoginId.equals(&quot;_NA_&quot;)&amp;&amp;originalPortalPageId!=null" title=" " widget-style="btn btn-link" >
             <hyperlink target="deletePortalPage" description="${uiLabelMap.CommonRevertPortalPage}">
                 <parameter param-name="portalPageId"/>
                 <parameter param-name="parentPortalPageId" from-field="parameters.parentPortalPageId"/>
@@ -103,7 +103,7 @@ under the License.
     </form>
 
     <form name="PortletCategoryAndPortlet" type="list" list-name="portletCat" paginate-target="addPortlet" separate-columns="true"
-        odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="table table-hover">
         <field name="portletCategoryId" title="Category">
             <hyperlink description="${portletCategoryId}" target="addPortlet">
                 <parameter param-name="portletCategoryId"/>
@@ -117,7 +117,7 @@ under the License.
     </form>
 
     <form name="PortletList" type="list" separate-columns="true" list-name="portlets"
-        odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="table table-hover">
         <actions>
             <entity-and entity-name="PortalPagePortletView" list="portlets">
                 <field-map field-name="portalPageId" from-field="parameters.portalPageId"/>
@@ -136,7 +136,7 @@ under the License.
         <field name="description" ><text size="16"/></field>
         <field name="description_op" ><hidden value="contains"/></field>
         <field name="description_ic" ><hidden value="Y"/></field>
-        <field name="submitButton" title=" " widget-style="smallSubmit">
+        <field name="submitButton" title=" " widget-style="btn btn-default btn-sm">
             <hyperlink target="javascript:ajaxUpdateArea('List${entity}Area', 'list${entity}', $(FindGenericEntity).serialize());" target-type="plain"  description="${uiLabelMap.CommonSearch}"/>
         </field>
     </form>

@@ -24,7 +24,7 @@ under the License.
 
     <!--New From-->
     <form name="SalesReport" type="single" target="checkReportBy" title=""
-          header-row-style="header-row" default-table-style="basic-table" target-window="_BLANK">
+          header-row-style="header-row" default-table-style="table" target-window="_BLANK">
         <field name="fromDate" title="${uiLabelMap.CommonFromDate}"><date-time type="date"/></field>
         <field name="reportBy" title="${uiLabelMap.BirtOrderReportReportBy}">
             <drop-down>
@@ -40,11 +40,11 @@ under the License.
                 <option key="html" description="HTML"></option>
             </drop-down>
         </field>
-        <field name="submitButton" title="${uiLabelMap.CommonRun}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonRun}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
 
     <form name="NetBeforeOverheadReport" type="single" target="NetBeforeOverheadReport.pdf" title=""
-          header-row-style="header-row" default-table-style="basic-table" target-window="_BLANK">
+          header-row-style="header-row" default-table-style="table" target-window="_BLANK">
         <field name="productStoreId">
             <drop-down allow-empty="false">
                 <option key="" description="- ${uiLabelMap.CommonSelectAny} -"/>
@@ -53,11 +53,11 @@ under the License.
                 </entity-options>
             </drop-down>
         </field>
-        <field name="submitButton" title="${uiLabelMap.CommonRun}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonRun}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
 
     <form name="ProductDemandReport" type="single" target="ProductDemandReport.pdf" title=""
-          header-row-style="header-row" default-table-style="basic-table" target-window="_BLANK">
+          header-row-style="header-row" default-table-style="table" target-window="_BLANK">
         <field name="productStoreId">
             <drop-down allow-empty="false">
                 <option key="" description="- ${uiLabelMap.CommonSelectAny} -"/>
@@ -66,7 +66,7 @@ under the License.
                 </entity-options>
             </drop-down>
         </field>
-        <field name="submitButton" title="${uiLabelMap.CommonRun}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonRun}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
 
     <form name="OrderByReferrer" type="single" target="OrderByReferrer.pdf" target-window="_BLANK">

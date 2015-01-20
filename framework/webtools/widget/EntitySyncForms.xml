@@ -21,7 +21,7 @@ under the License.
 <forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
         xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-form.xsd">
     <form name="EntitySyncStatus" type="list" list-name="entitySyncList" target=""
-        paginate-target="EntitySyncStatus" view-size="20" odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
+        paginate-target="EntitySyncStatus" view-size="20" odd-row-style="alternate-row" default-table-style="table table-hover">
         <actions>
             <entity-condition entity-name="EntitySync" list="entitySyncList" use-cache="false">
                 <!-- No conditions, is a find all -->
@@ -35,23 +35,23 @@ under the License.
             <display-entity entity-name="StatusItem" key-field-name="statusId"/>
         </field>
 
-        <field use-when="&quot;ESR_RUNNING&quot;.equals(runStatusId)" name="resetStatus" title=" " widget-style="smallSubmit">
+        <field use-when="&quot;ESR_RUNNING&quot;.equals(runStatusId)" name="resetStatus" title=" " widget-style="btn btn-default btn-sm">
             <hyperlink also-hidden="false" description="${uiLabelMap.WebtoolsSyncResetRunStatus}" target="resetEntitySyncStatusToNotStarted">
                 <parameter param-name="entitySyncId"/>
             </hyperlink>
         </field>
-        <field use-when="&quot;ESR_NOT_STARTED&quot;.equals(runStatusId) || &quot;ESR_COMPLETE&quot;.equals(runStatusId)" name="runOfflineSync" title=" " widget-style="smallSubmit">
+        <field use-when="&quot;ESR_NOT_STARTED&quot;.equals(runStatusId) || &quot;ESR_COMPLETE&quot;.equals(runStatusId)" name="runOfflineSync" title=" " widget-style="btn btn-default btn-sm">
             <hyperlink also-hidden="false" description="${uiLabelMap.WebtoolsSyncRunOffline}" target="runOfflineEntitySync">
                 <parameter param-name="entitySyncId"/>
             </hyperlink>
         </field>
-        <field use-when="&quot;ESR_PENDING&quot;.equals(runStatusId)" name="acceptOffline" title=" " widget-style="smallSubmit">
+        <field use-when="&quot;ESR_PENDING&quot;.equals(runStatusId)" name="acceptOffline" title=" " widget-style="btn btn-default btn-sm">
             <hyperlink also-hidden="false" description="${uiLabelMap.WebtoolsSyncAcceptOffline}" target="updateOfflineEntitySync">
                 <parameter param-name="entitySyncId"/>
                 <parameter param-name="updateType" value="ACCEPT"/>
             </hyperlink>
         </field>
-        <field use-when="&quot;ESR_PENDING&quot;.equals(runStatusId)" name="rejectOffline" title=" " widget-style="smallSubmit">
+        <field use-when="&quot;ESR_PENDING&quot;.equals(runStatusId)" name="rejectOffline" title=" " widget-style="btn btn-default btn-sm">
             <hyperlink also-hidden="false" description="${uiLabelMap.WebtoolsSyncRejectOffline}" target="updateOfflineEntitySync">
                 <parameter param-name="entitySyncId"/>
                 <parameter param-name="updateType" value="REJECT"/>
@@ -60,7 +60,7 @@ under the License.
     </form>
 
     <form name="EntitySyncLoadOffline" type="single" target="loadOfflineEntitySyncData" title=""
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <auto-fields-service service-name="loadOfflineEntitySyncData"/>
         <field name="submitButton" title="${uiLabelMap.CommonSubmit}"><submit button-type="button"/></field>
     </form>

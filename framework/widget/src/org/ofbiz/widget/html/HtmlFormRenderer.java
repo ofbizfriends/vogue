@@ -1299,7 +1299,7 @@ public class HtmlFormRenderer extends HtmlWidgetRenderer implements FormStringRe
         if (UtilValidate.isNotEmpty(modelForm.getDefaultTableStyle())) {
             writer.append(FlexibleStringExpander.expandString(modelForm.getDefaultTableStyle(), context));
         } else {
-            writer.append("basic-table form-widget-table dark-grid");
+            writer.append("table form-widget-table dark-grid");
         }
         writer.append("\">");
         appendWhitespace(writer);

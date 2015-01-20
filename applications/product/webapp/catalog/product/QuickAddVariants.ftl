@@ -53,7 +53,7 @@ function clickAll(e) {
             <input type="hidden" name="productId" value="${productId}" />
             <input type="hidden" name="_useRowSubmit" value="Y" />
             <input type="hidden" name="_checkGlobalScope" value="Y" />
-        <table cellspacing="0" class="basic-table">
+        <table cellspacing="0" class="table">
         <#assign rowCount = 0>
         <tr class="header-row">
             <#list featureTypes as featureType>
@@ -89,7 +89,7 @@ function clickAll(e) {
                 <td>
                     <div>
                     <#list existingVariantProductIds as existingVariantProductId>
-                        <a href="<@ofbizUrl>EditProduct?productId=${existingVariantProductId}</@ofbizUrl>" class="buttontext">${existingVariantProductId}</a>
+                        <a href="<@ofbizUrl>EditProduct?productId=${existingVariantProductId}</@ofbizUrl>" class="btn btn-link">${existingVariantProductId}</a>
                     </#list>
                     </div>
                 </td>
@@ -110,7 +110,7 @@ function clickAll(e) {
             <#assign columns = featureTypes.size() + 4>
             <td colspan="${columns}" align="center">
                 <input type="hidden" name="_rowCount" value="${rowCount}" />
-                <input type="submit" class="smallSubmit" value="${uiLabelMap.CommonCreate}"/>
+                <input type="submit" class="btn btn-default btn-sm" value="${uiLabelMap.CommonCreate}"/>
             </td>
         </tr>
         </table>
@@ -119,7 +119,7 @@ function clickAll(e) {
     <b>${uiLabelMap.ProductNoSelectableFeaturesFound}</b>
 </#if>
 <form action="<@ofbizUrl>addVariantsToVirtual</@ofbizUrl>" method="post" name="addVariantsToVirtual">
-    <table cellspacing="0" class="basic-table">
+    <table cellspacing="0" class="table">
         <tr class="header-row">
             <td><b>${uiLabelMap.ProductVariantAdd}:</b></td>
         </tr>
@@ -129,7 +129,7 @@ function clickAll(e) {
                 <input type="hidden" name="productId" value="${productId}"/>
                 <span class="label">${uiLabelMap.ProductVariantProductIds}:</span>
                 <textarea name="variantProductIdsBag" rows="6" cols="20"></textarea>
-                <input type="submit" class="smallSubmit" value="${uiLabelMap.ProductVariantAdd}"/>
+                <input type="submit" class="btn btn-default btn-sm" value="${uiLabelMap.ProductVariantAdd}"/>
             </td>
         </tr>
     </table>

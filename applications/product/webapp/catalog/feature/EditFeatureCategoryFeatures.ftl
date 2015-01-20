@@ -21,8 +21,8 @@ under the License.
         <h3>${uiLabelMap.ProductEditFeaturesForFeatureCategory} "${(curProductFeatureCategory.description)!}"</h3>
     </div>
     <div class="screenlet-body">
-        <div class="button-bar">
-          <a href="<@ofbizUrl>CreateFeature?productFeatureCategoryId=${productFeatureCategoryId!}</@ofbizUrl>" class="buttontext create">${uiLabelMap.ProductCreateNewFeature}</a>
+        <div class="btn-group">
+          <a href="<@ofbizUrl>CreateFeature?productFeatureCategoryId=${productFeatureCategoryId!}</@ofbizUrl>" class="btn btn-link create">${uiLabelMap.ProductCreateNewFeature}</a>
         </div>
         <br/>
         <form action="<@ofbizUrl>QuickAddProductFeatures</@ofbizUrl>" method="post">
@@ -30,7 +30,7 @@ under the License.
             ${uiLabelMap.CommonAdd}
             <input type="text" name="featureNum" value="1" size="3" />
             ${uiLabelMap.ProductAddFeatureToCategory}
-            <input class="smallSubmit" type="submit" value="${uiLabelMap.CommonCreate}" />
+            <input class="btn btn-default btn-sm" type="submit" value="${uiLabelMap.CommonCreate}" />
           </div>
           <input type="hidden" name="productFeatureCategoryId" value="${productFeatureCategoryId}" />
         </form>
@@ -52,11 +52,11 @@ under the License.
                     <span class="label">
                     <b>
                     <#if (viewIndex > 0)>
-                    <a href="<@ofbizUrl>EditFeatureCategoryFeatures?productFeatureCategoryId=${productFeatureCategoryId!}&amp;VIEW_SIZE=${viewSize}&amp;VIEW_INDEX=${viewIndex-1}${productString!}</@ofbizUrl>" class="buttontext">[${uiLabelMap.CommonPrevious}]</a> |
+                    <a href="<@ofbizUrl>EditFeatureCategoryFeatures?productFeatureCategoryId=${productFeatureCategoryId!}&amp;VIEW_SIZE=${viewSize}&amp;VIEW_INDEX=${viewIndex-1}${productString!}</@ofbizUrl>" class="btn btn-link">[${uiLabelMap.CommonPrevious}]</a> |
                     </#if>
                     ${lowIndex+1} - ${highIndex} ${uiLabelMap.CommonOf} ${listSize}
                     <#if (listSize > highIndex)>
-                    | <a href="<@ofbizUrl>EditFeatureCategoryFeatures?productFeatureCategoryId=${productFeatureCategoryId!}&amp;VIEW_SIZE=${viewSize}&amp;VIEW_INDEX=${viewIndex+1}${productString!}</@ofbizUrl>" class="buttontext">[${uiLabelMap.CommonNext}]</a>
+                    | <a href="<@ofbizUrl>EditFeatureCategoryFeatures?productFeatureCategoryId=${productFeatureCategoryId!}&amp;VIEW_SIZE=${viewSize}&amp;VIEW_INDEX=${viewIndex+1}${productString!}</@ofbizUrl>" class="btn btn-link">[${uiLabelMap.CommonNext}]</a>
                     </#if>
                     </b>
                     </span>
@@ -69,7 +69,7 @@ under the License.
         <input type="hidden" name="_useRowSubmit" value="Y" />
         <input type="hidden" name="_checkGlobalScope" value="N" />
         <input type="hidden" name="productFeatureCategoryId" value="${productFeatureCategoryId}" />
-        <table cellspacing="0" class="basic-table">
+        <table cellspacing="0" class="table">
               <tr class="header-row">
                 <td><b>${uiLabelMap.CommonId}</b></td>
                 <td><b>${uiLabelMap.CommonDescription}</b></td>
@@ -90,7 +90,7 @@ under the License.
             <#assign curProductFeatureType = productFeature.getRelatedOne("ProductFeatureType", true)>
             <tr id="productFeatureId_tableRow_${rowCount}" valign="middle"<#if rowClass == "1"> class="alternate-row"</#if>>
               <td><input type="hidden" name="productFeatureId_o_${rowCount}" value="${productFeature.productFeatureId}" />
-              <a href="<@ofbizUrl>EditFeature?productFeatureId=${productFeature.productFeatureId}</@ofbizUrl>" class="buttontext">${productFeature.productFeatureId}</a></td>
+              <a href="<@ofbizUrl>EditFeature?productFeatureId=${productFeature.productFeatureId}</@ofbizUrl>" class="btn btn-link">${productFeature.productFeatureId}</a></td>
               <td><input type="text" size='15' name="description_o_${rowCount}" value="${productFeature.description}" /></td>
               <td><select name='productFeatureTypeId_o_${rowCount}' size="1">
                 <#if productFeature.productFeatureTypeId?has_content>

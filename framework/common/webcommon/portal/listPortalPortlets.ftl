@@ -29,7 +29,7 @@ under the License.
   <#if portalPortlets?has_content>
     <#assign orderByList = Static["org.ofbiz.base.util.UtilMisc"].toList("portalPortletId")/>
 
-    <table cellspacing="20" class="basic-table">
+    <table cellspacing="20" class="table">
       <#assign leftColumn = true/>
       <#list portalPortlets as portalPortlet>
         <#if leftColumn==true>
@@ -37,7 +37,7 @@ under the License.
         </#if>
           <td>
             <div class="h3">
-              <form method="post" action="<@ofbizUrl>createPortalPagePortlet</@ofbizUrl>" onsubmit="javascript:submitFormDisableSubmits(this)" name="createPortalPortlet_${portalPortlet.portalPortletId}"><input name="portalPortletId" value="${portalPortlet.portalPortletId}" type="hidden"/><input name="portalPageId" value="${parameters.portalPageId}" type="hidden"/><input name="columnSeqId" value="${parameters.columnSeqId}" type="hidden"/></form><a class="buttontext" href="javascript:document.createPortalPortlet_${portalPortlet.portalPortletId}.submit()">${uiLabelMap.CommonAdd}: ${portalPortlet.portletName}</a>
+              <form method="post" action="<@ofbizUrl>createPortalPagePortlet</@ofbizUrl>" onsubmit="javascript:submitFormDisableSubmits(this)" name="createPortalPortlet_${portalPortlet.portalPortletId}"><input name="portalPortletId" value="${portalPortlet.portalPortletId}" type="hidden"/><input name="portalPageId" value="${parameters.portalPageId}" type="hidden"/><input name="columnSeqId" value="${parameters.columnSeqId}" type="hidden"/></form><a class="btn btn-link" href="javascript:document.createPortalPortlet_${portalPortlet.portalPortletId}.submit()">${uiLabelMap.CommonAdd}: ${portalPortlet.portletName}</a>
             </div>
             <div>
               ${portalPortlet.description!}

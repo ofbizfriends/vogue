@@ -326,7 +326,7 @@ public class IterateSectionWidget extends ModelScreenWidget {
             // make the link
             writer.append(rh.makeLink(request, response, linkText.toString(), false, false, false));
             String previous = UtilProperties.getMessage("CommonUiLabels", "CommonPrevious", (Locale) context.get("locale"));
-            writer.append(" class=\"buttontext\">[").append(previous).append("]</a>\n");
+            writer.append(" class=\"btn btn-link\">[").append(previous).append("]</a>\n");
 
         }
         if (listSize > 0) {
@@ -347,7 +347,7 @@ public class IterateSectionWidget extends ModelScreenWidget {
             // make the link
             writer.append(rh.makeLink(request, response, linkText.toString(), false, false, false));
             String next = UtilProperties.getMessage("CommonUiLabels", "CommonNext", (Locale) context.get("locale"));
-            writer.append(" class=\"buttontext\">[").append(next).append("]</a>\n");
+            writer.append(" class=\"btn btn-link\">[").append(next).append("]</a>\n");
 
         }
         writer.append("      </b>\n");

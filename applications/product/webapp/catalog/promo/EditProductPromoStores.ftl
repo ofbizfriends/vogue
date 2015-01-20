@@ -22,7 +22,7 @@ under the License.
             <h3>${uiLabelMap.PageTitleEditProductPromoStores}</h3>
         </div>
         <div class="screenlet-body">
-            <table cellspacing="0" class="basic-table">
+            <table cellspacing="0" class="table">
                 <tr class="header-row">
                     <td><b>${uiLabelMap.ProductStoreNameId}</b></td>
                     <td><b>${uiLabelMap.CommonFromDateTime}</b></td>
@@ -35,7 +35,7 @@ under the License.
                 <#assign line = line + 1>
                 <#assign productStore = productStorePromoAppl.getRelatedOne("ProductStore", false)>
                 <tr valign="middle"<#if rowClass == "1"> class="alternate-row"</#if>>
-                    <td><a href="<@ofbizUrl>EditProductStore?productStoreId=${productStorePromoAppl.productStoreId}</@ofbizUrl>" class="buttontext"><#if productStore??>${(productStore.storeName)!}</#if>[${productStorePromoAppl.productStoreId}]</a></td>
+                    <td><a href="<@ofbizUrl>EditProductStore?productStoreId=${productStorePromoAppl.productStoreId}</@ofbizUrl>" class="btn btn-link"><#if productStore??>${(productStore.storeName)!}</#if>[${productStorePromoAppl.productStoreId}]</a></td>
                     <#assign hasntStarted = false>
                     <#if (productStorePromoAppl.getTimestamp("fromDate"))?? && nowTimestamp.before(productStorePromoAppl.getTimestamp("fromDate"))> <#assign hasntStarted = true></#if>
                     <td <#if hasntStarted>style="color: red;"</#if>>${productStorePromoAppl.fromDate!}</td>

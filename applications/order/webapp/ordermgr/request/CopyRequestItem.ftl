@@ -25,6 +25,6 @@ under the License.
         <span class="label">${uiLabelMap.OrderCopyCustRequestItem}</span>
         ${uiLabelMap.OrderOrderQuoteItems}&nbsp;<input type="checkbox" name="copyLinkedQuotes" value="Y"/>
     </div>
-    <input type="submit" class="smallSubmit" value="${uiLabelMap.CommonCopy}"/>
+    <input type="submit" class="btn btn-default btn-sm" value="${uiLabelMap.CommonCopy}"/>
 </form>
 </#if>

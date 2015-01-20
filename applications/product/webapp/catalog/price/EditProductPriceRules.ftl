@@ -21,8 +21,8 @@ under the License.
         <h3>${uiLabelMap.ProductGlobalPriceRule}</h3>
     </div>
     <div class="screenlet-body">
-        <a href="<@ofbizUrl>FindProductPriceRules</@ofbizUrl>" class="buttontext">${uiLabelMap.ProductFindRule}</a>
-        <table cellspacing="0" class="basic-table">
+        <a href="<@ofbizUrl>FindProductPriceRules</@ofbizUrl>" class="btn btn-link">${uiLabelMap.ProductFindRule}</a>
+        <table cellspacing="0" class="table">
           <tr class="header-row">
             <td width="10%"><b>${uiLabelMap.ProductRuleId}</b></td>
             <td width="80%"><b>${uiLabelMap.ProductRuleNameFromDateThruDate}</b></td>
@@ -63,7 +63,7 @@ under the License.
           <tr valign="top">
             <td align="right" class="label">${uiLabelMap.ProductConditions}</td>
             <td colspan="2">
-                <table cellspacing="0" class="basic-table">
+                <table cellspacing="0" class="table">
                   <tr class="header-row">
                     <td width="5%"><b>${uiLabelMap.ProductSeqId}</b></td>
                     <td width="85%"><b>${uiLabelMap.ProductInputOperatorValue}</b></td>
@@ -113,7 +113,7 @@ under the License.
                          <form name="deleteProductPriceCond_${productPriceCond_index}" method= "post" action= "<@ofbizUrl>deleteProductPriceCond</@ofbizUrl>">
                            <input type="hidden" name="productPriceRuleId" value="${productPriceCond.productPriceRuleId}" />
                            <input type="hidden" name="productPriceCondSeqId" value="${productPriceCond.productPriceCondSeqId}" />
-                           <a href="javascript:document.deleteProductPriceCond_${productPriceCond_index}.submit()" class="buttontext">${uiLabelMap.CommonDelete}</a>
+                           <a href="javascript:document.deleteProductPriceCond_${productPriceCond_index}.submit()" class="btn btn-link">${uiLabelMap.CommonDelete}</a>
                          </form>
                         </td>
                       </tr>
@@ -150,7 +150,7 @@ under the License.
           <tr valign="top">
             <td align="right" class="label">${uiLabelMap.ProductActions}</td>
             <td colspan="2">
-                <table cellspacing="0" class="basic-table">
+                <table cellspacing="0" class="table">
                   <tr class="header-row">
                     <td width="5%"><b>${uiLabelMap.ProductSeqId}</b></td>
                     <td width="85%"><b>${uiLabelMap.ProductActionTypeAmount}</b></td>
@@ -184,7 +184,7 @@ under the License.
                           <form name="deleteProductPriceAction_${productPriceAction_index}" method="post" action="<@ofbizUrl>deleteProductPriceAction</@ofbizUrl>">
                             <input type="hidden" name="productPriceRuleId" value="${productPriceAction.productPriceRuleId}" />
                             <input type="hidden" name="productPriceActionSeqId" value="${productPriceAction.productPriceActionSeqId}" />
-                            <a href="javascript:document.deleteProductPriceAction_${productPriceAction_index}.submit()" class="buttontext">${uiLabelMap.CommonDelete}</a>
+                            <a href="javascript:document.deleteProductPriceAction_${productPriceAction_index}.submit()" class="btn btn-link">${uiLabelMap.CommonDelete}</a>
                           </form>
                         </td>
                       </tr>

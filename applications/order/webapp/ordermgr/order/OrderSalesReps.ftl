@@ -26,7 +26,7 @@ under the License.
         <br class="clear"/>
     </div>
     <div class="screenlet-body">
-      <table class="basic-table" cellspacing='0'>
+      <table class="table" cellspacing='0'>
       <tr class="header-row">
         <td width="50%">${uiLabelMap.PartyLastName}</td>
         <td width="50%">${uiLabelMap.PartyFirstName}</td>

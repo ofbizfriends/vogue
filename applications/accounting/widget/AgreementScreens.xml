@@ -95,8 +95,8 @@ under the License.
                             <widgets>
                                 <decorator-screen name="FindScreenDecorator" location="component://common/widget/CommonScreens.xml">
                                     <decorator-section name="menu-bar">
-                                        <container style="button-bar">
-                                            <link target="EditAgreement" text="${uiLabelMap.AccountingNewAgreement}" style="buttontext create"/>
+                                        <container style="btn-group">
+                                            <link target="EditAgreement" text="${uiLabelMap.AccountingNewAgreement}" style="btn btn-link create"/>
                                         </container>
                                     </decorator-section>
                                     <decorator-section name="search-options">
@@ -134,8 +134,8 @@ under the License.
                                 <not><if-empty field="agreement"/></not>
                             </condition>
                             <widgets>
-                                <container style="button-bar">
-                                    <link target="EditAgreement" text="${uiLabelMap.AccountingNewAgreement}" style="buttontext create"/>
+                                <container style="btn-group">
+                                    <link target="EditAgreement" text="${uiLabelMap.AccountingNewAgreement}" style="btn btn-link create"/>
                                 </container>
                             </widgets>
                         </section>
@@ -165,8 +165,8 @@ under the License.
             <widgets>
                 <decorator-screen name="CommonAgreementDecorator" location="${parameters.agreementDecoratorLocation}">
                     <decorator-section name="body">
-                        <container style="button-bar">
-                            <link target="EditAgreementItem" text="${uiLabelMap.AccountingNewAgreementItem}" style="buttontext create">
+                        <container style="btn-group">
+                            <link target="EditAgreementItem" text="${uiLabelMap.AccountingNewAgreementItem}" style="btn btn-link create">
                                 <parameter param-name="agreementId" from-field="agreement.agreementId"/>
                             </link>
                         </container>
@@ -194,8 +194,8 @@ under the License.
             <widgets>
                 <decorator-screen name="CommonAgreementDecorator" location="${parameters.agreementDecoratorLocation}">
                     <decorator-section name="body">
-                        <container style="button-bar">
-                            <link target="EditAgreementItem" text="${uiLabelMap.AccountingNewAgreementItem}" style="buttontext create">
+                        <container style="btn-group">
+                            <link target="EditAgreementItem" text="${uiLabelMap.AccountingNewAgreementItem}" style="btn btn-link create">
                                 <parameter param-name="agreementId" from-field="agreement.agreementId"/>
                             </link>
                         </container>
@@ -249,7 +249,7 @@ under the License.
                 <decorator-screen name="CommonAgreementDecorator" location="${parameters.agreementDecoratorLocation}">
                     <decorator-section name="body">
                         <container>
-                            <link target="EditAgreementPromoAppl" text="${uiLabelMap.AccountingNewAgreementPromoAppl}" style="buttontext">
+                            <link target="EditAgreementPromoAppl" text="${uiLabelMap.AccountingNewAgreementPromoAppl}" style="btn btn-link">
                                 <parameter param-name="agreementId" from-field="agreement.agreementId"/>
                                 <parameter param-name="agreementItemSeqId" from-field="agreementItem.agreementItemSeqId"/>
                             </link>
@@ -279,7 +279,7 @@ under the License.
                 <decorator-screen name="CommonAgreementDecorator" location="${parameters.agreementDecoratorLocation}">
                     <decorator-section name="body">
                         <container>
-                            <link target="EditAgreementPromoAppl" text="${uiLabelMap.AccountingNewAgreementPromoAppl}" style="buttontext">
+                            <link target="EditAgreementPromoAppl" text="${uiLabelMap.AccountingNewAgreementPromoAppl}" style="btn btn-link">
                                 <parameter param-name="agreementId" from-field="agreement.agreementId"/>
                                 <parameter param-name="agreementItemSeqId" from-field="agreementItem.agreementItemSeqId"/>
                             </link>
@@ -311,7 +311,7 @@ under the License.
                 <decorator-screen name="CommonAgreementDecorator" location="${parameters.agreementDecoratorLocation}">
                     <decorator-section name="body">
                         <container>
-                            <link target="EditAgreementItemTerm" text="${uiLabelMap.AccountingNewAgreementItemTerm}" style="buttontext">
+                            <link target="EditAgreementItemTerm" text="${uiLabelMap.AccountingNewAgreementItemTerm}" style="btn btn-link">
                                 <parameter param-name="agreementId" from-field="agreement.agreementId"/>
                                 <parameter param-name="agreementItemSeqId" from-field="agreementItem.agreementItemSeqId"/>
                             </link>
@@ -342,7 +342,7 @@ under the License.
                 <decorator-screen name="CommonAgreementDecorator" location="${parameters.agreementDecoratorLocation}">
                     <decorator-section name="body">
                         <container>
-                            <link target="EditAgreementItemTerm" text="${uiLabelMap.AccountingNewAgreementItemTerm}" style="buttontext">
+                            <link target="EditAgreementItemTerm" text="${uiLabelMap.AccountingNewAgreementItemTerm}" style="btn btn-link">
                                 <parameter param-name="agreementId" from-field="agreement.agreementId"/>
                                 <parameter param-name="agreementItemSeqId" from-field="agreementItem.agreementItemSeqId"/>
                             </link>
@@ -374,11 +374,11 @@ under the License.
                 <decorator-screen name="CommonAgreementDecorator" location="${parameters.agreementDecoratorLocation}">
                     <decorator-section name="body">
                         <container>
-                            <link target="EditAgreementItemProduct" text="${uiLabelMap.ProductNewProduct}" style="buttontext">
+                            <link target="EditAgreementItemProduct" text="${uiLabelMap.ProductNewProduct}" style="btn btn-link">
                                 <parameter param-name="agreementId" from-field="agreement.agreementId"/>
                                 <parameter param-name="agreementItemSeqId" from-field="agreementItem.agreementItemSeqId"/>
                             </link>
-                            <link target="ListAgreementItemProductsReport" text="${uiLabelMap.CommonPrint}" style="buttontext">
+                            <link target="ListAgreementItemProductsReport" text="${uiLabelMap.CommonPrint}" style="btn btn-link">
                                 <parameter param-name="agreementId" from-field="agreement.agreementId"/>
                                 <parameter param-name="agreementItemSeqId" from-field="agreementItem.agreementItemSeqId"/>
                             </link>
@@ -410,11 +410,11 @@ under the License.
                 <decorator-screen name="CommonAgreementDecorator" location="${parameters.agreementDecoratorLocation}">
                     <decorator-section name="body">
                         <container>
-                            <link target="EditAgreementItemFacility" text="${uiLabelMap.ProductNewFacility}" style="buttontext">
+                            <link target="EditAgreementItemFacility" text="${uiLabelMap.ProductNewFacility}" style="btn btn-link">
                                 <parameter param-name="agreementId" from-field="agreement.agreementId"/>
                                 <parameter param-name="agreementItemSeqId" from-field="agreementItem.agreementItemSeqId"/>
                             </link>
-                            <link target="ListAgreementItemFacilitiesReport" text="${uiLabelMap.CommonPrint}" style="buttontext">
+                            <link target="ListAgreementItemFacilitiesReport" text="${uiLabelMap.CommonPrint}" style="btn btn-link">
                                 <parameter param-name="agreementId" from-field="agreement.agreementId"/>
                                 <parameter param-name="agreementItemSeqId" from-field="agreementItem.agreementItemSeqId"/>
                             </link>
@@ -509,7 +509,7 @@ under the License.
                 <decorator-screen name="CommonAgreementDecorator" location="${parameters.agreementDecoratorLocation}">
                     <decorator-section name="body">
                         <container>
-                            <link target="EditAgreementItemProduct" text="${uiLabelMap.ProductNewProduct}" style="buttontext">
+                            <link target="EditAgreementItemProduct" text="${uiLabelMap.ProductNewProduct}" style="btn btn-link">
                                 <parameter param-name="agreementId" from-field="agreement.agreementId"/>
                                 <parameter param-name="agreementItemSeqId" from-field="agreementItem.agreementItemSeqId"/>
                             </link>
@@ -541,7 +541,7 @@ under the License.
                 <decorator-screen name="CommonAgreementDecorator" location="${parameters.agreementDecoratorLocation}">
                     <decorator-section name="body">
                         <container>
-                            <link target="EditAgreementItemFacility" text="${uiLabelMap.ProductNewFacility}" style="buttontext">
+                            <link target="EditAgreementItemFacility" text="${uiLabelMap.ProductNewFacility}" style="btn btn-link">
                                 <parameter param-name="agreementId" from-field="agreement.agreementId"/>
                                 <parameter param-name="agreementItemSeqId" from-field="agreementItem.agreementItemSeqId"/>
                             </link>
@@ -573,11 +573,11 @@ under the License.
                 <decorator-screen name="CommonAgreementDecorator" location="${parameters.agreementDecoratorLocation}">
                     <decorator-section name="body">
                         <container>
-                            <link target="EditAgreementItemSupplierProduct" text="${uiLabelMap.ProductNewProduct}" style="buttontext">
+                            <link target="EditAgreementItemSupplierProduct" text="${uiLabelMap.ProductNewProduct}" style="btn btn-link">
                                 <parameter param-name="agreementId" from-field="agreement.agreementId"/>
                                 <parameter param-name="agreementItemSeqId" from-field="agreementItem.agreementItemSeqId"/>
                             </link>
-                            <link target="ListAgreementItemSupplierProductsReport" text="${uiLabelMap.CommonPrint}" style="buttontext">
+                            <link target="ListAgreementItemSupplierProductsReport" text="${uiLabelMap.CommonPrint}" style="btn btn-link">
                                 <parameter param-name="agreementId" from-field="agreement.agreementId"/>
                                 <parameter param-name="agreementItemSeqId" from-field="agreementItem.agreementItemSeqId"/>
                             </link>
@@ -650,7 +650,7 @@ under the License.
                 <decorator-screen name="CommonAgreementDecorator" location="${parameters.agreementDecoratorLocation}">
                     <decorator-section name="body">
                         <container>
-                            <link target="EditAgreementItemSupplierProduct" text="${uiLabelMap.ProductNewProduct}" style="buttontext">
+                            <link target="EditAgreementItemSupplierProduct" text="${uiLabelMap.ProductNewProduct}" style="btn btn-link">
                                 <parameter param-name="agreementId" from-field="agreement.agreementId"/>
                                 <parameter param-name="agreementItemSeqId" from-field="agreementItem.agreementItemSeqId"/>
                             </link>
@@ -692,7 +692,7 @@ under the License.
                 <decorator-screen name="CommonAgreementDecorator" location="${parameters.agreementDecoratorLocation}">
                     <decorator-section name="body">
                         <container>
-                            <link target="EditAgreementItemParty" text="${uiLabelMap.CommonNew}" style="buttontext">
+                            <link target="EditAgreementItemParty" text="${uiLabelMap.CommonNew}" style="btn btn-link">
                                 <parameter param-name="agreementId" from-field="agreement.agreementId"/>
                                 <parameter param-name="agreementItemSeqId" from-field="agreementItem.agreementItemSeqId"/>
                             </link>
@@ -723,7 +723,7 @@ under the License.
                 <decorator-screen name="CommonAgreementDecorator" location="${parameters.agreementDecoratorLocation}">
                     <decorator-section name="body">
                         <container>
-                            <link target="EditAgreementItemParty" text="${uiLabelMap.CommonNew}" style="buttontext">
+                            <link target="EditAgreementItemParty" text="${uiLabelMap.CommonNew}" style="btn btn-link">
                                 <parameter param-name="agreementId" from-field="agreement.agreementId"/>
                                 <parameter param-name="agreementItemSeqId" from-field="agreementItem.agreementItemSeqId"/>
                             </link>
@@ -754,7 +754,7 @@ under the License.
                 <decorator-screen name="CommonAgreementDecorator" location="${parameters.agreementDecoratorLocation}">
                     <decorator-section name="body">
                         <container>
-                            <link target="EditAgreementGeographicalApplic" text="${uiLabelMap.CommonNew}" style="buttontext">
+                            <link target="EditAgreementGeographicalApplic" text="${uiLabelMap.CommonNew}" style="btn btn-link">
                                 <parameter param-name="agreementId" from-field="agreement.agreementId"/>
                                 <parameter param-name="agreementItemSeqId" from-field="agreementItem.agreementItemSeqId"/>
                             </link>
@@ -785,7 +785,7 @@ under the License.
                 <decorator-screen name="CommonAgreementDecorator" location="${parameters.agreementDecoratorLocation}">
                     <decorator-section name="body">
                         <container>
-                            <link target="EditAgreementGeographicalApplic" text="${uiLabelMap.CommonNew}" style="buttontext">
+                            <link target="EditAgreementGeographicalApplic" text="${uiLabelMap.CommonNew}" style="btn btn-link">
                                 <parameter param-name="agreementId" from-field="agreement.agreementId"/>
                                 <parameter param-name="agreementItemSeqId" from-field="agreementItem.agreementItemSeqId"/>
                             </link>

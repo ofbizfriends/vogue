@@ -47,7 +47,7 @@ under the License.
                         <option value="">---</option>
                         <option value="">${uiLabelMap.OrderNewShoppingList}</option>
                     </select>
-                    <input type="submit" class="smallSubmit" value="${uiLabelMap.OrderAddToShoppingList}"/>
+                    <input type="submit" class="btn btn-default btn-sm" value="${uiLabelMap.OrderAddToShoppingList}"/>
                     </div>
                   </td>
                 </tr>

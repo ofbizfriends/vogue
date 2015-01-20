@@ -22,17 +22,17 @@ under the License.
         xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-form.xsd">
 
     <form name="EditAvsOverride" type="single" target="updateAvsOverride" default-map-name="avsOverride"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <field name="partyId"><hidden/></field>
         <field name="avsDeclineString" title="${uiLabelMap.PartyAvsString}"><text size="60" maxlength="250"/></field>
-        <field name="submitButton" title="[${uiLabelMap.CommonSave}]" widget-style="smallSubmit"><submit button-type="text-link"/></field>
-        <field name="cancelLink" title=" " widget-style="smallSubmit"><hyperlink target="backHome" also-hidden="false" description="[${uiLabelMap.CommonCancelDone}]"/></field>
+        <field name="submitButton" title="[${uiLabelMap.CommonSave}]" widget-style="btn btn-default btn-sm"><submit button-type="text-link"/></field>
+        <field name="cancelLink" title=" " widget-style="btn btn-default btn-sm"><hyperlink target="backHome" also-hidden="false" description="[${uiLabelMap.CommonCancelDone}]"/></field>
     </form>
     
     <form name="EditBillingAccount" type="single" target="updateBillingAccount" extends="EditBillingAccount" extends-resource="component://accounting/widget/BillingAccountForms.xml">
         <field name="submitButton"><hidden/></field>
-        <field name="saveButton" title="${uiLabelMap.CommonSave}" widget-style="buttontext"><submit button-type="button"/></field>
-        <field name="cancelLink" title=" " widget-style="buttontext">
+        <field name="saveButton" title="${uiLabelMap.CommonSave}" widget-style="btn btn-link"><submit button-type="button"/></field>
+        <field name="cancelLink" title=" " widget-style="btn btn-link">
             <hyperlink target="viewprofile" description="${uiLabelMap.CommonCancelDone}">
                 <parameter param-name="partyId" from-field="partyId"/>
             </hyperlink>

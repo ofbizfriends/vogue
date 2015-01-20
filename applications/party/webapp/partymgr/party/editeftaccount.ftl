@@ -27,9 +27,9 @@ under the License.
     </#if>
   </div>
   <div class="screenlet-body">
-        <div class="button-bar">
-          <a href="<@ofbizUrl>${donePage}?partyId=${partyId}</@ofbizUrl>" class="smallSubmit">${uiLabelMap.CommonCancelDone}</a>
-          <a href="javascript:document.editeftaccountform.submit()" class="smallSubmit">${uiLabelMap.CommonSave}</a>
+        <div class="btn-group">
+          <a href="<@ofbizUrl>${donePage}?partyId=${partyId}</@ofbizUrl>" class="btn btn-default btn-sm">${uiLabelMap.CommonCancelDone}</a>
+          <a href="javascript:document.editeftaccountform.submit()" class="btn btn-default btn-sm">${uiLabelMap.CommonSave}</a>
         </div>
     <#if !eftAccount??>
       <form method="post" action='<@ofbizUrl>createEftAccount?DONE_PAGE=${donePage}</@ofbizUrl>' name="editeftaccountform" style='margin: 0;'>
@@ -38,7 +38,7 @@ under the License.
         <input type="hidden" name='paymentMethodId' value='${paymentMethodId}' />
     </#if>
         <input type="hidden" name="partyId" value="${partyId}"/>
-        <table class="basic-table" cellspacing="0">
+        <table class="table" cellspacing="0">
         <tr>
           <td class="label">${uiLabelMap.AccountingNameAccount}</td>
           <td>
@@ -96,7 +96,7 @@ under the License.
           <td class="label">${uiLabelMap.PartyBillingAddress}</td>
           <td>
             <#-- Removed because is confusing, can add but would have to come back here with all data populated as before...
-            <a href="<@ofbizUrl>editcontactmech</@ofbizUrl>" class="smallSubmit">
+            <a href="<@ofbizUrl>editcontactmech</@ofbizUrl>" class="btn btn-default btn-sm">
               [Create New Address]</a>&nbsp;&nbsp;
             -->
             <table cellspacing="0">
@@ -172,9 +172,9 @@ under the License.
         </tr>
         </table>
       </form>
-      <div class="button-bar">
-        <a href="<@ofbizUrl>backHome</@ofbizUrl>" class="smallSubmit">${uiLabelMap.CommonCancelDone}</a>
-        <a href="javascript:document.editeftaccountform.submit()" class="smallSubmit">${uiLabelMap.CommonSave}</a>
+      <div class="btn-group">
+        <a href="<@ofbizUrl>backHome</@ofbizUrl>" class="btn btn-default btn-sm">${uiLabelMap.CommonCancelDone}</a>
+        <a href="javascript:document.editeftaccountform.submit()" class="btn btn-default btn-sm">${uiLabelMap.CommonSave}</a>
       </div>
   </div>
 </div>

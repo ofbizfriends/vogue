@@ -21,14 +21,14 @@ under the License.
 <forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-form.xsd">
 
     <form name="ListWorkEffortQuotes" separate-columns="true" target="ListWorkEffortQuotes" title="" type="list"
-        odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="table table-hover">
         <actions>
             <entity-and entity-name="WorkEffortQuoteView">
                 <field-map field-name="workEffortId"/>
             </entity-and>
         </actions>
         <field name="workEffortId"><hidden/></field>
-        <field name="quoteId" widget-style="buttontext">
+        <field name="quoteId" widget-style="btn btn-link">
             <hyperlink description="${quoteId}" target="/ordermgr/control/EditQuote" target-type="inter-app">
                 <parameter param-name="quoteId"/>
             </hyperlink>
@@ -45,26 +45,26 @@ under the License.
         </field>
     </form>
     <form name="AddWorkEffortQuote" target="createWorkEffortQuote" title="" type="single"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <field name="workEffortId"><hidden/></field>
         <field name="quoteId"><lookup target-form-name="LookupQuote"/></field>
-        <field name="submitButton" title="${uiLabelMap.CommonAdd}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonAdd}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
 
     <form name="ListWorkEffortQuoteItems" separate-columns="true" target="ListWorkEffortQuoteItems" title="" type="list"
-        odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="table table-hover">
         <actions>
             <entity-and entity-name="QuoteItem">
                 <field-map field-name="workEffortId"/>
             </entity-and>
         </actions>
         <field name="workEffortId"><hidden/></field>
-        <field name="quoteId" widget-style="buttontext">
+        <field name="quoteId" widget-style="btn btn-link">
             <hyperlink description="${quoteId}" target="/ordermgr/control/EditQuote" target-type="inter-app">
                 <parameter param-name="quoteId"/>
             </hyperlink>
         </field>
-        <field name="quoteItemSeqId" widget-style="buttontext">
+        <field name="quoteItemSeqId" widget-style="btn btn-link">
             <hyperlink description="${quoteItemSeqId}" target="/ordermgr/control/EditQuoteItem" target-type="inter-app">
                 <parameter param-name="workEffortId"/>
                 <parameter param-name="quoteId"/>
@@ -85,10 +85,10 @@ under the License.
         </field>
     </form>
     <form name="AddWorkEffortQuoteItem" target="createWorkEffortQuoteItem" title="" type="single"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <field name="workEffortId"><hidden/></field>
         <field name="quoteId"><lookup target-form-name="LookupQuote"/></field>
         <field name="quoteItemSeqId"><lookup target-form-name="LookupQuoteItem" target-parameter="quoteId"/></field>
-        <field name="submitButton" title="${uiLabelMap.CommonAdd}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonAdd}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
 </forms>

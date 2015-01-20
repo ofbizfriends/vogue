@@ -65,7 +65,7 @@ under the License.
 		      <div>
 		      <input type="hidden" name="partyId" value="${party.partyId}"/>
 		      ${screens.render("component://order/widget/ordermgr/OrderEntryOrderScreens.xml#customertaxinfo")}
-		      <input type="submit" value="${uiLabelMap.CommonAdd}" class="smallSubmit"/>
+		      <input type="submit" value="${uiLabelMap.CommonAdd}" class="btn btn-default btn-sm"/>
 		      </div>
 		    </form>
 		  </div>
@@ -116,7 +116,7 @@ under the License.
                         <#if contactMechPurposeType??>
                             ${contactMechPurposeType.get("description",locale)}
                             <#if contactMechPurposeType.contactMechPurposeTypeId == "SHIPPING_LOCATION" && (profiledefs.defaultShipAddr)?default("") == contactMech.contactMechId>
-                                <span class="buttontextdisabled">${uiLabelMap.EcommerceIsDefault}</span>
+                                <span class="btn btn-linkdisabled">${uiLabelMap.EcommerceIsDefault}</span>
                             <#elseif contactMechPurposeType.contactMechPurposeTypeId == "SHIPPING_LOCATION">
                                 <p>
 	                                <form name="defaultShippingAddressForm" method="post" action="<@ofbizUrl>setprofiledefault/viewprofile</@ofbizUrl>">
@@ -292,7 +292,7 @@ under the License.
                 </td>
                 <td align="right" valign="top">
                   <#if (profiledefs.defaultPayMeth)?default("") == paymentMethod.paymentMethodId>
-                    <span class="buttontextdisabled">${uiLabelMap.EcommerceIsDefault}</span>
+                    <span class="btn btn-linkdisabled">${uiLabelMap.EcommerceIsDefault}</span>
                   <#else>
                     <form name="defaultPaymentMethodForm" method="post" action="<@ofbizUrl>setprofiledefault/viewprofile</@ofbizUrl>">
                       <input type="hidden" name="productStoreId" value="${productStoreId}" />
@@ -379,7 +379,7 @@ under the License.
             <option value="${mimeType.mimeTypeId}">${mimeType.get("description", locale)?default(mimeType.mimeTypeId)}</option>
           </#list>
         </select>
-        <input type="submit" value="${uiLabelMap.CommonUpload}" class="smallSubmit"/>
+        <input type="submit" value="${uiLabelMap.CommonUpload}" class="btn btn-default btn-sm"/>
         </div>
       </form>
     </div>

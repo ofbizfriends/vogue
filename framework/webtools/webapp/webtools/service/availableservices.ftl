@@ -32,7 +32,7 @@ under the License.
       <div class="screenlet-body" align="center">
         <form><textarea rows="20" cols="85" name="wsdloutput">${selectedServiceMap.wsdl}</textarea></form>
         <br />
-        <a href='<@ofbizUrl>${url}?sel_service_name=${selectedServiceMap.serviceName}</@ofbizUrl>' class='smallSubmit'>${uiLabelMap.CommonBack}</a>
+        <a href='<@ofbizUrl>${url}?sel_service_name=${selectedServiceMap.serviceName}</@ofbizUrl>' class='btn btn-default btn-sm'>${uiLabelMap.CommonBack}</a>
       </div>
     </div>
   <#else>
@@ -47,7 +47,7 @@ under the License.
         <br class="clear"/>
       </div>
       <div class="screenlet-body">
-        <table class="basic-table" cellspacing='0'>
+        <table class="table" cellspacing='0'>
           <tr>
             <td class="label">${uiLabelMap.WebtoolsServiceName}</td>
             <td>${selectedServiceMap.serviceName}</td>
@@ -97,7 +97,7 @@ under the License.
         <h3>${uiLabelMap.SecurityGroups}</h3>
       </div>
       <#if selectedServiceMap.permissionGroups != 'NA'>
-        <table class="basic-table" cellspacing='0'>
+        <table class="table" cellspacing='0'>
           <tr class="header-row">
             <td>${uiLabelMap.WebtoolsNameOrRole}</td>
             <td>${uiLabelMap.WebtoolsPermissionType}</td>
@@ -149,7 +149,7 @@ under the License.
         <div class="screenlet-title-bar">
           <h3>${uiLabelMap.WebtoolsServiceECA}</h3>
         </div>
-        <table class="basic-table" cellspacing='0'>
+        <table class="table" cellspacing='0'>
           <tr class="header-row">
             <td>${uiLabelMap.WebtoolsEventName}</td>
             <#if ecaMapList.runOnError??>
@@ -174,7 +174,7 @@ under the License.
               <#if ecaMap.actions?has_content>
                 <td>
                   <#list ecaMap.actions as action>
-                    <table class="basic-table" cellspacing='0'>
+                    <table class="table" cellspacing='0'>
                       <tr>
                         <td colspan="2"><a href='<@ofbizUrl>${url}?sel_service_name=${action.serviceName}</@ofbizUrl>'>${action.serviceName?default(uiLabelMap.CommonNA)}</a></td>
                       </tr>
@@ -201,7 +201,7 @@ under the License.
               <#if ecaMap.conditions?has_content>
                 <td>
                   <#list ecaMap.conditions as condition>
-                    <table class='basic-table' cellspacing='0'>
+                    <table class='table' cellspacing='0'>
                       <tr>
                         <td><b>${uiLabelMap.WebtoolsCompareType}</b> ${condition.compareType?default(uiLabelMap.CommonNA)}</td>
                         <td>
@@ -236,7 +236,7 @@ under the License.
               <#if ecaMap.sets?has_content>
                 <td>
                   <#list ecaMap.sets as set>
-                    <table class='basic-table' cellspacing='0'>
+                    <table class='table' cellspacing='0'>
                       <tr>
                         <td><b>${uiLabelMap.WebtoolsFieldName}</b> ${set.fieldName?default(uiLabelMap.CommonNA)}</td>
                         <td colspan="2">&nbsp;</td>
@@ -283,7 +283,7 @@ under the License.
           <h3>${paramList.title}</h3>
         </div>
         <#if paramList.paramList?? && paramList.paramList?has_content>
-          <table class="basic-table param-table" cellspacing='0'>
+          <table class="table param-table" cellspacing='0'>
               <tr class="header-row">
                 <td>${uiLabelMap.WebtoolsParameterName}</td>
                 <td>${uiLabelMap.CommonDescription}</td>
@@ -336,7 +336,7 @@ under the License.
 
   <#-- Show alphabetical index -->
   <#if serviceNamesAlphaList?? && serviceNamesAlphaList?has_content>
-      <div class="button-bar">
+      <div class="btn-group">
         <#assign isfirst=true>
         <#list serviceNamesAlphaList as alpha>
           <a href='<@ofbizUrl>${url}?constraint=alpha@${alpha}</@ofbizUrl>'>${alpha}</a>
@@ -348,7 +348,7 @@ under the License.
   <div class="screenlet">
     <div class="screenlet-body">
       <label>${uiLabelMap.WebtoolsServicesListFor} ${dispatcherName?default(uiLabelMap.CommonNA)} (${servicesFoundCount} ${uiLabelMap.CommonFound})</label>
-      <table class="basic-table hover-bar" cellspacing='0'>
+      <table class="table table-hover" cellspacing='0'>
         <tr class="header-row">
           <td>${uiLabelMap.WebtoolsServiceName}</td>
           <td>${uiLabelMap.WebtoolsEngineName}</td>
@@ -374,5 +374,5 @@ under the License.
   </div>
 <#else>
   ${uiLabelMap.WebtoolsNoServicesFound}.
-  <a href='<@ofbizUrl>${url}</@ofbizUrl>' class="smallSubmit">${uiLabelMap.CommonListAll}</a>
+  <a href='<@ofbizUrl>${url}</@ofbizUrl>' class="btn btn-default btn-sm">${uiLabelMap.CommonListAll}</a>
 </#if>

@@ -21,7 +21,7 @@ under the License.
 </#if>
 <#assign selected = tabButtonItem?default("void")>
 <#if shipmentId?has_content>
-    <div class="button-bar tab-bar">
+    <div class="btn-group tab-bar">
         <ul>
             <li<#if selected="ViewShipment"> class="selected"</#if>><a href="<@ofbizUrl>ViewShipment?shipmentId=${shipmentId}</@ofbizUrl>">${uiLabelMap.CommonView}</a></li>
             <li<#if selected="EditShipment"> class="selected"</#if>><a href="<@ofbizUrl>EditShipment?shipmentId=${shipmentId}</@ofbizUrl>">${uiLabelMap.CommonEdit}</a></li>

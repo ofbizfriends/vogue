@@ -70,10 +70,10 @@ under the License.
                 <option value="${statusValidChangeToDetail.get("statusIdTo", locale)}">${statusValidChangeToDetail.get("description", locale)} (${statusValidChangeToDetail.get("transitionName", locale)})</option>
               </#list>
             </select>
-            <input type="submit" value="${uiLabelMap.CommonUpdate}" class="smallSubmit"/>
+            <input type="submit" value="${uiLabelMap.CommonUpdate}" class="btn btn-default btn-sm"/>
           </form>
           <span class="label">${uiLabelMap.ProductCreatedModifiedBy}</span> ${picklist.createdByUserLogin}/${picklist.lastModifiedByUserLogin}
-          <a href="<@ofbizUrl>PicklistReport.pdf?picklistId=${picklist.picklistId}</@ofbizUrl>" target="_blank" class="buttontext">${uiLabelMap.ProductPick}/${uiLabelMap.ProductPacking} ${uiLabelMap.CommonReports}</a>
+          <a href="<@ofbizUrl>PicklistReport.pdf?picklistId=${picklist.picklistId}</@ofbizUrl>" target="_blank" class="btn btn-link">${uiLabelMap.ProductPick}/${uiLabelMap.ProductPacking} ${uiLabelMap.CommonReports}</a>
           <hr />
         </div>
         <#if picklistInfo.shipmentMethodType?has_content>
@@ -102,7 +102,7 @@ under the License.
                 <option value="${partyRoleAndPartyDetail.partyId}">${partyRoleAndPartyDetail.firstName!} ${partyRoleAndPartyDetail.middleName!} ${partyRoleAndPartyDetail.lastName!} ${partyRoleAndPartyDetail.groupName!} [${partyRoleAndPartyDetail.partyId}]</option>
               </#list>
             </select>
-            <input type="submit" value="${uiLabelMap.CommonAdd}" class="smallSubmit"/>
+            <input type="submit" value="${uiLabelMap.CommonAdd}" class="btn btn-default btn-sm"/>
           </form>
         </div>
 
@@ -124,7 +124,7 @@ under the License.
               <span class="label">${uiLabelMap.ProductBinNum}</span> ${picklistBinInfo.picklistBin.binLocationNumber}&nbsp;(${picklistBinInfo.picklistBin.picklistBinId})
               <#if picklistBinInfo.primaryOrderHeader??><span class="label">${uiLabelMap.ProductPrimaryOrderId}</span> ${picklistBinInfo.primaryOrderHeader.orderId}</#if>
               <#if picklistBinInfo.primaryOrderItemShipGroup??><span class="label">${uiLabelMap.ProductPrimaryShipGroupSeqId}</span> ${picklistBinInfo.primaryOrderItemShipGroup.shipGroupSeqId}</#if>
-              <#if !picklistBinInfo.picklistItemInfoList?has_content><a href="javascript:document.DeletePicklistBin_${picklistInfo_index}_${picklistBinInfo_index}.submit()" class="buttontext">${uiLabelMap.CommonDelete}</a></#if>
+              <#if !picklistBinInfo.picklistItemInfoList?has_content><a href="javascript:document.DeletePicklistBin_${picklistInfo_index}_${picklistBinInfo_index}.submit()" class="btn btn-link">${uiLabelMap.CommonDelete}</a></#if>
               <form name="DeletePicklistBin_${picklistInfo_index}_${picklistBinInfo_index}" method="post" action="<@ofbizUrl>deletePicklistBin</@ofbizUrl>">
                 <input type="hidden" name="picklistBinId" value="${picklistBinInfo.picklistBin.picklistBinId}"/>
                 <input type="hidden" name="facilityId" value="${facilityId!}"/>
@@ -144,12 +144,12 @@ under the License.
                     <option value="${picklistActive.picklistId}"<#if picklistActive.picklistId == picklist.picklistId> selected="selected"</#if>>${picklistActive.picklistId} [${uiLabelMap.CommonDate}:${picklistActive.picklistDate},${uiLabelMap.CommonStatus}:${picklistActiveStatusItem.get("description",locale)}]</option>
                   </#list>
                 </select>
-                <input type="submit" value="${uiLabelMap.CommonUpdate}" class="smallSubmit"/>
+                <input type="submit" value="${uiLabelMap.CommonUpdate}" class="btn btn-default btn-sm"/>
               </form>
             </div>
             <#if picklistBinInfo.picklistItemInfoList?has_content>
               <div style="margin-left: 30px;">
-                <table class="basic-table" cellspacing="0">
+                <table class="table" cellspacing="0">
                   <tr class="header-row">
                     <td>${uiLabelMap.ProductOrderId}</td>
                     <td>${uiLabelMap.ProductOrderShipGroupId}</td>
@@ -181,7 +181,7 @@ under the License.
                             <input type="hidden" name="shipGroupSeqId" value="${picklistItemInfo.picklistItem.shipGroupSeqId}"/>
                             <input type="hidden" name="inventoryItemId" value="${picklistItemInfo.picklistItem.inventoryItemId}"/>
                             <input type="hidden" name="facilityId" value="${facilityId!}"/>
-                            <a href='javascript:document.deletePicklistItem_${picklist.picklistId}_${picklistItem.orderId}_${picklistItemInfo_index}.submit()' class='buttontext'>&nbsp;${uiLabelMap.CommonDelete}&nbsp;</a>
+                            <a href='javascript:document.deletePicklistItem_${picklist.picklistId}_${picklistItem.orderId}_${picklistItemInfo_index}.submit()' class='btn btn-link'>&nbsp;${uiLabelMap.CommonDelete}&nbsp;</a>
                           </form>
                         </td>
                       </#if>
@@ -202,7 +202,7 @@ under the License.
               </div>
               <#if picklistBinInfo.productStore.managedByLot?? && picklistBinInfo.productStore.managedByLot = "Y">
                 <div style="margin-left: 30px;">
-                  <table class="basic-table" cellspacing="0">
+                  <table class="table" cellspacing="0">
                     <tr class="header-row"
                       <td>${uiLabelMap.ProductOrderId}</td>
                       <td>${uiLabelMap.ProductOrderShipGroupId}</td>
@@ -238,7 +238,7 @@ under the License.
                                 <#if inventoryItemAndLocation.lotId?has_content>
                                   <input type="hidden" name="oldLotId" value="${inventoryItemAndLocation.lotId}" />
                                 </#if>
-                                <a href='javascript:document.editPicklistItem_${picklist.picklistId}_${picklistItem.orderId}_${picklistItemInfo_index}.submit()' class='buttontext'>&nbsp;${uiLabelMap.CommonEdit}&nbsp;</a>
+                                <a href='javascript:document.editPicklistItem_${picklist.picklistId}_${picklistItem.orderId}_${picklistItemInfo_index}.submit()' class='btn btn-link'>&nbsp;${uiLabelMap.CommonEdit}&nbsp;</a>
                               </td>
                             </tr>
                           </form>

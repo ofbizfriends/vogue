@@ -23,7 +23,7 @@ under the License.
             <h3>${uiLabelMap.PageTitleEditCategoryParties}</h3>
         </div>
         <div class="screenlet-body">
-            <table cellspacing="0" class="basic-table">
+            <table cellspacing="0" class="table">
             <tr class="header-row">
             <td>${uiLabelMap.PartyPartyId}</td>
             <td>${uiLabelMap.PartyRole}</td>
@@ -37,7 +37,7 @@ under the License.
             <#assign line = line + 1>
             <#assign curRoleType = productCategoryRole.getRelatedOne("RoleType", true)>
             <tr valign="middle"<#if rowClass == "1"> class="alternate-row"</#if>>
-            <td><a href="/partymgr/control/viewprofile?party_id=${(productCategoryRole.partyId)!}" target="_blank" class="buttontext">${(productCategoryRole.partyId)!}</a></td>
+            <td><a href="/partymgr/control/viewprofile?party_id=${(productCategoryRole.partyId)!}" target="_blank" class="btn btn-link">${(productCategoryRole.partyId)!}</a></td>
             <td>${(curRoleType.get("description",locale))!}</td>
             <#assign hasntStarted = false>
             <#if (productCategoryRole.getTimestamp("fromDate"))?? && Static["org.ofbiz.base.util.UtilDateTime"].nowTimestamp().before(productCategoryRole.getTimestamp("fromDate"))> <#assign hasntStarted = true></#if>
@@ -62,7 +62,7 @@ under the License.
                     <input type="hidden" name="partyId" value="${(productCategoryRole.partyId)!}" />
                     <input type="hidden" name="roleTypeId" value="${(productCategoryRole.roleTypeId)!}" />
                     <input type="hidden" name="fromDate" value="${(productCategoryRole.getTimestamp("fromDate"))!}" />
-                    <a href="javascript:document.lineForm_delete${line}.submit()" class="buttontext">${uiLabelMap.CommonDelete}</a>
+                    <a href="javascript:document.lineForm_delete${line}.submit()" class="btn btn-link">${uiLabelMap.CommonDelete}</a>
                 </form>
             </td>
             </tr>
@@ -81,7 +81,7 @@ under the License.
             <h3>${uiLabelMap.ProductAssociatePartyToCategory}</h3>
         </div>
         <div class="screenlet-body">
-            <table cellspacing="0" class="basic-table">
+            <table cellspacing="0" class="table">
                 <tr>
                     <td>
                         <form method="post" action="<@ofbizUrl>addPartyToCategory</@ofbizUrl>" style="margin: 0;" name="addNewForm">

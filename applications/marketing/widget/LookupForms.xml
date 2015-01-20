@@ -22,16 +22,16 @@ under the License.
         xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-form.xsd">
     <!-- SegmentGroup Lookup forms -->
     <form name="LookupSegmentGroup" target="LookupSegmentGroup" title="" type="single"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <field name="segmentGroupId" title="${uiLabelMap.MarketingSegmentGroupSegmentGroupId}"><text-find/></field>
         <field name="segmentGroupTypeId" title="${uiLabelMap.MarketingSegmentGroupSegmentGroupTypeId}"><text-find/></field>
         <field name="description" title="${uiLabelMap.CommonDescription}"><text-find/></field>
         <field name="productStoreId" title="${uiLabelMap.MarketingSegmentGroupProductStoreId}"><text-find/></field>
         <field name="noConditionFind"><hidden value="Y"/><!-- if this isn't there then with all fields empty no query will be done --></field>
-        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
     <form name="listLookupSegmentGroup" list-name="listIt" target="" title="" type="list" paginate-target="LookupSegmentGroup"
-        odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" default-table-style="table table-hover">
         <actions>
             <service service-name="performFind" result-map="result" result-map-list="listIt">
                 <field-map field-name="inputFields" from-field="parameters"/>
@@ -40,7 +40,7 @@ under the License.
                 <field-map field-name="viewSize" from-field="viewSize"/>
             </service>
         </actions>
-        <field name="segmentGroupId"  widget-style="buttontext" title="${uiLabelMap.MarketingSegmentGroupSegmentGroupId}">
+        <field name="segmentGroupId"  widget-style="btn btn-link" title="${uiLabelMap.MarketingSegmentGroupSegmentGroupId}">
             <hyperlink also-hidden="false" target-type="plain" description="${segmentGroupId}" target="javascript:set_value('${segmentGroupId}')"/>
         </field>
         <field name="segmentGroupTypeId" title="${uiLabelMap.MarketingSegmentGroupSegmentGroupTypeId}"><display/></field>
@@ -49,19 +49,19 @@ under the License.
     </form>
 
     <form name="listSegmentGroupClass" list-name="listIt" target="" title="" type="list" paginate-target="listSegmentGroupClass"
-        odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" default-table-style="table table-hover">
         <actions>
             <entity-and entity-name="SegmentGroupClassification">
                 <field-map field-name="segmentGroupId"/>
             </entity-and>
         </actions>
-        <field name="segmentGroupId"  widget-style="buttontext" title="${uiLabelMap.MarketingSegmentGroupSegmentGroupId}">
+        <field name="segmentGroupId"  widget-style="btn btn-link" title="${uiLabelMap.MarketingSegmentGroupSegmentGroupId}">
             <hyperlink also-hidden="false" target-type="intra-app" description="${segmentGroupId}" target="viewSegmentGroup">
                 <parameter param-name="segmentGroupId"/>
             </hyperlink>
         </field>
         <field name="partyClassificationGroupId" title="${uiLabelMap.MarketingSegmentGroupPartyClassificationGroupId}"><display/></field>
-        <field name="deleteLink" title=" " widget-style="buttontext">
+        <field name="deleteLink" title=" " widget-style="btn btn-link">
             <hyperlink target="deleteSegmentGroupClass" description="[${uiLabelMap.CommonDelete}]" also-hidden="false">
                 <parameter param-name="segmentGroupId"/>
                 <parameter param-name="partyClassificationGroupId"/>
@@ -69,7 +69,7 @@ under the License.
         </field>
     </form>
     <form name="LookupSalesForecast" target="LookupSalesForecast" title="" type="single"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <auto-fields-entity entity-name="SalesForecast" default-field-type="find"/>
         <field name="currencyUomId">
             <drop-down allow-empty="true" no-current-selected-key="${defaultOrganizationPartyCurrencyUomId}">
@@ -82,11 +82,11 @@ under the License.
         <field name="createdByUserLoginId"><hidden/></field>
         <field name="modifiedByUserLoginId"><hidden/></field>
         <field name="noConditionFind"><hidden value="Y"/><!-- if this isn't there then with all fields empty no query will be done --></field>
-        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
 
     <form name="ListLookupSalesForecast" list-name="listIt" type="list" paginate-target="LookupSalesForecast" view-size="10"
-            odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
+            odd-row-style="alternate-row" default-table-style="table table-hover">
         <actions>
             <service service-name="performFind" result-map="result" result-map-list="listIt">
                 <field-map field-name="inputFields" from-field="parameters"/>
@@ -96,7 +96,7 @@ under the License.
             </service>
         </actions>
         <auto-fields-entity entity-name="SalesForecast" default-field-type="display"/>
-        <field name="salesForecastId"  widget-style="buttontext">
+        <field name="salesForecastId"  widget-style="btn btn-link">
             <hyperlink also-hidden="false" target-type="plain" description="${salesForecastId}" target="javascript:set_value('${salesForecastId}')"/>
         </field>
     </form>

@@ -252,7 +252,7 @@ public class RenderContentAsText implements TemplateTransformModel {
                     editStyle = UtilProperties.getPropertyValue("content", "defaultEditStyle");
                 }
                 if (UtilValidate.isEmpty(editStyle)) {
-                    editStyle = "buttontext";
+                    editStyle = "btn btn-link";
                 }
                 return editStyle;
             }

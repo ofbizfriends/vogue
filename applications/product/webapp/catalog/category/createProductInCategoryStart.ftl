@@ -20,7 +20,7 @@ under the License.
 <#assign productFeaturesByTypeMap = Static["org.ofbiz.product.feature.ParametricSearch"].makeCategoryFeatureLists(productCategoryId, delegator)>
 
 <#if productCategoryId?has_content>
-    <a href="<@ofbizUrl>EditCategory?productCategoryId=${productCategoryId}</@ofbizUrl>" class="buttontext">[${uiLabelMap.ProductBackToEditCategory}]</a>
+    <a href="<@ofbizUrl>EditCategory?productCategoryId=${productCategoryId}</@ofbizUrl>" class="btn btn-link">[${uiLabelMap.ProductBackToEditCategory}]</a>
 </#if>
 <div class="screenlet">
     <div class="screenlet-title-bar">
@@ -29,7 +29,7 @@ under the License.
     <div class="screenlet-body">
         <form name="createProductInCategoryCheckExistingForm" method="post" action="<@ofbizUrl>CreateProductInCategoryCheckExisting</@ofbizUrl>" style="margin: 0;">
             <input type="hidden" name="productCategoryId" value="${productCategoryId}" />
-            <table cellspacing="0" class="basic-table">
+            <table cellspacing="0" class="table">
             <#list productFeaturesByTypeMap.keySet() as productFeatureTypeId>
                 <#assign findPftMap = Static["org.ofbiz.base.util.UtilMisc"].toMap("productFeatureTypeId", productFeatureTypeId)>
                 <#assign productFeatureType = delegator.findOne("ProductFeatureType", findPftMap, true)>
@@ -82,7 +82,7 @@ under the License.
                 </tr>
                 <tr>
                     <td colspan="3">
-                        <a href="javascript:document.createProductInCategoryCheckExistingForm.submit()" class="buttontext">${uiLabelMap.ProductCheckExisting}</a>
+                        <a href="javascript:document.createProductInCategoryCheckExistingForm.submit()" class="btn btn-link">${uiLabelMap.ProductCheckExisting}</a>
                     </td>
                 </tr>
             </table>

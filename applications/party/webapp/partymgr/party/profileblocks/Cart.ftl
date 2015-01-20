@@ -35,7 +35,7 @@ under the License.
       </div>
       <div class="screenlet-body">
         <#if savedCartItems?has_content>
-          <table class="basic-table" cellspacing="0">
+          <table class="table" cellspacing="0">
             <tr class="header-row">
               <td>${uiLabelMap.PartySequenceId}</td>
               <td>${uiLabelMap.PartyProductId}</td>

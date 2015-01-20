@@ -19,7 +19,7 @@ under the License.
 <form name="addscarr" method="post" action="<@ofbizUrl>prepareCreateShipMeth</@ofbizUrl>">
     <input type="hidden" name="newShipMethod" value="Y"/>
     <input type="hidden" name="productStoreId" value="${productStoreId!}"/>
-    <table cellspacing="0" class="basic-table">
+    <table cellspacing="0" class="table">
         <tr>
           <td align="right" class="label">${uiLabelMap.ProductCarrierShipmentMethod}</td>
           <td>
@@ -34,7 +34,7 @@ under the License.
         <tr>
           <td></td>
           <td>
-            <input type="submit" class="smallSubmit" value="${uiLabelMap.CommonAdd}"/>
+            <input type="submit" class="btn btn-default btn-sm" value="${uiLabelMap.CommonAdd}"/>
           </td>
         </tr>
     </table>

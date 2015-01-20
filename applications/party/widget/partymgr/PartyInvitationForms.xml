@@ -21,7 +21,7 @@ under the License.
 <forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
         xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-form.xsd">
     <form name="FindPartyInvitations" type="single" default-map-name="partyInvitations" target="partyInvitation"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <field position="1" name="partyInvitationId"><text-find ignore-case="true"/></field>
         <field position="2" name="partyIdFrom" title="${uiLabelMap.PartyPartyFrom}"><lookup target-form-name="LookupPartyName"/></field>
         <field position="1" name="partyId" title="${uiLabelMap.PartyPartyId}"><lookup target-form-name="LookupPartyName"/></field>
@@ -39,11 +39,11 @@ under the License.
         <field position="2" name="dateThru" title="${uiLabelMap.CommonThruDate}"><date-time/></field>
         <field name="performSearch"><hidden value="Y"/></field>
         <field name="noConditionFind"><hidden value="Y"/><!-- if this isn't there then with all fields empty no query will be done --></field>
-        <field name="searchButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="searchButton" title="${uiLabelMap.CommonFind}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
 
     <form name="ListPartyInvitations" type="list" list-name="listIt" default-entity-name="PartyInvitation"
-        odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" default-table-style="table table-hover">
         <actions>
             <set field="parameters.lastInviteDate_fld0_value" from-field="parameters.datefrom"/>
             <set field="parameters.lastInviteDate_fld0_op" value="greaterThanEqualTo"/>
@@ -57,7 +57,7 @@ under the License.
                 <field-map field-name="viewSize" from-field="viewSize"/>
             </service>
         </actions>
-        <field name="partyInvitationId" widget-style="buttontext">
+        <field name="partyInvitationId" widget-style="btn btn-link">
             <hyperlink also-hidden="false" description="${partyInvitationId}" target="editPartyInvitation">
                 <parameter param-name="partyInvitationId"/>
             </hyperlink>
@@ -68,7 +68,7 @@ under the License.
         <field name="emailAddress" title="${uiLabelMap.PartyEmailAddress}"><display/></field>
         <field name="statusId"><display-entity entity-name="StatusItem" description="${description}"/></field>
         <field name="lastInviteDate"><display/></field>
-        <field name="remove" title=" " widget-style="buttontext">
+        <field name="remove" title=" " widget-style="btn btn-link">
             <hyperlink target="deletePartyInvitation" description="${uiLabelMap.CommonDelete}">
                 <parameter param-name="partyInvitationId" value="partyInvitationId"/>
             </hyperlink>
@@ -76,7 +76,7 @@ under the License.
     </form>
 
     <form name="EditPartyInvitation" type="single" target="updatePartyInvitation"  default-map-name="partyInvitation"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <alt-target use-when="partyInvitation==null" target="createPartyInvitation"/>
         <auto-fields-service service-name="updatePartyInvitation"/>
         <field name="partyInvitationId"><hidden/></field>
@@ -99,26 +99,26 @@ under the License.
     </form>
 
     <form name="ListPartyInvitationGroupAssocs" type="list" list-name="partyInvitationGroupAssoc"
-        odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" default-table-style="table table-hover">
         <actions>
             <entity-condition entity-name="PartyInvitationGroupAssoc">
                 <condition-expr field-name="partyInvitationId" from-field="parameters.partyInvitationId"/>
                 <order-by field-name="partyInvitationId"/>
             </entity-condition>
         </actions>
-        <field name="partyInvitationId" widget-style="buttontext">
+        <field name="partyInvitationId" widget-style="btn btn-link">
             <hyperlink also-hidden="false" description="${partyInvitationId}" target="editPartyInvitation">
                 <parameter param-name="partyInvitationId"/>
             </hyperlink>
         </field>
-        <field name="partyId" widget-style="buttontext" entry-name="partyIdTo">
+        <field name="partyId" widget-style="btn btn-link" entry-name="partyIdTo">
             <display-entity entity-name="PartyNameView" description="${firstName} ${middleName} ${lastName} ${groupName}">
-                <sub-hyperlink target="/partymgr/control/viewprofile" target-type="inter-app" description="${partyIdTo}" link-style="buttontext">
+                <sub-hyperlink target="/partymgr/control/viewprofile" target-type="inter-app" description="${partyIdTo}" link-style="btn btn-link">
                     <parameter param-name="partyId" from-field="partyIdTo"/>
                 </sub-hyperlink>
             </display-entity>
         </field>
-        <field name="remove" title=" " widget-style="buttontext">
+        <field name="remove" title=" " widget-style="btn btn-link">
             <hyperlink target="deletePartyInvitationGroupAssoc" description="${uiLabelMap.CommonDelete}">
                 <parameter param-name="partyInvitationId"/>
                 <parameter param-name="partyIdTo"/>
@@ -127,7 +127,7 @@ under the License.
     </form>
 
     <form name="AddPartyInvitationGroupAssoc" type="single" target="createPartyInvitationGroupAssoc" default-map-name="partyInvitationGroupAssoc"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <auto-fields-service service-name="createPartyInvitationGroupAssoc"/>
         <field name="partyInvitationId"><hidden/> </field>
         <field name="partyIdTo">
@@ -142,20 +142,20 @@ under the License.
     </form>
 
     <form name="ListPartyInvitationRoleAssocs" type="list" list-name="partyInvitationRoleAssoc"
-        odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" default-table-style="table table-hover">
         <actions>
             <entity-condition entity-name="PartyInvitationRoleAssoc">
                 <condition-expr field-name="partyInvitationId" from-field="parameters.partyInvitationId"/>
                 <order-by field-name="partyInvitationId"/>
             </entity-condition>
         </actions>
-        <field name="partyInvitationId" widget-style="buttontext">
+        <field name="partyInvitationId" widget-style="btn btn-link">
             <hyperlink also-hidden="false" description="${partyInvitationId}" target="editPartyInvitation">
                 <parameter param-name="partyInvitationId"/>
             </hyperlink>
         </field>
         <field name="roleTypeId" title="${uiLabelMap.PartyRoleTypeId}"><display-entity entity-name="RoleType"/></field>
-        <field name="remove" title=" " widget-style="buttontext">
+        <field name="remove" title=" " widget-style="btn btn-link">
             <hyperlink target="deletePartyInvitationRoleAssoc" description="${uiLabelMap.CommonDelete}">
                 <parameter param-name="partyInvitationId"/>
                 <parameter param-name="roleTypeId"/>
@@ -164,7 +164,7 @@ under the License.
     </form>
 
     <form name="AddPartyInvitationRoleAssoc" type="single" target="createPartyInvitationRoleAssoc" title="" default-map-name="partyInvitationGroupAssoc"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <auto-fields-service service-name="createPartyInvitationRoleAssoc"/>
         <field name="partyInvitationId"><hidden/> </field>
         <field name="roleTypeId">

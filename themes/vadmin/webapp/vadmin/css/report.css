@@ -1,0 +1,233 @@
+/* pre defined styles */
+
+.TOC-level-0 {
+
+}  
+.TOC-level-1 {
+
+}     
+.TOC-level-2 {
+
+}     
+.TOC-level-3 {
+
+}     
+.TOC-level-4 {
+
+}     
+
+.TOC-level-5 {
+
+}     
+.TOC-level-6 {
+
+}     
+.TOC-level-7 {
+
+}     
+.TOC-level-8 {
+
+}     
+.TOC-level-9 {
+
+}     
+.data {
+
+}    
+.grid {
+}
+.image {
+
+}
+.label {
+    font-weight : bold;    
+}
+.list {
+
+}
+.list-detail {
+
+} 
+.list-footer {
+
+} 
+.list-group-footer-1 {
+    
+} 
+.list-group-footer-2 {
+
+} 
+.list-group-footer-3 {
+
+} 
+.list-group-footer-4 {
+
+} 
+.list-group-footer-5 {
+
+} 
+.list-group-footer-6 {
+
+}     
+.list-group-footer-7 {
+
+} 
+.list-group-footer-8 {
+
+} 
+.list-group-footer-9 {
+
+}
+.list-group-header-1 {
+
+} 
+.list-group-header-2 {
+
+} 
+.list-group-header-3 {
+
+}
+.list-group-header-4 {
+
+} 
+.list-group-header-5 {
+
+} 
+.list-group-header-6 {
+
+} 
+.list-group-header-7 {
+
+} 
+.list-group-header-8 {
+
+} 
+.list-group-header-9 {
+
+} 
+
+.list-header {
+
+} 
+
+.page{
+   
+}
+.report
+{
+    border:0; 
+    font-size: 9pt; /*add font size to reset */
+    
+    color: #474747;
+    font-family: Verdana,sans-serif;    
+}
+.table   
+{ 
+    
+}
+.table-detail    
+{ }
+.table-detail-cell   
+{ 
+border-bottom: 1px solid #B1B6AC;
+}
+.table-footer 
+{ }
+.table-footer-cell   
+{ }
+.table-group-footer-1 { 	
+}
+.table-group-footer-2    
+{ }
+.table-group-footer-3    
+{ }
+.table-group-footer-4    
+{ }
+.table-group-footer-5    
+{ }
+.table-group-footer-6    
+{ }
+.table-group-footer-7    
+{ }
+.table-group-footer-8    
+{ }
+.table-group-footer-9    
+{ }
+.table-group-footer-cell     
+{ }
+.table-group-header-1    
+{     
+    border-bottom: 1pt solid #3F4C6B;	
+}
+
+.table-group-header-2    {
+   border-bottom: 1pt solid #73880A;   
+}
+.table-group-header-3 {
+	border-bottom: 1pt solid #C79810;
+
+ }
+.table-group-header-4    
+{ }
+.table-group-header-5    
+{ }
+.table-group-header-6    
+{ }
+.table-group-header-7    
+{ }
+.table-group-header-8    
+{ }
+.table-group-header-9    
+{ }
+.table-group-header-cell     
+{ }
+.table-header    
+{
+
+ }
+.table-header-cell{ 
+
+}
+.text    
+{ }
+.text-data   
+{ }
+
+.align-right {
+    text-align: right;
+}
+.align-left {
+    text-align: left;
+}
+.centered { text-align: center; }
+.result { 
+    font-weight : bold;
+    text-align: center;
+ }
+.reportTitle {
+    font-size : 1.6em;
+    font-weight : bold;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

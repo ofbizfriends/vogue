@@ -23,7 +23,7 @@ under the License.
 
     <!-- CompDoc forms -->
     <form name="FindCompDoc" default-entity-name="Content" target="FindCompDoc" title="" type="single"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <field name="contentId" map-name="empty"><text-find/></field>
         <field name="contentName"><text-find/></field>
         <field name="contentTypeId">
@@ -36,10 +36,10 @@ under the License.
         </field>
         <!-- <field name="rootonly" map-name="dummy" title="Root CompDocs Only"><check/></field> -->
         <field name="noConditionFind"><hidden value="Y"/><!-- if this isn't there then with all fields empty no query will be done --></field>
-        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
     <form name="ListCompDoc" type="list" list-name="listIt" target="" paginate-target="FindCompDoc"
-        odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" default-table-style="table table-hover">
         <actions>
             <service service-name="performFind" result-map="results" result-map-list="listIt">
                 <field-map field-name="inputFields" from-field="parameters"/>
@@ -51,7 +51,7 @@ under the License.
         <field name="contentId"><display/></field>
         <field name="contentTypeId"><display/></field>
         <field name="contentName"><display/></field>
-        <field name="edit" use-when="&quot;COMPDOC_TEMPLATE&quot;.equals(contentTypeId)" widget-style="buttontext">
+        <field name="edit" use-when="&quot;COMPDOC_TEMPLATE&quot;.equals(contentTypeId)" widget-style="btn btn-link">
            <hyperlink also-hidden="false" description="${uiLabelMap.CommonEdit}" target="EditRootCompDoc">
                 <parameter param-name="contentId"/>
                 <parameter param-name="rootContentId" from-field="caContentIdTo"/>
@@ -59,7 +59,7 @@ under the License.
                 <parameter param-name="caFromDate"/>
             </hyperlink>
         </field>
-        <field name="edit" use-when="&quot;COMPDOC_INSTANCE&quot;.equals(contentTypeId)" widget-style="buttontext">
+        <field name="edit" use-when="&quot;COMPDOC_INSTANCE&quot;.equals(contentTypeId)" widget-style="btn btn-link">
            <hyperlink also-hidden="false" description="${uiLabelMap.CommonEdit}" target="EditRootCompDoc">
                 <parameter param-name="contentId"/>
                 <parameter param-name="rootContentId" from-field="caContentIdTo"/>
@@ -67,7 +67,7 @@ under the License.
                 <parameter param-name="caFromDate"/>
             </hyperlink>
         </field>
-        <field name="edit" use-when="&quot;TEMPLATE&quot;.equals(contentTypeId)" widget-style="buttontext">
+        <field name="edit" use-when="&quot;TEMPLATE&quot;.equals(contentTypeId)" widget-style="btn btn-link">
            <hyperlink also-hidden="false" description="${uiLabelMap.CommonEdit}" target="EditChildCompDoc">
                 <parameter param-name="contentId"/>
                 <parameter param-name="rootContentId" from-field="caContentIdTo"/>
@@ -75,7 +75,7 @@ under the License.
                 <parameter param-name="caFromDate"/>
             </hyperlink>
         </field>
-        <field name="edit" use-when="&quot;DOCUMENT&quot;.equals(contentTypeId)" widget-style="buttontext">
+        <field name="edit" use-when="&quot;DOCUMENT&quot;.equals(contentTypeId)" widget-style="btn btn-link">
            <hyperlink also-hidden="false" description="${uiLabelMap.CommonEdit}" target="EditChildCompDoc">
                 <parameter param-name="contentId"/>
                 <parameter param-name="rootContentId" from-field="caContentIdTo"/>
@@ -83,12 +83,12 @@ under the License.
                 <parameter param-name="caFromDate"/>
             </hyperlink>
         </field>
-        <field name="tree" use-when="&quot;COMPDOC_TEMPLATE&quot;.equals(contentTypeId)" widget-style="buttontext">
+        <field name="tree" use-when="&quot;COMPDOC_TEMPLATE&quot;.equals(contentTypeId)" widget-style="btn btn-link">
             <hyperlink also-hidden="false" description="${uiLabelMap.ContentTree}" target="ViewCompDocTemplateTree">
                 <parameter param-name="rootContentId" from-field="contentId"/>
             </hyperlink>
         </field>
-        <field name="tree" use-when="&quot;COMPDOC_INSTANCE&quot;.equals(contentTypeId)" widget-style="buttontext">
+        <field name="tree" use-when="&quot;COMPDOC_INSTANCE&quot;.equals(contentTypeId)" widget-style="btn btn-link">
             <hyperlink also-hidden="false" description="${uiLabelMap.ContentTree}" target="ViewCompDocInstanceTree">
                 <parameter param-name="rootContentId" from-field="contentId"/>
             </hyperlink>
@@ -96,19 +96,19 @@ under the License.
     </form>
 
     <form name="ListCompDocInstances" target="" type="list" list-name="compDocFindList" paginate-target="ListCompDocInstances"
-        odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" default-table-style="table table-hover">
         <field name="contentId"><display/></field>
         <field name="contentName"><display/></field>
         <field name="rootContentId" title="${uiLabelMap.FormFieldTitle_contentIdTo}"><display/></field>
         <field name="caContentAssocTypeId" title="${uiLabelMap.FormFieldTitle_contentAssocTypeId}"><display/></field>
         <field name="caFromDate" title="${uiLabelMap.CommonFromDate}"><display/></field>
         <field name="caThruDate"><hidden/></field>
-        <field name="editTemplate" title="${uiLabelMap.CommonEdit}" widget-style="buttontext">
+        <field name="editTemplate" title="${uiLabelMap.CommonEdit}" widget-style="btn btn-link">
            <hyperlink also-hidden="false" description="${uiLabelMap.CommonEdit}" target="EditRootCompDoc">
                 <parameter param-name="rootContentId" from-field="contentId"/>
             </hyperlink>
         </field>
-        <field name="templateTree" widget-style="buttontext">
+        <field name="templateTree" widget-style="btn btn-link">
             <hyperlink also-hidden="false" description="${uiLabelMap.ContentTree}" target="ViewCompDocInstanceTree">
                 <parameter param-name="rootContentId" from-field="contentId"/>
             </hyperlink>
@@ -117,13 +117,13 @@ under the License.
 
     <!-- ContentRevision forms -->
     <form name="EditContentRevision" default-map-name="contentRevision" target="updateContentRevision" type="single"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <alt-target target="createContentRevision" use-when="contentRevision==null"/>
         <auto-fields-entity entity-name="ContentRevision"/>
 
-        <field name="rootContentId" map-name="empty" widget-style="buttontext"><hidden/></field>
-        <field name="rootContentRevisionSeqId"  map-name="empty" widget-style="buttontext"><hidden/></field>
-        <field name="contentId" widget-style="buttontext"><lookup target-form-name="LookupContent"/></field>
+        <field name="rootContentId" map-name="empty" widget-style="btn btn-link"><hidden/></field>
+        <field name="rootContentRevisionSeqId"  map-name="empty" widget-style="btn btn-link"><hidden/></field>
+        <field name="contentId" widget-style="btn btn-link"><lookup target-form-name="LookupContent"/></field>
         <field name="contentRevisionSeqId" widget-style="inputBox"><text/></field>
 <!--         <field name="contentRevisionSeqId">
             <drop-down allow-empty="true">
@@ -133,16 +133,16 @@ under the License.
 -->
         <field name="committedByPartyId" widget-style="inputBox"><text/></field>
         <field name="comments" widget-style="inputBox"><text/></field>
-        <field name="submitButton" title="${uiLabelMap.CommonSave}" widget-style="smallSubmit"><submit/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonSave}" widget-style="btn btn-default btn-sm"><submit/></field>
     </form>
 
     <form name="ListContentRevisions" list-name="contentRevisionList" type="list"
-        odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" default-table-style="table table-hover">
         <field name="contentId"><display/></field>
         <field name="contentRevisionSeqId"><display/></field>
         <field name="committedByPartyId"><display/></field>
         <field name="comments"><display/></field>
-        <field name="editLink" title=" " widget-style="buttontext">
+        <field name="editLink" title=" " widget-style="btn btn-link">
             <hyperlink also-hidden="false" description="${uiLabelMap.CommonEdit}" target="EditContentRevision">
                 <parameter param-name="contentId"/>
                 <parameter param-name="contentRevisionSeqId"/>
@@ -150,7 +150,7 @@ under the License.
                 <parameter param-name="rootContentRevisionSeqId"/>
             </hyperlink>
         </field>
-        <field name="itemLink" title=" " widget-style="buttontext">
+        <field name="itemLink" title=" " widget-style="btn btn-link">
             <hyperlink also-hidden="false" description="${uiLabelMap.CommonItems}" target="ListContentRevisionItem">
                 <parameter param-name="contentId"/>
                 <parameter param-name="contentRevisionSeqId"/>
@@ -158,7 +158,7 @@ under the License.
                 <parameter param-name="rootContentRevisionSeqId"/>
             </hyperlink>
         </field>
-        <field name="create" title=" " widget-style="buttontext">
+        <field name="create" title=" " widget-style="btn btn-link">
             <hyperlink also-hidden="false" description="${uiLabelMap.CommonCreate}" target="EditContentRevision">
                 <parameter param-name="contentId"/>
                 <parameter param-name="contentRevisionSeqId"/>
@@ -166,13 +166,13 @@ under the License.
                 <parameter param-name="rootContentRevisionSeqId"/>
             </hyperlink>
         </field>
-        <field name="tree" title=" " widget-style="buttontext" use-when="&quot;COMPDOC_INSTANCE&quot;.equals(contentTypeId)">
+        <field name="tree" title=" " widget-style="btn btn-link" use-when="&quot;COMPDOC_INSTANCE&quot;.equals(contentTypeId)">
             <hyperlink also-hidden="false" description="${uiLabelMap.ContentTree}" target="ViewCompDocInstanceTree">
                 <parameter param-name="rootContentId" from-field="contentId"/>
                 <parameter param-name="rootContentRevisionSeqId" from-field="contentRevisionSeqId"/>
             </hyperlink>
         </field>
-        <field name="tree" title=" " widget-style="buttontext" use-when="&quot;COMPDOC_TEMPLATE&quot;.equals(contentTypeId)">
+        <field name="tree" title=" " widget-style="btn btn-link" use-when="&quot;COMPDOC_TEMPLATE&quot;.equals(contentTypeId)">
             <hyperlink also-hidden="false" description="${uiLabelMap.ContentTree}" target="ViewCompDocTemplateTree">
                 <parameter param-name="rootContentId" from-field="contentId"/>
                 <parameter param-name="rootContentRevisionSeqId" from-field="contentRevisionSeqId"/>
@@ -182,28 +182,28 @@ under the License.
 
     <!-- ContentRevisionItem forms -->
     <form name="EditContentRevisionItem" default-map-name="contentRevisionItem" target="updateContentRevisionItem" type="single"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <alt-target target="createContentRevisionItem" use-when="contentRevisionItem==null"/>
         <auto-fields-entity entity-name="ContentRevisionItem"/>
 
-        <field name="rootContentId" map-name="empty" widget-style="buttontext"><hidden/></field>
-        <field name="rootContentRevisionSeqId"  map-name="empty" widget-style="buttontext"><hidden/></field>
-        <field name="contentId" widget-style="buttontext"><lookup target-form-name="LookupContent"/></field>
+        <field name="rootContentId" map-name="empty" widget-style="btn btn-link"><hidden/></field>
+        <field name="rootContentRevisionSeqId"  map-name="empty" widget-style="btn btn-link"><hidden/></field>
+        <field name="contentId" widget-style="btn btn-link"><lookup target-form-name="LookupContent"/></field>
         <field name="contentRevisionSeqId" widget-style="inputBox"><text/></field>
         <field name="itemContentId" widget-style="inputBox"><text/></field>
         <field name="oldDataResourceId" widget-style="inputBox"><text/></field>
         <field name="newDataResourceId" widget-style="inputBox"><text/></field>
-        <field name="submitButton" title="${uiLabelMap.CommonSave}" widget-style="smallSubmit"><submit/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonSave}" widget-style="btn btn-default btn-sm"><submit/></field>
     </form>
 
     <form name="ListContentRevisionItem" list-name="contentRevisionItemList" type="list"
-        odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" default-table-style="table table-hover">
         <field name="contentId"><display/></field>
         <field name="contentRevisionSeqId"><display/></field>
         <field name="itemContentId"><display/></field>
         <field name="oldDataResourceId"><display/></field>
         <field name="newDataResourceId"><display/></field>
-        <field name="editLink" title=" " widget-style="buttontext">
+        <field name="editLink" title=" " widget-style="btn btn-link">
             <hyperlink also-hidden="false" description="${uiLabelMap.CommonEdit}" target="EditContentRevisionItem">
                 <parameter param-name="contentId"/>
                 <parameter param-name="contentRevisionSeqId"/>
@@ -212,7 +212,7 @@ under the License.
                 <parameter param-name="rootContentRevisionSeqId"/>
             </hyperlink>
         </field>
-        <field name="create" title=" " widget-style="buttontext">
+        <field name="create" title=" " widget-style="btn btn-link">
             <hyperlink also-hidden="false" description="${uiLabelMap.CommonCreate}" target="EditContentRevisionItem">
                 <parameter param-name="contentId"/>
                 <parameter param-name="contentRevisionSeqId"/>
@@ -224,7 +224,7 @@ under the License.
 
     <!-- ContentApproval forms -->
     <form name="EditContentApproval" default-map-name="contentApproval" target="updateContentApproval" type="single"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <field name="contentApprovalId"><display/></field>
         <field name="contentId" widget-style="inputBox"><hidden/></field>
         <field name="contentRevisionSeqId" widget-style="inputBox"><text></text></field>
@@ -248,11 +248,11 @@ under the License.
         <field name="sequenceNum" widget-style="inputBox"><text/></field>
         <field name="comments" widget-style="inputBox"><textarea cols="30" rows="3"/></field>
 
-        <field name="submitButton" title="${uiLabelMap.CommonSave}" widget-style="smallSubmit"><submit/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonSave}" widget-style="btn btn-default btn-sm"><submit/></field>
     </form>
 
     <form name="AddContentApproval" default-map-name="contentApproval" target="createContentApproval" type="single"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <field name="contentId" widget-style="inputBox"><hidden/></field>
         <field name="contentRevisionSeqId" map-name="empty" widget-style="inputBox"><text/></field>
         <field name="partyId" map-name="empty" widget-style="inputBox"><lookup target-form-name="LookupPartyName"/></field>
@@ -268,11 +268,11 @@ under the License.
         <field name="sequenceNum" map-name="empty" widget-style="inputBox"><text/></field>
         <field name="comments" map-name="empty" widget-style="inputBox"><text size="40"/></field>
 
-        <field name="submitButton" title="${uiLabelMap.CommonSave}" widget-style="smallSubmit"><submit/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonSave}" widget-style="btn btn-default btn-sm"><submit/></field>
     </form>
 
     <form name="ListContentApproval" target="updateContentApproval" list-name="contentApprovalList" type="list"
-        odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" default-table-style="table table-hover">
         <field name="contentApprovalId"><display/></field>
         <field name="contentId"><hidden/></field>
         <field name="rootContentId" map-name="empty"><hidden/></field>
@@ -296,8 +296,8 @@ under the License.
         <field name="approvalDate" widget-style="inputBox"   use-when="&quot;COMPDOC_INSTANCE&quot;.equals(contentTypeId)"><date-time/></field>
         <field name="sequenceNum" widget-style="inputBox"  use-when="&quot;COMPDOC_TEMPLATE&quot;.equals(contentTypeId)"><text/></field>
         <field name="comments" widget-style="inputBox"><textarea cols="30" rows="3"/></field>
-        <field name="submitButton" title="${uiLabelMap.CommonUpdate}" widget-style="smallSubmit"><submit/></field>
-        <field name="deleteButton" title="${uiLabelMap.CommonDelete}" widget-style="smallSubmit">
+        <field name="submitButton" title="${uiLabelMap.CommonUpdate}" widget-style="btn btn-default btn-sm"><submit/></field>
+        <field name="deleteButton" title="${uiLabelMap.CommonDelete}" widget-style="btn btn-default btn-sm">
             <hyperlink target="removeContentApproval" description="${uiLabelMap.CommonDelete}">
                 <parameter param-name="contentApprovalId"/>
                 <parameter param-name="rootContentId"/>
@@ -307,7 +307,7 @@ under the License.
     </form>
 
     <form name="ListWaitingContentApproval" target="updateWaitingContentApproval" list-name="contentApprovalList" type="list"
-        odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" default-table-style="table table-hover">
         <field name="contentApprovalId"><display/></field>
         <field name="contentId"><hidden/></field>
         <field name="rootContentId" map-name="empty"><hidden/></field>
@@ -330,11 +330,11 @@ under the License.
         <field name="approvalDate" widget-style="inputBox"><date-time/></field>
         <field name="sequenceNum" widget-style="inputBox"><text/></field>
         <field name="comments" widget-style="inputBox"><text size="40"/></field>
-        <field name="submitButton" title="${uiLabelMap.CommonUpdate}" widget-style="smallSubmit"  use-when="&quot;COMPDOC_INSTANCE&quot;.equals(contentTypeId)"><submit/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonUpdate}" widget-style="btn btn-default btn-sm"  use-when="&quot;COMPDOC_INSTANCE&quot;.equals(contentTypeId)"><submit/></field>
     </form>
 
     <form name="AddRootCompDocInstance" default-map-name="" type="single" target="genCompDocInstance"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <field name="contentName"><text/></field>
         <field name="instanceOfContentId" entry-name="rootContentId" map-name="parameters"><display-entity entity-name="Content" key-field-name="contentId" description="${contentName} [${contentId}]"/></field>
         <field name="contentTypeId"><hidden value="COMPDOC_INSTANCE"/></field>
@@ -342,37 +342,37 @@ under the License.
         <field name="rootContentId"><hidden/></field>
         <field name="rootContentRevisionId"><hidden/></field>
             -->
-        <field name="submitButton" title="${uiLabelMap.CommonSubmit}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonSubmit}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
 
     <form name="EditRootCompDocInstance" default-map-name="content" type="single" target="updateRootCompDocTemplate"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <field name="contentId"><display/></field>
         <field name="contentName"><text/></field>
         <field name="instanceOfContentId"><display/></field>
         <field name="contentTypeId"><hidden value="COMPDOC_INSTANCE"/></field>
-        <field name="submitButton" title="${uiLabelMap.CommonSubmit}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonSubmit}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
 
     <form name="AddRootCompDocTemplate" default-map-name="" type="single" target="createRootCompDocTemplate"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <field name="contentName" title="${uiLabelMap.ContentCompDocTemplateName}"><text/></field>
         <field name="contentTypeId" map-name="dummy"><hidden value="COMPDOC_TEMPLATE"/></field>
         <field name="rootTemplateContentId"><hidden/></field>
         <field name="rootTemplateRevSeqId"><hidden/></field>
-        <field name="submitButton" title="${uiLabelMap.CommonSubmit}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonSubmit}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
 
     <form name="EditRootCompDocTemplate" default-map-name="content" type="single" target="updateRootCompDocTemplate"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <field name="contentId"><display/></field>
         <field name="contentName"><text/></field>
         <field name="contentTypeId" map-name="dummy"><hidden value="COMPDOC_TEMPLATE"/></field>
-        <field name="submitButton" title="${uiLabelMap.CommonSubmit}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonSubmit}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
 
     <form name="AddChildCompDoc" default-map-name="" type="single" target="${childCompDocTarget}"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <field name="rootContentId"><hidden/></field>
         <field name="contentId"><ignored/></field>
         <field name="contentName"><text/></field>
@@ -411,11 +411,11 @@ under the License.
         </field>
         <field name="rootContentId"><hidden/></field>
         <field name="rootContentRevisionSeqId"><hidden/></field>
-        <field name="submitButton" title="${uiLabelMap.CommonAdd}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonAdd}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
 
     <form name="EditChildCompDoc" default-map-name="contentAssoc" type="single" target="${childCompDocTarget}"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <field name="contentId"><display/></field>
         <field name="contentName" map-name="itemContent"><text/></field>
         <field name="contentTypeId" map-name="itemContent"><hidden/></field>
@@ -455,7 +455,7 @@ under the License.
         <field name="relatedDetailId" map-name="dataResource" title="${uiLabelMap.ContentSurvey}"
             use-when="dataResource!=null &amp;&amp; &quot;SURVEY&quot;.equals(dataResource.getString(&quot;dataResourceTypeId&quot;))">
             <lookup target-form-name="LookupSurvey">
-                <sub-hyperlink target="EditSurvey" description="${uiLabelMap.PageTitleEditSurvey}" link-style="buttontext" use-when="dataResource.get(&quot;relatedDetailId&quot;)!=null">
+                <sub-hyperlink target="EditSurvey" description="${uiLabelMap.PageTitleEditSurvey}" link-style="btn btn-link" use-when="dataResource.get(&quot;relatedDetailId&quot;)!=null">
                     <parameter param-name="surveyId" from-field="dataResource.relatedDetailId"/>
                 </sub-hyperlink>
             </lookup>
@@ -463,12 +463,12 @@ under the License.
         <field name="relatedDetailId" map-name="dataResource" title="${uiLabelMap.ContentSurveyResponse}"
             use-when="dataResource!=null &amp;&amp; &quot;SURVEY_RESPONSE&quot;.equals(dataResource.getString(&quot;dataResourceTypeId&quot;))">
             <lookup target-form-name="LookupSurveyResponse">
-                <sub-hyperlink target="EditSurveyResponse" description="${uiLabelMap.PageTitleEditSurveyResponse}" link-style="buttontext" use-when="dataResource!=null &amp;&amp; dataResource.get(&quot;relatedDetailId&quot;)!=null">
+                <sub-hyperlink target="EditSurveyResponse" description="${uiLabelMap.PageTitleEditSurveyResponse}" link-style="btn btn-link" use-when="dataResource!=null &amp;&amp; dataResource.get(&quot;relatedDetailId&quot;)!=null">
                     <parameter param-name="surveyResponseId" from-field="dataResource.relatedDetailId"/>
                 </sub-hyperlink>
             </lookup>
         </field>
-        <field name="addSurveyResponse" map-name="dummy" widget-style="buttontext"
+        <field name="addSurveyResponse" map-name="dummy" widget-style="btn btn-link"
             use-when="&quot;DOCUMENT&quot;.equals(contentTypeId) &amp;&amp; dataResource!=null &amp;&amp; dataResource.get(&quot;relatedDetailId&quot;)==null &amp;&amp; templateDataResource!=null &amp;&amp; templateDataResource.get(&quot;relatedDetailId&quot;)!=null">
             <hyperlink description="${uiLabelMap.CommonCreate} ${uiLabelMap.ContentSurveyResponse} (${uiLabelMap.CommonFor} ${uiLabelMap.ContentSurvey} ${templateDataResource.relatedDetailId})" target="EditSurveyResponse" also-hidden="false" target-window="_blank">
                 <parameter param-name="surveyId" from-field="templateDataResource.relatedDetailId"/>
@@ -476,7 +476,7 @@ under the License.
                 <parameter param-name="rootContentId"/>
             </hyperlink>
         </field>
-        <field name="updateSurveyResponse" map-name="dummy" widget-style="buttontext"
+        <field name="updateSurveyResponse" map-name="dummy" widget-style="btn btn-link"
             use-when="&quot;DOCUMENT&quot;.equals(contentTypeId) &amp;&amp; dataResource!=null &amp;&amp; dataResource.get(&quot;relatedDetailId&quot;)!=null &amp;&amp; templateDataResource!=null &amp;&amp; templateDataResource.get(&quot;relatedDetailId&quot;)!=null">
             <hyperlink description="${uiLabelMap.CommonUpdate} ${uiLabelMap.ContentSurveyResponse} (${uiLabelMap.CommonFor} ${uiLabelMap.ContentSurvey} ${templateDataResource.relatedDetailId}, Response ${dataResource.relatedDetailId})" target="EditSurveyResponse" also-hidden="false" target-window="_blank">
                 <parameter param-name="surveyId" from-field="templateDataResource.relatedDetailId"/>
@@ -491,11 +491,11 @@ under the License.
             <display also-hidden="false"/>
         </field>
 
-        <field name="submitButton" title="${uiLabelMap.CommonUpdate}" widget-style="smallSubmit"><submit button-type="button"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonUpdate}" widget-style="btn btn-default btn-sm"><submit button-type="button"/></field>
     </form>
 
     <form name="ViewChildCompDoc" default-map-name="contentAssoc" type="single" target=""
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <field name="contentId"><display/></field>
         <field name="contentName" map-name="itemContent"><display/></field>
         <field name="contentTypeId" map-name="itemContent"><hidden/></field>
@@ -519,22 +519,22 @@ under the License.
 
     <!-- ================ CompDoc Revision ================= -->
     <form name="EditContentRevisionAndItem" target="updateContentRevisionAndItem" type="single"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <auto-fields-entity entity-name="ContentRevision"/>
         <auto-fields-entity entity-name="ContentRevisionItem"/>
 
-        <field name="contentId" widget-style="buttontext"><text/></field>
+        <field name="contentId" widget-style="btn btn-link"><text/></field>
         <field name="contentRevisionSeqId"><hidden/></field>
         <field name="committedByPartyId" widget-style="inputBox"></field>
         <field name="comments" widget-style="inputBox"></field>
         <field name="itemContentId" widget-style="inputBox"></field>
         <field name="oldDataResourceId" widget-style="inputBox"></field>
         <field name="newDataResourceId" widget-style="inputBox"></field>
-        <field name="submitButton" title="${uiLabelMap.CommonCreate}" widget-style="smallSubmit"><submit/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonCreate}" widget-style="btn btn-default btn-sm"><submit/></field>
     </form>
     <!-- TO BE REMOVED
     <form name="ListContentRevisionItemApproval" type="list"
-        odd-row-style="alternate-row" default-table-style="basic-table hover-bar">
+        odd-row-style="alternate-row" default-table-style="table table-hover">
         <actions>
             <entity-and entity-name="ContentRevisionItemAndContentApprovalView" use-cache="true">
                 <field-map from-field="contentId" field-name="contentId"/>
@@ -548,7 +548,7 @@ under the License.
         <field name="newDataResourceId"><display/></field>
         <field name="contentApprovalId"><display/></field>
 
-        <field name="editLink" title=" " widget-style="buttontext" use-when="approvalCount &gt; 0">
+        <field name="editLink" title=" " widget-style="btn btn-link" use-when="approvalCount &gt; 0">
             <hyperlink also-hidden="false" description="${uiLabelMap.CommonEdit}" target="EditContentRevisionItem">
                 <parameter param-name="contentId"/>
                 <parameter param-name="contentRevisionSeqId"/>
@@ -557,13 +557,13 @@ under the License.
                 <parameter param-name="rootContentRevisionSeqId" from-field="rootContentRevisionSeqId/>
             </hyperlink>
         </field>
-        <field name="create" title=" " widget-style="buttontext">
+        <field name="create" title=" " widget-style="btn btn-link">
             <hyperlink also-hidden="false" description="Create" target="EditContentRevisionItem"/>
         </field>
     </form>
     -->
     <form name="UploadCompDocContent" type="upload" target="uploadCompDocContent"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <field name="caContentIdTo" entry-name="contentIdTo" map-name="contentAssoc"><hidden/></field>
         <field name="caContentAssocTypeId"><hidden value="COMPDOC_PART"/></field>
         <field name="caFromDate" entry-name="fromDate" map-name="contentAssoc"><hidden/></field>
@@ -575,11 +575,11 @@ under the License.
         <!-- would show previous file name... doesn't make too much sense <field name="objectInfo" title="File Name" map-name="dataResource"><display also-hidden="false"/></field> -->
         <field name="imageData" title="${uiLabelMap.ContentFile}"><file/></field>
         <field name="rootContentId"><hidden/></field>
-        <field name="submitButton" title="${uiLabelMap.CommonUpload}" widget-style="smallSubmit"><submit/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonUpload}" widget-style="btn btn-default btn-sm"><submit/></field>
     </form>
 
     <form name="UploadCompDocPdf2Survey" type="upload" target="persistCompDocPdf2Survey"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <field name="caContentIdTo" entry-name="contentIdTo" map-name="contentAssoc"><hidden/></field>
         <field name="caContentAssocTypeId"><hidden value="COMPDOC_PART"/></field>
         <field name="caFromDate" entry-name="fromDate" map-name="contentAssoc"><hidden/></field>
@@ -592,11 +592,11 @@ under the License.
         <field name="pdfName" title="${uiLabelMap.ContentPDFSurveyName}"><text/></field>
         <field name="imageData" title="${uiLabelMap.ContentPDFFilePath}"><file size="60"/></field>
         <field name="rootContentId"><hidden/></field>
-        <field name="submitButton" title="${uiLabelMap.CommonUpload}" widget-style="smallSubmit"><submit/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonUpload}" widget-style="btn btn-default btn-sm"><submit/></field>
     </form>
 
     <form name="EditCompDocTextContent" type="single" target="uploadCompDocContent"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <field name="rootContentId" map-name="dummy"><hidden/></field>
         <field name="caContentIdTo" map-name="parameters"><hidden/></field>
         <field name="caContentAssocTypeId" map-name="parameters"><hidden/></field>
@@ -607,11 +607,11 @@ under the License.
         <field name="dataResourceTypeId" map-name="dataResource"><hidden/></field>
         <field name="mimeTypeId" map-name="dataResource"><hidden/></field>
         <field name="textData" title="${uiLabelMap.FormFieldTitle_textDataTitle}"><textarea rows="30" cols="60"/></field>
-        <field name="submitButton" title="${uiLabelMap.CommonSave}" widget-style="smallSubmit"><submit/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonSave}" widget-style="btn btn-default btn-sm"><submit/></field>
     </form>
 
     <form name="UploadCompDocSurveyId" type="single" target="uploadCompDocContent"
-        header-row-style="header-row" default-table-style="basic-table">
+        header-row-style="header-row" default-table-style="table">
         <field name="rootContentId" map-name="dummy"><hidden/></field>
         <field name="caContentIdTo" map-name="parameters"><hidden/></field>
         <field name="caContentAssocTypeId" map-name="parameters"><hidden/></field>
@@ -622,6 +622,6 @@ under the License.
         <field name="dataResourceTypeId" map-name="dataResource"><hidden/></field>
         <field name="mimeTypeId" map-name="dataResource"><hidden/></field>
         <field name="objectInfo" title="${uiLabelMap.ContentSurveySurveyId}"><lookup target-form-name="LookupSurvey"/></field>
-        <field name="submitButton" title="${uiLabelMap.CommonSave}" widget-style="smallSubmit"><submit/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonSave}" widget-style="btn btn-default btn-sm"><submit/></field>
     </form>
 </forms>

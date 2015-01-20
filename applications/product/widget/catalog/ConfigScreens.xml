@@ -41,8 +41,8 @@ under the License.
                                             <include-menu name="ConfigItemTabBar" location="component://product/widget/catalog/CatalogMenus.xml"/>
                                             <label style="h1">${uiLabelMap[labelTitleProperty]} ${uiLabelMap.CommonFor}: ${configItem.configItemName} [${uiLabelMap.CommonId}:${configItemId}]  ${${extraFunctionName}}</label>
                                         </container>
-                                        <container style="button-bar">
-                                            <link target="EditProductConfigItem" text="[${uiLabelMap.CommonNew} ${uiLabelMap.ProductConfigItem}]" style="buttontext create"/>
+                                        <container style="btn-group">
+                                            <link target="EditProductConfigItem" text="[${uiLabelMap.CommonNew} ${uiLabelMap.ProductConfigItem}]" style="btn btn-link create"/>
                                         </container>
                                     </widgets>
                                 </section>
@@ -68,8 +68,8 @@ under the License.
                     <decorator-section name="body">
                         <decorator-screen name="FindScreenDecorator" location="component://common/widget/CommonScreens.xml">
                             <decorator-section name="menu-bar">
-                                <container style="button-bar">
-                                    <link target="EditProductConfigItem" text="${uiLabelMap.CommonCreateNew}" style="buttontext create"/>
+                                <container style="btn-group">
+                                    <link target="EditProductConfigItem" text="${uiLabelMap.CommonCreateNew}" style="btn btn-link create"/>
                                 </container>
                             </decorator-section>
                             <decorator-section name="search-options">
@@ -154,7 +154,7 @@ under the License.
                     <condition><not><if-empty field="configOptionId"/></not></condition>
                     <widgets>
                         <screenlet title="${uiLabelMap.PageTitleEditConfigOptions}">
-                            <link style="buttontext" text="${uiLabelMap.ProductCreateNewConfigOptions}" target="EditProductConfigOptions">
+                            <link style="btn btn-link" text="${uiLabelMap.ProductCreateNewConfigOptions}" target="EditProductConfigOptions">
                                 <parameter param-name="configItemId"/>
                             </link>
                             <include-form name="CreateConfigOption" location="component://product/widget/catalog/ConfigForms.xml"/>
@@ -186,7 +186,7 @@ under the License.
                     </condition>
                     <widgets>
                         <screenlet title="${uiLabelMap.AddProductComponent}">
-                            <link style="buttontext" text="${uiLabelMap.AddProductComponent}" target="EditProductConfigOptions">
+                            <link style="btn btn-link" text="${uiLabelMap.AddProductComponent}" target="EditProductConfigOptions">
                                 <parameter param-name="configItemId"/>
                                 <parameter param-name="configOptionId"/>
                             </link>
@@ -195,7 +195,7 @@ under the License.
                     </widgets>
                     <fail-widgets>
                         <screenlet title="${uiLabelMap.AddProductComponent}">
-                            <link style="buttontext" text="${uiLabelMap.AddProductComponent}" target="EditProductConfigOptions">
+                            <link style="btn btn-link" text="${uiLabelMap.AddProductComponent}" target="EditProductConfigOptions">
                                 <parameter param-name="configItemId"/>
                                 <parameter param-name="configOptionId"/>
                             </link>

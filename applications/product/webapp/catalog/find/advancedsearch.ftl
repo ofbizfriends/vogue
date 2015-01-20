@@ -28,7 +28,7 @@ under the License.
       <#if searchCategory?has_content>
           <input type="hidden" name="SEARCH_CATEGORY_ID" value="${searchCategoryId!}"/>
       </#if>
-      <table cellspacing="0" class="basic-table">
+      <table cellspacing="0" class="table">
         <#if searchCategory?has_content>
             <tr>
               <td class="label" align="right" valign="middle">
@@ -308,7 +308,7 @@ under the License.
         <tr>
           <td align="center" colspan="2">
             <hr />
-            <a href="javascript:document.advtokeywordsearchform.submit()" class="buttontext">${uiLabelMap.CommonFind}</a>
+            <a href="javascript:document.advtokeywordsearchform.submit()" class="btn btn-link">${uiLabelMap.CommonFind}</a>
           </td>
         </tr>
       </table>

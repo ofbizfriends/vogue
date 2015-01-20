@@ -84,13 +84,13 @@ under the License.
             </condition>
             <widgets>
                 <container id="split50">
-                    <container style="lefthalf">
+                    <container style="col-md-6 col-xs-12">
                         <include-screen name="orderinfo"/>
                         <include-screen name="orderterms"/>
                         <include-screen name="orderpaymentinfo"/>
                         <include-screen name="projectAssoOrder"/>
                     </container>
-                    <container style="righthalf">
+                    <container style="col-md-6 col-xs-12">
                         <include-screen name="ordercontactinfo"/>
                         <include-screen name="ordershippinginfo"/>
                         <include-screen name="OrderSalesReps"/>
@@ -275,7 +275,7 @@ under the License.
                     <decorator-section name="body">
                         <screenlet title="${uiLabelMap.OrderAddNote}">
                             <container>
-                                <link target="orderview?orderId=${orderId}" text="${uiLabelMap.OrderBackToOrder}" style="buttontext"/>
+                                <link target="orderview?orderId=${orderId}" text="${uiLabelMap.OrderBackToOrder}" style="btn btn-link"/>
                             </container>
                             <include-form name="OrderNewNote" location="component://order/widget/ordermgr/OrderForms.xml"/>
                         </screenlet>
@@ -434,7 +434,7 @@ under the License.
                     <decorator-section name="body">
                         <screenlet title="${uiLabelMap.OrderOrderHistory} #${orderId}">
                             <container>
-                                <link target="orderview?orderId=${orderId}" text="${uiLabelMap.OrderBackToOrder}" style="buttontext"/>
+                                <link target="orderview?orderId=${orderId}" text="${uiLabelMap.OrderBackToOrder}" style="btn btn-link"/>
                             </container>
                             <include-screen name="OrderShipmentMethodHistory"/>
                             <include-screen name="OrderUnitPriceHistory"/>

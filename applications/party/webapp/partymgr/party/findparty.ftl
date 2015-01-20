@@ -35,7 +35,7 @@ under the License.
 <#else>
   <#assign createUrl = "createnew"/>
 </#if>
-<div class="button-bar"><a href="<@ofbizUrl>${createUrl}</@ofbizUrl>" class="buttontext create">${uiLabelMap.CommonCreateNew}</a></div>
+<div class="btn-group"><a href="<@ofbizUrl>${createUrl}</@ofbizUrl>" class="btn btn-link create">${uiLabelMap.CommonCreateNew}</a></div>
 <div class="screenlet">
   <div class="screenlet-title-bar">
 <#if partyList?has_content>
@@ -60,7 +60,7 @@ under the License.
       <form method="post" name="lookupparty" action="<@ofbizUrl>findparty</@ofbizUrl>" class="basic-form">
         <input type="hidden" name="lookupFlag" value="Y"/>
         <input type="hidden" name="hideFields" value="Y"/>
-        <table class="basic-table" cellspacing="0">
+        <table class="table" cellspacing="0">
           <tr>
             <td class="label">${uiLabelMap.PartyContactInformation}</td>
             <td>
@@ -216,8 +216,8 @@ under the License.
     <#assign viewIndexLast = Static["org.ofbiz.base.util.UtilMisc"].getViewLastIndex(partyListSize, viewSize) />
     <#assign messageMap = Static["org.ofbiz.base.util.UtilMisc"].toMap("lowCount", lowIndex, "highCount", highIndex, "total", partyListSize)/>
     <#assign commonDisplaying = Static["org.ofbiz.base.util.UtilProperties"].getMessage("CommonUiLabels", "CommonDisplaying", messageMap, locale)/>
-    <@nextPrev commonUrl=commonUrl ajaxEnabled=false javaScriptEnabled=false paginateStyle="nav-pager" paginateFirstStyle="nav-first" viewIndex=viewIndex highIndex=highIndex listSize=partyListSize viewSize=viewSize ajaxFirstUrl="" firstUrl="" paginateFirstLabel="" paginatePreviousStyle="nav-previous" ajaxPreviousUrl="" previousUrl="" paginatePreviousLabel="" pageLabel="" ajaxSelectUrl="" selectUrl="" ajaxSelectSizeUrl="" selectSizeUrl="" commonDisplaying=commonDisplaying paginateNextStyle="nav-next" ajaxNextUrl="" nextUrl="" paginateNextLabel="" paginateLastStyle="nav-last" ajaxLastUrl="" lastUrl="" paginateLastLabel="" paginateViewSizeLabel="" />
-    <table class="basic-table hover-bar" cellspacing="0">
+    <@nextPrev commonUrl=commonUrl ajaxEnabled=false javaScriptEnabled=false paginateStyle="pagination" paginateFirstStyle="nav-first" viewIndex=viewIndex highIndex=highIndex listSize=partyListSize viewSize=viewSize ajaxFirstUrl="" firstUrl="" paginateFirstLabel="" paginatePreviousStyle="nav-previous" ajaxPreviousUrl="" previousUrl="" paginatePreviousLabel="" pageLabel="" ajaxSelectUrl="" selectUrl="" ajaxSelectSizeUrl="" selectSizeUrl="" commonDisplaying=commonDisplaying paginateNextStyle="nav-next" ajaxNextUrl="" nextUrl="" paginateNextLabel="" paginateLastStyle="nav-last" ajaxLastUrl="" lastUrl="" paginateLastLabel="" paginateViewSizeLabel="" />
+    <table class="table table-hover" cellspacing="0">
       <tr class="header-row-2">
         <td>${uiLabelMap.PartyPartyId}</td>
         <td>${uiLabelMap.PartyUserLogin}</td>
@@ -335,7 +335,7 @@ under the License.
         <#assign partyDate = delegator.findOne("Party", {"partyId":partyRow.partyId}, true)/>
         <td>${partyDate.createdDate!}</td>
         <td>${partyDate.lastModifiedDate!}</td>
-        <td class="button-col align-float">
+        <td class="btn-group">
           <a href="<@ofbizUrl>viewprofile?partyId=${partyRow.partyId}</@ofbizUrl>">${uiLabelMap.CommonDetails}</a>
       <#if security.hasEntityPermission("ORDERMGR", "_VIEW", session)>
           <form name= "searchorders_o_${rowCount}" method= "post" action= "/ordermgr/control/searchorders">

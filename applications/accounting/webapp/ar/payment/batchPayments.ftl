@@ -168,7 +168,7 @@ function setServiceName(selection) {
                         </select>
                     </#if>
                 </div>
-                <table class="basic-table hover-bar">
+                <table class="table table-hover">
                   <thead>
                     <tr class="header-row-2">
                       <th>${uiLabelMap.FormFieldTitle_paymentId}</th>
@@ -191,7 +191,7 @@ function setServiceName(selection) {
                     <#assign alt_row = false>
                     <#list paymentList as payment>
                       <tr <#if alt_row> class="alternate-row"</#if>>
-                        <td><a href="<@ofbizUrl>paymentOverview?paymentId=${payment.paymentId}</@ofbizUrl>" class="buttontext">${payment.paymentId}</a></td>
+                        <td><a href="<@ofbizUrl>paymentOverview?paymentId=${payment.paymentId}</@ofbizUrl>" class="btn btn-link">${payment.paymentId}</a></td>
                         <td>
                           ${payment.paymentTypeDesc?default(payment.paymentTypeId)}
                         </td>
