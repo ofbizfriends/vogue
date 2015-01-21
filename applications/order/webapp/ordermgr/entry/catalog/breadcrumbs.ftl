@@ -21,11 +21,11 @@ under the License.
 <div class="breadcrumb">
 <#assign isDefaultTheme = !layoutSettings.VT_FTR_TMPLT_LOC?contains("multiflex")>        
 <#if isDefaultTheme>
-  <a href="<@ofbizUrl>main</@ofbizUrl>" class="linktext">${uiLabelMap.CommonHome}</a> &gt;
+  <a href="<@ofbizUrl>main</@ofbizUrl>" class=btn btn-link>${uiLabelMap.CommonHome}</a> &gt;
 <#else>
   <ul>
     <li>
-      <a href="<@ofbizUrl>main</@ofbizUrl>" class="linktext">${uiLabelMap.CommonMain}</a>
+      <a href="<@ofbizUrl>main</@ofbizUrl>" class=btn btn-link>${uiLabelMap.CommonMain}</a>
     </li>
 </#if>    
     <#-- Show the category branch -->

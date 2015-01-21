@@ -40,7 +40,7 @@ under the License.
                 <script location="component://order/webapp/ordermgr/WEB-INF/actions/entry/catalog/KeywordSearchOptions.groovy"/>
             </actions>
             <widgets>
-                <platform-specific><html><html-template location="component://order/webapp/ordermgr/entry/catalog/keywordsearchbox.ftl"/></html></platform-specific>
+                <platform-specific><html><html-template location="component://ecommerce/webapp/ecommerce/catalog/keywordsearchbox.ftl"/></html></platform-specific>
             </widgets>
         </section>
     </screen>
@@ -222,9 +222,10 @@ under the License.
     <screen name="categorydetailmatrix">
         <section>
             <actions>
-                <set field="numCol" value="3"/>
+                <set field="numCol" value="4"/>
                 <set field="searchInCategory" value="N"/>
-                <set field="parameters.VIEW_SIZE" from-field="parameters.VIEW_SIZE" default-value="9"/>
+                <set field="showsidebar" value="N"/>
+                <set field="parameters.VIEW_SIZE" from-field="parameters.VIEW_SIZE" default-value="8"/>
             </actions>
             <widgets>
                 <include-screen name="categorydetail"/>
@@ -471,6 +472,7 @@ under the License.
             </widgets>
         </section>
     </screen>
+    
     <screen name="LayeredNavBar">
         <section>
             <actions>

@@ -28,6 +28,7 @@ import org.ofbiz.product.feature.*;
 import org.ofbiz.product.product.*;
 import org.ofbiz.entity.condition.EntityCondition;
 import org.ofbiz.entity.condition.EntityOperator;
+import org.ofbiz.product.category.CategoryContentWrapper;
 
 searchCategoryId = parameters.SEARCH_CATEGORY_ID;
 if (!searchCategoryId) {
@@ -57,3 +58,7 @@ context.productFeatureTypeIdsOrdered = productFeatureTypeIdsOrdered;
 context.searchOperator = searchOperator;
 context.searchConstraintStrings = searchConstraintStrings;
 context.searchSortOrderString = searchSortOrderString;
+
+
+CategoryContentWrapper categoryContentWrapper = new CategoryContentWrapper(searchCategory, request);
+context.put("categoryContentWrapper", categoryContentWrapper);

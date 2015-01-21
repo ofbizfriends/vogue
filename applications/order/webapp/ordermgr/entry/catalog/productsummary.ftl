@@ -160,7 +160,7 @@ ${virtualJavaScript!}
         </div>
         <div class="productinfo">
           <div>
-            <a href="${productUrl}" class="linktext">${productContentWrapper.get("PRODUCT_NAME")!}</a>
+            <a href="${productUrl}" class=btn btn-link>${productContentWrapper.get("PRODUCT_NAME")!}</a>
           </div>
           <div>${productContentWrapper.get("DESCRIPTION")!}<#if daysToShip??>&nbsp;-&nbsp;${uiLabelMap.ProductUsuallyShipsIn} <b>${daysToShip}</b> ${uiLabelMap.CommonDays}!</#if></div>
 

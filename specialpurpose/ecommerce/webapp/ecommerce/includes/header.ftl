@@ -76,7 +76,7 @@ under the License.
         <div class="navbar-collapse collapse right">
             <#if sessionAttributes.userLogin?has_content && sessionAttributes.userLogin.userLoginId != "anonymous">
                 <button type="button" class="btn navbar-btn btn-default" data-toggle="modal" data-target="#user-modal">
-	                <span class="sr-only">Toggle search</span>
+	                <span class="sr-only">Toggle user</span>
 	                <i class="fa fa-user"></i>
 	            </button>
             <#else>
@@ -88,18 +88,7 @@ under the License.
         </div>
 
         <div class="collapse clearfix" id="search">
-
-            <form class="navbar-form" role="search">
-                <div class="input-group">                    
-                    <input type="text" name="SEARCH_STRING" class="form-control" placeholder="Search">
-                    <input type="hidden" name="SEARCH_CATEGORY_ID" value="CATALOG1_SEARCH">
-                    <input type="hidden" name="SEARCH_OPERATOR" value="OR">
-                    <span class="input-group-btn">                        
-                        <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>			
-			        </span>
-                </div>
-            </form>
-
+            ${screens.render("component://ecommerce/widget/CatalogScreens.xml#keywordsearchbox")}            
         </div>
         <!--/.nav-collapse -->
 

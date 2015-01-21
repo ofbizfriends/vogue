@@ -37,7 +37,7 @@ under the License.
                 <field-map field-name="fixedAssetId" from-field="fixedAssetId"/>
             </service>
         </row-actions>
-        <field name="fixedAssetId" widget-style="linktext" sort-field="true">
+        <field name="fixedAssetId" widget-style=btn btn-link sort-field="true">
             <hyperlink also-hidden="false" description="${fixedAssetId}" target="EditFixedAsset">
                 <parameter param-name="fixedAssetId"/>
             </hyperlink>
