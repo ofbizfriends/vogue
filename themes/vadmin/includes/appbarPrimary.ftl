@@ -98,6 +98,7 @@
             <ul class="nav navbar-nav navbar-right" >
                 <li class="dropdown">
                     <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle f-s-14" aria-expanded="true">
+                        
                         <i class="fa fa-th"></i> Applications
                         
                     </a>
@@ -128,7 +129,7 @@
 		                        <#else>		                        
 		                            <li class=" media <#if selected> active </#if>" >
 		                                <a href="${thisURL + externalKeyParam}" title="${uiLabelMap[display.description]}">                                                                                   
-                                            <div class="media-left"><i class="fa fa-chevron-right media-object bg-grey-darker"></i></div>
+                                            <div class="media-left"><i class="fa fa-angle-right media-object bg-orange"></i></div>
                                             <div class="media-body">
                                                 <h5 class="media-heading">${display.title?upper_case}</h5>                                                
                                             </div>		                                                                                                                                                                                                           
@@ -210,14 +211,6 @@
 	                            </li>
 	    
 	                            <li class="divider"></li>
-	                            
-	                            <li>
-                                    <a href="/profile/control/viewprofile${externalKeyParam}">
-                                        <i class="fa fa-user"></i> Profile
-                                    </a>
-                                </li>
-        
-                                <li class="divider"></li>
 	                            
 	                            <li>
 		                            <a href="<@ofbizUrl>passwordChange</@ofbizUrl>">

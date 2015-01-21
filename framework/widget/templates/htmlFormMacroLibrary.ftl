@@ -628,14 +628,7 @@ under the License.
 <#macro renderFormatFieldRowClose>
   </div>
 </#macro>
-<#macro renderFormatFieldRowTitleCellOpen style positions="">
-  <#if positions =="2">
-    <div class="col-md-6">
-  <#elseif positions =="3">
-    <div class="col-md-4">
-  <#else>
-    <div class="col-md-12">
-  </#if> 
+<#macro renderFormatFieldRowTitleCellOpen style="">
   <div class="form-group">   
   <label class="col-sm-4 control-label <#if style?has_content>${style}<#else>control-label</#if>">  
 </#macro>
@@ -647,7 +640,7 @@ under the License.
   <div class="<#if style?has_content> ${style}"<#else>col-sm-8</#if>">
 </#macro>
 <#macro renderFormatFieldRowWidgetCellClose>
-  </div></div></div>
+  </div></div>
 </#macro>
 
 <#--

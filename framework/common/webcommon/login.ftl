@@ -17,8 +17,8 @@ specific language governing permissions and limitations
 under the License.
 -->
 
-<#if requestAttributes.uiLabelMap??><#assign uiLabelMap = requestAttributes.uiLabelMap></#if>
-<#assign useMultitenant = Static["org.ofbiz.base.util.UtilProperties"].getPropertyValue("general.properties", "multitenant")>
+
+<#if requestAttributes.uiLabelMap?exists><#assign uiLabelMap = requestAttributes.uiLabelMap></#if>
 
 <#assign username = requestParameters.USERNAME?default((sessionAttributes.autoUserLogin.userLoginId)?default(""))>
 <#if username != "">
@@ -26,51 +26,59 @@ under the License.
 <#else>
   <#assign focusName = true>
 </#if>
-<center>
-  <div class="screenlet login-screenlet">
-    <div class="screenlet-title-bar">
-      <h3>${uiLabelMap.CommonRegistered}</h3>
-    </div>
-    <div class="screenlet-body">
-      <form method="post" action="<@ofbizUrl>login</@ofbizUrl>" name="loginform">
-        <table class="table" cellspacing="0">
-          <tr>
-            <td class="label">${uiLabelMap.CommonUsername}</td>
-            <td><input type="text" name="USERNAME" value="${username}" size="20"/></td>
-          </tr>
-          <tr>
-            <td class="label">${uiLabelMap.CommonPassword}</td>
-            <td><input type="password" name="PASSWORD" value="" size="20"/></td>
-          </tr>
-          <#if ("Y" == useMultitenant) >
-              <#if !requestAttributes.tenantId??>
-                  <tr>
-                      <td class="label">${uiLabelMap.CommonTenantId}</td>
-                      <td><input type="text" name="tenantId" value="${parameters.tenantId!}" size="20"/></td>
-                  </tr>
-              <#else>
-                  <input type="hidden" name="tenantId" value="${requestAttributes.tenantId!}"/>
-              </#if>
-          </#if>
-          <tr>
-            <td colspan="2" align="center">
-              <input type="submit" value="${uiLabelMap.CommonLogin}"/>
-            </td>
-          </tr>
-        </table>
-        <input type="hidden" name="JavaScriptEnabled" value="N"/>
-        <br />
-        <a href="<@ofbizUrl>forgotPassword</@ofbizUrl>">${uiLabelMap.CommonForgotYourPassword}?</a>
-      </form>
-    </div>
-  </div>
-</center>
 
-<script language="JavaScript" type="text/javascript">
-  document.loginform.JavaScriptEnabled.value = "Y";
-  <#if focusName>
-    document.loginform.USERNAME.focus();
-  <#else>
-    document.loginform.PASSWORD.focus();
-  </#if>
+
+    <!-- begin login -->
+    <div class="login bg-black animated fadeInDown">
+        <!-- begin brand -->
+        <div class="login-header">
+            <div class="brand">
+                <div class="media media-xs">
+                    <span class="pull-left">
+                             <img src="/images/ofbiz_logo.gif" />
+                    </span>
+                    <div class="media-body">
+                        <div class="pull-left"> 
+                        
+                        <small></small>
+                        </div>
+                    </div>
+                </div>
+            </div>   
+            
+            
+                            
+                            
+        </div>
+        <!-- end brand -->
+        <div class="login-content">
+            <form method="post" action="<@ofbizUrl>login</@ofbizUrl>" name="loginform" id="loginform" class="margin-bottom-0">
+                
+                ${screens.render("component://common/widget/CommonScreens.xml#EventMessages")}
+                
+        <input type="hidden" name="JavaScriptEnabled" value="N"/>
+                <div class="form-group m-b-20">
+                    <input type="text" class="required form-control input-lg" placeholder="Email Address" id="userName" name="USERNAME" value="<#if requestParameters.USERNAME?has_content>${requestParameters.USERNAME}<#elseif autoUserLogin?has_content>${autoUserLogin.userLoginId}</#if>"/>      
+                </div>
+                <div class="form-group m-b-20">
+                    <input type="password" class="required form-control input-lg" placeholder="Password" id="password" name="PASSWORD" />
+                </div>
+                <div class="login-buttons">
+                    <button type="submit" class="btn btn-warning btn-block btn-lg">Sign me in</button>
+                </div>
+                
+            </form>
+        <br />
+            <p >
+                <a href="<@ofbizUrl>forgotPassword</@ofbizUrl>">${uiLabelMap.CommonForgotYourPassword}?</a>
+            </p>
+
+  </div>
+    </div>
+    <!-- end login -->
+
+    
+
+<script>
+$("#loginform").validate();
 </script>

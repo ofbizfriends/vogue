@@ -250,8 +250,7 @@ under the License.
     </form>
 
     <!-- PartyRelationship -->
-    <form name="AddPartyRelationshipType" type="single" target="createPartyRelationshipType"
-        header-row-style="header-row" default-table-style="table">
+    <form name="AddPartyRelationshipType" type="single" target="createPartyRelationshipType">
         <auto-fields-service service-name="createPartyRelationshipType"/>
         <field name="partyId"><hidden/></field>
         <field name="hasTable"><hidden/></field>

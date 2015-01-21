@@ -17,27 +17,37 @@ specific language governing permissions and limitations
 under the License.
 -->
 
+<#assign useMultitenant = Static["org.ofbiz.base.util.UtilProperties"].getPropertyValue("general.properties", "multitenant")>
+
 <center>
-  <div class="screenlet login-screenlet">
-    <div class="screenlet-title-bar">
-      <h3>${uiLabelMap.CommonForgotYourPassword}?</h3>
+    <div class="password-screenlet">
+        <div class="center header">
+            <h3>${uiLabelMap.CommonForgotYourPassword}?</h3>
+        </div>
+        <div class="login-screenlet-body login-container">
+	       <div class="row">
+                <div class="col-xs-12 col-md-4 col-md-offset-4"> 
+                    <form class="log-page" method="post" action="<@ofbizUrl>forgotPassword${previousParams?if_exists}</@ofbizUrl>" name="forgotpassword" id="forgotpassword">
+	                    <div class="form-group m-b-20">				        
+	                        <input class="required email form-control input-lg" placeholder="Username or Email" type="text" id="userName" name="USERNAME" value="<#if requestParameters.USERNAME?has_content>${requestParameters.USERNAME}<#elseif autoUserLogin?has_content>${autoUserLogin.userLoginId}</#if>"/>
+	                    </div>
+		              
+	          
+	                    <div class="login-buttons"> 
+		                   <input type="submit" name="GET_PASSWORD_HINT" class="btn btn-info btn-block btn-lg" value="${uiLabelMap.CommonGetPasswordHint}"/>
+	                    </div><br>
+	                    <div class="login-buttons">
+		                   <input type="submit" name="EMAIL_PASSWORD" class="btn btn-primary btn-block btn-lg" value="${uiLabelMap.CommonEmailPassword}"/>              
+	                    </div>
+		                <a href='<@ofbizUrl>authview</@ofbizUrl>' class="btn btn-link">${uiLabelMap.CommonGoBack}</a><hr>
+			            <input type="hidden" name="JavaScriptEnabled" value="N"/>
+	                </form>
+	            </div>
+	        </div>
+	    </div>
     </div>
-    <div class="screenlet-body">
-      <form method="post" action="<@ofbizUrl>forgotPassword${previousParams!}</@ofbizUrl>" name="forgotpassword">
-        <table class="table" cellspacing="0">
-          <tr>
-            <td class="label">${uiLabelMap.CommonUsername}</td>
-            <td><input type="text" size="20" name="USERNAME" value="<#if requestParameters.USERNAME?has_content>${requestParameters.USERNAME}<#elseif autoUserLogin?has_content>${autoUserLogin.userLoginId}</#if>"/></td>
-          </tr>
-          <tr>
-            <td colspan="2" align="center">
-              <input type="submit" name="GET_PASSWORD_HINT" class="btn btn-default btn-sm" value="${uiLabelMap.CommonGetPasswordHint}"/>&nbsp;<input type="submit" name="EMAIL_PASSWORD" class="btn btn-default btn-sm" value="${uiLabelMap.CommonEmailPassword}"/>
-            </td>
-          </tr>
-        </table>
-        <a href='<@ofbizUrl>authview</@ofbizUrl>' class="button">${uiLabelMap.CommonGoBack}</a>
-        <input type="hidden" name="JavaScriptEnabled" value="N"/>
-      </form>
-    </div>
-  </div>
 </center>
+
+<script>
+$("#forgotpassword").validate();
+</script>

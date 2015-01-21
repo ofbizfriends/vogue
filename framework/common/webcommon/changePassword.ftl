@@ -18,45 +18,46 @@ under the License.
 -->
 
 <#assign username = requestParameters.USERNAME?default((sessionAttributes.autoUserLogin.userLoginId)?default(""))>
-<#assign tenantId = requestParameters.tenantId!>
 
-<center>
-<div class="screenlet login-screenlet">
-  <div class="screenlet-title-bar">
+<div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+		<div class="screenlet">
+		  <div class="screenlet-title-bar">
     <h3>${uiLabelMap.CommonPasswordChange}</h3>
   </div>
   <div class="screenlet-body">
-    <form method="post" action="<@ofbizUrl>login</@ofbizUrl>" name="loginform">
+			  <div class="screenlet-main">
+			    <form method="post" action="<@ofbizUrl>login</@ofbizUrl>" name="loginform" class="form">
       <input type="hidden" name="requirePasswordChange" value="Y"/>
       <input type="hidden" name="USERNAME" value="${username}"/>
-      <input type="hidden" name="tenantId" value="${tenantId!}"/>
-      <table cellspacing="0">
-        <tr>
-          <td class="label">${uiLabelMap.CommonUsername}</td>
-          <td>${username}</td>
-        </tr>
-        <tr>
-          <td class="label">${uiLabelMap.CommonCurrentPassword}</td>
-          <td><input type="password" name="PASSWORD" value="" size="20"/></td>
-        </tr>
-        <tr>
-          <td class="label">${uiLabelMap.CommonNewPassword}</td>
-          <td><input type="password" name="newPassword" value="" size="20"/></td>
-        </tr>
-        <tr>
-          <td class="label">${uiLabelMap.CommonNewPasswordVerify}</td>
-          <td><input type="password" name="newPasswordVerify" value="" size="20"/></td>
-        </tr>
-        <tr>
-          <td colspan="2" align="center">
-            <input type="submit" value="${uiLabelMap.CommonSubmit}"/>
-          </td>
-        </tr>
-      </table>
+			      <div cellspacing="0">
+			        <div class="form-group">
+			          <h4>${username}</h4>
+			        </div>
+			        <div class="form-group">
+			          <label class="control-label">${uiLabelMap.CommonCurrentPassword}</label>
+			          <div class="controls"><input class="form-control" type="password" name="PASSWORD" value="" size="20"/></div>
+			        </div>
+			        <div class="form-group">
+			          <label class="control-label">${uiLabelMap.CommonNewPassword}</label>
+			          <div class="controls"><input class="form-control" type="password" name="newPassword" value="" size="20"/></div>
+			        </div>
+			        <div class="form-group">
+			          <label class="control-label">${uiLabelMap.CommonNewPasswordVerify}</label>
+			          <div class="controls"><input class="form-control" type="password" name="newPasswordVerify" value="" size="20"/></div>
+			        </div>
+			        <div class="form-actions">
+			          <div>
+			            <input type="submit" value="${uiLabelMap.CommonSubmit}" class="btn btn-info"/>
+			          </div>
+			        </div>
+			      </div>
     </form>
   </div>
+		  </div><#-- /screenlet-body -->
+		</div>
+    </div>		
 </div>
-</center>
 
 <script language="JavaScript" type="text/javascript">
   document.loginform.PASSWORD.focus();

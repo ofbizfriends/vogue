@@ -317,12 +317,12 @@ public final class MacroFormRenderer implements FormStringRenderer {
     public void renderTextField(Appendable writer, Map<String, Object> context, TextField textField) throws IOException {
         ModelFormField modelFormField = textField.getModelFormField();
         String name = modelFormField.getParameterName(context);
-        String className = "";
+        String className = "form-control ";
         String alert = "false";
         String mask = "";
         String placeholder = textField.getPlaceholder(context);
         if (UtilValidate.isNotEmpty(modelFormField.getWidgetStyle())) {
-            className = modelFormField.getWidgetStyle();
+            className = className.concat(modelFormField.getWidgetStyle());
             if (modelFormField.shouldBeRed(context)) {
                 alert = "true";
             }
@@ -409,10 +409,10 @@ public final class MacroFormRenderer implements FormStringRenderer {
         String cols = Integer.toString(textareaField.getCols());
         String rows = Integer.toString(textareaField.getRows());
         String id = modelFormField.getCurrentContainerId(context);
-        String className = "";
+        String className = "form-control ";
         String alert = "false";
         if (UtilValidate.isNotEmpty(modelFormField.getWidgetStyle())) {
-            className = modelFormField.getWidgetStyle();
+            className = className.concat(modelFormField.getWidgetStyle());
             if (modelFormField.shouldBeRed(context)) {
                 alert = "true";
             }
@@ -736,7 +736,7 @@ public final class MacroFormRenderer implements FormStringRenderer {
             }
         }
         boolean ajaxEnabled = autoComplete != null && this.javaScriptEnabled;
-        String className = "";
+        String className = "form-control ";
         String alert = "false";
         String name = modelFormField.getParameterName(context);
         String id = modelFormField.getCurrentContainerId(context);
@@ -751,7 +751,7 @@ public final class MacroFormRenderer implements FormStringRenderer {
         StringBuilder options = new StringBuilder();
         StringBuilder ajaxOptions = new StringBuilder();
         if (UtilValidate.isNotEmpty(modelFormField.getWidgetStyle())) {
-            className = modelFormField.getWidgetStyle();
+            className = className.concat(modelFormField.getWidgetStyle());
             if (modelFormField.shouldBeRed(context)) {
                 alert = "true";
             }
@@ -2452,7 +2452,7 @@ public final class MacroFormRenderer implements FormStringRenderer {
 
     public void renderPasswordField(Appendable writer, Map<String, Object> context, PasswordField passwordField) throws IOException {
         ModelFormField modelFormField = passwordField.getModelFormField();
-        String className = "";
+        String className = "form-control";
         String alert = "false";
         String name = modelFormField.getParameterName(context);
         String size = Integer.toString(passwordField.getSize());

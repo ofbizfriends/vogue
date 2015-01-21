@@ -37,22 +37,37 @@ under the License.
   
   <#-- display the error messages -->
   <#if (errorMessage?has_content || errorMessageList?has_content)>
-    <div id="content-messages" class="content-messages errorMessage" onclick="document.getElementById('content-messages').parentNode.removeChild(this)">
-      <#noescape><p>${uiLabelMap.CommonFollowingErrorsOccurred}:</p></#noescape>
+  <div id="content-messages" class="content-messages" onclick="document.getElementById('content-messages').parentNode.removeChild(this)">    
+    <div class="alert alert-danger">
+        <button type="button" class="close" data-dismiss="alert"><i class="fa fa-remove"></i></button>
+        <b><i class="fa fa-remove"></i> ${uiLabelMap.ERROR}</b>    
+    <#--
+    <p>${uiLabelMap.CommonFollowingErrorsOccurred}:</p>
+    -->
       <#if errorMessage?has_content>
         <p>${StringUtil.wrapString(errorMessage)}</p>
       </#if>
       <#if errorMessageList?has_content>
+      <#-- start of modification -->
         <#list errorMessageList as errorMsg>
-          <p>${StringUtil.wrapString(errorMsg)}</p>
+      <#if errorMsg?length &lt; 400>
+        <p>${StringUtil.wrapString(eventMsg)}</p>
+      <#else>
+        <p>${uiLabelMap.ErrorInTrasaction}</p>        
+      </#if>
         </#list>
       </#if>
     </div>
+  </div>
   </#if>
   <#-- display the event messages -->
   <#if (eventMessage?has_content || eventMessageList?has_content)>
-    <div id="content-messages" class="content-messages eventMessage" onclick="document.getElementById('content-messages').parentNode.removeChild(this)">
-      <#noescape><p>${uiLabelMap.CommonFollowingOccurred}:</p></#noescape>
+  <div id="content-messages" class="content-messages" onclick="document.getElementById('content-messages').parentNode.removeChild(this)">
+    <div class="alert alert-success">
+        <button type="button" class="close" data-dismiss="alert"><i class="fa fa-remove"></i></button>
+        <#--
+        <p><b>${uiLabelMap.CommonFollowingOccurred}</b></p>     
+        -->
       <#if eventMessage?has_content>
         <p>${StringUtil.wrapString(eventMessage)}</p>
       </#if>
@@ -62,5 +77,6 @@ under the License.
         </#list>
       </#if>
     </div>
+  </div>
   </#if>
 </#escape>
