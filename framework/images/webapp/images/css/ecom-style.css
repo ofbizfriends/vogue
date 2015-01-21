@@ -24,11 +24,11 @@ button i.fa {
 }
 
 .required {
-  color:#c27baa;
+  color:#F59C1A;
 }
 
 .accent {
-  color:#c27baa;
+  color:#F59C1A;
 }
 
 .text-uppercase {
@@ -75,7 +75,7 @@ button i.fa {
 }
 
 .navbar .yamm-content ul li a:hover {
-  color:#c27baa;
+  color:#F59C1A;
   text-decoration:none;
 }
 
@@ -128,13 +128,13 @@ button i.fa {
 .navbar .btn-default:focus,
 .navbar .btn-default.navbar-toggle:focus {
   background-color:#fff;
-  border-color:#c27baa;
-  color:#c27baa;
+  border-color:#F59C1A;
+  color:#F59C1A;
 }
 
 .navbar #search {
   clear:both;
-  border-top:solid 1px #c27baa;
+  border-top:solid 1px #F59C1A;
   text-align:right;
 }
 
@@ -168,7 +168,7 @@ button i.fa {
 }
 
 .navbar .footer {
-  background:#c27baa;
+  background:#F59C1A;
   padding:20px 30px;
 }
 
@@ -199,7 +199,7 @@ button i.fa {
 }
 
 #login-modal a {
-  color:#c27baa;
+  color:#F59C1A;
 }
 
 #login-modal p {
@@ -289,7 +289,7 @@ button i.fa {
 }
 
 #advantages p strong {
-  color:#c27baa;
+  color:#F59C1A;
 }
 
 #advantages .box.no-border {
@@ -333,7 +333,7 @@ button i.fa {
 }
 
 #advantages .box.no-border:hover i {
-  color:#c27baa;
+  color:#F59C1A;
 }
 
 #slider a img {
@@ -881,7 +881,7 @@ button i.fa {
 #content .quick-view .sizes a.active,
 #content #productMain .sizes a:hover,
 #content .quick-view .sizes a:hover {
-  background:#c27baa;
+  background:#F59C1A;
   color:#fff;
 }
 
@@ -934,7 +934,7 @@ button i.fa {
 
 #content .thumbs a.active,
 #content #thumbs a.active {
-  border-color:#c27baa;
+  border-color:#F59C1A;
 }
 
 #content .quick-view .thumbs {
@@ -1016,7 +1016,7 @@ button i.fa {
 
 #content #checkout .nav {
   margin-bottom:20px;
-  border-bottom:solid 1px #c27baa;
+  border-bottom:solid 1px #F59C1A;
 }
 
 #content #checkout .nav li {
@@ -1109,7 +1109,7 @@ button i.fa {
 #content #blog-homepage .post h2 a:hover,
 #content #blog-listing .post h4 a:hover,
 #content #blog-homepage .post h4 a:hover {
-  color:#c27baa;
+  color:#F59C1A;
 }
 
 #content #blog-listing .post .author-category,
@@ -1126,7 +1126,7 @@ button i.fa {
 
 #content #blog-listing .post .date-comments a:hover,
 #content #blog-homepage .post .date-comments a:hover {
-  color:#c27baa;
+  color:#F59C1A;
 }
 
 #content #blog-listing .post .intro,
@@ -1362,7 +1362,7 @@ button i.fa {
 }
 
 #footer ul a:hover {
-  color:#c27baa;
+  color:#F59C1A;
   text-decoration:none;
 }
 
@@ -1373,7 +1373,7 @@ button i.fa {
 }
 
 #footer .social a:hover {
-  color:#c27baa;
+  color:#F59C1A;
 }
 
 #copyright {
@@ -1448,7 +1448,7 @@ button i.fa {
 .nav .open>a:hover,
 .nav .open>a:focus {
   background-color:#eee;
-  border-color:#c27baa;
+  border-color:#F59C1A;
 }
 
 .nav-tabs {
@@ -1480,7 +1480,7 @@ button i.fa {
 .nav-pills>li.active>a:hover,
 .nav-pills>li.active>a:focus {
   color:#fff;
-  background-color:#c27baa;
+  background-color:#F59C1A;
 }
 
 .nav-tabs-justified>li>a {
@@ -1742,7 +1742,7 @@ button i.fa {
 
 .navbar-default .navbar-toggle:hover,
 .navbar-default .navbar-toggle:focus {
-  background-color:#c27baa;
+  background-color:#F59C1A;
 }
 
 .navbar-default .navbar-toggle .icon-bar {
@@ -1800,7 +1800,7 @@ body {
 }
 
 a {
-  color:#c27baa;
+  color:#F59C1A;
   text-decoration:none;
 }
 
@@ -1865,9 +1865,9 @@ hr {
 }
 
 .btn-primary {
-  color:#c27baa;
+  color:#F59C1A;
   background-color:#fff;
-  border-color:#c27baa;
+  border-color:#F59C1A;
 }
 
 .btn-primary:hover,
@@ -1875,9 +1875,9 @@ hr {
 .btn-primary:active,
 .btn-primary.active,
 .open .dropdown-toggle.btn-primary {
-  color:#c27baa;
+  color:#F59C1A;
   background-color:#ebebeb;
-  border-color:#af518f;
+  border-color:#c56C1A;
 }
 
 .btn-primary:active,
@@ -1902,19 +1902,19 @@ fieldset[disabled] .btn-primary:active,
 .btn-primary[disabled].active,
 fieldset[disabled] .btn-primary.active {
   background-color:#fff;
-  border-color:#c27baa;
+  border-color:#F59C1A;
 }
 
 .btn-primary .badge {
   color:#fff;
-  background-color:#c27baa;
+  background-color:#F59C1A;
 }
 
 .btn-primary:hover,
 .btn-primary:focus,
 .btn-primary:active,
 .btn-primary.active {
-  background:#c27baa;
+  background:#F59C1A;
   color:#fff;
 }
 
@@ -1977,7 +1977,7 @@ label {
 .pager li>a,
 .pager li>span {
   background-color:#fff;
-  border:1px solid #c27baa;
+  border:1px solid #F59C1A;
   border-radius:4px;
 }
 
@@ -1985,7 +1985,7 @@ label {
 .pager li>a:focus {
   text-decoration:none;
   color:#fff;
-  background-color:#c27baa;
+  background-color:#F59C1A;
 }
 
 .pager .disabled>a,
@@ -2008,7 +2008,7 @@ label {
   padding:6px 12px;
   line-height:1.42857143;
   text-decoration:none;
-  color:#c27baa;
+  color:#F59C1A;
   background-color:#fff;
   border:1px solid #ddd;
 }
@@ -2017,7 +2017,7 @@ label {
 .pagination>li>span:hover,
 .pagination>li>a:focus,
 .pagination>li>span:focus {
-  color:#c27baa;
+  color:#F59C1A;
   background-color:#f2e4ed;
   border-color:#ddd;
 }
@@ -2030,8 +2030,8 @@ label {
 .pagination>.active>span:focus {
   z-index:2;
   color:#fff;
-  background-color:#c27baa;
-  border-color:#c27baa;
+  background-color:#F59C1A;
+  border-color:#F59C1A;
 }
 
 .pagination>.disabled>span,
@@ -2123,7 +2123,7 @@ p {
 }
 
 .text-primary {
-  color:#c27baa;
+  color:#F59C1A;
 }
 
 a.text-primary:hover {
@@ -2132,7 +2132,7 @@ a.text-primary:hover {
 
 .bg-primary {
   color:#fff;
-  background-color:#c27baa;
+  background-color:#F59C1A;
 }
 
 a.bg-primary:hover {
@@ -2148,7 +2148,7 @@ blockquote {
   padding:10px 20px;
   margin:0 0 20px;
   font-size:14px;
-  border-left:5px solid #c27baa;
+  border-left:5px solid #F59C1A;
 }
 
 blockquote footer,
@@ -2168,7 +2168,7 @@ blockquote .small:before {
 
 .blockquote-reverse,
 blockquote.pull-right {
-  border-right:5px solid #c27baa;
+  border-right:5px solid #F59C1A;
 }
 
 address {
@@ -2186,21 +2186,21 @@ address {
 }
 
 .panel-primary {
-  border-color:#c27baa;
+  border-color:#F59C1A;
 }
 
 .panel-primary>.panel-heading {
   color:#fff;
-  background-color:#c27baa;
-  border-color:#c27baa;
+  background-color:#F59C1A;
+  border-color:#F59C1A;
 }
 
 .panel-primary>.panel-heading+.panel-collapse .panel-body {
-  border-top-color:#c27baa;
+  border-top-color:#F59C1A;
 }
 
 .panel-primary>.panel-footer+.panel-collapse .panel-body {
-  border-bottom-color:#c27baa;
+  border-bottom-color:#F59C1A;
 }
 
 .panel-primary .panel-title {
@@ -2221,7 +2221,7 @@ a.badge:focus {
 
 a.list-group-item.active>.badge,
 .nav-pills>.active>a>.badge {
-  color:#c27baa;
+  color:#F59C1A;
   background-color:#fff;
 }
 

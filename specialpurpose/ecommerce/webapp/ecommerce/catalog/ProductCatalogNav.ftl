@@ -18,7 +18,10 @@
                             <#if root.child?has_content>
 	                            <div class="row">
 	                                <div class="col-sm-3">
-	                                    <img src="/images/nocontentfound.png" class="img-responsive hidden-xs" alt="">
+	                                    <#assign imageUrl = root.categoryImageUrl?default('/images/nocontentfound.png')/>
+	                                    <a href="<@ofbizCatalogUrl currentCategoryId=root.productCategoryId previousCategoryId=root.primaryParentCategoryId/>"> 
+	                                       <img class="img-responsive" src="<@ofbizContentUrl>${imageUrl}</@ofbizContentUrl>" alt="${titleText?default("Link Image")}"/>
+	                                    </a>
 	                                </div>
 	                                <#list root.child as firstChildCat>
 		                                <div class="col-sm-3">	  
@@ -49,7 +52,9 @@
                                 <a href="#" class="btn btn-default"><i class="fa fa-globe"></i> Brands</a>
                             </div>
                             -->
-                            <h4 class="pull-left"><#if root.categoryName?has_content>${root.categoryName}<#else>${root.productCategoryId?if_exists}</#if> </h4>
+                            <a href="<@ofbizCatalogUrl currentCategoryId=root.productCategoryId?if_exists previousCategoryId=root.primaryParentCategoryId?if_exists/>">                                
+                                <h4 class="pull-left"><#if root.categoryName?has_content>${root.categoryName}<#else>${root.productCategoryId?if_exists}</#if> </h4>
+                            </a>
                         </div>
 
                     </li>

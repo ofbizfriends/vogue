@@ -92,6 +92,8 @@ under the License.
 	                </div>
 	            </#if>
                 
+                ${screens.render("component://ecommerce/widget/CatalogScreens.xml#sidedeepcategory")}
+                   
                 <#-- search -->
                 <#if searchInCategory?default("Y") == "Y">
                     <a href="<@ofbizUrl>advancedsearch?SEARCH_CATEGORY_ID=${productCategory.productCategoryId}</@ofbizUrl>" class="btn btn-default">${uiLabelMap.ProductSearchInCategory}</a>

@@ -19,6 +19,8 @@ under the License.
 <#-- variable setup and worker calls -->
 <#if (requestAttributes.topLevelList)??><#assign topLevelList = requestAttributes.topLevelList></#if>
 <#if (requestAttributes.curCategoryId)??><#assign curCategoryId = requestAttributes.curCategoryId></#if>
+<#if  curCategoryId??> <#assign curCategoryId = (productCategory?if_exists).productCategoryId> </#if> 
+
 
 <#-- looping macro -->
 <#macro categoryList parentCategory category wrapInBox>
@@ -33,61 +35,57 @@ under the License.
     <#assign categoryDescription = category.description!>
   </#if>
   <#if curCategoryId?? && curCategoryId == category.productCategoryId>
-    <#assign browseCategoryButtonClass = "browsecategorybuttondisabled">
+    <#assign activeCategoryClass = "active">
   <#else>
-    <#assign browseCategoryButtonClass = "browsecategorybutton">
+    <#assign activeCategoryClass = "browsecategorybutton">
   </#if>
-  <#if wrapInBox == "Y">
-    <div  id="sidedeepcategory" class="screenlet">
-      <div class="screenlet-title-bar">
-        <ul>
-          <li class="h3"><#if categoryDescription?has_content>${categoryDescription}<#else>${categoryName?default("")}</#if></li>
-        </ul>
-        <br class="clear"/>
-      </div>
-      <div class="screenlet-body">
-        <div class="browsecategorylist">
-  </#if>
-        <li class="browsecategorytext">
-          <#if parentCategory?has_content>
-            <#assign parentCategoryId = parentCategory.productCategoryId/>
-          <#else>
-            <#assign parentCategoryId = ""/>
-          </#if>
-          <a href="<@ofbizCatalogAltUrl productCategoryId=category.productCategoryId previousCategoryId=parentCategoryId/>" class="${browseCategoryButtonClass}"><#if categoryName?has_content>${categoryName}<#else>${categoryDescription?default("")}</#if></a>
-
-  <#if (Static["org.ofbiz.product.category.CategoryWorker"].checkTrailItem(request, category.getString("productCategoryId"))) || (curCategoryId?? && curCategoryId == category.productCategoryId)>
-    <#local subCatList = Static["org.ofbiz.product.category.CategoryWorker"].getRelatedCategoriesRet(request, "subCatList", category.getString("productCategoryId"), true)>
-    <#if subCatList??>
-      <#list subCatList as subCat>
-        <ul class="browsecategorylist">
-          <@categoryList parentCategory=category category=subCat wrapInBox="N"/>
-        </ul>
-      </#list>
+    <#if wrapInBox == "Y">
+	    <div id="sidedeepcategory" class="panel panel-default sidebar-menu">
+	        <div class="panel-heading">
+	            <h3 class="panel-title"><#if categoryDescription?has_content>${categoryDescription}<#else>${categoryName?default("")}</#if></h3>        
+	        </div>
+	        <div class="panel-body">
+	            
     </#if>
-  </#if>
-  </li>
-  <#if wrapInBox == "Y">
-      </div>
-    </div>
-  </div>
-  </#if>
+    
+    <li class="${activeCategoryClass}" >
+        <#if parentCategory?has_content>
+            <#assign parentCategoryId = parentCategory.productCategoryId/>
+        <#else>
+            <#assign parentCategoryId = ""/>
+        </#if>
+        <a href="<@ofbizCatalogAltUrl productCategoryId=category.productCategoryId previousCategoryId=parentCategoryId/>"><#if categoryName?has_content>${categoryName}<#else>${categoryDescription?default("")}</#if></a>
+
+        <#if (Static["org.ofbiz.product.category.CategoryWorker"].checkTrailItem(request, category.getString("productCategoryId"))) || (curCategoryId?? && curCategoryId == category.productCategoryId)>
+            <#local subCatList = Static["org.ofbiz.product.category.CategoryWorker"].getRelatedCategoriesRet(request, "subCatList", category.getString("productCategoryId"), true)>
+                <#if subCatList??>
+                    <#list subCatList as subCat>
+                        <ul>
+                            <@categoryList parentCategory=category category=subCat wrapInBox="N"/>
+                        </ul>
+                    </#list>
+                </#if>
+            </#if>
+    </li>
+    
+    <#if wrapInBox == "Y">
+	            
+	        </div>
+	    </div>
+	</#if>
 </#macro>
 
 <#if topLevelList?has_content>
-<div id="sidedeepcategory" class="screenlet">
-  <div class="screenlet-title-bar">
-    <ul>
-      <li class="h3">${uiLabelMap.ProductBrowseCategories}</li>
-    </ul>
-    <br class="clear"/>
-  </div>
-  <div class="screenlet-body">
-    <ul class="browsecategorylist">
-      <#list topLevelList as category>
-        <@categoryList parentCategory="" category=category wrapInBox="N"/>
-      </#list>
-    </ul>
-  </div>
-</div>
+    <div id="sidedeepcategory" class="panel panel-default sidebar-menu">
+        <div class="panel-heading">    
+            <h3 class="panel-title">${uiLabelMap.ProductBrowseCategories}</h3>    
+        </div>
+        <div class="panel-body">
+            <ul class="nav nav-pills nav-stacked category-menu">
+                <#list topLevelList as category>
+                    <@categoryList parentCategory="" category=category wrapInBox="N"/>
+                </#list>
+            </ul>
+        </div>
+    </div>
 </#if>
