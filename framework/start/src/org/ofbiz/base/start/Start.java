@@ -85,6 +85,7 @@ public final class Start {
         out.println("start -------> Starts the server");
         out.println("-status ------> Gives the status of the server");
         out.println("-shutdown ----> Shutdowns the server");
+        out.println("setup -------> Run external application server setup");
         out.println("test --------> Runs the JUnit test script");
         out.println("[no config] --> Uses default config");
         out.println("[no command] -> Starts the server with default config");

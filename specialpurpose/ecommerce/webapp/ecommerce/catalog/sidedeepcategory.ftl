@@ -48,14 +48,17 @@ under the License.
 	            
     </#if>
     
-    <li class="${activeCategoryClass}" >
+    <li class="${activeCategoryClass}" >        
         <#if parentCategory?has_content>
             <#assign parentCategoryId = parentCategory.productCategoryId/>
         <#else>
             <#assign parentCategoryId = ""/>
         </#if>
+        <#--
         <a href="<@ofbizCatalogAltUrl productCategoryId=category.productCategoryId previousCategoryId=parentCategoryId/>"><#if categoryName?has_content>${categoryName}<#else>${categoryDescription?default("")}</#if></a>
-
+        -->
+        <a href="javascript: void(0);" onclick="loadCategory('${category.productCategoryId}', '${parentCategoryId?if_exists}');" ><#if categoryName?has_content>${categoryName}<#else>${categoryDescription?default("")}</#if></a>
+        
         <#if (Static["org.ofbiz.product.category.CategoryWorker"].checkTrailItem(request, category.getString("productCategoryId"))) || (curCategoryId?? && curCategoryId == category.productCategoryId)>
             <#local subCatList = Static["org.ofbiz.product.category.CategoryWorker"].getRelatedCategoriesRet(request, "subCatList", category.getString("productCategoryId"), true)>
                 <#if subCatList??>

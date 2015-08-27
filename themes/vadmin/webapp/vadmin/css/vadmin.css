@@ -634,3 +634,11 @@ border-right-color: #ccd0d4;
 left: -13px;
 border-right-color: #fff;
 }
+
+.form-group{
+	padding: 5px 0;
+}
+form tr td .tabletext{
+	
+	padding: 3px 0;
+}

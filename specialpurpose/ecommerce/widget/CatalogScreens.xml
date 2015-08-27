@@ -173,8 +173,10 @@ under the License.
             <widgets>
                 <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
                     <decorator-section name="body">
-                        <include-screen name="breadcrumbs"/>
-                        <include-screen name="category-include"/>
+                        <container id="categoryview">
+                            <include-screen name="breadcrumbs"/>
+                            <include-screen name="category-include"/>
+                        </container>
                     </decorator-section>
                 </decorator-screen>
             </widgets>

@@ -50,11 +50,11 @@ under the License.
       <#if errorMessageList?has_content>
       <#-- start of modification -->
         <#list errorMessageList as errorMsg>
-      <#if errorMsg?length &lt; 400>
-        <p>${StringUtil.wrapString(eventMsg)}</p>
-      <#else>
-        <p>${uiLabelMap.ErrorInTrasaction}</p>        
-      </#if>
+	      <#if errorMsg?length &lt; 400>
+	        <p>${StringUtil.wrapString(errorMsg)}</p>
+	      <#else>
+	        <p>${uiLabelMap.ErrorInTrasaction}</p>        
+	      </#if>
         </#list>
       </#if>
     </div>

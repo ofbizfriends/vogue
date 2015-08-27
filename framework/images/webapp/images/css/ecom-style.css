@@ -208,6 +208,14 @@ button i.fa {
   font-size:13px;
 }
 
+#loading {
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 9999;
+}
+
 #intro {
   background:url('../img/home.jpg') no-repeat center top;
   -webkit-background-size:cover;

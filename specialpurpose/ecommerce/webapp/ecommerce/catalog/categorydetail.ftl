@@ -16,28 +16,57 @@ KIND, either express or implied.  See the License for the
 specific language governing permissions and limitations
 under the License.
 -->
+
 <script type="text/javascript">
-    function callDocumentByPaginate(info) {
-        var str = info.split('~');
-        var checkUrl = '<@ofbizUrl>categoryAjaxFired</@ofbizUrl>';
+	function loadCategory(id, parentCategoryStr) {
+	    var checkUrl = '<@ofbizUrl>productCategoryList</@ofbizUrl>';
         if(checkUrl.search("http"))
-            var ajaxUrl = '<@ofbizUrl>categoryAjaxFired</@ofbizUrl>';
+            var ajaxUrl = '<@ofbizUrl>productCategoryList</@ofbizUrl>';
         else
-            var ajaxUrl = '<@ofbizUrl>categoryAjaxFiredSecure</@ofbizUrl>';
-            
-        //jQuerry Ajax Request
-        jQuery.ajax({
-            url: ajaxUrl,
-            type: 'POST',
-            data: {"category_id" : str[0], "VIEW_SIZE" : str[1], "VIEW_INDEX" : str[2]},
-            error: function(msg) {
-                alert("An error occurred loading content! : " + msg);
-            },
-            success: function(msg) {
-                jQuery('#div3').html(msg);
-            }
-        });
-     }
+            var ajaxUrl = '<@ofbizUrl>productCategoryListSecure</@ofbizUrl>';
+
+	    //jQuerry Ajax Request
+	    jQuery.ajax({
+	        url: ajaxUrl,
+	        type: 'POST',
+	        data: {"category_id" : id, "parentCategoryStr" : parentCategoryStr},
+	        error: function(msg) {
+	            alert("An error occured loading content! : " + msg);
+	        },
+	        
+	        beforeSend: function() {
+	            $('#loading').show();
+	        },
+	        
+	        
+	        success: function(msg) {
+	            jQuery('#categoryview').html(msg);
+	        }
+	    });
+	 }
+	
+	
+	function loadCategoryByPaginate(info) {
+	    var str = info.split('~');
+	    var checkUrl = '<@ofbizUrl>categoryAjaxFired</@ofbizUrl>';
+	    if(checkUrl.search("http"))
+	        var ajaxUrl = '<@ofbizUrl>categoryAjaxFired</@ofbizUrl>';
+	    else
+	        var ajaxUrl = '<@ofbizUrl>categoryAjaxFiredSecure</@ofbizUrl>';
+	        
+	    //jQuerry Ajax Request
+	    jQuery.ajax({
+	        url: ajaxUrl,
+	        type: 'POST',
+	        data: {"category_id" : str[0], "VIEW_SIZE" : str[1], "VIEW_INDEX" : str[2]},
+	        error: function(msg) {
+	            alert("An error occurred loading content! : " + msg);
+	        },
+	        success: function(msg) {
+	            jQuery('#categorycontent').html(msg);
+	        }
+	    });
+	}
 </script>
 
 <#if productCategory??>
@@ -53,14 +82,19 @@ under the License.
 	    </#if>
 	    <#if longDescription?has_content>
             <p class="text-muted">${longDescription}</p>
-        </#if>	            
+        </#if>	         
+        <div id="loading">
+		    <img class="loading" src='/images/ajax_loader_orange_64.gif' />    
+		</div>   
     </div>    
 
 
     <#if showsidebar?default("Y") == "Y"> 
 	    <div class="row">
 	        <div class="col-md-3 col-xs-12" id="sidebar" >
-	        
+
+	            ${screens.render("component://ecommerce/widget/CatalogScreens.xml#sidedeepcategory")}
+                   
 	            <#if hasQuantities??>
 	                <form method="post" action="<@ofbizUrl>addCategoryDefaults<#if requestAttributes._CURRENT_VIEW_??>/${requestAttributes._CURRENT_VIEW_}</#if></@ofbizUrl>" name="thecategoryform" style='margin: 0;'>
 	                    <input type='hidden' name='add_category_id' value='${productCategory.productCategoryId}'/>
@@ -92,7 +126,6 @@ under the License.
 	                </div>
 	            </#if>
                 
-                ${screens.render("component://ecommerce/widget/CatalogScreens.xml#sidedeepcategory")}
                    
                 <#-- search -->
                 <#if searchInCategory?default("Y") == "Y">
@@ -165,7 +198,7 @@ under the License.
     <#assign viewIndexMax = Static["java.lang.Math"].ceil((listSize)?double / viewSize?double)>
       <#if (viewIndexMax?int > 0)>
         <div class="product-prevnext">
-            <select name="pageSelect" onchange="callDocumentByPaginate(this[this.selectedIndex].value);">
+            <select name="pageSelect" onchange="loadCategoryByPaginate(this[this.selectedIndex].value);">
                 <option value="#">${uiLabelMap.CommonPage} ${viewIndex?int + 1} ${uiLabelMap.CommonOf} ${viewIndexMax}</option>
                 <#if (viewIndex?int > 1)>
                     <#list 1..viewIndexMax as curViewNum>
@@ -175,13 +208,13 @@ under the License.
             </select>
             <#-- End Page Select Drop-Down -->
             <#if (viewIndex?int > 0)>
-                <a href="javascript: void(0);" onclick="callDocumentByPaginate('${productCategoryId}~${viewSize}~${viewIndex?int - 1}');" class="btn btn-link">${uiLabelMap.CommonPrevious}</a> |
+                <a href="javascript: void(0);" onclick="loadCategoryByPaginate('${productCategoryId}~${viewSize}~${viewIndex?int - 1}');" class="btn btn-link">${uiLabelMap.CommonPrevious}</a> |
             </#if>
             <#if ((listSize?int - viewSize?int) > 0)>
                 <span>${lowIndex} - ${highIndex} ${uiLabelMap.CommonOf} ${listSize}</span>
             </#if>
             <#if highIndex?int < listSize?int>
-             | <a href="javascript: void(0);" onclick="callDocumentByPaginate('${productCategoryId}~${viewSize}~${viewIndex?int + 1}');" class="btn btn-link">${uiLabelMap.CommonNext}</a>
+             | <a href="javascript: void(0);" onclick="loadCategoryByPaginate('${productCategoryId}~${viewSize}~${viewIndex?int + 1}');" class="btn btn-link">${uiLabelMap.CommonNext}</a>
             </#if>
         </div>
     </#if>
